@@ -14,6 +14,8 @@
 		E354B6B624C42E8E00759289 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E354B6B424C42E8E00759289 /* Main.storyboard */; };
 		E354B6B824C42E9400759289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E354B6B724C42E9400759289 /* Assets.xcassets */; };
 		E354B6BB24C42E9400759289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E354B6B924C42E9400759289 /* LaunchScreen.storyboard */; };
+		E3955A3524C4682F0028FD67 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A3424C4682F0028FD67 /* ListViewController.swift */; };
+		E3955A3724C468590028FD67 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A3624C468590028FD67 /* SignupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		E354B6B724C42E9400759289 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E354B6BA24C42E9400759289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E354B6BC24C42E9400759289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3955A3424C4682F0028FD67 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		E3955A3624C468590028FD67 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				E354B6AE24C42E8E00759289 /* AppDelegate.swift */,
 				E354B6B024C42E8E00759289 /* SceneDelegate.swift */,
 				E354B6B224C42E8E00759289 /* RandomChoiceViewController.swift */,
+				E3955A3424C4682F0028FD67 /* ListViewController.swift */,
+				E3955A3624C468590028FD67 /* SignupViewController.swift */,
 				E354B6B424C42E8E00759289 /* Main.storyboard */,
 				E354B6B724C42E9400759289 /* Assets.xcassets */,
 				E354B6B924C42E9400759289 /* LaunchScreen.storyboard */,
@@ -190,6 +196,8 @@
 			files = (
 				E354B6B324C42E8E00759289 /* RandomChoiceViewController.swift in Sources */,
 				E354B6AF24C42E8E00759289 /* AppDelegate.swift in Sources */,
+				E3955A3724C468590028FD67 /* SignupViewController.swift in Sources */,
+				E3955A3524C4682F0028FD67 /* ListViewController.swift in Sources */,
 				E354B6B124C42E8E00759289 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

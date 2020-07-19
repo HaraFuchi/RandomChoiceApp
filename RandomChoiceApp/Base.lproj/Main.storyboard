@@ -26,7 +26,7 @@
         <!--新規登録-->
         <scene sceneID="tzO-Rg-ghT">
             <objects>
-                <viewController id="Ko3-W4-qBb" sceneMemberID="viewController">
+                <viewController id="Ko3-W4-qBb" customClass="SignupViewController" customModule="RandomChoiceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S4O-Te-s8D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,7 @@
         <!--一覧-->
         <scene sceneID="CZ2-es-7US">
             <objects>
-                <viewController id="2Gj-wH-W6X" sceneMemberID="viewController">
+                <viewController id="2Gj-wH-W6X" customClass="ListViewController" customModule="RandomChoiceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Pa-Yu-LDY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
