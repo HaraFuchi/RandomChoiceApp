@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Random Choice View Controller-->
+        <!--ランダムチョイス-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RandomChoiceViewController" customModule="RandomChoiceApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,13 +17,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="PVD-Q0-bJM"/>
+                    <navigationItem key="navigationItem" title="ランダムチョイス" id="PVD-Q0-bJM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1945" y="-323"/>
         </scene>
-        <!--View Controller-->
+        <!--新規登録-->
         <scene sceneID="tzO-Rg-ghT">
             <objects>
                 <viewController id="Ko3-W4-qBb" sceneMemberID="viewController">
@@ -33,13 +33,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5an-H8-dRb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Vrd-Il-g7B"/>
+                    <navigationItem key="navigationItem" title="新規登録" id="Vrd-Il-g7B"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qe-ZY-xBt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1946" y="980"/>
         </scene>
-        <!--View Controller-->
+        <!--一覧-->
         <scene sceneID="CZ2-es-7US">
             <objects>
                 <viewController id="2Gj-wH-W6X" sceneMemberID="viewController">
@@ -49,7 +49,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Zd9-G8-Ovq"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SAR-ZA-ASK"/>
+                    <navigationItem key="navigationItem" title="一覧" id="SAR-ZA-ASK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ruu-Jv-01a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
