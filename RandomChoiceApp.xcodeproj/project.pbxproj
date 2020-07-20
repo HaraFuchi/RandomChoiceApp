@@ -89,10 +89,10 @@
 				E354B6B924C42E9400759289 /* LaunchScreen.storyboard */,
 				E354B6B424C42E8E00759289 /* Main.storyboard */,
 				E354B6B724C42E9400759289 /* Assets.xcassets */,
-				C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */,
-				C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */,
 				E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */,
 				E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */,
+				C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */,
+				C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
