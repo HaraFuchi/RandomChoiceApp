@@ -20,7 +20,9 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         let sinupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
+        let signupAndCancelButtonCell = UINib(nibName: "CommonActionButtonTableViewCell", bundle: nil)
         tableView.register(sinupCategoryNib, forCellReuseIdentifier: "SignupCell")
+        tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: "ActionButtonCell")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,24 +30,31 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryNameArray.count
+        return CategoryNameArray.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SignupCell", for: indexPath) as! SignupCategoryTableViewCell
+        let categoryCell = tableView.dequeueReusableCell(withIdentifier: "SignupCell", for: indexPath) as! SignupCategoryTableViewCell
+        let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: "ActionButtonCell", for: indexPath) as! CommonActionButtonTableViewCell
+    
         switch indexPath.row {//リファクタリング候補
         case 0:
-            cell.categoryLabel.text = CategoryNameArray[indexPath.row]
-            cell.categoryTextField.placeholder = CategoryPlaceHolderArray[indexPath.row]
+            categoryCell.categoryLabel.text = CategoryNameArray[indexPath.row]
+            categoryCell.categoryTextField.placeholder = CategoryPlaceHolderArray[indexPath.row]
+            return categoryCell
         case 1:
-            cell.categoryLabel.text = CategoryNameArray[indexPath.row]
-            cell.categoryTextField.placeholder = CategoryPlaceHolderArray[indexPath.row]
+            categoryCell.categoryLabel.text = CategoryNameArray[indexPath.row]
+            categoryCell.categoryTextField.placeholder = CategoryPlaceHolderArray[indexPath.row]
+            return categoryCell
         case 2:
-            cell.categoryLabel.text = CategoryNameArray[indexPath.row]
-            cell.categoryTextField.placeholder = CategoryPlaceHolderArray[indexPath.row]
+            categoryCell.categoryLabel.text = CategoryNameArray[indexPath.row]
+            categoryCell.categoryTextField.placeholder = CategoryPlaceHolderArray[indexPath.row]
+            return categoryCell
+        case 3:
+            return signupAndCancelButtonCell
         default:
             break
         }
-        return cell
+        return UITableViewCell()
     }
 }
