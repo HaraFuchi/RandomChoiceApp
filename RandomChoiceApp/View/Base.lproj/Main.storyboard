@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uRH-rC-F8z">
-                                <rect key="frame" x="0.0" y="155" width="414" height="658"/>
+                                <rect key="frame" x="0.0" y="147" width="414" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="137" id="1zf-b0-HZM">
@@ -98,18 +98,39 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="店名, 場所, ジャンル" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6fC-3w-dJP">
+                                <rect key="frame" x="37" y="102" width="309" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="309" id="Xrk-mn-2k8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfK-KW-GIW">
+                                <rect key="frame" x="354" y="99" width="40" height="40"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="magnifyingglass" catalog="system"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Zd9-G8-Ovq" firstAttribute="trailing" secondItem="uRH-rC-F8z" secondAttribute="trailing" id="350-iu-r0g"/>
+                            <constraint firstItem="6fC-3w-dJP" firstAttribute="leading" secondItem="Zd9-G8-Ovq" secondAttribute="leading" constant="37" id="7J1-lE-nYk"/>
+                            <constraint firstItem="hfK-KW-GIW" firstAttribute="trailing" secondItem="9Pa-Yu-LDY" secondAttribute="trailingMargin" id="Eth-0F-5Bj"/>
                             <constraint firstItem="Zd9-G8-Ovq" firstAttribute="bottom" secondItem="uRH-rC-F8z" secondAttribute="bottom" id="HZQ-o3-3sS"/>
+                            <constraint firstItem="hfK-KW-GIW" firstAttribute="leading" secondItem="6fC-3w-dJP" secondAttribute="trailing" constant="8" id="PNp-Jq-5r7"/>
+                            <constraint firstItem="hfK-KW-GIW" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" constant="11" id="R3h-NN-8Ep"/>
+                            <constraint firstItem="6fC-3w-dJP" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" constant="14" id="UH5-tN-arM"/>
                             <constraint firstItem="uRH-rC-F8z" firstAttribute="leading" secondItem="Zd9-G8-Ovq" secondAttribute="leading" id="hQw-Hz-Kp1"/>
-                            <constraint firstItem="uRH-rC-F8z" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" constant="67" id="tAz-tk-FUR"/>
+                            <constraint firstItem="uRH-rC-F8z" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" constant="59" id="tAz-tk-FUR"/>
+                            <constraint firstItem="hfK-KW-GIW" firstAttribute="centerY" secondItem="6fC-3w-dJP" secondAttribute="centerY" id="y86-lj-oI5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zd9-G8-Ovq"/>
                     </view>
                     <navigationItem key="navigationItem" title="一覧" id="SAR-ZA-ASK"/>
                     <connections>
+                        <outlet property="searchButton" destination="hfK-KW-GIW" id="PjS-Y0-ZrC"/>
+                        <outlet property="searchTextField" destination="6fC-3w-dJP" id="aBi-eP-7qV"/>
                         <outlet property="tableView" destination="uRH-rC-F8z" id="WfN-if-rhi"/>
                     </connections>
                 </viewController>
@@ -195,4 +216,7 @@
             <point key="canvasLocation" x="396" y="323"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+    </resources>
 </document>
