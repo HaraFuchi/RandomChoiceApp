@@ -127,8 +127,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zd9-G8-Ovq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="一覧" id="SAR-ZA-ASK"/>
+                    <navigationItem key="navigationItem" title="一覧" id="SAR-ZA-ASK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ByB-uY-6Oi"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="goToSignupVCBarButtonItem" destination="ByB-uY-6Oi" id="6hB-4X-g7n"/>
                         <outlet property="searchButton" destination="hfK-KW-GIW" id="PjS-Y0-ZrC"/>
                         <outlet property="searchTextField" destination="6fC-3w-dJP" id="aBi-eP-7qV"/>
                         <outlet property="tableView" destination="uRH-rC-F8z" id="WfN-if-rhi"/>
