@@ -18,6 +18,8 @@
 		E354B6BB24C42E9400759289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E354B6B924C42E9400759289 /* LaunchScreen.storyboard */; };
 		E3955A3524C4682F0028FD67 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A3424C4682F0028FD67 /* ListViewController.swift */; };
 		E3955A3724C468590028FD67 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A3624C468590028FD67 /* SignupViewController.swift */; };
+		E3955A3A24C5635C0028FD67 /* ListPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */; };
+		E3955A3B24C5635C0028FD67 /* ListPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		E354B6BC24C42E9400759289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3955A3424C4682F0028FD67 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E3955A3624C468590028FD67 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPageTableViewCell.swift; sourceTree = "<group>"; };
+		E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListPageTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 				E354B6B924C42E9400759289 /* LaunchScreen.storyboard */,
 				E354B6B424C42E8E00759289 /* Main.storyboard */,
 				E354B6B724C42E9400759289 /* Assets.xcassets */,
+				E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */,
+				E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */,
 				C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */,
 				C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */,
 			);
@@ -188,6 +194,7 @@
 			files = (
 				E354B6BB24C42E9400759289 /* LaunchScreen.storyboard in Resources */,
 				E354B6B824C42E9400759289 /* Assets.xcassets in Resources */,
+				E3955A3B24C5635C0028FD67 /* ListPageTableViewCell.xib in Resources */,
 				E354B6B624C42E8E00759289 /* Main.storyboard in Resources */,
 				C5780BB224C4997A0007972D /* SignupCategoryTableViewCell.xib in Resources */,
 			);
@@ -231,6 +238,7 @@
 				E3955A3524C4682F0028FD67 /* ListViewController.swift in Sources */,
 				E354B6B124C42E8E00759289 /* SceneDelegate.swift in Sources */,
 				C5780BB124C4997A0007972D /* SignupCategoryTableViewCell.swift in Sources */,
+				E3955A3A24C5635C0028FD67 /* ListPageTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
