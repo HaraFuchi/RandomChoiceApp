@@ -128,10 +128,10 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ByB-uY-6Oi"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="goToSignupVCBarButtonItem" destination="ByB-uY-6Oi" id="6hB-4X-g7n"/>
                         <outlet property="searchButton" destination="hfK-KW-GIW" id="PjS-Y0-ZrC"/>
                         <outlet property="searchTextField" destination="eea-tU-DHn" id="McB-yl-X2x"/>
-                        <outlet property="sortingItemBottun" destination="1CT-Wp-L7E" id="4rb-66-LEq"/>
+                        <outlet property="signupVCBarButtonItem" destination="ByB-uY-6Oi" id="Rco-wp-xTj"/>
+                        <outlet property="sortItemBottun" destination="1CT-Wp-L7E" id="1Rb-8e-Mp6"/>
                         <outlet property="tableView" destination="uRH-rC-F8z" id="WfN-if-rhi"/>
                     </connections>
                 </viewController>
