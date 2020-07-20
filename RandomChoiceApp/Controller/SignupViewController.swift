@@ -8,23 +8,44 @@
 
 import UIKit
 
-class SignupViewController: UIViewController {
-
+class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet var tableView: UITableView!
+    
+    var CategoryNameArray:[String] = ["店名","場所","ジャンル"]//リファクタリング候補
+    var CategoryPlaceHolderArray :[String] = ["例)サイゼリア","例)新宿","例)中華"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+        let sinupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
+        tableView.register(sinupCategoryNib, forCellReuseIdentifier: "SignupCell")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return CategoryNameArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SignupCell", for: indexPath) as! SignupCategoryTableViewCell
+        switch indexPath.row {//リファクタリング候補
+        case 0:
+            cell.categoryLabel.text = CategoryNameArray[indexPath.row]
+            cell.categoryTextField.placeholder = CategoryPlaceHolderArray[indexPath.row]
+        case 1:
+            cell.categoryLabel.text = CategoryNameArray[indexPath.row]
+            cell.categoryTextField.placeholder = CategoryPlaceHolderArray[indexPath.row]
+        case 2:
+            cell.categoryLabel.text = CategoryNameArray[indexPath.row]
+            cell.categoryTextField.placeholder = CategoryPlaceHolderArray[indexPath.row]
+        default:
+            break
+        }
+        return cell
+    }
 }
