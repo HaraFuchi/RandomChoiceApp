@@ -14,6 +14,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var goToSignupVCBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var sortingItemBottun: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {

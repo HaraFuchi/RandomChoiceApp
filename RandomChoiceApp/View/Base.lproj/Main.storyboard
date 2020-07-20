@@ -99,15 +99,26 @@
                                 </prototypes>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="店名, 場所, ジャンル" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6fC-3w-dJP">
-                                <rect key="frame" x="37" y="102" width="309" height="34"/>
+                                <rect key="frame" x="20" y="103" width="273" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="309" id="Xrk-mn-2k8"/>
+                                    <constraint firstAttribute="width" constant="273" id="cZy-E9-H0P"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CT-Wp-L7E">
+                                <rect key="frame" x="336" y="105" width="72" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="並び替え" image="slider.horizontal.3" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfK-KW-GIW">
-                                <rect key="frame" x="354" y="99" width="40" height="40"/>
+                                <rect key="frame" x="294" y="100" width="40" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="VPM-3s-MZY"/>
+                                </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="magnifyingglass" catalog="system"/>
                             </button>
@@ -115,15 +126,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Zd9-G8-Ovq" firstAttribute="trailing" secondItem="uRH-rC-F8z" secondAttribute="trailing" id="350-iu-r0g"/>
-                            <constraint firstItem="6fC-3w-dJP" firstAttribute="leading" secondItem="Zd9-G8-Ovq" secondAttribute="leading" constant="37" id="7J1-lE-nYk"/>
-                            <constraint firstItem="hfK-KW-GIW" firstAttribute="trailing" secondItem="9Pa-Yu-LDY" secondAttribute="trailingMargin" id="Eth-0F-5Bj"/>
+                            <constraint firstItem="6fC-3w-dJP" firstAttribute="leading" secondItem="9Pa-Yu-LDY" secondAttribute="leadingMargin" id="7wf-W4-nlD"/>
                             <constraint firstItem="Zd9-G8-Ovq" firstAttribute="bottom" secondItem="uRH-rC-F8z" secondAttribute="bottom" id="HZQ-o3-3sS"/>
-                            <constraint firstItem="hfK-KW-GIW" firstAttribute="leading" secondItem="6fC-3w-dJP" secondAttribute="trailing" constant="8" id="PNp-Jq-5r7"/>
-                            <constraint firstItem="hfK-KW-GIW" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" constant="11" id="R3h-NN-8Ep"/>
-                            <constraint firstItem="6fC-3w-dJP" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" constant="14" id="UH5-tN-arM"/>
+                            <constraint firstItem="1CT-Wp-L7E" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" constant="17" id="R3L-QI-qor"/>
+                            <constraint firstItem="1CT-Wp-L7E" firstAttribute="leading" secondItem="hfK-KW-GIW" secondAttribute="trailing" constant="2" id="TkI-3j-leQ"/>
+                            <constraint firstItem="hfK-KW-GIW" firstAttribute="leading" secondItem="6fC-3w-dJP" secondAttribute="trailing" constant="1" id="UGa-Ab-W40"/>
+                            <constraint firstItem="hfK-KW-GIW" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" constant="12" id="XBi-9c-jNY"/>
+                            <constraint firstItem="uRH-rC-F8z" firstAttribute="top" secondItem="1CT-Wp-L7E" secondAttribute="bottom" constant="11" id="be7-6t-VtM"/>
+                            <constraint firstItem="6fC-3w-dJP" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" constant="15" id="c8g-hP-iB4"/>
+                            <constraint firstItem="1CT-Wp-L7E" firstAttribute="centerY" secondItem="6fC-3w-dJP" secondAttribute="centerY" id="g2w-RS-CrD"/>
+                            <constraint firstItem="Zd9-G8-Ovq" firstAttribute="trailing" secondItem="1CT-Wp-L7E" secondAttribute="trailing" constant="6" id="hOI-Zt-bNW"/>
                             <constraint firstItem="uRH-rC-F8z" firstAttribute="leading" secondItem="Zd9-G8-Ovq" secondAttribute="leading" id="hQw-Hz-Kp1"/>
+                            <constraint firstItem="1CT-Wp-L7E" firstAttribute="centerY" secondItem="hfK-KW-GIW" secondAttribute="centerY" id="nRb-C3-MQr"/>
                             <constraint firstItem="uRH-rC-F8z" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" constant="59" id="tAz-tk-FUR"/>
-                            <constraint firstItem="hfK-KW-GIW" firstAttribute="centerY" secondItem="6fC-3w-dJP" secondAttribute="centerY" id="y86-lj-oI5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zd9-G8-Ovq"/>
                     </view>
@@ -134,6 +149,7 @@
                         <outlet property="goToSignupVCBarButtonItem" destination="ByB-uY-6Oi" id="6hB-4X-g7n"/>
                         <outlet property="searchButton" destination="hfK-KW-GIW" id="PjS-Y0-ZrC"/>
                         <outlet property="searchTextField" destination="6fC-3w-dJP" id="aBi-eP-7qV"/>
+                        <outlet property="sortingItemBottun" destination="1CT-Wp-L7E" id="4rb-66-LEq"/>
                         <outlet property="tableView" destination="uRH-rC-F8z" id="WfN-if-rhi"/>
                     </connections>
                 </viewController>
@@ -221,5 +237,6 @@
     </scenes>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
     </resources>
 </document>
