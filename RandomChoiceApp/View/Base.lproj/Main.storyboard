@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -14,14 +14,26 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jkk-3n-UJT">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jkk-3n-UJT" secondAttribute="trailing" id="KjJ-Xp-CR5"/>
+                            <constraint firstItem="jkk-3n-UJT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eVK-iL-ZFu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jkk-3n-UJT" secondAttribute="bottom" id="ivH-fm-Uph"/>
+                            <constraint firstItem="jkk-3n-UJT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="soG-xt-vAS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="ランダムチョイス" id="PVD-Q0-bJM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="-323"/>
+            <point key="canvasLocation" x="1794" y="-323"/>
         </scene>
         <!--新規登録-->
         <scene sceneID="tzO-Rg-ghT">
@@ -30,14 +42,39 @@
                     <view key="view" contentMode="scaleToFill" id="S4O-Te-s8D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wOl-Ww-3SB">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SignupCell" rowHeight="665" id="4px-Dz-mLs" customClass="SignupCategoryTableViewCell" customModule="RandomChoiceApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="665"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4px-Dz-mLs" id="9qt-dr-WoP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="665"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5an-H8-dRb" firstAttribute="trailing" secondItem="wOl-Ww-3SB" secondAttribute="trailing" id="IX1-pb-PhF"/>
+                            <constraint firstItem="wOl-Ww-3SB" firstAttribute="leading" secondItem="5an-H8-dRb" secondAttribute="leading" id="cAK-VD-3Cw"/>
+                            <constraint firstItem="5an-H8-dRb" firstAttribute="bottom" secondItem="wOl-Ww-3SB" secondAttribute="bottom" id="udo-PV-bmi"/>
+                            <constraint firstItem="wOl-Ww-3SB" firstAttribute="top" secondItem="5an-H8-dRb" secondAttribute="top" id="zzz-8o-9br"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5an-H8-dRb"/>
                     </view>
                     <navigationItem key="navigationItem" title="新規登録" id="Vrd-Il-g7B"/>
+                    <connections>
+                        <outlet property="tableView" destination="wOl-Ww-3SB" id="dU1-24-Yy8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qe-ZY-xBt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1946" y="980"/>
+            <point key="canvasLocation" x="1792.753623188406" y="976.33928571428567"/>
         </scene>
         <!--一覧-->
         <scene sceneID="CZ2-es-7US">
@@ -46,14 +83,26 @@
                     <view key="view" contentMode="scaleToFill" id="9Pa-Yu-LDY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uRH-rC-F8z">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zd9-G8-Ovq" firstAttribute="trailing" secondItem="uRH-rC-F8z" secondAttribute="trailing" id="350-iu-r0g"/>
+                            <constraint firstItem="Zd9-G8-Ovq" firstAttribute="bottom" secondItem="uRH-rC-F8z" secondAttribute="bottom" id="HZQ-o3-3sS"/>
+                            <constraint firstItem="uRH-rC-F8z" firstAttribute="leading" secondItem="Zd9-G8-Ovq" secondAttribute="leading" id="hQw-Hz-Kp1"/>
+                            <constraint firstItem="uRH-rC-F8z" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" id="mzf-Aw-Y46"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Zd9-G8-Ovq"/>
                     </view>
                     <navigationItem key="navigationItem" title="一覧" id="SAR-ZA-ASK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ruu-Jv-01a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="323"/>
+            <point key="canvasLocation" x="1792.753623188406" y="322.76785714285711"/>
         </scene>
         <!--ランダムチョイス-->
         <scene sceneID="Rra-lW-lbQ">
@@ -72,7 +121,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgl-2a-a9X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1230" y="-323"/>
+            <point key="canvasLocation" x="1107" y="-323"/>
         </scene>
         <!--一覧-->
         <scene sceneID="ccN-Gv-41j">
@@ -91,7 +140,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KzW-X7-swU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1229" y="324"/>
+            <point key="canvasLocation" x="1106" y="323"/>
         </scene>
         <!--新規登録-->
         <scene sceneID="R7E-xM-7zY">
@@ -110,7 +159,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGn-5r-pkp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1229" y="980"/>
+            <point key="canvasLocation" x="1106" y="976"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pDH-Wf-xzL">
@@ -118,6 +167,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="zU4-XU-z26" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Sk-VV-h9r">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
