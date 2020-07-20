@@ -12,8 +12,20 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet var tableView: UITableView!
     
-    var CategoryNameArray:[String] = ["店名","場所","ジャンル"]//リファクタリング候補
-    var CategoryPlaceHolderArray :[String] = ["例)サイゼリア","例)新宿","例)中華"]
+    //CaseIterableを記述することでenum内の要素の個数が取得できる
+    enum CategoryList: String, CaseIterable{
+        case storeName = "店名"
+        case placeName = "場所"
+        case genreName = "ジャンル"
+        
+        var CategoryPlaceHolderList: String {
+            switch self {
+            case .storeName: return "例)サイゼリア"
+            case .placeName: return "例)新宿"
+            case .genreName: return "例)中華"
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,25 +42,25 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryNameArray.count + 1
+        return CategoryList.allCases.count + 1 //1はCommonActionButtonTableViewCellの分
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: "SignupCell", for: indexPath) as! SignupCategoryTableViewCell
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: "ActionButtonCell", for: indexPath) as! CommonActionButtonTableViewCell
     
-        switch indexPath.row {//リファクタリング候補
+        switch indexPath.row {
         case 0:
-            categoryCell.categoryLabel.text = CategoryNameArray[indexPath.row]
-            categoryCell.categoryTextField.placeholder = CategoryPlaceHolderArray[indexPath.row]
+            categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
+            categoryCell.categoryTextField.placeholder = CategoryList.storeName.CategoryPlaceHolderList
             return categoryCell
         case 1:
-            categoryCell.categoryLabel.text = CategoryNameArray[indexPath.row]
-            categoryCell.categoryTextField.placeholder = CategoryPlaceHolderArray[indexPath.row]
+            categoryCell.categoryLabel.text = CategoryList.placeName.rawValue
+            categoryCell.categoryTextField.placeholder = CategoryList.placeName.CategoryPlaceHolderList
             return categoryCell
         case 2:
-            categoryCell.categoryLabel.text = CategoryNameArray[indexPath.row]
-            categoryCell.categoryTextField.placeholder = CategoryPlaceHolderArray[indexPath.row]
+            categoryCell.categoryLabel.text = CategoryList.genreName.rawValue
+            categoryCell.categoryTextField.placeholder = CategoryList.genreName.CategoryPlaceHolderList
             return categoryCell
         case 3:
             return signupAndCancelButtonCell
