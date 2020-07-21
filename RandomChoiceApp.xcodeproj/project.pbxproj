@@ -75,6 +75,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C548E98724C69C68008685D7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */,
+				E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */,
+				C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */,
+				C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */,
+				C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */,
+				C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		C5780BAA24C46B000007972D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,12 +106,7 @@
 				E354B6B924C42E9400759289 /* LaunchScreen.storyboard */,
 				E354B6B424C42E8E00759289 /* Main.storyboard */,
 				E354B6B724C42E9400759289 /* Assets.xcassets */,
-				E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */,
-				E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */,
-				C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */,
-				C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */,
-				C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */,
-				C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */,
+				C548E98724C69C68008685D7 /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
