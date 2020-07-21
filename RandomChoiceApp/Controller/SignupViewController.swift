@@ -12,6 +12,11 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     @IBOutlet var tableView: UITableView!
     
+    
+    @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     //CaseIterableを記述することでenum内の要素の個数が取得できる
     enum CategoryList: String, CaseIterable{
         case storeName = "店名"

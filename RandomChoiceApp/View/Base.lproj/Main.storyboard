@@ -67,6 +67,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="5an-H8-dRb" firstAttribute="trailing" secondItem="wOl-Ww-3SB" secondAttribute="trailing" id="IX1-pb-PhF"/>
                             <constraint firstItem="wOl-Ww-3SB" firstAttribute="leading" secondItem="5an-H8-dRb" secondAttribute="leading" id="cAK-VD-3Cw"/>
@@ -74,6 +75,9 @@
                             <constraint firstItem="wOl-Ww-3SB" firstAttribute="top" secondItem="5an-H8-dRb" secondAttribute="top" id="zzz-8o-9br"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5an-H8-dRb"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="GIo-PE-7Oc" appends="YES" id="STY-yw-t8x"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="新規登録" id="Vrd-Il-g7B"/>
                     <connections>
@@ -81,6 +85,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qe-ZY-xBt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="GIo-PE-7Oc">
+                    <connections>
+                        <action selector="touchedScreenRecognizer:" destination="Ko3-W4-qBb" id="IFt-7b-4Re"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3035" y="323"/>
         </scene>
@@ -130,7 +139,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Zd9-G8-Ovq"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="3Ni-bv-ZQJ" appends="YES" id="Dw6-RC-p9p"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="お店一覧" id="SAR-ZA-ASK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ByB-uY-6Oi">
@@ -148,6 +161,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ruu-Jv-01a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3Ni-bv-ZQJ">
+                    <connections>
+                        <action selector="touchedScreenRecognizer:" destination="2Gj-wH-W6X" id="i1h-4C-U6c"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1745" y="323"/>
         </scene>
