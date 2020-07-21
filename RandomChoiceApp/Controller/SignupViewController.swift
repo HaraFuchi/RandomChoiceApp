@@ -22,7 +22,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
             switch self {
             case .storeName: return "例)サイゼリア"
             case .placeName: return "例)新宿"
-            case .genreName: return "例)中華"
+            case .genreName: return "例)イタリアン"
             }
         }
     }
