@@ -84,7 +84,7 @@
             </objects>
             <point key="canvasLocation" x="3035" y="323"/>
         </scene>
-        <!--一覧-->
+        <!--お店一覧-->
         <scene sceneID="CZ2-es-7US">
             <objects>
                 <viewController id="2Gj-wH-W6X" customClass="ListViewController" customModule="RandomChoiceApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -132,7 +132,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Zd9-G8-Ovq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="一覧" id="SAR-ZA-ASK">
+                    <navigationItem key="navigationItem" title="お店一覧" id="SAR-ZA-ASK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ByB-uY-6Oi">
                             <connections>
                                 <segue destination="mwd-El-xam" kind="presentation" modalPresentationStyle="fullScreen" id="Qgw-0k-o0S"/>
@@ -170,11 +170,11 @@
             </objects>
             <point key="canvasLocation" x="1107" y="-323"/>
         </scene>
-        <!--一覧-->
+        <!--お店一覧-->
         <scene sceneID="ccN-Gv-41j">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="43B-3X-f6M" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="一覧" id="OJa-gL-W2z"/>
+                    <tabBarItem key="tabBarItem" title="お店一覧" id="OJa-gL-W2z"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xPv-We-ZHC">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
