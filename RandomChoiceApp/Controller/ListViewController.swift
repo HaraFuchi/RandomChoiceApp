@@ -8,17 +8,21 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
-
     @IBOutlet weak var sortItemBottun: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchTextField.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         let listPageNib = UINib(nibName: "ListPageTableViewCell", bundle: nil)
@@ -48,5 +52,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
         //後ほど、追加する機能 ↓
         //セルをタップしたら詳細ページに遷移させる
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }
