@@ -12,14 +12,26 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var tableView: UITableView!
     
+    enum Cell: Int, CaseIterable {
+        case firstCustomViewCell
+        case secondCustomViewCell
+//        case thirdCustomViewCell
+
+        var cellIdentifier: String {
+            switch self {
+            case .firstCustomViewCell: return "ListPageTableViewCell"
+            case .secondCustomViewCell: return "SelectConditionsTableViewCell"
+//            case .sardCustomViewCell: return "SardCustomViewCell"
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-//        let resultRestaurantNib = UINib(nibName: "ListPageTableViewCell", bundle: nil)
-//        tableView.register(resultRestaurantNib, forCellReuseIdentifier: "ListPageCell")
-        let selectConditionsNib = UINib(nibName: "SelectConditionsTableViewCell", bundle: nil)
-        tableView.register(selectConditionsNib, forCellReuseIdentifier: "ConditonsCell")
+        tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPageTableViewCell")
+        tableView.register(UINib(nibName: "SelectConditionsTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectConditionsTableViewCell")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -27,16 +39,23 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return Cell.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let selectConditionsCell = tableView.dequeueReusableCell(withIdentifier: "ConditonsCell", for: indexPath)
-        return UITableViewCell()
+        let cellType = Cell(rawValue: indexPath.row)!
+        switch cellType {
+        case .firstCustomViewCell:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifier) as! ListPageTableViewCell
+            return cell
+        case .secondCustomViewCell:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifier) as! SelectConditionsTableViewCell
+            return cell
+        }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
-    }
+   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       return 250
+   }
 }
 
