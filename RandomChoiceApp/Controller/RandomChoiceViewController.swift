@@ -12,20 +12,6 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var tableView: UITableView!
     
-    //    enum Cell: Int, CaseIterable {
-    //        case firstCustomViewCell
-    //        case secondCustomViewCell
-    //        case thirdCustomViewCell
-    //
-    //        var cellIdentifier: String {
-    //            switch self {
-    //            case .firstCustomViewCell: return "ListPageTableViewCell"
-    //            case .secondCustomViewCell: return "SelectConditionsTableViewCell"
-    //            case .thirdCustomViewCell: return "RandomChoiceButtonTableViewCell"
-    //            }
-    //        }
-    //    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
