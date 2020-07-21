@@ -24,6 +24,8 @@
 		E3955A3B24C5635C0028FD67 /* ListPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */; };
 		E3955A3E24C6B2D60028FD67 /* SelectConditionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A3C24C6B2D60028FD67 /* SelectConditionsTableViewCell.swift */; };
 		E3955A3F24C6B2D60028FD67 /* SelectConditionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3955A3D24C6B2D60028FD67 /* SelectConditionsTableViewCell.xib */; };
+		E3955A4224C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A4024C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift */; };
+		E3955A4324C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3955A4124C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListPageTableViewCell.xib; sourceTree = "<group>"; };
 		E3955A3C24C6B2D60028FD67 /* SelectConditionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectConditionsTableViewCell.swift; sourceTree = "<group>"; };
 		E3955A3D24C6B2D60028FD67 /* SelectConditionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectConditionsTableViewCell.xib; sourceTree = "<group>"; };
+		E3955A4024C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomChoiceButtonTableViewCell.swift; sourceTree = "<group>"; };
+		E3955A4124C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RandomChoiceButtonTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */,
 				E3955A3C24C6B2D60028FD67 /* SelectConditionsTableViewCell.swift */,
 				E3955A3D24C6B2D60028FD67 /* SelectConditionsTableViewCell.xib */,
+				E3955A4024C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift */,
+				E3955A4124C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib */,
 				C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */,
 				C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */,
 				C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */,
@@ -219,6 +225,7 @@
 				E354B6B624C42E8E00759289 /* Main.storyboard in Resources */,
 				E3955A3F24C6B2D60028FD67 /* SelectConditionsTableViewCell.xib in Resources */,
 				C5780BB224C4997A0007972D /* SignupCategoryTableViewCell.xib in Resources */,
+				E3955A4324C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +266,7 @@
 				E3955A3724C468590028FD67 /* SignupViewController.swift in Sources */,
 				E3955A3524C4682F0028FD67 /* ListViewController.swift in Sources */,
 				E354B6B124C42E8E00759289 /* SceneDelegate.swift in Sources */,
+				E3955A4224C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift in Sources */,
 				C5780BB124C4997A0007972D /* SignupCategoryTableViewCell.swift in Sources */,
 				C548E98524C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift in Sources */,
 				E3955A3A24C5635C0028FD67 /* ListPageTableViewCell.swift in Sources */,

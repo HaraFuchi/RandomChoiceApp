@@ -15,13 +15,13 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     enum Cell: Int, CaseIterable {
         case firstCustomViewCell
         case secondCustomViewCell
-//        case thirdCustomViewCell
+        case thirdCustomViewCell
 
         var cellIdentifier: String {
             switch self {
             case .firstCustomViewCell: return "ListPageTableViewCell"
             case .secondCustomViewCell: return "SelectConditionsTableViewCell"
-//            case .sardCustomViewCell: return "SardCustomViewCell"
+            case .thirdCustomViewCell: return "RandomChoiceButtonTableViewCell"
             }
         }
     }
@@ -32,6 +32,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPageTableViewCell")
         tableView.register(UINib(nibName: "SelectConditionsTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectConditionsTableViewCell")
+        tableView.register(UINib(nibName: "RandomChoiceButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "RandomChoiceButtonTableViewCell")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,6 +51,9 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
             return cell
         case .secondCustomViewCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifier) as! SelectConditionsTableViewCell
+            return cell
+        case .thirdCustomViewCell:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifier) as! RandomChoiceButtonTableViewCell
             return cell
         }
     }
