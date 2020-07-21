@@ -16,24 +16,18 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
     //action
     @IBAction func touchedRandomChoiceButton(_ sender: UIButton) {
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         randomChoiceButtonDetail()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    
-    
     //MARK: - Private
     private func randomChoiceButtonDetail() {
-        randomChoiceButton.setTitle("お店を決める", for: .normal)
-         randomChoiceButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        randomChoiceButton.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        randomChoiceButton.backgroundColor = #colorLiteral(red: 0.9937663674, green: 0.4226302207, blue: 0.362043947, alpha: 1)
         randomChoiceButton.layer.borderColor = #colorLiteral(red: 0.9937663674, green: 0.4226302207, blue: 0.362043947, alpha: 1)
         randomChoiceButton.layer.borderWidth = 5.0
         randomChoiceButton.layer.cornerRadius = 90
