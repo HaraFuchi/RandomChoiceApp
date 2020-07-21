@@ -9,7 +9,7 @@
 import UIKit
 
 class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+        
     @IBOutlet var tableView: UITableView!
     
     //CaseIterableを記述することでenum内の要素の個数が取得できる
@@ -63,10 +63,17 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
             categoryCell.categoryTextField.placeholder = CategoryList.genreName.CategoryPlaceHolderList
             return categoryCell
         case 3:
+            signupAndCancelButtonCell.delegate = self
             return signupAndCancelButtonCell
         default:
             break
         }
         return UITableViewCell()
+    }
+}
+
+extension SignupViewController: CommonActionButtonTableViewCellDelegate{
+    func cancelButton() {
+        dismiss(animated: true, completion: nil)
     }
 }

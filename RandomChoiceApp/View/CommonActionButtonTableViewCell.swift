@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol CommonActionButtonTableViewCellDelegate {
+    func cancelButton()
+}
+
 class CommonActionButtonTableViewCell: UITableViewCell {
+    
+    var delegate: CommonActionButtonTableViewCellDelegate?
     
     //outlet
     @IBOutlet weak var singupButton: UIButton!
@@ -18,6 +24,7 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     @IBAction func touchedSignupButton(_ sender: UIButton) {
     }
     @IBAction func touchedCancelButton(_ sender: UIButton) {
+        delegate?.cancelButton()
     }
    
     override func awakeFromNib() {
