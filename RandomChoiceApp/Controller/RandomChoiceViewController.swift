@@ -60,9 +60,5 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
         }
         return UITableViewCell()
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
-    }
 }
 
