@@ -10,11 +10,19 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    //outlet
     @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var sortItemBottun: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
+    //action
+    @IBAction func touchedSearchButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func touchedSortButton(_ sender: UIButton) {
+    }
     
     @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
