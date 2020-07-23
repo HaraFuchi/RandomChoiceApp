@@ -10,18 +10,21 @@ import UIKit
 
 class ListPageTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var backgroungBaseView: UIView!
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupDetailCell()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
-    
+    //MARK: - Private
+    private func setupDetailCell(){
+        backgroungBaseView.layer.cornerRadius = 8
+    }
 }

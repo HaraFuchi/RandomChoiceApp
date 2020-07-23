@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -9,17 +9,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="250" id="KGk-i7-Jjw" customClass="RandomChoiceButtonTableViewCell" customModule="RandomChoiceApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="250"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="182" id="KGk-i7-Jjw" customClass="RandomChoiceButtonTableViewCell" customModule="RandomChoiceApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="377" height="182"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="390" height="250"/>
+                <rect key="frame" x="0.0" y="0.0" width="377" height="182"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVq-gW-4tI">
-                        <rect key="frame" x="105" y="35" width="180" height="180"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVq-gW-4tI">
+                        <rect key="frame" x="127" y="32" width="123" height="123"/>
                         <color key="backgroundColor" red="0.99376636740000002" green="0.4226302207" blue="0.36204394699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="Y0h-gA-qAT"/>
+                            <constraint firstAttribute="width" secondItem="nVq-gW-4tI" secondAttribute="height" multiplier="1:1" id="hS1-84-oOC"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <state key="normal" title="お店を決める">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -29,12 +32,17 @@
                         </connections>
                     </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="nVq-gW-4tI" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="5QE-N2-Rqz"/>
+                    <constraint firstAttribute="bottom" secondItem="nVq-gW-4tI" secondAttribute="bottom" constant="32" id="D7y-t3-y6z"/>
+                    <constraint firstItem="nVq-gW-4tI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="32" id="iFC-5F-uHn"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="randomChoiceButton" destination="nVq-gW-4tI" id="HyN-Mx-qA9"/>
             </connections>
-            <point key="canvasLocation" x="188.40579710144928" y="213.61607142857142"/>
+            <point key="canvasLocation" x="178.98550724637681" y="190.84821428571428"/>
         </tableViewCell>
     </objects>
 </document>
