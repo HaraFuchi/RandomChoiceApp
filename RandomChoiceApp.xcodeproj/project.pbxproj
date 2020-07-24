@@ -123,13 +123,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		C5780BAC24C46B060007972D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		E354B6A224C42E8E00759289 = {
 			isa = PBXGroup;
 			children = (
@@ -151,12 +144,19 @@
 		E354B6AD24C42E8E00759289 /* RandomChoiceApp */ = {
 			isa = PBXGroup;
 			children = (
-				C5780BAC24C46B060007972D /* Model */,
+				E3D7A6BB24CADC25005B3249 /* Model */,
 				C5780BAB24C46B030007972D /* View */,
 				C5780BAA24C46B000007972D /* Controller */,
 				E354B6BC24C42E9400759289 /* Info.plist */,
 			);
 			path = RandomChoiceApp;
+			sourceTree = "<group>";
+		};
+		E3D7A6BB24CADC25005B3249 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

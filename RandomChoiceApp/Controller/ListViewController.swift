@@ -10,6 +10,9 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    //配列は後から変更
+    var listCellArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
     //outlet
     @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var searchTextField: UITextField!
@@ -44,7 +47,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     //UI作成のため、一旦セルの数は20に設定しています
     //本来は、新規登録画面で保存された内容・数のセルを表示
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return listCellArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,6 +61,19 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         //セルをタップしたら詳細ページに遷移させる
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    //セルの編集許可
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            listCellArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
+    
+    //スワイプしたセルを削除
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }
