@@ -222,7 +222,7 @@
         <scene sceneID="Rra-lW-lbQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="thj-08-ZTj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ランダムチョイス" id="lcE-XT-qGa"/>
+                    <tabBarItem key="tabBarItem" title="ランダムチョイス" image="asterisk.circle" catalog="system" id="lcE-XT-qGa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1qS-aQ-hCW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -241,7 +241,7 @@
         <scene sceneID="ccN-Gv-41j">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="43B-3X-f6M" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="お店一覧" id="OJa-gL-W2z"/>
+                    <tabBarItem key="tabBarItem" title="お店一覧" image="list.dash" catalog="system" id="OJa-gL-W2z"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xPv-We-ZHC">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -295,6 +295,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="asterisk.circle" catalog="system" width="128" height="121"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
     </resources>
