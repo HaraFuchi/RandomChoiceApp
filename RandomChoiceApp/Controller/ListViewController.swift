@@ -10,11 +10,19 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    //outlet
     @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var sortItemBottun: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
+    //action
+    @IBAction func touchedSearchButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func touchedSortButton(_ sender: UIButton) {
+    }
     
     @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
@@ -33,19 +41,15 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 1
     }
     
-    //UI作成のため、一旦セルの数は１に設定しています
+    //UI作成のため、一旦セルの数は20に設定しています
     //本来は、新規登録画面で保存された内容・数のセルを表示
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListPageCell", for: indexPath)
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

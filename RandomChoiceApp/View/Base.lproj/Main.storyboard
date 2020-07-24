@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jkk-3n-UJT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jkk-3n-UJT">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -114,9 +114,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uRH-rC-F8z">
-                                <rect key="frame" x="0.0" y="147" width="414" height="666"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uRH-rC-F8z">
+                                <rect key="frame" x="0.0" y="136" width="414" height="677"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="79" id="1zf-b0-HZM">
@@ -129,30 +128,67 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfK-KW-GIW">
-                                <rect key="frame" x="294" y="106" width="40" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="magnifyingglass" catalog="system"/>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="店名, 場所, ジャンル" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eea-tU-DHn">
-                                <rect key="frame" x="20" y="100" width="266" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CT-Wp-L7E">
-                                <rect key="frame" x="333" y="102" width="72" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="並び替え" image="slider.horizontal.3" catalog="system">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmM-Od-4GE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfK-KW-GIW">
+                                        <rect key="frame" x="302" y="12" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="uGh-Yf-JzR"/>
+                                            <constraint firstAttribute="width" secondItem="hfK-KW-GIW" secondAttribute="height" multiplier="1:1" id="yTQ-TG-ItV"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="magnifyingglass" catalog="system"/>
+                                        <connections>
+                                            <action selector="touchedSearchButton:" destination="2Gj-wH-W6X" eventType="touchUpInside" id="FJf-6d-WMW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CT-Wp-L7E">
+                                        <rect key="frame" x="342" y="12" width="64" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="1CT-Wp-L7E" secondAttribute="height" multiplier="2:1" id="azh-FJ-GK0"/>
+                                            <constraint firstAttribute="width" constant="64" id="nbA-z4-NiF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="並び替え" image="slider.horizontal.3" catalog="system">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchedSortButton:" destination="2Gj-wH-W6X" eventType="touchUpInside" id="fHI-vs-QRJ"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="店名, 場所, ジャンル" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eea-tU-DHn">
+                                        <rect key="frame" x="8" y="8" width="294" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="hfK-KW-GIW" firstAttribute="centerY" secondItem="eea-tU-DHn" secondAttribute="centerY" id="7Gh-Xt-yWG"/>
+                                    <constraint firstItem="1CT-Wp-L7E" firstAttribute="centerY" secondItem="hfK-KW-GIW" secondAttribute="centerY" id="91E-Yb-sZz"/>
+                                    <constraint firstItem="1CT-Wp-L7E" firstAttribute="leading" secondItem="hfK-KW-GIW" secondAttribute="trailing" constant="8" id="FBn-Gx-Dtl"/>
+                                    <constraint firstAttribute="height" constant="48" id="OS6-fh-hVE"/>
+                                    <constraint firstAttribute="bottom" secondItem="eea-tU-DHn" secondAttribute="bottom" id="ax9-W3-4PB"/>
+                                    <constraint firstItem="hfK-KW-GIW" firstAttribute="leading" secondItem="eea-tU-DHn" secondAttribute="trailing" id="ceA-hd-NWz"/>
+                                    <constraint firstItem="eea-tU-DHn" firstAttribute="top" secondItem="cmM-Od-4GE" secondAttribute="top" constant="8" id="feN-bn-Hcq"/>
+                                    <constraint firstItem="eea-tU-DHn" firstAttribute="leading" secondItem="cmM-Od-4GE" secondAttribute="leading" constant="8" id="jRw-2B-49O"/>
+                                    <constraint firstAttribute="trailing" secondItem="1CT-Wp-L7E" secondAttribute="trailing" constant="8" id="wac-ae-DMU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="uRH-rC-F8z" firstAttribute="leading" secondItem="Zd9-G8-Ovq" secondAttribute="leading" id="4HX-nk-Iq3"/>
+                            <constraint firstItem="uRH-rC-F8z" firstAttribute="top" secondItem="cmM-Od-4GE" secondAttribute="bottom" id="EJZ-7s-sCe"/>
+                            <constraint firstItem="Zd9-G8-Ovq" firstAttribute="trailing" secondItem="cmM-Od-4GE" secondAttribute="trailing" id="MCF-YC-F75"/>
+                            <constraint firstItem="uRH-rC-F8z" firstAttribute="bottom" secondItem="Zd9-G8-Ovq" secondAttribute="bottom" id="bVe-gg-cJ8"/>
+                            <constraint firstItem="cmM-Od-4GE" firstAttribute="leading" secondItem="Zd9-G8-Ovq" secondAttribute="leading" id="iEz-uX-lGL"/>
+                            <constraint firstItem="cmM-Od-4GE" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" id="kVx-SA-S4v"/>
+                            <constraint firstItem="uRH-rC-F8z" firstAttribute="trailing" secondItem="Zd9-G8-Ovq" secondAttribute="trailing" id="rVH-Ae-Tbw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Zd9-G8-Ovq"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="3Ni-bv-ZQJ" appends="YES" id="Dw6-RC-p9p"/>
@@ -180,13 +216,13 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1745" y="323"/>
+            <point key="canvasLocation" x="1744.9275362318842" y="322.76785714285711"/>
         </scene>
         <!--ランダムチョイス-->
         <scene sceneID="Rra-lW-lbQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="thj-08-ZTj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ランダムチョイス" id="lcE-XT-qGa"/>
+                    <tabBarItem key="tabBarItem" title="ランダムチョイス" image="asterisk.circle" catalog="system" id="lcE-XT-qGa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1qS-aQ-hCW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -205,7 +241,7 @@
         <scene sceneID="ccN-Gv-41j">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="43B-3X-f6M" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="お店一覧" id="OJa-gL-W2z"/>
+                    <tabBarItem key="tabBarItem" title="お店一覧" image="list.dash" catalog="system" id="OJa-gL-W2z"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xPv-We-ZHC">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -259,6 +295,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="asterisk.circle" catalog="system" width="128" height="121"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
     </resources>
