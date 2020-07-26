@@ -68,9 +68,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //スワイプしたセルを削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        //styleをアクションシートに設定
-        let alert = UIAlertController(title: "お店一覧から削除しますか？", message: "", preferredStyle: .alert)
-        //選択肢を生成
         let deleteAction = UIAlertAction(title: "削除", style: .default, handler: {(_ : UIAlertAction!) -> Void in
             //処理: 一覧から削除
             if editingStyle == UITableViewCell.EditingStyle.delete {
@@ -80,14 +77,18 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: {(_ :UIAlertAction!) -> Void in
         })
-        //actionを追加
-        alert.addAction(cancelAction)
-        alert.addAction(deleteAction)
-        //UIAlertControllerの起動
-        present(alert, animated: true, completion: nil)
+        showAlert(title: "お店一覧から削除しますか？", message: "", actions: [deleteAction, cancelAction])
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+    }
+    
+    //MARK: - Private Methods
+    
+    private func showAlert(title: String, message: String, actions: [UIAlertAction]) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        actions.forEach { alert.addAction($0) }
+        present(alert, animated: true)
     }
 }
