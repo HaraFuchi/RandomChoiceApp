@@ -61,16 +61,15 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         //セルをタップしたら詳細ページに遷移させる
     }
     
+    //セルの編集許可(スワイプを可能にする)
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    //セルの編集許可
+    //スワイプしたセルを削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
         //styleをアクションシートに設定
         let alert = UIAlertController(title: "お店一覧から削除しますか？", message: "", preferredStyle: .alert)
-        
         //選択肢を生成
         let deleteAction = UIAlertAction(title: "削除", style: .default, handler: {(action: UIAlertAction!) -> Void in
             //処理: 一覧から削除
@@ -81,16 +80,13 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: {(action:UIAlertAction!) -> Void in
         })
-        
         //actionを追加
         alert.addAction(cancelAction)
         alert.addAction(deleteAction)
-        
         //UIAlertControllerの起動
         present(alert, animated: true, completion: nil)
     }
     
-    //スワイプしたセルを削除
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }
