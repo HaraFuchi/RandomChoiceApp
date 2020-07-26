@@ -7,4 +7,6 @@ target 'RandomChoiceApp' do
 
   # Pods for RandomChoiceApp
 
+pod 'Firebase/Analytics'
+
 end
