@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jkk-3n-UJT">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="267" width="414" height="546"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="183" id="Qdf-7Q-H7p">
@@ -29,13 +29,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xs-Nc-JvG" userLabel="SpaceView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="179"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5xs-Nc-JvG" secondAttribute="trailing" id="9eQ-cA-Ik5"/>
+                            <constraint firstItem="5xs-Nc-JvG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HQz-3w-uh4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jkk-3n-UJT" secondAttribute="trailing" id="KjJ-Xp-CR5"/>
+                            <constraint firstItem="5xs-Nc-JvG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dIS-cd-xTB"/>
                             <constraint firstItem="jkk-3n-UJT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eVK-iL-ZFu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jkk-3n-UJT" secondAttribute="bottom" id="ivH-fm-Uph"/>
-                            <constraint firstItem="jkk-3n-UJT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="soG-xt-vAS"/>
+                            <constraint firstItem="5xs-Nc-JvG" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="nZo-8D-AnY"/>
+                            <constraint firstItem="jkk-3n-UJT" firstAttribute="top" secondItem="5xs-Nc-JvG" secondAttribute="bottom" id="x5b-eB-VKO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
