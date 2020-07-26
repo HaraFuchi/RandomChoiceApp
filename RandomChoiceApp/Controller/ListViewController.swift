@@ -68,7 +68,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //スワイプしたセルを削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let deleteAction = UIAlertAction(title: "削除", style: .default, handler: {(_ : UIAlertAction!) -> Void in
+        let deleteAction = UIAlertAction(title: "削除", style: .destructive, handler: {(_ : UIAlertAction!) -> Void in
             //処理: 一覧から削除
             if editingStyle == UITableViewCell.EditingStyle.delete {
                 self.listCellArray.remove(at: indexPath.row)
