@@ -12,7 +12,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //配列は後から変更
     var listCellArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
+    
     //outlet
     @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var searchTextField: UITextField!
@@ -67,10 +67,27 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //セルの編集許可
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCell.EditingStyle.delete {
-            listCellArray.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
-        }
+        
+        //styleをアクションシートに設定
+        let alert = UIAlertController(title: "お店一覧から削除しますか？", message: "", preferredStyle: .alert)
+        
+        //選択肢を生成
+        let deleteAction = UIAlertAction(title: "削除", style: .default, handler: {(action: UIAlertAction!) -> Void in
+            //処理: 一覧から削除
+            if editingStyle == UITableViewCell.EditingStyle.delete {
+                self.listCellArray.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+            }
+        })
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: {(action:UIAlertAction!) -> Void in
+        })
+        
+        //actionを追加
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+        
+        //UIAlertControllerの起動
+        present(alert, animated: true, completion: nil)
     }
     
     //スワイプしたセルを削除
