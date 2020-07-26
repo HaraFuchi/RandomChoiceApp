@@ -10,6 +10,9 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    //配列は後から変更
+    var listCellArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    
     //outlet
     @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var searchTextField: UITextField!
@@ -44,7 +47,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     //UI作成のため、一旦セルの数は20に設定しています
     //本来は、新規登録画面で保存された内容・数のセルを表示
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return listCellArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,6 +59,31 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
         //後ほど、追加する機能 ↓
         //セルをタップしたら詳細ページに遷移させる
+    }
+    
+    //セルの編集許可(スワイプを可能にする)
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    //スワイプしたセルを削除
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //styleをアクションシートに設定
+        let showAlert = UIAlertController(title: "お店一覧から削除しますか？", message: "", preferredStyle: .alert)
+        //選択肢を生成
+        let deleteAction = UIAlertAction(title: "削除", style: .destructive, handler: { _ -> Void in
+            //処理: 一覧から削除
+            if editingStyle == UITableViewCell.EditingStyle.delete {
+                self.listCellArray.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+            }
+        })
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: { _ -> Void in
+        })
+        showAlert.addAction(cancelAction)
+        showAlert.addAction(deleteAction)
+        //UIAlertControllerの起動
+        present(showAlert, animated: true, completion: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
