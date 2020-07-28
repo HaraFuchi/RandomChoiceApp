@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var dbRef: DatabaseReference!
         
     @IBOutlet var tableView: UITableView!
-    
     
     @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
@@ -34,6 +36,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dbRef = Database.database().reference()
         tableView.delegate = self
         tableView.dataSource = self
         let sinupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
