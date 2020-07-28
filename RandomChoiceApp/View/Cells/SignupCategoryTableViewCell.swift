@@ -15,6 +15,7 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
         categoryTextField.delegate = self
     }
 
