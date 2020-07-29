@@ -9,13 +9,14 @@
 import UIKit
 
 protocol SignupCategoryTableViewCellDelegate {
-    func fetchCategoryNameText(textField: UITextField)
+    func fetchCategoryNameText(textField: UITextField, indexNumber: Int)
 }
 
 class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     var delegete: SignupCategoryTableViewCellDelegate?
-
+    var IndexPathNumber:Int?//SignuoVCで繰り返すCellを分別する
+    
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var categoryTextField: UITextField!
     
@@ -34,7 +35,7 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        delegete?.fetchCategoryNameText(textField: textField)
+        delegete?.fetchCategoryNameText(textField: textField, indexNumber: IndexPathNumber!)
         return true
     }
 }

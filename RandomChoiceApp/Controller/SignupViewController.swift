@@ -9,6 +9,10 @@
 import UIKit
 
 class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var storeNameString: String?
+    var palceNameString: String?
+    var genreNameString: String?
         
     @IBOutlet var tableView: UITableView!
     
@@ -59,14 +63,17 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 0:
             categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.storeName.CategoryPlaceHolderList
+            categoryCell.IndexPathNumber = indexPath.row
             return categoryCell
         case 1:
             categoryCell.categoryLabel.text = CategoryList.placeName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.placeName.CategoryPlaceHolderList
+            categoryCell.IndexPathNumber = indexPath.row
             return categoryCell
         case 2:
             categoryCell.categoryLabel.text = CategoryList.genreName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.genreName.CategoryPlaceHolderList
+            categoryCell.IndexPathNumber = indexPath.row
             return categoryCell
         case 3:
             signupAndCancelButtonCell.delegate = self
@@ -79,14 +86,20 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
 }
 
 extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupCategoryTableViewCellDelegate{
-    func fetchCategoryNameText(textField: UITextField) {
-        //TextFieldの値を取得
-        print(textField.text)
+    func fetchCategoryNameText(textField: UITextField, indexNumber: Int) {
+        switch indexNumber {
+        case 0: storeNameString = textField.text
+        case 1: palceNameString = textField.text
+        case 2: genreNameString = textField.text
+        default: break
+        }
     }
     
     func signupStoreInfoButton() {
-        //ここにデータを送信
-        print("登録ボタンがタップ")
+        print("ボタン押されたよ")
+        print(storeNameString)
+        print(palceNameString)
+        print(genreNameString)
     }
     
     func cancelButton() {
