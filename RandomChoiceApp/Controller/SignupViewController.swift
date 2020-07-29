@@ -12,7 +12,6 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     @IBOutlet var tableView: UITableView!
     
-    
     @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
@@ -53,6 +52,8 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: "SignupCell", for: indexPath) as! SignupCategoryTableViewCell
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: "ActionButtonCell", for: indexPath) as! CommonActionButtonTableViewCell
+        
+        categoryCell.delegete = self
     
         switch indexPath.row {
         case 0:
@@ -77,7 +78,12 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 }
 
-extension SignupViewController: CommonActionButtonTableViewCellDelegate{
+extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupCategoryTableViewCellDelegate{
+    func fetchCategoryNameText(textField: UITextField) {
+        //TextFieldの値を取得
+        print(textField.text)
+    }
+    
     func signupStoreInfoButton() {
         //ここにデータを送信
         print("登録ボタンがタップ")

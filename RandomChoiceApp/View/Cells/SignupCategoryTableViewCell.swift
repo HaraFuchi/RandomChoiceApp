@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol SignupCategoryTableViewCellDelegate {
+    func fetchCategoryNameText(textField: UITextField)
+}
+
 class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
+    
+    var delegete: SignupCategoryTableViewCellDelegate?
 
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var categoryTextField: UITextField!
@@ -25,5 +31,10 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        delegete?.fetchCategoryNameText(textField: textField)
+        return true
     }
 }
