@@ -78,6 +78,11 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
 }
 
 extension SignupViewController: CommonActionButtonTableViewCellDelegate{
+    func signupStoreInfoButton() {
+        //ここにデータを送信
+        print("登録ボタンがタップ")
+    }
+    
     func cancelButton() {
         dismiss(animated: true, completion: nil)
     }

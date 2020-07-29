@@ -10,6 +10,7 @@ import UIKit
 
 protocol CommonActionButtonTableViewCellDelegate {
     func cancelButton()
+    func signupStoreInfoButton()
 }
 
 class CommonActionButtonTableViewCell: UITableViewCell {
@@ -22,6 +23,7 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     
     //action
     @IBAction func touchedSignupButton(_ sender: UIButton) {
+        delegate?.signupStoreInfoButton()
     }
     @IBAction func touchedCancelButton(_ sender: UIButton) {
         delegate?.cancelButton()
