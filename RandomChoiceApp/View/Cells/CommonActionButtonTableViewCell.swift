@@ -29,6 +29,7 @@ class CommonActionButtonTableViewCell: UITableViewCell {
    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
         setupButtons()
     }
 

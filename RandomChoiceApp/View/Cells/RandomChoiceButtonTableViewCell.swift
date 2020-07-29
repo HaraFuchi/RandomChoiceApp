@@ -19,6 +19,7 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
         randomChoiceButtonDetail()
     }
     
