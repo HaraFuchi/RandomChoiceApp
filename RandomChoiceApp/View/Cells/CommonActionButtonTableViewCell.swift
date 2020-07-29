@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 protocol CommonActionButtonTableViewCellDelegate {
     func cancelButton()
@@ -15,6 +17,7 @@ protocol CommonActionButtonTableViewCellDelegate {
 class CommonActionButtonTableViewCell: UITableViewCell {
     
     var delegate: CommonActionButtonTableViewCellDelegate?
+    let signupVC = SignupViewController()
     
     //outlet
     @IBOutlet weak var singupButton: UIButton!
@@ -22,20 +25,35 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     
     //action
     @IBAction func touchedSignupButton(_ sender: UIButton) {
+        
+        let signupDB = Database.database().reference()
+        let store = signupVC.store
+        let place = signupVC.place
+        let genre = signupVC.genre
+        let signupInfo = ["店名": store, "場所": place, "ジャンル": genre]
+        
+        signupDB.childByAutoId().setValue(signupInfo) { (error, result) in
+            if error != nil {
+                print(error)
+            } else {
+                print("保存完了！")
+            }
+        }
     }
+    
     @IBAction func touchedCancelButton(_ sender: UIButton) {
         delegate?.cancelButton()
     }
-   
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupButtons()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
+        
     // MARK: - Private
     private func setupButtons(){
         singupButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)

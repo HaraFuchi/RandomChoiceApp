@@ -8,11 +8,16 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var dbRef: DatabaseReference!
-        
+    
+    var store: String = ""
+    var place: String = ""
+    var genre: String = ""
+    
     @IBOutlet var tableView: UITableView!
     
     @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
@@ -56,19 +61,22 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: "SignupCell", for: indexPath) as! SignupCategoryTableViewCell
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: "ActionButtonCell", for: indexPath) as! CommonActionButtonTableViewCell
-    
+        
         switch indexPath.row {
         case 0:
             categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.storeName.CategoryPlaceHolderList
+            store = categoryCell.categoryTextField.text ?? "未登録"
             return categoryCell
         case 1:
             categoryCell.categoryLabel.text = CategoryList.placeName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.placeName.CategoryPlaceHolderList
+            place = categoryCell.categoryTextField.text ?? "未登録"
             return categoryCell
         case 2:
             categoryCell.categoryLabel.text = CategoryList.genreName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.genreName.CategoryPlaceHolderList
+            genre = categoryCell.categoryTextField.text ?? "未登録"
             return categoryCell
         case 3:
             signupAndCancelButtonCell.delegate = self
@@ -85,3 +93,4 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate{
         dismiss(animated: true, completion: nil)
     }
 }
+
