@@ -9,9 +9,12 @@
 import UIKit
 
 class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var storeNameString: String?
+    var palceNameString: String?
+    var genreNameString: String?
         
     @IBOutlet var tableView: UITableView!
-    
     
     @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
@@ -53,19 +56,24 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: "SignupCell", for: indexPath) as! SignupCategoryTableViewCell
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: "ActionButtonCell", for: indexPath) as! CommonActionButtonTableViewCell
+        
+        categoryCell.delegete = self
     
         switch indexPath.row {
         case 0:
             categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.storeName.CategoryPlaceHolderList
+            categoryCell.IndexPathNumber = indexPath.row
             return categoryCell
         case 1:
             categoryCell.categoryLabel.text = CategoryList.placeName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.placeName.CategoryPlaceHolderList
+            categoryCell.IndexPathNumber = indexPath.row
             return categoryCell
         case 2:
             categoryCell.categoryLabel.text = CategoryList.genreName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.genreName.CategoryPlaceHolderList
+            categoryCell.IndexPathNumber = indexPath.row
             return categoryCell
         case 3:
             signupAndCancelButtonCell.delegate = self
@@ -77,7 +85,23 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 }
 
-extension SignupViewController: CommonActionButtonTableViewCellDelegate{
+extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupCategoryTableViewCellDelegate{
+    func fetchCategoryNameText(textField: UITextField, indexNumber: Int) {
+        switch indexNumber {
+        case 0: storeNameString = textField.text
+        case 1: palceNameString = textField.text
+        case 2: genreNameString = textField.text
+        default: break
+        }
+    }
+    
+    func signupStoreInfoButton() {
+        print("ボタン押されたよ")
+        print(storeNameString)
+        print(palceNameString)
+        print(genreNameString)
+    }
+    
     func cancelButton() {
         dismiss(animated: true, completion: nil)
     }
