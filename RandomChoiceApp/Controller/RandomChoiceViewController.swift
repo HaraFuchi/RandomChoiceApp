@@ -10,6 +10,8 @@ import UIKit
 
 class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let listVC = ListViewController()
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -19,6 +21,19 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
         tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPagewCell")
         tableView.register(UINib(nibName: "SelectConditionsTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectConditionsCell")
         tableView.register(UINib(nibName: "RandomChoiceButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "RandomChoiceButtonCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //ListVCのlistCellArrayがゼロの場合、アラートを表示
+        if listVC.listCellArray.count == 0 {
+            let alert = UIAlertController(title: "登録しているお店がありません。", message: "行ったことのあるお店を登録してみよう！", preferredStyle: .alert)
+            let signupAction = UIAlertAction(title: "登録する", style: .default) { (action) in
+                //アラートの登録するボタンを押した後の処理
+            }
+            alert.addAction(signupAction)
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
