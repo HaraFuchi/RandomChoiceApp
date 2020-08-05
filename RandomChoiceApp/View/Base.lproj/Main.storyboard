@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -50,6 +50,7 @@
                     <navigationItem key="navigationItem" title="ランダムチョイス" id="PVD-Q0-bJM"/>
                     <connections>
                         <outlet property="tableView" destination="jkk-3n-UJT" id="vwT-qo-17O"/>
+                        <segue destination="mwd-El-xam" kind="presentation" identifier="goToSignupVC" modalPresentationStyle="fullScreen" id="SDK-R6-oZ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -112,7 +113,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3035" y="323"/>
+            <point key="canvasLocation" x="3319" y="-10"/>
         </scene>
         <!--お店一覧-->
         <scene sceneID="CZ2-es-7US">
@@ -299,9 +300,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8PM-b8-B7K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2401" y="323"/>
+            <point key="canvasLocation" x="2559" y="-10"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="SDK-R6-oZ4"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="asterisk.circle" catalog="system" width="128" height="121"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
