@@ -28,7 +28,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
         //お店の登録情報がないときにアラートが表示される
         if listVC.listCellArray.isEmpty {
             let alert = UIAlertController(title: "登録しているお店がありません。", message: "行ったことのあるお店を登録してみよう！", preferredStyle: .alert)
-            let signupAction = UIAlertAction(title: "登録する", style: .default) { (action) in
+            let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
                 //アラートの登録するボタンを押した後の処理
                 //Firebase/Authの匿名ログインを実装
                 // 匿名認証(下記のメソッドがエラーなく終了すれば、認証完了する)
