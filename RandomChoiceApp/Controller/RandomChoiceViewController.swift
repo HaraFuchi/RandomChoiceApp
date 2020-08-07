@@ -11,8 +11,6 @@ import Firebase
 
 class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let listVC = ListViewController()
-    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -26,6 +24,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let listVC = ListViewController()
         //ListVCのlistCellArrayがゼロの場合、アラートを表示
         if listVC.listCellArray.count == 0 {
             let alert = UIAlertController(title: "登録しているお店がありません。", message: "行ったことのあるお店を登録してみよう！", preferredStyle: .alert)
