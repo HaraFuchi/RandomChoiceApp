@@ -12,7 +12,6 @@ import Firebase
 class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let listVC = ListViewController()
-    let signupVC = SignupViewController()
     
     @IBOutlet weak var tableView: UITableView!
     
