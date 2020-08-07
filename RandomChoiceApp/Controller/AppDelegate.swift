@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Firebase/Authの匿名ログインを実装
         // 匿名認証(下記のメソッドがエラーなく終了すれば、認証完了する)
         Auth.auth().signInAnonymously() { (authResult, error) in
-            if let safetyError = error {
-                print("Auth Error :\(safetyError.localizedDescription)")
+            if let error = error {
+                print("Auth Error :\(error.localizedDescription)")
             }
             // 認証情報の取得
             guard let user = authResult?.user else { return }
