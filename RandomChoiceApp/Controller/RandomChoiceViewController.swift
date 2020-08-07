@@ -30,18 +30,6 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
             let alert = UIAlertController(title: "登録しているお店がありません。", message: "行ったことのあるお店を登録してみよう！", preferredStyle: .alert)
             let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
                 //アラートの登録するボタンを押した後の処理
-                //Firebase/Authの匿名ログインを実装
-                // 匿名認証(下記のメソッドがエラーなく終了すれば、認証完了する)
-                Auth.auth().signInAnonymously() { (authResult, error) in
-                    if let safetyError = error {
-                        print("Auth Error :\(safetyError.localizedDescription)")
-                    }
-                    // 認証情報の取得
-                    guard let user = authResult?.user else { return }
-                    let isAnonymous = user.isAnonymous  // true
-                    let uid = user.uid
-                    return
-                }
                 //SignupVCに遷移
                 self.performSegue(withIdentifier: "goToSignupVC", sender: nil)
             }
