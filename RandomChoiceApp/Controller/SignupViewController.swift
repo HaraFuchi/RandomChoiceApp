@@ -101,10 +101,7 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
         // KeyValue型の配列を用意しておく
         let registerInfoArray = ["店名": storeNameString, "場所": placeNameString, "ジャンル": genreNameString]
         ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(registerInfoArray)
-        print("ボタン押されたよ")
-        print(storeNameString)
-        print(placeNameString)
-        print(genreNameString)
+        dismiss(animated: true, completion: nil)
     }
     
     func cancelButton() {
