@@ -11,10 +11,11 @@ import Firebase
 
 class FirebaseCrudModel {
     
+    let uid = Auth.auth().currentUser!.uid
     let ref = Database.database().reference()
     
     func createStoreInfo(store: String, place: String, genre: String) {
         let createInfoDict = ["店名":store, "場所": place, "ジャンル": genre]
-        ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createInfoDict)
+        ref.child(uid).childByAutoId().setValue(createInfoDict)
     }
 }
