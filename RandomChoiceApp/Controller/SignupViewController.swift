@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -97,10 +96,8 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
     }
     
     func signupStoreInfoButton() {
-        let ref = Database.database().reference()
-        // KeyValue型の配列を用意しておく
-        let registerInfoArray = ["店名": storeNameString, "場所": placeNameString, "ジャンル": genreNameString]
-        ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(registerInfoArray)
+        let crudModel = FirebaseCrudModel()
+        crudModel.createStoreInfo(store: storeNameString!, place: placeNameString!, genre: genreNameString!)
         dismiss(animated: true, completion: nil)
     }
     
