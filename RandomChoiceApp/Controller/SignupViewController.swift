@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var storeNameString: String?
-    var palceNameString: String?
+    var placeNameString: String?
     var genreNameString: String?
-        
+    
     @IBOutlet var tableView: UITableView!
     
     @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
@@ -58,7 +59,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: "ActionButtonCell", for: indexPath) as! CommonActionButtonTableViewCell
         
         categoryCell.delegete = self
-    
+        
         switch indexPath.row {
         case 0:
             categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
@@ -89,16 +90,20 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
     func fetchCategoryNameText(textField: UITextField, indexNumber: Int) {
         switch indexNumber {
         case 0: storeNameString = textField.text
-        case 1: palceNameString = textField.text
+        case 1: placeNameString = textField.text
         case 2: genreNameString = textField.text
         default: break
         }
     }
     
     func signupStoreInfoButton() {
+        let ref = Database.database().reference()
+        // KeyValue型の配列を用意しておく
+        let registerInfoArray = ["店名": storeNameString, "場所": placeNameString, "ジャンル": genreNameString]
+        ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(registerInfoArray)
         print("ボタン押されたよ")
         print(storeNameString)
-        print(palceNameString)
+        print(placeNameString)
         print(genreNameString)
     }
     
