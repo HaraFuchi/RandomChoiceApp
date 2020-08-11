@@ -25,16 +25,16 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
         super.viewWillAppear(animated)
         let listVC = ListViewController()
         //お店の登録情報がないときにアラートが表示される
-        if listVC.listCellArray.isEmpty {
-            let alert = UIAlertController(title: "登録しているお店がありません。", message: "行ったことのあるお店を登録してみよう！", preferredStyle: .alert)
-            let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
-                //アラートの登録するボタンを押した後の処理
-                //SignupVCに遷移
-                self.performSegue(withIdentifier: "goToSignupVC", sender: nil)
-            }
-            alert.addAction(signupAction)
-            present(alert, animated: true, completion: nil)
-        }
+//        if listVC.listCellArray.isEmpty {
+//            let alert = UIAlertController(title: "登録しているお店がありません。", message: "行ったことのあるお店を登録してみよう！", preferredStyle: .alert)
+//            let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
+//                //アラートの登録するボタンを押した後の処理
+//                //SignupVCに遷移
+//                self.performSegue(withIdentifier: "goToSignupVC", sender: nil)
+//            }
+//            alert.addAction(signupAction)
+//            present(alert, animated: true, completion: nil)
+//        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
