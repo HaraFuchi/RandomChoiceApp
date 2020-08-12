@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
@@ -41,8 +42,8 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        crudModel.fetchStoreData()
-        tableView.reloadData()
+        fetchStoreData()
+//        crudModel.fetchStoreData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,5 +92,25 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+    }
+    
+    //Modelに本来書きたい
+    func fetchStoreData() {
+        let uid = Auth.auth().currentUser!.uid
+        let ref = Database.database().reference()
+        ref.child(uid).observe(.value) { (snapShot) in
+            self.crudModel.listCellArray.removeAll()
+            if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
+                for snap in snapShot {
+                    if let postData = snap.value as? [String: Any] {
+                        let storeName = postData["店名"]
+                        let placeName = postData["場所"]
+                        let jenreName = postData["ジャンル"]
+                        self.crudModel.listCellArray.append(StoreDataModel(store: storeName as! String, place: placeName as! String, jenre: jenreName as! String))
+                    }
+                }
+                self.tableView.reloadData()
+            }
+        }
     }
 }

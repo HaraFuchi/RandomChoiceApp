@@ -21,19 +21,19 @@ class FirebaseCrudModel {
         ref.child(uid).childByAutoId().setValue(createInfoDict)
     }
     
-    func fetchStoreData() {
-        ref.child(uid).observe(.value) { (snapShot) in
-            self.listCellArray.removeAll()
-            if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
-                for snap in snapShot {
-                    if let postData = snap.value as? [String: Any] {
-                        let storeName = postData["店名"]
-                        let placeName = postData["場所"]
-                        let jenreName = postData["ジャンル"]
-                        self.listCellArray.append(StoreDataModel(store: storeName as! String, place: placeName as! String, jenre: jenreName as! String))
-                    }
-                }
-            }
-        }
-    }
+//    func fetchStoreData() {
+//        ref.child(uid).observe(.value) { (snapShot) in
+//            self.listCellArray.removeAll()
+//            if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
+//                for snap in snapShot {
+//                    if let postData = snap.value as? [String: Any] {
+//                        let storeName = postData["店名"]
+//                        let placeName = postData["場所"]
+//                        let jenreName = postData["ジャンル"]
+//                        self.listCellArray.append(StoreDataModel(store: storeName as! String, place: placeName as! String, jenre: jenreName as! String))
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
