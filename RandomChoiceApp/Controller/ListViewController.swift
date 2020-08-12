@@ -55,6 +55,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListPageCell", for: indexPath) as! ListPageTableViewCell
+        cell.restaurantNameLabel.text = crudModel.listCellArray[indexPath.row].store
+        cell.placeLabel.text = crudModel.listCellArray[indexPath.row].place
+        cell.genreLabel.text = crudModel.listCellArray[indexPath.row].jenre
         return cell
     }
     
