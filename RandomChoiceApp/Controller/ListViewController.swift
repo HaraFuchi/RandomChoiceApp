@@ -11,7 +11,7 @@ import Firebase
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    let crudModel = FirebaseCrudModel()
+    let crudModel = StoreDataCrudModel()
     
     //outlet
     @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
@@ -50,14 +50,14 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return crudModel.listCellArray.count
+        return crudModel.storeDataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListPageCell", for: indexPath) as! ListPageTableViewCell
-        cell.restaurantNameLabel.text = crudModel.listCellArray[indexPath.row].store
-        cell.placeLabel.text = crudModel.listCellArray[indexPath.row].place
-        cell.genreLabel.text = crudModel.listCellArray[indexPath.row].jenre
+        cell.restaurantNameLabel.text = crudModel.storeDataArray[indexPath.row].storeName
+        cell.placeLabel.text = crudModel.storeDataArray[indexPath.row].placeName
+        cell.genreLabel.text = crudModel.storeDataArray[indexPath.row].genreName
         return cell
     }
     

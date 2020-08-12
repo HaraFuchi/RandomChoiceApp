@@ -96,8 +96,8 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
     }
     
     func signupStoreInfoButton() {
-        let crudModel = FirebaseCrudModel()
-        crudModel.createStoreInfo(store: storeNameString!, place: placeNameString!, genre: genreNameString!)
+        let crudModel = StoreDataCrudModel()
+        crudModel.createStoreInfo(store: storeNameString ?? "未記入", place: placeNameString ?? "未記入", genre: genreNameString ?? "未記入")
         dismiss(animated: true, completion: nil)
     }
     

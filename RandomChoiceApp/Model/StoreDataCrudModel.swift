@@ -9,9 +9,9 @@
 import Foundation
 import Firebase
 
-class FirebaseCrudModel {
+class StoreDataCrudModel {
     
-    var listCellArray = [StoreDataModel]()
+    var storeDataArray = [StoreDataContentsModel]()
     
     let uid = Auth.auth().currentUser!.uid
     let ref = Database.database().reference()
@@ -23,14 +23,15 @@ class FirebaseCrudModel {
     
     func fetchStoreData(tableView: UITableView) {
         ref.child(uid).observe(.value) { (snapShot) in
-            self.listCellArray.removeAll()
+            self.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
                 for snap in snapShot {
                     if let postData = snap.value as? [String: Any] {
                         let storeName = postData["店名"]
                         let placeName = postData["場所"]
                         let jenreName = postData["ジャンル"]
-                        self.listCellArray.append(StoreDataModel(store: storeName as! String, place: placeName as! String, jenre: jenreName as! String))
+                        let storeDataContent = StoreDataContentsModel(store: storeName as! String, place: placeName as! String, genre: jenreName as! String)
+                        self.storeDataArray.append(storeDataContent)
                     }
                 }
                 tableView.reloadData()
