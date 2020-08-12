@@ -29,8 +29,8 @@ class StoreDataCrudModel {
                     if let postData = snap.value as? [String: Any] {
                         let storeName = postData["店名"]
                         let placeName = postData["場所"]
-                        let jenreName = postData["ジャンル"]
-                        let storeDataContent = StoreDataContentsModel(store: storeName as! String, place: placeName as! String, genre: jenreName as! String)
+                        let genreName = postData["ジャンル"]
+                        let storeDataContent = StoreDataContentsModel(store: storeName as! String, place: placeName as! String, genre: genreName as! String)
                         self.storeDataArray.append(storeDataContent)
                     }
                 }

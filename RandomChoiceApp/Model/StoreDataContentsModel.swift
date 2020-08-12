@@ -6,7 +6,7 @@
 //  Copyright © 2020 AYANO HARA. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class StoreDataContentsModel {
     

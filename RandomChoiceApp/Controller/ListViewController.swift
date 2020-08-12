@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     

@@ -23,7 +23,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let listVC = ListViewController()
+//        let listVC = ListViewController()
         //お店の登録情報がないときにアラートが表示される
 //        if listVC.listCellArray.isEmpty {
 //            let alert = UIAlertController(title: "登録しているお店がありません。", message: "行ったことのあるお店を登録してみよう！", preferredStyle: .alert)
