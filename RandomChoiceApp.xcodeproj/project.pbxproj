@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		78064BCCB19484E70510B8E7 /* Pods_RandomChoiceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009E936E1D45001D6DCD36B /* Pods_RandomChoiceApp.framework */; };
+		C5194F9924E085A40050DE18 /* StoreDataCrudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5194F9824E085A40050DE18 /* StoreDataCrudModel.swift */; };
+		C5194F9B24E174D60050DE18 /* StoreDataContentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5194F9A24E174D60050DE18 /* StoreDataContentsModel.swift */; };
 		C548E98524C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */; };
 		C548E98624C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */; };
 		C5780BB124C4997A0007972D /* SignupCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		3009E936E1D45001D6DCD36B /* Pods_RandomChoiceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomChoiceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B974E3F6D0AD7408FF8D9C /* Pods-RandomChoiceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomChoiceApp.release.xcconfig"; path = "Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp.release.xcconfig"; sourceTree = "<group>"; };
+		C5194F9824E085A40050DE18 /* StoreDataCrudModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDataCrudModel.swift; sourceTree = "<group>"; };
+		C5194F9A24E174D60050DE18 /* StoreDataContentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataContentsModel.swift; sourceTree = "<group>"; };
 		C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonActionButtonTableViewCell.swift; sourceTree = "<group>"; };
 		C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonActionButtonTableViewCell.xib; sourceTree = "<group>"; };
 		C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 		E3D7A6BB24CADC25005B3249 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C5194F9824E085A40050DE18 /* StoreDataCrudModel.swift */,
+				C5194F9A24E174D60050DE18 /* StoreDataContentsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,9 +282,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5194F9924E085A40050DE18 /* StoreDataCrudModel.swift in Sources */,
 				E354B6B324C42E8E00759289 /* RandomChoiceViewController.swift in Sources */,
 				E354B6AF24C42E8E00759289 /* AppDelegate.swift in Sources */,
 				E3955A3724C468590028FD67 /* SignupViewController.swift in Sources */,
+				C5194F9B24E174D60050DE18 /* StoreDataContentsModel.swift in Sources */,
 				E3955A3524C4682F0028FD67 /* ListViewController.swift in Sources */,
 				E354B6B124C42E8E00759289 /* SceneDelegate.swift in Sources */,
 				E3955A4224C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift in Sources */,
