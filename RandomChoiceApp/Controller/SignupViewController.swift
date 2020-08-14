@@ -10,6 +10,7 @@ import UIKit
 
 class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    //登録する内容の値を保持
     var storeNameString: String?
     var placeNameString: String?
     var genreNameString: String?
