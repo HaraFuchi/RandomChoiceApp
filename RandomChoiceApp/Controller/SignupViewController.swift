@@ -45,10 +45,6 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: "ActionButtonCell")
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CategoryList.allCases.count + 1 //1はCommonActionButtonTableViewCellの分
     }
