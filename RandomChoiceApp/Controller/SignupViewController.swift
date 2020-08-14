@@ -108,7 +108,7 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
 
 // MARK: -Private func
 extension SignupViewController {
-    func showSignupAlert() {
+    private func showSignupAlert() {
         let alert = UIAlertController(title: "お店を登録しますか？", message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
             let crudModel = StoreDataCrudModel()
