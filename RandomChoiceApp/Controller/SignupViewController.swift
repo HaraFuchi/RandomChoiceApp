@@ -98,8 +98,7 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
     }
     
     func signupStoreInfoButton() {
-        showAlert()
-//        dismiss(animated: true, completion: nil) //ここを書くタイミングを考える
+        showSignupAlert()
     }
     
     func cancelButton() {
@@ -109,11 +108,12 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
 
 // MARK: -Private func
 extension SignupViewController {
-    func showAlert() {
+    func showSignupAlert() {
         let alert = UIAlertController(title: "お店を登録しますか？", message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
             let crudModel = StoreDataCrudModel()
             crudModel.createStoreInfo(store: self.storeNameString ?? "未記入", place: self.placeNameString ?? "未記入", genre: self.genreNameString ?? "未記入")
+            self.dismiss(animated: true, completion: nil)
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         alert.addAction(signupAction)
