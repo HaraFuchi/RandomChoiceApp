@@ -34,6 +34,7 @@ class StoreDataCrudModel {
                         self.storeDataArray.append(storeDataContent)
                     }
                 }
+                self.storeDataArray.reverse()
                 tableView.reloadData()
             }
         }
