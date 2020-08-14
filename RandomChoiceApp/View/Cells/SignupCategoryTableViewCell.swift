@@ -34,8 +34,7 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
         textField.resignFirstResponder()
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         delegete?.fetchCategoryNameText(textField: textField, indexNumber: IndexPathNumber!)
-        return true
     }
 }
