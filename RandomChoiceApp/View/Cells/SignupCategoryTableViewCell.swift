@@ -15,7 +15,7 @@ protocol SignupCategoryTableViewCellDelegate {
 class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     var delegete: SignupCategoryTableViewCellDelegate?
-    var IndexPathNumber:Int?//SignuoVCで繰り返すCellを分別する
+    var IndexPathNumber:Int?//登録画面で繰り返しすCellを分別するのコード
     
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var categoryTextField: UITextField!
@@ -34,8 +34,7 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
         textField.resignFirstResponder()
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         delegete?.fetchCategoryNameText(textField: textField, indexNumber: IndexPathNumber!)
-        return true
     }
 }

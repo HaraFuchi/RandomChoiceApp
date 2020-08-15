@@ -10,6 +10,7 @@ import UIKit
 
 class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    //登録する内容の値を保持
     var storeNameString: String?
     var placeNameString: String?
     var genreNameString: String?
@@ -85,6 +86,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 }
 
+// MARK: -Protcol
 extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupCategoryTableViewCellDelegate{
     func fetchCategoryNameText(textField: UITextField, indexNumber: Int) {
         switch indexNumber {
@@ -96,12 +98,26 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
     }
     
     func signupStoreInfoButton() {
-        let crudModel = StoreDataCrudModel()
-        crudModel.createStoreInfo(store: storeNameString ?? "未記入", place: placeNameString ?? "未記入", genre: genreNameString ?? "未記入")
-        dismiss(animated: true, completion: nil)
+        showSignupAlert()
     }
     
     func cancelButton() {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: -Private func
+extension SignupViewController {
+    private func showSignupAlert() {
+        let alert = UIAlertController(title: "お店を登録しますか？", message: nil, preferredStyle: .alert)
+        let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
+            let crudModel = StoreDataCrudModel()
+            crudModel.createStoreInfo(store: self.storeNameString ?? "未記入", place: self.placeNameString ?? "未記入", genre: self.genreNameString ?? "未記入")
+            self.dismiss(animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alert.addAction(signupAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 }
