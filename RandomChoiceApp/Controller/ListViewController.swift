@@ -44,10 +44,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         crudModel.fetchStoreData(tableView: tableView)
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return crudModel.storeDataArray.count
     }
