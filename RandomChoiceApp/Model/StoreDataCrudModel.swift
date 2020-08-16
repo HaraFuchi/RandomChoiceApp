@@ -13,16 +13,15 @@ class StoreDataCrudModel {
     
     var storeDataArray = [StoreDataContentsModel]()
     
-    let uid = Auth.auth().currentUser!.uid
     let ref = Database.database().reference()
     
     func createStoreInfo(store: String, place: String, genre: String) {
         let createInfoDict = ["店名":store, "場所": place, "ジャンル": genre]
-        ref.child(uid).childByAutoId().setValue(createInfoDict)
+        ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createInfoDict)
     }
     
     func fetchStoreData(tableView: UITableView) {
-        ref.child(uid).observe(.value) { (snapShot) in
+        ref.child(Auth.auth().currentUser!.uid).observe(.value) { (snapShot) in
             self.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
                 for snap in snapShot {
@@ -34,6 +33,7 @@ class StoreDataCrudModel {
                         self.storeDataArray.append(storeDataContent)
                     }
                 }
+                self.storeDataArray.reverse()
                 tableView.reloadData()
             }
         }
