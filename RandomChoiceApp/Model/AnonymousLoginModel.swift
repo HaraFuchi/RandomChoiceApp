@@ -20,8 +20,8 @@ class AnonymousLoginModel {
             }
             // 認証情報の取得
             guard let user = authResult?.user else { return }
-            let isAnonymous = user.isAnonymous  // true
-            let uid = user.uid
+            _ = user.isAnonymous  // true
+            _ = user.uid
             return
         }
     }
