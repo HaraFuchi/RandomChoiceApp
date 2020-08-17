@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
@@ -73,6 +74,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let showAlert = UIAlertController(title: "お店一覧から削除しますか？", message: "", preferredStyle: .alert)
         //選択肢を生成
         let deleteAction = UIAlertAction(title: "削除", style: .destructive, handler: { _ -> Void in
+            //処理: データをFirebase上から削除
+            let ref = Database.database().reference()
+            let uid = Auth.auth().currentUser!.uid
+            let childKey = self.crudModel.storeDataArray[indexPath.row].childID
+            ref.child(uid).child(childKey!).removeValue()
             //処理: 一覧から削除
             if editingStyle == UITableViewCell.EditingStyle.delete {
                 self.crudModel.storeDataArray.remove(at: indexPath.row)
