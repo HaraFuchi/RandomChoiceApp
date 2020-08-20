@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ランダムチョイス-->
+        <!--さいころdeごはん-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RandomChoiceViewController" customModule="RandomChoiceApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,7 +47,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ランダムチョイス" id="PVD-Q0-bJM"/>
+                    <navigationItem key="navigationItem" title="さいころdeごはん" id="PVD-Q0-bJM"/>
                     <connections>
                         <outlet property="tableView" destination="jkk-3n-UJT" id="vwT-qo-17O"/>
                         <segue destination="mwd-El-xam" kind="presentation" identifier="goToSignupVC" modalPresentationStyle="fullScreen" id="SDK-R6-oZ4"/>
@@ -229,11 +229,11 @@
             </objects>
             <point key="canvasLocation" x="1744.9275362318842" y="322.76785714285711"/>
         </scene>
-        <!--ランダムチョイス-->
+        <!--さいころdeごはん-->
         <scene sceneID="Rra-lW-lbQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="thj-08-ZTj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ランダムチョイス" image="house.fill" catalog="system" id="lcE-XT-qGa"/>
+                    <tabBarItem key="tabBarItem" title="さいころdeごはん" image="house.fill" catalog="system" id="lcE-XT-qGa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1qS-aQ-hCW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
