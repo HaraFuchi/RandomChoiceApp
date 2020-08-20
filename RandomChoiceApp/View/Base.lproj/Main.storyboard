@@ -233,7 +233,7 @@
         <scene sceneID="Rra-lW-lbQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="thj-08-ZTj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ランダムチョイス" image="asterisk.circle" catalog="system" id="lcE-XT-qGa"/>
+                    <tabBarItem key="tabBarItem" title="ランダムチョイス" image="house.fill" catalog="system" id="lcE-XT-qGa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1qS-aQ-hCW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -284,7 +284,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.99215686274509807" green="0.63932002010043265" blue="0.21853912402039641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.99215686274509807" green="0.64148084349707668" blue="0.24353128726884049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
@@ -323,7 +323,7 @@
         <segue reference="SDK-R6-oZ4"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="asterisk.circle" catalog="system" width="128" height="121"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
