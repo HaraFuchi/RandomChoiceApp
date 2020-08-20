@@ -29,12 +29,9 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
     
     //MARK: - Private
     private func randomChoiceButtonDetail() {
-        randomChoiceButton.layer.borderColor = #colorLiteral(red: 0.9937663674, green: 0.4226302207, blue: 0.362043947, alpha: 1)
-        randomChoiceButton.layer.borderWidth = 5.0
-        randomChoiceButton.layer.cornerRadius = 100
         // 影の濃さを決める
         randomChoiceButton.layer.shadowOpacity = 0.5
         // 影のサイズを決める
-        randomChoiceButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        randomChoiceButton.layer.shadowOffset = CGSize(width: 3, height: 3)
     }
 }

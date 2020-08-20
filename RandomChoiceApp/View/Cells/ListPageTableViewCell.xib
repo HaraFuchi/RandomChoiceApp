@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -60,7 +60,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.49539399150000002" green="0.78057551380000001" blue="0.6352346539" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YN8-pG-EJw" firstAttribute="top" secondItem="txe-pM-BgT" secondAttribute="top" id="1Cd-bt-hWr"/>
                             <constraint firstItem="q8R-u0-ZGt" firstAttribute="leading" secondItem="D0L-lx-30k" secondAttribute="leading" constant="8" id="EnY-v9-xBd"/>
@@ -72,6 +72,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="D0L-lx-30k" secondAttribute="bottom" id="JjR-GG-8Yv"/>
                     <constraint firstAttribute="trailing" secondItem="D0L-lx-30k" secondAttribute="trailing" constant="8" id="XR1-Zb-n79"/>
