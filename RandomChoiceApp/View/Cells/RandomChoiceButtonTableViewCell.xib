@@ -9,22 +9,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="182" id="KGk-i7-Jjw" customClass="RandomChoiceButtonTableViewCell" customModule="RandomChoiceApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="377" height="182"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="419" id="KGk-i7-Jjw" customClass="RandomChoiceButtonTableViewCell" customModule="RandomChoiceApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="451" height="419"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="377" height="182"/>
+                <rect key="frame" x="0.0" y="0.0" width="451" height="419"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVq-gW-4tI">
-                        <rect key="frame" x="127" y="32" width="123" height="123"/>
-                        <color key="backgroundColor" red="0.99376636740000002" green="0.4226302207" blue="0.36204394699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVq-gW-4tI">
+                        <rect key="frame" x="81" y="32" width="289" height="289"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="200" id="Y0h-gA-qAT"/>
                             <constraint firstAttribute="width" secondItem="nVq-gW-4tI" secondAttribute="height" multiplier="1:1" id="hS1-84-oOC"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                        <state key="normal" title="お店を決める">
+                        <state key="normal" image="さいころdeごはん&lt;仮&gt; 透明">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                         <connections>
@@ -43,7 +41,10 @@
             <connections>
                 <outlet property="randomChoiceButton" destination="nVq-gW-4tI" id="HyN-Mx-qA9"/>
             </connections>
-            <point key="canvasLocation" x="178.98550724637681" y="190.84821428571428"/>
+            <point key="canvasLocation" x="231.15942028985509" y="111.49553571428571"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="さいころdeごはん&lt;仮&gt; 透明" width="254" height="289"/>
+    </resources>
 </document>
