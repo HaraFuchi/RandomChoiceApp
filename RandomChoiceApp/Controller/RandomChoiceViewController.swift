@@ -52,7 +52,11 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
 // MARK: -protcol
 extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
     func didTapDiceButton() {
-        print("タップされた")
+        let storeDataArray = crudModel.storeDataArray
+        let element = storeDataArray.randomElement()
+        print(element?.storeName as Any)
+        print(element?.genreName as Any)
+        print(element?.placeName as Any)
     }
     
     func showNoStoreDataAlert() {
