@@ -22,7 +22,7 @@
                             <constraint firstAttribute="width" constant="200" id="Y0h-gA-qAT"/>
                             <constraint firstAttribute="width" secondItem="nVq-gW-4tI" secondAttribute="height" multiplier="1:1" id="hS1-84-oOC"/>
                         </constraints>
-                        <state key="normal" image="さいころdeごはん&lt;仮&gt; 透明">
+                        <state key="normal" image="さいころdeごはん&lt;仮&gt; 透明-1">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                         <connections>
@@ -45,6 +45,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="さいころdeごはん&lt;仮&gt; 透明" width="254" height="289"/>
+        <image name="さいころdeごはん&lt;仮&gt; 透明-1" width="254" height="289"/>
     </resources>
 </document>
