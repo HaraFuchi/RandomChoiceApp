@@ -25,7 +25,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        crudModel.fetchStoreData(tableView: tableView)
+        crudModel.fetchStoreData(tableView: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

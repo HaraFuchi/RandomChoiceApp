@@ -25,7 +25,7 @@ class StoreDataCrudModel {
         ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createInfoDict)
     }
     
-    func fetchStoreData(tableView: UITableView) {
+    func fetchStoreData(tableView: UITableView?) {
         ref.child(Auth.auth().currentUser!.uid).observe(.value) { (snapShot) in
             self.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
@@ -42,7 +42,7 @@ class StoreDataCrudModel {
                 if self.storeDataArray.isEmpty == true {
                     self.delegate?.showNoStoreDataAlert()
                 }
-                tableView.reloadData()
+                tableView?.reloadData()
             }
         }
     }
