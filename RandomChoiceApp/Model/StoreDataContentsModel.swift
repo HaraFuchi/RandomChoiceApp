@@ -13,10 +13,12 @@ class StoreDataContentsModel {
     var storeName: String?
     var placeName: String?
     var genreName: String?
+    var childID: String?
     
-    init(store: String, place: String, genre: String) {
+    init(store: String, place: String, genre: String, childID: String) {
         self.storeName = store
         self.placeName = place
         self.genreName = genre
+        self.childID = childID
     }
 }
