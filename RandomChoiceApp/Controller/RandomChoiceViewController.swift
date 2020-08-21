@@ -8,12 +8,29 @@
 
 import UIKit
 
-class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, delegate {
+    func showAlert() {
+        print("呼ばれた！！")
+        let alert = UIAlertController(title: "お店を登録しますか？", message: nil, preferredStyle: .alert)
+        let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
+//            let crudModel = StoreDataCrudModel()
+//            crudModel.createStoreInfo(store: self.storeNameString ?? "未記入", place: self.placeNameString ?? "未記入", genre: self.genreNameString ?? "未記入")
+//            self.dismiss(animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alert.addAction(signupAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    let crudModel = StoreDataCrudModel()
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        crudModel.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPagewCell")
@@ -22,6 +39,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        crudModel.fetchStoreData(tableView: tableView)
 //        let listVC = ListViewController()
         //お店の登録情報がないときにアラートが表示される
 //        if listVC.listCellArray.isEmpty {
