@@ -52,6 +52,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
 // MARK: -protcol
 extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
     func didTapDiceButton() {
+        //FIXME:データを取ってくる前にタップするとnilが帰ってくるためリファクタリングが必要
         let storeDataArray = crudModel.storeDataArray
         let element = storeDataArray.randomElement()
         print(element?.storeName as Any)
