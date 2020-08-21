@@ -34,6 +34,10 @@ class StoreDataCrudModel {
                     }
                 }
                 self.storeDataArray.reverse()
+                if self.storeDataArray.isEmpty == true {
+                    //ここで0だったら、alertを出す。
+                    print("データの中身が0だよ")
+                }
                 tableView.reloadData()
             }
         }
