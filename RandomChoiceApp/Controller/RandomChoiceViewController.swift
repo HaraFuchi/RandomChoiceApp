@@ -40,6 +40,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
         case 0:
             return storeInfoCell
         case 1:
+            buttonCell.delegate = self
             return buttonCell
         default:
             break
@@ -49,7 +50,11 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
 }
 
 // MARK: -protcol
-extension RandomChoiceViewController: StoreDataCrudModelDelegate{
+extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
+    func didTapDiceButton() {
+        print("タップされた")
+    }
+    
     func showNoStoreDataAlert() {
         let alert = UIAlertController(title: "お店がまだ登録されていません", message: "お店を登録してみよう", preferredStyle: .alert)
         let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in

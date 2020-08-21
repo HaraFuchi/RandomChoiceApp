@@ -8,13 +8,20 @@
 
 import UIKit
 
+protocol RandomChoiceButtonTableViewCellDelegate {
+    func didTapDiceButton()
+}
+
 class RandomChoiceButtonTableViewCell: UITableViewCell {
+    
+    var delegate: RandomChoiceButtonTableViewCellDelegate?
     
     //outlet
     @IBOutlet weak var randomChoiceButton: UIButton!
     
     //action
     @IBAction func touchedRandomChoiceButton(_ sender: UIButton) {
+        delegate?.didTapDiceButton()
     }
     
     override func awakeFromNib() {
