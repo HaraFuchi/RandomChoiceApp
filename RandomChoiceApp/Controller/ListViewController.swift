@@ -75,10 +75,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         //選択肢を生成
         let deleteAction = UIAlertAction(title: "削除", style: .destructive, handler: { _ -> Void in
             //処理: データをFirebase上から削除
-            let ref = Database.database().reference()
-            let uid = Auth.auth().currentUser!.uid
-            let childKey = self.crudModel.storeDataArray[indexPath.row].childID
-            ref.child(uid).child(childKey!).removeValue()
+            self.crudModel.deleteStoreInfo(indexpath: indexPath)
             //処理: 一覧から削除
             if editingStyle == UITableViewCell.EditingStyle.delete {
                 self.crudModel.storeDataArray.remove(at: indexPath.row)
