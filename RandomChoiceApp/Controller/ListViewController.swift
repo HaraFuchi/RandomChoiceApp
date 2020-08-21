@@ -99,6 +99,5 @@ extension ListViewController {
         showAlert.addAction(deleteAction)
         //UIAlertControllerの起動
         present(showAlert, animated: true, completion: nil)
-        
     }
 }
