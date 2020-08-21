@@ -9,13 +9,13 @@
 import Foundation
 import Firebase
 
-protocol delegate {
-    func showAlert()
+protocol StoreDataCrudModelDelegate {
+    func showNoStoreDataAlert()
 }
 
 class StoreDataCrudModel {
     
-    var delegate: delegate?
+    var delegate: StoreDataCrudModelDelegate?
     var storeDataArray = [StoreDataContentsModel]()
     
     let ref = Database.database().reference()
@@ -40,9 +40,7 @@ class StoreDataCrudModel {
                 }
                 self.storeDataArray.reverse()
                 if self.storeDataArray.isEmpty == true {
-                    //ここで0だったら、alertを出す。
-                    print("データの中身が0だよ")
-                    self.delegate?.showAlert()
+                    self.delegate?.showNoStoreDataAlert()
                 }
                 tableView.reloadData()
             }

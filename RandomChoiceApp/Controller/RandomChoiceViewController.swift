@@ -8,21 +8,7 @@
 
 import UIKit
 
-class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, delegate {
-    func showAlert() {
-        print("呼ばれた！！")
-        let alert = UIAlertController(title: "お店を登録しますか？", message: nil, preferredStyle: .alert)
-        let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
-//            let crudModel = StoreDataCrudModel()
-//            crudModel.createStoreInfo(store: self.storeNameString ?? "未記入", place: self.placeNameString ?? "未記入", genre: self.genreNameString ?? "未記入")
-//            self.dismiss(animated: true, completion: nil)
-        }
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
-        alert.addAction(signupAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
+class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let crudModel = StoreDataCrudModel()
     
@@ -40,18 +26,18 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         crudModel.fetchStoreData(tableView: tableView)
-//        let listVC = ListViewController()
+        //        let listVC = ListViewController()
         //お店の登録情報がないときにアラートが表示される
-//        if listVC.listCellArray.isEmpty {
-//            let alert = UIAlertController(title: "登録しているお店がありません。", message: "行ったことのあるお店を登録してみよう！", preferredStyle: .alert)
-//            let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
-//                //アラートの登録するボタンを押した後の処理
-//                //SignupVCに遷移
-//                self.performSegue(withIdentifier: "goToSignupVC", sender: nil)
-//            }
-//            alert.addAction(signupAction)
-//            present(alert, animated: true, completion: nil)
-//        }
+        //        if listVC.listCellArray.isEmpty {
+        //            let alert = UIAlertController(title: "登録しているお店がありません。", message: "行ったことのあるお店を登録してみよう！", preferredStyle: .alert)
+        //            let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
+        //                //アラートの登録するボタンを押した後の処理
+        //                //SignupVCに遷移
+        //                self.performSegue(withIdentifier: "goToSignupVC", sender: nil)
+        //            }
+        //            alert.addAction(signupAction)
+        //            present(alert, animated: true, completion: nil)
+        //        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,6 +57,18 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
             break
         }
         return UITableViewCell()
+    }
+}
+
+// MARK: -protcol
+extension RandomChoiceViewController: StoreDataCrudModelDelegate{
+    func showNoStoreDataAlert() {
+        let alert = UIAlertController(title: "お店がまだ登録されていません", message: "お店を登録してみよう", preferredStyle: .alert)
+        let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
+            self.performSegue(withIdentifier: "goToSignupVC", sender: nil)
+        }
+        alert.addAction(signupAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 
