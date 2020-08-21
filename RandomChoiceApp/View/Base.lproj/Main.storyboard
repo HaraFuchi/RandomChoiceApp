@@ -47,10 +47,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="さいころdeごはん" id="PVD-Q0-bJM"/>
+                    <navigationItem key="navigationItem" title="さいころdeごはん" id="PVD-Q0-bJM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gfK-Ri-eJc">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="mwd-El-xam" kind="presentation" modalPresentationStyle="fullScreen" id="9r5-3L-hSW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="jkk-3n-UJT" id="vwT-qo-17O"/>
-                        <segue destination="mwd-El-xam" kind="presentation" identifier="goToSignupVC" modalPresentationStyle="fullScreen" id="SDK-R6-oZ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -320,7 +326,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SDK-R6-oZ4"/>
+        <segue reference="9r5-3L-hSW"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
