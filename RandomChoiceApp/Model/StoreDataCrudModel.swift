@@ -16,9 +16,8 @@ class StoreDataCrudModel {
     let ref = Database.database().reference()
     
     func createStoreInfo(store: String, place: String, genre: String) {
-        let key = ref.child(Auth.auth().currentUser!.uid).childByAutoId().key
         let createInfoDict = ["店名":store, "場所": place, "ジャンル": genre]
-        ref.child(Auth.auth().currentUser!.uid).child(key!).setValue(createInfoDict)
+        ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createInfoDict)
     }
     
     func fetchStoreData(tableView: UITableView) {
@@ -31,7 +30,7 @@ class StoreDataCrudModel {
                         let storeName = postData["店名"]
                         let placeName = postData["場所"]
                         let genreName = postData["ジャンル"]
-                        let storeDataContent = StoreDataContentsModel(store: storeName as! String, place: placeName as! String, genre: genreName as! String, childID: childID as! String )
+                        let storeDataContent = StoreDataContentsModel(childID: childID , store: storeName as! String, place: placeName as! String, genre: genreName as! String )
                         self.storeDataArray.append(storeDataContent)
                     }
                 }
