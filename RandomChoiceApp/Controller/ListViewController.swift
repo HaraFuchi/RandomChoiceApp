@@ -12,7 +12,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let crudModel = StoreDataCrudModel()
     
-    //outlet
     @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
@@ -35,7 +34,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListPageCell", for: indexPath) as! ListPageTableViewCell
-        cell.restaurantNameLabel.text = crudModel.storeDataArray[indexPath.row].storeName
+        cell.storeNameLabel.text = crudModel.storeDataArray[indexPath.row].storeName
         cell.placeLabel.text = crudModel.storeDataArray[indexPath.row].placeName
         cell.genreLabel.text = crudModel.storeDataArray[indexPath.row].genreName
         return cell
@@ -46,7 +45,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         return true
     }
     
-    //スワイプしたセルを削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         showDeleteAlert(tableView: tableView, editingStyle: editingStyle, indexpath: indexPath)
     }
@@ -55,13 +53,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
 //MARK: - Private func
 extension ListViewController {
     private func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexpath: IndexPath) {
-        //styleをアクションシートに設定
         let showAlert = UIAlertController(title: "お店一覧から削除しますか？", message: "", preferredStyle: .alert)
-        //選択肢を生成
         let deleteAction = UIAlertAction(title: "削除", style: .destructive, handler: { _ -> Void in
-            //処理: データをFirebase上から削除
             self.crudModel.deleteStoreInfo(indexpath: indexpath)
-            //処理: 一覧から削除
             if editingStyle == UITableViewCell.EditingStyle.delete {
                 self.crudModel.storeDataArray.remove(at: indexpath.row)
                 tableView.deleteRows(at: [indexpath as IndexPath], with: UITableView.RowAnimation.automatic)
@@ -71,7 +65,6 @@ extension ListViewController {
         })
         showAlert.addAction(cancelAction)
         showAlert.addAction(deleteAction)
-        //UIAlertControllerの起動
         present(showAlert, animated: true, completion: nil)
     }
 }

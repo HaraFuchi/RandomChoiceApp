@@ -21,7 +21,6 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.view.endEditing(true)
     }
     
-    //CaseIterableを記述することでenum内の要素の個数が取得できる
     enum CategoryList: String, CaseIterable{
         case storeName = "店名"
         case placeName = "場所"
