@@ -6,12 +6,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "diceButtonImage-1.png",
+      "filename" : "diceButtonImage2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "diceButtonImage-2.png",
+      "filename" : "diceButtonImage3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
