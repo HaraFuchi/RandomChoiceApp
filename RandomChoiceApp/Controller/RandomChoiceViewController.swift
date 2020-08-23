@@ -70,7 +70,7 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
     }
     
     func showNoStoreDataAlert() {
-        let alert = UIAlertController(title: "お店がまだ登録されていません", message: "お店を登録してみよう", preferredStyle: .alert)
+        let alert = UIAlertController(title: "よく行くお店を登録しよう", message: "お店がまだ登録されていません", preferredStyle: .alert)
         let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
             self.performSegue(withIdentifier: "goToSignupVC", sender: nil)
         }
