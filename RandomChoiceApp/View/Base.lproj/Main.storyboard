@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -63,7 +63,7 @@
             </objects>
             <point key="canvasLocation" x="1792.753623188406" y="-323.4375"/>
         </scene>
-        <!--新規登録-->
+        <!--お店を登録-->
         <scene sceneID="tzO-Rg-ghT">
             <objects>
                 <viewController id="Ko3-W4-qBb" customClass="SignupViewController" customModule="さいころdeごはん" customModuleProvider="target" sceneMemberID="viewController">
@@ -108,7 +108,7 @@
                             <outletCollection property="gestureRecognizers" destination="GIo-PE-7Oc" appends="YES" id="STY-yw-t8x"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="新規登録" id="Vrd-Il-g7B"/>
+                    <navigationItem key="navigationItem" title="お店を登録" id="Vrd-Il-g7B"/>
                     <connections>
                         <outlet property="tableView" destination="wOl-Ww-3SB" id="dU1-24-Yy8"/>
                     </connections>
