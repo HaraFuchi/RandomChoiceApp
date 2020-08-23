@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -130,55 +130,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmM-Od-4GE">
-                                <rect key="frame" x="0.0" y="88" width="414" height="48"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfK-KW-GIW">
-                                        <rect key="frame" x="302" y="12" width="32" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="32" id="uGh-Yf-JzR"/>
-                                            <constraint firstAttribute="width" secondItem="hfK-KW-GIW" secondAttribute="height" multiplier="1:1" id="yTQ-TG-ItV"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="magnifyingglass" catalog="system"/>
-                                        <connections>
-                                            <action selector="touchedSearchButton:" destination="2Gj-wH-W6X" eventType="touchUpInside" id="FJf-6d-WMW"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CT-Wp-L7E">
-                                        <rect key="frame" x="342" y="12" width="64" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="1CT-Wp-L7E" secondAttribute="height" multiplier="2:1" id="azh-FJ-GK0"/>
-                                            <constraint firstAttribute="width" constant="64" id="nbA-z4-NiF"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="並び替え" image="slider.horizontal.3" catalog="system">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="touchedSortButton:" destination="2Gj-wH-W6X" eventType="touchUpInside" id="fHI-vs-QRJ"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="店名, 場所, ジャンル" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eea-tU-DHn">
-                                        <rect key="frame" x="8" y="8" width="294" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="hfK-KW-GIW" firstAttribute="centerY" secondItem="eea-tU-DHn" secondAttribute="centerY" id="7Gh-Xt-yWG"/>
-                                    <constraint firstItem="1CT-Wp-L7E" firstAttribute="centerY" secondItem="hfK-KW-GIW" secondAttribute="centerY" id="91E-Yb-sZz"/>
-                                    <constraint firstItem="1CT-Wp-L7E" firstAttribute="leading" secondItem="hfK-KW-GIW" secondAttribute="trailing" constant="8" id="FBn-Gx-Dtl"/>
-                                    <constraint firstAttribute="height" constant="48" id="OS6-fh-hVE"/>
-                                    <constraint firstAttribute="bottom" secondItem="eea-tU-DHn" secondAttribute="bottom" id="ax9-W3-4PB"/>
-                                    <constraint firstItem="hfK-KW-GIW" firstAttribute="leading" secondItem="eea-tU-DHn" secondAttribute="trailing" id="ceA-hd-NWz"/>
-                                    <constraint firstItem="eea-tU-DHn" firstAttribute="top" secondItem="cmM-Od-4GE" secondAttribute="top" constant="8" id="feN-bn-Hcq"/>
-                                    <constraint firstItem="eea-tU-DHn" firstAttribute="leading" secondItem="cmM-Od-4GE" secondAttribute="leading" constant="8" id="jRw-2B-49O"/>
-                                    <constraint firstAttribute="trailing" secondItem="1CT-Wp-L7E" secondAttribute="trailing" constant="8" id="wac-ae-DMU"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uRH-rC-F8z">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -198,11 +149,8 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="uRH-rC-F8z" firstAttribute="leading" secondItem="Zd9-G8-Ovq" secondAttribute="leading" id="4HX-nk-Iq3"/>
-                            <constraint firstItem="Zd9-G8-Ovq" firstAttribute="trailing" secondItem="cmM-Od-4GE" secondAttribute="trailing" id="MCF-YC-F75"/>
                             <constraint firstItem="uRH-rC-F8z" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" id="Y0k-hp-rxB"/>
                             <constraint firstItem="uRH-rC-F8z" firstAttribute="bottom" secondItem="Zd9-G8-Ovq" secondAttribute="bottom" id="bVe-gg-cJ8"/>
-                            <constraint firstItem="cmM-Od-4GE" firstAttribute="leading" secondItem="Zd9-G8-Ovq" secondAttribute="leading" id="iEz-uX-lGL"/>
-                            <constraint firstItem="cmM-Od-4GE" firstAttribute="top" secondItem="Zd9-G8-Ovq" secondAttribute="top" id="kVx-SA-S4v"/>
                             <constraint firstItem="uRH-rC-F8z" firstAttribute="trailing" secondItem="Zd9-G8-Ovq" secondAttribute="trailing" id="rVH-Ae-Tbw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zd9-G8-Ovq"/>
@@ -219,19 +167,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchButton" destination="hfK-KW-GIW" id="PjS-Y0-ZrC"/>
-                        <outlet property="searchTextField" destination="eea-tU-DHn" id="McB-yl-X2x"/>
                         <outlet property="signupVCBarButtonItem" destination="ByB-uY-6Oi" id="Rco-wp-xTj"/>
-                        <outlet property="sortItemBottun" destination="1CT-Wp-L7E" id="1Rb-8e-Mp6"/>
                         <outlet property="tableView" destination="uRH-rC-F8z" id="WfN-if-rhi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ruu-Jv-01a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="3Ni-bv-ZQJ">
-                    <connections>
-                        <action selector="touchedScreenRecognizer:" destination="2Gj-wH-W6X" id="i1h-4C-U6c"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="3Ni-bv-ZQJ"/>
             </objects>
             <point key="canvasLocation" x="1744.9275362318842" y="322.76785714285711"/>
         </scene>
@@ -326,12 +267,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9r5-3L-hSW"/>
+        <segue reference="Qgw-0k-o0S"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
     </resources>
 </document>
