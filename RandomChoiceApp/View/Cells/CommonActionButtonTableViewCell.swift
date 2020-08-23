@@ -17,11 +17,9 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     
     var delegate: CommonActionButtonTableViewCellDelegate?
     
-    //outlet
     @IBOutlet weak var singupButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
-    //action
     @IBAction func touchedSignupButton(_ sender: UIButton) {
         delegate?.signupStoreInfoButton()
     }
@@ -31,7 +29,6 @@ class CommonActionButtonTableViewCell: UITableViewCell {
    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .none
         setupButtons()
     }
 
@@ -41,6 +38,7 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     
     // MARK: - Private
     private func setupButtons(){
+        self.selectionStyle = .none
         singupButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         singupButton.layer.borderWidth = 1.0
         singupButton.layer.cornerRadius = 28.0

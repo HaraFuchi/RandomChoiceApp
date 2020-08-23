@@ -36,15 +36,15 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let storeInfoCell = tableView.dequeueReusableCell(withIdentifier: "ListPagewCell") as! ListPageTableViewCell
+        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: "ListPagewCell") as! ListPageTableViewCell
         let buttonCell = tableView.dequeueReusableCell(withIdentifier: "RandomChoiceButtonCell") as! RandomChoiceButtonTableViewCell
         
         switch indexPath.row {
         case 0:
-            storeInfoCell.restaurantNameLabel.text = resultStoreName
-            storeInfoCell.placeLabel.text = resultPlaceName
-            storeInfoCell.genreLabel.text = resultGenreName
-            return storeInfoCell
+            storeDataCell.storeNameLabel.text = resultStoreName
+            storeDataCell.placeLabel.text = resultPlaceName
+            storeDataCell.genreLabel.text = resultGenreName
+            return storeDataCell
         case 1:
             buttonCell.delegate = self
             return buttonCell

@@ -39,10 +39,10 @@ class StoreDataCrudModel {
                         self.storeDataArray.append(storeDataContent)
                     }
                 }
-                self.storeDataArray.reverse()
                 if self.storeDataArray.isEmpty == true {
                     self.delegate?.showNoStoreDataAlert()
                 }
+                self.storeDataArray.reverse()
                 tableView?.reloadData()
             }
         }

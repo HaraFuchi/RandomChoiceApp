@@ -16,17 +16,14 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
     
     var delegate: RandomChoiceButtonTableViewCellDelegate?
     
-    //outlet
     @IBOutlet weak var randomChoiceButton: UIButton!
     
-    //action
     @IBAction func touchedRandomChoiceButton(_ sender: UIButton) {
         delegate?.didTapDiceButton()
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .none
         randomChoiceButtonDetail()
     }
     
@@ -36,9 +33,8 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
     
     //MARK: - Private
     private func randomChoiceButtonDetail() {
-        // 影の濃さを決める
+        self.selectionStyle = .none
         randomChoiceButton.layer.shadowOpacity = 0.5
-        // 影のサイズを決める
         randomChoiceButton.layer.shadowOffset = CGSize(width: 3, height: 3)
     }
 }
