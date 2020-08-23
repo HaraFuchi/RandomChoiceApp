@@ -10,31 +10,22 @@ import UIKit
 
 class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let crudModel = StoreDataCrudModel()
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        crudModel.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPagewCell")
-        tableView.register(UINib(nibName: "SelectConditionsTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectConditionsCell")
         tableView.register(UINib(nibName: "RandomChoiceButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "RandomChoiceButtonCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        let listVC = ListViewController()
-        //お店の登録情報がないときにアラートが表示される
-//        if listVC.listCellArray.isEmpty {
-//            let alert = UIAlertController(title: "登録しているお店がありません。", message: "行ったことのあるお店を登録してみよう！", preferredStyle: .alert)
-//            let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
-//                //アラートの登録するボタンを押した後の処理
-//                //SignupVCに遷移
-//                self.performSegue(withIdentifier: "goToSignupVC", sender: nil)
-//            }
-//            alert.addAction(signupAction)
-//            present(alert, animated: true, completion: nil)
-//        }
+        crudModel.fetchStoreData(tableView: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,11 +40,33 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
         case 0:
             return storeInfoCell
         case 1:
+            buttonCell.delegate = self
             return buttonCell
         default:
             break
         }
         return UITableViewCell()
+    }
+}
+
+// MARK: -protcol
+extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
+    func didTapDiceButton() {
+        //FIXME:データを取ってくる前にタップするとnilが帰ってくるためリファクタリングが必要
+        let storeDataArray = crudModel.storeDataArray
+        let element = storeDataArray.randomElement()
+        print(element?.storeName as Any)
+        print(element?.genreName as Any)
+        print(element?.placeName as Any)
+    }
+    
+    func showNoStoreDataAlert() {
+        let alert = UIAlertController(title: "お店がまだ登録されていません", message: "お店を登録してみよう", preferredStyle: .alert)
+        let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
+            self.performSegue(withIdentifier: "goToSignupVC", sender: nil)
+        }
+        alert.addAction(signupAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 

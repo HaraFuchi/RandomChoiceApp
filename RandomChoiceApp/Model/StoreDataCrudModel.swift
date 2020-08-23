@@ -9,8 +9,13 @@
 import Foundation
 import Firebase
 
+protocol StoreDataCrudModelDelegate {
+    func showNoStoreDataAlert()
+}
+
 class StoreDataCrudModel {
     
+    var delegate: StoreDataCrudModelDelegate?
     var storeDataArray = [StoreDataContentsModel]()
     
     let ref = Database.database().reference()
@@ -21,7 +26,7 @@ class StoreDataCrudModel {
         ref.child(Auth.auth().currentUser!.uid).child(key!).setValue(createInfoDict)
     }
     
-    func fetchStoreData(tableView: UITableView) {
+    func fetchStoreData(tableView: UITableView?) {
         ref.child(Auth.auth().currentUser!.uid).observe(.value) { (snapShot) in
             self.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
@@ -36,7 +41,10 @@ class StoreDataCrudModel {
                     }
                 }
                 self.storeDataArray.reverse()
-                tableView.reloadData()
+                if self.storeDataArray.isEmpty == true {
+                    self.delegate?.showNoStoreDataAlert()
+                }
+                tableView?.reloadData()
             }
         }
     }
