@@ -69,8 +69,6 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
         tableView.reloadData()
     }
     
-    
-    
     func showNoStoreDataAlert() {
         let alert = UIAlertController(title: "お店がまだ登録されていません", message: "お店を登録してみよう", preferredStyle: .alert)
         let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
