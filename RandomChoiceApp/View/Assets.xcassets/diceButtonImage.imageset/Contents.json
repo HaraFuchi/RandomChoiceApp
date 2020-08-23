@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "さいころdeごはん<仮> 透明.png",
+      "filename" : "diceButtonImage.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "diceButtonImage-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "diceButtonImage-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
