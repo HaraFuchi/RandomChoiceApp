@@ -26,9 +26,6 @@ class ListPageTableViewCell: UITableViewCell {
     }
     //MARK: - Private
     private func setupDetailCell(){
-        restaurantNameLabel.text = "???"
-        placeLabel.text = "???"
-        genreLabel.text = "???"
         backgroungBaseView.layer.cornerRadius = 8
     }
 }
