@@ -11,6 +11,9 @@ import UIKit
 class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let crudModel = StoreDataCrudModel()
+    var resultStoreName = "???"
+    var resultPlaceName = "???"
+    var resultGenreName = "???"
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -38,6 +41,9 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
         
         switch indexPath.row {
         case 0:
+            storeInfoCell.restaurantNameLabel.text = resultStoreName
+            storeInfoCell.placeLabel.text = resultPlaceName
+            storeInfoCell.genreLabel.text = resultGenreName
             return storeInfoCell
         case 1:
             buttonCell.delegate = self
@@ -55,10 +61,15 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
         //FIXME:データを取ってくる前にタップするとnilが帰ってくるためリファクタリングが必要
         let storeDataArray = crudModel.storeDataArray
         let element = storeDataArray.randomElement()
-        print(element?.storeName as Any)
-        print(element?.genreName as Any)
-        print(element?.placeName as Any)
+        
+        resultStoreName = (element?.storeName ?? "???") as String
+        resultPlaceName = (element?.placeName ?? "???") as String
+        resultGenreName = (element?.genreName ?? "???") as String
+        
+        tableView.reloadData()
     }
+    
+    
     
     func showNoStoreDataAlert() {
         let alert = UIAlertController(title: "お店がまだ登録されていません", message: "お店を登録してみよう", preferredStyle: .alert)
