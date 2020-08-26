@@ -26,7 +26,7 @@ class StoreDataCrudModel {
     }
     
     func fetchStoreData(tableView: UITableView?) {
-        ref.child(Auth.auth().currentUser!.uid).observe(.value) { (snapShot) in
+        ref.child(Auth.auth().currentUser?.uid ?? "uid").observe(.value) { (snapShot) in
             self.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
                 for snap in snapShot {
