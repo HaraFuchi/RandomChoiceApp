@@ -58,11 +58,10 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
 // MARK: -protcol
 extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
     func didTapDiceButton() {
-        //FIXME:データを取ってくる前にタップするとnilが帰ってくるためリファクタリングが必要
         let storeDataArray = crudModel.storeDataArray
         if storeDataArray.isEmpty == true {
-            print("登録情報がnilだよ")
-            print("まだ情報がとってこれてないよ")
+            //FIXME:アラートではなく、さいころのプロパティを変えるのが理想
+            showErrorAlert()
         } else {
             let element = storeDataArray.randomElement()
             resultStoreName = (element?.storeName ?? "???") as String
@@ -78,6 +77,13 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
             self.performSegue(withIdentifier: "goToSignupVC", sender: nil)
         }
         alert.addAction(signupAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showErrorAlert() {
+        let alert = UIAlertController(title: "もう一度さいころを押してください", message: nil, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
 }
