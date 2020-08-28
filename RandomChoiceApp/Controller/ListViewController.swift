@@ -65,8 +65,7 @@ extension ListViewController {
                 tableView.deleteRows(at: [indexpath as IndexPath], with: UITableView.RowAnimation.automatic)
             }
         })
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: { _ -> Void in
-        })
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         showAlert.addAction(cancelAction)
         showAlert.addAction(deleteAction)
         present(showAlert, animated: true, completion: nil)
