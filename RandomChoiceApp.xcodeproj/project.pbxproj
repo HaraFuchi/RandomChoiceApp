@@ -3,27 +3,59 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78064BCCB19484E70510B8E7 /* Pods_RandomChoiceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009E936E1D45001D6DCD36B /* Pods_RandomChoiceApp.framework */; };
+		C5194F9924E085A40050DE18 /* StoreDataCrudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5194F9824E085A40050DE18 /* StoreDataCrudModel.swift */; };
+		C5194F9B24E174D60050DE18 /* StoreDataContentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5194F9A24E174D60050DE18 /* StoreDataContentsModel.swift */; };
+		C548E98524C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */; };
+		C548E98624C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */; };
+		C5780BB124C4997A0007972D /* SignupCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */; };
+		C5780BB224C4997A0007972D /* SignupCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */; };
+		C59B1DDF24E9FD5E0060C622 /* AnonymousLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B1DDE24E9FD5E0060C622 /* AnonymousLoginModel.swift */; };
 		E354B6AF24C42E8E00759289 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354B6AE24C42E8E00759289 /* AppDelegate.swift */; };
 		E354B6B124C42E8E00759289 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354B6B024C42E8E00759289 /* SceneDelegate.swift */; };
-		E354B6B324C42E8E00759289 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354B6B224C42E8E00759289 /* ViewController.swift */; };
+		E354B6B324C42E8E00759289 /* RandomChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354B6B224C42E8E00759289 /* RandomChoiceViewController.swift */; };
 		E354B6B624C42E8E00759289 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E354B6B424C42E8E00759289 /* Main.storyboard */; };
 		E354B6B824C42E9400759289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E354B6B724C42E9400759289 /* Assets.xcassets */; };
 		E354B6BB24C42E9400759289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E354B6B924C42E9400759289 /* LaunchScreen.storyboard */; };
+		E3955A3524C4682F0028FD67 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A3424C4682F0028FD67 /* ListViewController.swift */; };
+		E3955A3724C468590028FD67 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A3624C468590028FD67 /* SignupViewController.swift */; };
+		E3955A3A24C5635C0028FD67 /* ListPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */; };
+		E3955A3B24C5635C0028FD67 /* ListPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */; };
+		E3955A4224C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A4024C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift */; };
+		E3955A4324C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3955A4124C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib */; };
+		E3D7A6BD24CDF0CB005B3249 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3D7A6BC24CDF0CB005B3249 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E354B6AB24C42E8E00759289 /* RandomChoiceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomChoiceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3009E936E1D45001D6DCD36B /* Pods_RandomChoiceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomChoiceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60B974E3F6D0AD7408FF8D9C /* Pods-RandomChoiceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomChoiceApp.release.xcconfig"; path = "Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp.release.xcconfig"; sourceTree = "<group>"; };
+		C5194F9824E085A40050DE18 /* StoreDataCrudModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDataCrudModel.swift; sourceTree = "<group>"; };
+		C5194F9A24E174D60050DE18 /* StoreDataContentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataContentsModel.swift; sourceTree = "<group>"; };
+		C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonActionButtonTableViewCell.swift; sourceTree = "<group>"; };
+		C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonActionButtonTableViewCell.xib; sourceTree = "<group>"; };
+		C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupCategoryTableViewCell.xib; sourceTree = "<group>"; };
+		C59B1DDE24E9FD5E0060C622 /* AnonymousLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousLoginModel.swift; sourceTree = "<group>"; };
+		D53F25C5FFD3771D4FEDB82B /* Pods-RandomChoiceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomChoiceApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E354B6AB24C42E8E00759289 /* さいころdeごはん.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "さいころdeごはん.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E354B6AE24C42E8E00759289 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E354B6B024C42E8E00759289 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E354B6B224C42E8E00759289 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E354B6B224C42E8E00759289 /* RandomChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomChoiceViewController.swift; sourceTree = "<group>"; };
 		E354B6B524C42E8E00759289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E354B6B724C42E9400759289 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E354B6BA24C42E9400759289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E354B6BC24C42E9400759289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3955A3424C4682F0028FD67 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		E3955A3624C468590028FD67 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPageTableViewCell.swift; sourceTree = "<group>"; };
+		E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListPageTableViewCell.xib; sourceTree = "<group>"; };
+		E3955A4024C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomChoiceButtonTableViewCell.swift; sourceTree = "<group>"; };
+		E3955A4124C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RandomChoiceButtonTableViewCell.xib; sourceTree = "<group>"; };
+		E3D7A6BC24CDF0CB005B3249 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,24 +63,82 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78064BCCB19484E70510B8E7 /* Pods_RandomChoiceApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C2EC87DC680A439137D46EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D53F25C5FFD3771D4FEDB82B /* Pods-RandomChoiceApp.debug.xcconfig */,
+				60B974E3F6D0AD7408FF8D9C /* Pods-RandomChoiceApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		62D854F43F6BE4327B542DA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3009E936E1D45001D6DCD36B /* Pods_RandomChoiceApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C548E98724C69C68008685D7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */,
+				E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */,
+				E3955A4024C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift */,
+				E3955A4124C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib */,
+				C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */,
+				C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */,
+				C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */,
+				C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C5780BAA24C46B000007972D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E354B6AE24C42E8E00759289 /* AppDelegate.swift */,
+				E354B6B024C42E8E00759289 /* SceneDelegate.swift */,
+				E354B6B224C42E8E00759289 /* RandomChoiceViewController.swift */,
+				E3955A3424C4682F0028FD67 /* ListViewController.swift */,
+				E3955A3624C468590028FD67 /* SignupViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C5780BAB24C46B030007972D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E354B6B924C42E9400759289 /* LaunchScreen.storyboard */,
+				E354B6B424C42E8E00759289 /* Main.storyboard */,
+				E354B6B724C42E9400759289 /* Assets.xcassets */,
+				C548E98724C69C68008685D7 /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E354B6A224C42E8E00759289 = {
 			isa = PBXGroup;
 			children = (
 				E354B6AD24C42E8E00759289 /* RandomChoiceApp */,
 				E354B6AC24C42E8E00759289 /* Products */,
+				2C2EC87DC680A439137D46EF /* Pods */,
+				62D854F43F6BE4327B542DA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		E354B6AC24C42E8E00759289 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E354B6AB24C42E8E00759289 /* RandomChoiceApp.app */,
+				E354B6AB24C42E8E00759289 /* さいころdeごはん.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +146,23 @@
 		E354B6AD24C42E8E00759289 /* RandomChoiceApp */ = {
 			isa = PBXGroup;
 			children = (
-				E354B6AE24C42E8E00759289 /* AppDelegate.swift */,
-				E354B6B024C42E8E00759289 /* SceneDelegate.swift */,
-				E354B6B224C42E8E00759289 /* ViewController.swift */,
-				E354B6B424C42E8E00759289 /* Main.storyboard */,
-				E354B6B724C42E9400759289 /* Assets.xcassets */,
-				E354B6B924C42E9400759289 /* LaunchScreen.storyboard */,
+				E3D7A6BB24CADC25005B3249 /* Model */,
+				C5780BAB24C46B030007972D /* View */,
+				C5780BAA24C46B000007972D /* Controller */,
 				E354B6BC24C42E9400759289 /* Info.plist */,
+				E3D7A6BC24CDF0CB005B3249 /* GoogleService-Info.plist */,
 			);
 			path = RandomChoiceApp;
+			sourceTree = "<group>";
+		};
+		E3D7A6BB24CADC25005B3249 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C5194F9824E085A40050DE18 /* StoreDataCrudModel.swift */,
+				C5194F9A24E174D60050DE18 /* StoreDataContentsModel.swift */,
+				C59B1DDE24E9FD5E0060C622 /* AnonymousLoginModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +172,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E354B6BF24C42E9400759289 /* Build configuration list for PBXNativeTarget "RandomChoiceApp" */;
 			buildPhases = (
+				A339018F3D4B7E87BF5113FA /* [CP] Check Pods Manifest.lock */,
 				E354B6A724C42E8E00759289 /* Sources */,
 				E354B6A824C42E8E00759289 /* Frameworks */,
 				E354B6A924C42E8E00759289 /* Resources */,
+				857793EA5F1197B0C5B7C2F4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -84,7 +184,7 @@
 			);
 			name = RandomChoiceApp;
 			productName = RandomChoiceApp;
-			productReference = E354B6AB24C42E8E00759289 /* RandomChoiceApp.app */;
+			productReference = E354B6AB24C42E8E00759289 /* さいころdeごはん.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -125,22 +225,78 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3D7A6BD24CDF0CB005B3249 /* GoogleService-Info.plist in Resources */,
 				E354B6BB24C42E9400759289 /* LaunchScreen.storyboard in Resources */,
 				E354B6B824C42E9400759289 /* Assets.xcassets in Resources */,
+				C548E98624C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib in Resources */,
+				E3955A3B24C5635C0028FD67 /* ListPageTableViewCell.xib in Resources */,
 				E354B6B624C42E8E00759289 /* Main.storyboard in Resources */,
+				C5780BB224C4997A0007972D /* SignupCategoryTableViewCell.xib in Resources */,
+				E3955A4324C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		857793EA5F1197B0C5B7C2F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A339018F3D4B7E87BF5113FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RandomChoiceApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E354B6A724C42E8E00759289 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E354B6B324C42E8E00759289 /* ViewController.swift in Sources */,
+				C5194F9924E085A40050DE18 /* StoreDataCrudModel.swift in Sources */,
+				E354B6B324C42E8E00759289 /* RandomChoiceViewController.swift in Sources */,
 				E354B6AF24C42E8E00759289 /* AppDelegate.swift in Sources */,
+				E3955A3724C468590028FD67 /* SignupViewController.swift in Sources */,
+				C5194F9B24E174D60050DE18 /* StoreDataContentsModel.swift in Sources */,
+				E3955A3524C4682F0028FD67 /* ListViewController.swift in Sources */,
 				E354B6B124C42E8E00759289 /* SceneDelegate.swift in Sources */,
+				E3955A4224C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift in Sources */,
+				C5780BB124C4997A0007972D /* SignupCategoryTableViewCell.swift in Sources */,
+				C548E98524C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift in Sources */,
+				E3955A3A24C5635C0028FD67 /* ListPageTableViewCell.swift in Sources */,
+				C59B1DDF24E9FD5E0060C622 /* AnonymousLoginModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -282,17 +438,19 @@
 		};
 		E354B6C024C42E9400759289 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D53F25C5FFD3771D4FEDB82B /* Pods-RandomChoiceApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZRKTMPU2W3;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 737XJB84YA;
 				INFOPLIST_FILE = RandomChoiceApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hara.RandomChoiceApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.harafuchi.RandomChoiceApp;
+				PRODUCT_NAME = "さいころdeごはん";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -300,17 +458,19 @@
 		};
 		E354B6C124C42E9400759289 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60B974E3F6D0AD7408FF8D9C /* Pods-RandomChoiceApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZRKTMPU2W3;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 737XJB84YA;
 				INFOPLIST_FILE = RandomChoiceApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hara.RandomChoiceApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.harafuchi.RandomChoiceApp;
+				PRODUCT_NAME = "さいころdeごはん";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
