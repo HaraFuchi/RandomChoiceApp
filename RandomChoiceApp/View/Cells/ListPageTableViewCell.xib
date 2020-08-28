@@ -63,6 +63,9 @@
                                 <rect key="frame" x="361" y="25" width="24" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="info.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="touchedEditButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nDG-po-QAS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

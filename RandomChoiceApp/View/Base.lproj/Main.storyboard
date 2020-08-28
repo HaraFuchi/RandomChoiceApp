@@ -160,7 +160,7 @@
                     <connections>
                         <outlet property="signupVCBarButtonItem" destination="ByB-uY-6Oi" id="Rco-wp-xTj"/>
                         <outlet property="tableView" destination="uRH-rC-F8z" id="WfN-if-rhi"/>
-                        <segue destination="wrO-ny-Iyd" kind="presentation" modalPresentationStyle="fullScreen" id="0mZ-25-Hr0"/>
+                        <segue destination="wrO-ny-Iyd" kind="presentation" identifier="goToEditVC" modalPresentationStyle="fullScreen" id="0mZ-25-Hr0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ruu-Jv-01a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
