@@ -60,13 +60,16 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
     func didTapDiceButton() {
         //FIXME:データを取ってくる前にタップするとnilが帰ってくるためリファクタリングが必要
         let storeDataArray = crudModel.storeDataArray
-        let element = storeDataArray.randomElement()
-        
-        resultStoreName = (element?.storeName ?? "???") as String
-        resultPlaceName = (element?.placeName ?? "???") as String
-        resultGenreName = (element?.genreName ?? "???") as String
-        
-        tableView.reloadData()
+        if storeDataArray.isEmpty == true {
+            print("登録情報がnilだよ")
+            print("まだ情報がとってこれてないよ")
+        } else {
+            let element = storeDataArray.randomElement()
+            resultStoreName = (element?.storeName ?? "???") as String
+            resultPlaceName = (element?.placeName ?? "???") as String
+            resultGenreName = (element?.genreName ?? "???") as String
+            tableView.reloadData()
+        }
     }
     
     func showNoStoreDataAlert() {
