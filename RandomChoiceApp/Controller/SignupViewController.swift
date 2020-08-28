@@ -106,6 +106,9 @@ extension SignupViewController {
     private func showSignupAlert() {
         let alert = UIAlertController(title: "お店を登録しますか？", message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
+            if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
+                print("何もTFに記入されてないよ")
+            }
             let crudModel = StoreDataCrudModel()
             crudModel.createStoreInfo(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
             self.dismiss(animated: true, completion: nil)
