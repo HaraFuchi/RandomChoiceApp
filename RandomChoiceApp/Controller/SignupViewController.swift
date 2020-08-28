@@ -107,14 +107,23 @@ extension SignupViewController {
         let alert = UIAlertController(title: "お店を登録しますか？", message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
             if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
-                print("何もTFに記入されてないよ")
+                self.showAllNoTextField()
+            } else {
+                let crudModel = StoreDataCrudModel()
+                crudModel.createStoreInfo(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
+                self.dismiss(animated: true, completion: nil)
             }
-            let crudModel = StoreDataCrudModel()
-            crudModel.createStoreInfo(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
-            self.dismiss(animated: true, completion: nil)
+            
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         alert.addAction(signupAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showAllNoTextField() {
+        let alert = UIAlertController(title: "全て空欄です", message: "空欄に記入してください", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
