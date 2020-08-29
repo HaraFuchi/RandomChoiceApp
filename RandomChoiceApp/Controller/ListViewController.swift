@@ -50,22 +50,22 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return "削除"
+        return AlertButtonLiteral.delete
     }
 }
 
 //MARK: - Private func
 extension ListViewController {
     private func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexpath: IndexPath) {
-        let showAlert = UIAlertController(title: "お店一覧から削除しますか？", message: "", preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "削除", style: .destructive, handler: { _ -> Void in
+        let showAlert = UIAlertController(title: AlertTitleLiteral.delete, message: nil, preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: AlertButtonLiteral.delete, style: .destructive, handler: { _ -> Void in
             self.crudModel.deleteStoreInfo(indexpath: indexpath)
             if editingStyle == UITableViewCell.EditingStyle.delete {
                 self.crudModel.storeDataArray.remove(at: indexpath.row)
                 tableView.deleteRows(at: [indexpath as IndexPath], with: UITableView.RowAnimation.automatic)
             }
         })
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: { _ -> Void in
+        let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: { _ -> Void in
         })
         showAlert.addAction(cancelAction)
         showAlert.addAction(deleteAction)
