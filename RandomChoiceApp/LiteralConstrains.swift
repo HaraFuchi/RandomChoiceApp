@@ -8,6 +8,12 @@
 
 import Foundation
 
+struct StoreDataLiteral {
+    static let store = "店名"
+    static let place = "場所"
+    static let genre = "ジャンル"
+}
+
 struct AlertTitleLiteral {
     static let allTextEmpty = "全て空欄です"
     static let signUp_1 = "よく行くお店を登録しよう"
