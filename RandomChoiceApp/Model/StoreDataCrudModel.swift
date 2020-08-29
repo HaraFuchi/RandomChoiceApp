@@ -48,8 +48,8 @@ class StoreDataCrudModel {
         }
     }
     
-    func deleteStoreInfo(indexpath: IndexPath) {
-        let childKey = storeDataArray[indexpath.row].childID
+    func deleteStoreInfo(indexPath: IndexPath) {
+        let childKey = storeDataArray[indexPath.row].childID
         ref.child(Auth.auth().currentUser!.uid).child(childKey!).removeValue()
     }
 }
