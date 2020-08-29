@@ -28,7 +28,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         var CategoryPlaceHolderList: String {
             switch self {
-            case .storeName: return "例)サイゼリア"
+            case .storeName: return "例)サイゼリヤ"
             case .placeName: return "例)新宿"
             case .genreName: return "例)イタリアン"
             }
