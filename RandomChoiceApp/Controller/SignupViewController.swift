@@ -108,7 +108,7 @@ extension SignupViewController {
         let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
             self.textConvertNil()
             if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
-                self.showAllNoTextField()
+                self.showAlertAllNilTextField()
             } else {
                 let crudModel = StoreDataCrudModel()
                 crudModel.createStoreInfo(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
@@ -122,7 +122,7 @@ extension SignupViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    private func showAllNoTextField() {
+    private func showAlertAllNilTextField() {
         let alert = UIAlertController(title: "全て空欄です", message: "空欄に記入してください", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
