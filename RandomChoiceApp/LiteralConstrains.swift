@@ -14,6 +14,10 @@ struct StoreDataLiteral {
     static let genre = "ジャンル"
 }
 
+struct LiteralQuestions {
+    static let questions = "???"
+}
+
 struct AlertTitleLiteral {
     static let allTextEmpty = "全て空欄です"
     static let signUp_1 = "よく行くお店を登録しよう"

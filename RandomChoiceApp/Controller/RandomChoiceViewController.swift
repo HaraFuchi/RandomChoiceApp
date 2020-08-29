@@ -11,9 +11,9 @@ import UIKit
 class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let crudModel = StoreDataCrudModel()
-    var resultStoreName = "???"
-    var resultPlaceName = "???"
-    var resultGenreName = "???"
+    var resultStoreName = LiteralQuestions.questions
+    var resultPlaceName = LiteralQuestions.questions
+    var resultGenreName = LiteralQuestions.questions
     
     @IBOutlet weak var tableView: UITableView!
     
