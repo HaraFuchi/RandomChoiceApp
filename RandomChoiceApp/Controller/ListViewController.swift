@@ -46,7 +46,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        showDeleteAlert(tableView: tableView, editingStyle: editingStyle, indexpath: indexPath)
+        showDeleteAlert(tableView: tableView, editingStyle: editingStyle, indexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
@@ -61,8 +61,8 @@ extension ListViewController {
         let deleteAction = UIAlertAction(title: AlertButtonLiteral.delete, style: .destructive, handler: { _ -> Void in
             self.crudModel.deleteStoreInfo(indexpath: indexpath)
             if editingStyle == UITableViewCell.EditingStyle.delete {
-                self.crudModel.storeDataArray.remove(at: indexpath.row)
-                tableView.deleteRows(at: [indexpath as IndexPath], with: UITableView.RowAnimation.automatic)
+                self.crudModel.storeDataArray.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
             }
         })
         let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: { _ -> Void in

@@ -22,7 +22,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
         crudModel.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPagewCell")
+        tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPageViewCell")
         tableView.register(UINib(nibName: "RandomChoiceButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "RandomChoiceButtonCell")
     }
     
@@ -36,7 +36,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: "ListPagewCell") as! ListPageTableViewCell
+        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: "ListPageViewCell") as! ListPageTableViewCell
         let buttonCell = tableView.dequeueReusableCell(withIdentifier: "RandomChoiceButtonCell") as! RandomChoiceButtonTableViewCell
         
         switch indexPath.row {
@@ -55,7 +55,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     }
 }
 
-// MARK: -protcol
+// MARK: -protocol
 extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
     func didTapDiceButton() {
         //FIXME:データを取ってくる前にタップするとnilが帰ってくるためリファクタリングが必要

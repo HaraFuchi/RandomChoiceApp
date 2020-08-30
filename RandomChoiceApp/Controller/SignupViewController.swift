@@ -28,7 +28,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         var CategoryPlaceHolderList: String {
             switch self {
-            case .storeName: return "例)サイゼリア"
+            case .storeName: return "例)サイゼリヤ"
             case .placeName: return "例)新宿"
             case .genreName: return "例)イタリアン"
             }
@@ -39,9 +39,9 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        let sinupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
+        let signupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
         let signupAndCancelButtonCell = UINib(nibName: "CommonActionButtonTableViewCell", bundle: nil)
-        tableView.register(sinupCategoryNib, forCellReuseIdentifier: "SignupCell")
+        tableView.register(signupCategoryNib, forCellReuseIdentifier: "SignupCell")
         tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: "ActionButtonCell")
     }
     
@@ -53,7 +53,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: "SignupCell", for: indexPath) as! SignupCategoryTableViewCell
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: "ActionButtonCell", for: indexPath) as! CommonActionButtonTableViewCell
         
-        categoryCell.delegete = self
+        categoryCell.delegate = self
         
         switch indexPath.row {
         case 0:
@@ -81,7 +81,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 }
 
-// MARK: -Protcol
+// MARK: -Protocol
 extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupCategoryTableViewCellDelegate{
     func fetchCategoryNameText(textField: UITextField, indexNumber: Int) {
         switch indexNumber {
@@ -108,7 +108,7 @@ extension SignupViewController {
             .signUp_2, message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonLiteral.signUp, style: .default) { _ in
             if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
-                self.showAllNoTextField()
+                self.showAlertAllNilTextField()
             } else {
                 let crudModel = StoreDataCrudModel()
                 crudModel.createStoreInfo(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
@@ -128,5 +128,19 @@ extension SignupViewController {
         let cancelAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    //TFが""の場合Cellのレイアウトが崩れるため、nilを返す
+    //nilの場合は「???」が返されレイアウトは崩れない
+    private func textConvertNil() {
+        if storeNameString == "" {
+            storeNameString = nil
+        }
+        if placeNameString == "" {
+            placeNameString = nil
+        }
+        if genreNameString == "" {
+            genreNameString = nil
+        }
     }
 }
