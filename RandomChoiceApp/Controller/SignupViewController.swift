@@ -122,7 +122,7 @@ extension SignupViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    private func showAllNoTextField() {
+    private func showAlertAllNilTextField() {
         let alert = UIAlertController(title: AlertTitleLiteral.allTextEmpty, message: AlertMessageLiteral
             .allTextEmpty, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .cancel, handler: nil)
