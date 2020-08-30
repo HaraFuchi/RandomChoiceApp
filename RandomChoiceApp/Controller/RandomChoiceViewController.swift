@@ -48,8 +48,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
         case 1:
             buttonCell.delegate = self
             return buttonCell
-        default:
-            break
+        default: break
         }
         return UITableViewCell()
     }

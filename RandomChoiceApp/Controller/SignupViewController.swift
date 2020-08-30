@@ -74,8 +74,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 3:
             signupAndCancelButtonCell.delegate = self
             return signupAndCancelButtonCell
-        default:
-            break
+        default: break
         }
         return UITableViewCell()
     }
@@ -101,7 +100,7 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
     }
 }
 
-// MARK: -Private func
+// MARK: -Private Method
 extension SignupViewController {
     private func showSignupAlert() {
         let alert = UIAlertController(title: AlertTitleLiteral
