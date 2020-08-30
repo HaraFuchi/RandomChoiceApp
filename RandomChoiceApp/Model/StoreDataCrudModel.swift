@@ -21,7 +21,7 @@ class StoreDataCrudModel {
     let ref = Database.database().reference()
     
     func createStoreInfo(store: String, place: String, genre: String) {
-        let createInfoDict = ["店名":store, "場所": place, "ジャンル": genre]
+        let createInfoDict = [StoreDataLiteral.store: store, StoreDataLiteral.place: place, StoreDataLiteral.genre: genre]
         ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createInfoDict)
     }
     
@@ -32,9 +32,9 @@ class StoreDataCrudModel {
                 for snap in snapShot {
                     if let postData = snap.value as? [String: Any] {
                         let childID = snap.key
-                        let storeName = postData["店名"]
-                        let placeName = postData["場所"]
-                        let genreName = postData["ジャンル"]
+                        let storeName = postData[StoreDataLiteral.store]
+                        let placeName = postData[StoreDataLiteral.place]
+                        let genreName = postData[StoreDataLiteral.genre]
                         let storeDataContent = StoreDataContentsModel(childID: childID , store: storeName as! String, place: placeName as! String, genre: genreName as! String )
                         self.storeDataArray.append(storeDataContent)
                     }

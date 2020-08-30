@@ -104,9 +104,9 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
 // MARK: -Private func
 extension SignupViewController {
     private func showSignupAlert() {
-        let alert = UIAlertController(title: "お店を登録しますか？", message: nil, preferredStyle: .alert)
-        let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
-            self.textConvertNil()
+        let alert = UIAlertController(title: AlertTitleLiteral
+            .signUp_2, message: nil, preferredStyle: .alert)
+        let signupAction = UIAlertAction(title: AlertButtonLiteral.signUp, style: .default) { _ in
             if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
                 self.showAlertAllNilTextField()
             } else {
@@ -116,15 +116,16 @@ extension SignupViewController {
             }
             
         }
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
         alert.addAction(signupAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
     
-    private func showAlertAllNilTextField() {
-        let alert = UIAlertController(title: "全て空欄です", message: "空欄に記入してください", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+    private func showAllNoTextField() {
+        let alert = UIAlertController(title: AlertTitleLiteral.allTextEmpty, message: AlertMessageLiteral
+            .allTextEmpty, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
