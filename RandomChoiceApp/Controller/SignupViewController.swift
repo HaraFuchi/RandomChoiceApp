@@ -106,6 +106,7 @@ extension SignupViewController {
         let alert = UIAlertController(title: AlertTitleLiteral
             .signUp_2, message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonLiteral.signUp, style: .default) { _ in
+            self.textConvertNil()
             if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
                 self.showAlertAllNilTextField()
             } else {
