@@ -106,8 +106,9 @@ extension SignupViewController {
     private func showSignupAlert() {
         let alert = UIAlertController(title: "お店を登録しますか？", message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
+            self.textConvertNil()
             if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
-                self.showAllNoTextField()
+                self.showAlertAllNilTextField()
             } else {
                 let crudModel = StoreDataCrudModel()
                 crudModel.createStoreInfo(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
@@ -121,10 +122,24 @@ extension SignupViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    private func showAllNoTextField() {
+    private func showAlertAllNilTextField() {
         let alert = UIAlertController(title: "全て空欄です", message: "空欄に記入してください", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    //TFが""の場合Cellのレイアウトが崩れるため、nilを返す
+    //nilの場合は「???」が返されレイアウトは崩れない
+    private func textConvertNil() {
+        if storeNameString == "" {
+            storeNameString = nil
+        }
+        if placeNameString == "" {
+            placeNameString = nil
+        }
+        if genreNameString == "" {
+            genreNameString = nil
+        }
     }
 }
