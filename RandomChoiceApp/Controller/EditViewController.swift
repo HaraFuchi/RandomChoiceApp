@@ -62,9 +62,20 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return categoryCell
         case 3:
             signupAndCancelButtonCell.singupButton.setTitle("編集を保存", for: .normal)
+            signupAndCancelButtonCell.delegate = self
             return signupAndCancelButtonCell
         default: break
         }
         return UITableViewCell()
+    }
+}
+
+//MARK: - Protocol
+extension EditViewController: CommonActionButtonTableViewCellDelegate {
+    func cancelButton() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func signupStoreInfoButton() {
     }
 }
