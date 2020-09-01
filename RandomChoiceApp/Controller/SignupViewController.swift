@@ -73,6 +73,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return categoryCell
         case 3:
             signupAndCancelButtonCell.delegate = self
+            signupAndCancelButtonCell.signUpButton.setTitle(ButtonTittle.signUp, for: .normal)
             return signupAndCancelButtonCell
         default: break
         }

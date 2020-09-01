@@ -39,6 +39,7 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     // MARK: - Private
     private func setupButtons(){
         self.selectionStyle = .none
+        cancelButton.setTitle(ButtonTittle.cancel, for: .normal)
         signUpButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         signUpButton.layer.borderWidth = 1.0
         signUpButton.layer.cornerRadius = 28.0
