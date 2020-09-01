@@ -61,8 +61,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             categoryCell.IndexPathNumber = indexPath.row
             return categoryCell
         case 3:
-            signupAndCancelButtonCell.singupButton.setTitle("編集を保存", for: .normal)
             signupAndCancelButtonCell.delegate = self
+            signupAndCancelButtonCell.signUpButton.setTitle(ButtonTittle.saveEdit, for: .normal)
             return signupAndCancelButtonCell
         default: break
         }

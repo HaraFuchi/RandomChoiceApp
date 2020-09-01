@@ -36,3 +36,9 @@ struct AlertButtonLiteral {
     static let cancel = "キャンセル"
     static let delete = "削除"
 }
+
+struct ButtonTittle {
+    static let signUp = "お店を登録"
+    static let saveEdit = "編集を保存"
+    static let cancel = "キャンセル"
+}
