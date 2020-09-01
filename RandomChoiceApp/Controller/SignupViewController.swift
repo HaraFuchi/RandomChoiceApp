@@ -74,8 +74,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 3:
             signupAndCancelButtonCell.delegate = self
             return signupAndCancelButtonCell
-        default:
-            break
+        default: break
         }
         return UITableViewCell()
     }
@@ -101,12 +100,13 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
     }
 }
 
-// MARK: -Private func
+// MARK: -Private Method
 extension SignupViewController {
     private func showSignupAlert() {
         let alert = UIAlertController(title: AlertTitleLiteral
             .signUp_2, message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonLiteral.signUp, style: .default) { _ in
+            self.textConvertNil()
             if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
                 self.showAlertAllNilTextField()
             } else {
@@ -122,7 +122,7 @@ extension SignupViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    private func showAllNoTextField() {
+    private func showAlertAllNilTextField() {
         let alert = UIAlertController(title: AlertTitleLiteral.allTextEmpty, message: AlertMessageLiteral
             .allTextEmpty, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .cancel, handler: nil)

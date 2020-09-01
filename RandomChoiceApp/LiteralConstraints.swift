@@ -19,10 +19,10 @@ struct LiteralQuestions {
 }
 
 struct AlertTitleLiteral {
-    static let allTextEmpty = "全て空欄です"
     static let signUp_1 = "よく行くお店を登録しよう"
     static let signUp_2 = "お店を登録しますか？"
     static let delete = "お店一覧から削除しますか？"
+    static let allTextEmpty = "全て空欄です"
 }
 
 struct AlertMessageLiteral {
@@ -31,8 +31,8 @@ struct AlertMessageLiteral {
 }
 
 struct AlertButtonLiteral {
-    static let OK = "OK"
     static let signUp = "登録する"
+    static let OK = "OK"
     static let cancel = "キャンセル"
     static let delete = "削除"
 }
