@@ -44,6 +44,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: "SignupCell", for: indexPath) as! SignupCategoryTableViewCell
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: "ActionButtonCell", for: indexPath) as! CommonActionButtonTableViewCell
         
+        
+        
         switch indexPath.row {
         case 0:
             categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
@@ -61,6 +63,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             categoryCell.IndexPathNumber = indexPath.row
             return categoryCell
         case 3:
+            signupAndCancelButtonCell.singupButton.setTitle("編集を保存", for: .normal)
             return signupAndCancelButtonCell
         default:
             break
