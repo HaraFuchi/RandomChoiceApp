@@ -63,8 +63,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 3:
             signupAndCancelButtonCell.singupButton.setTitle("編集を保存", for: .normal)
             return signupAndCancelButtonCell
-        default:
-            break
+        default: break
         }
         return UITableViewCell()
     }

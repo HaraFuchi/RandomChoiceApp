@@ -70,9 +70,7 @@ extension ListViewController {
     }
 }
 //MARK: - protocol
-
 extension ListViewController: ListPageTableViewCellDelegate {
-    
     func didTapEditButton() {
         performSegue(withIdentifier: "goToEditVC", sender: nil)
     }
