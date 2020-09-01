@@ -34,6 +34,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListPageCell", for: indexPath) as! ListPageTableViewCell
+        cell.delegate = self
         cell.storeNameLabel.text = crudModel.storeDataArray[indexPath.row].storeName
         cell.placeLabel.text = crudModel.storeDataArray[indexPath.row].placeName
         cell.genreLabel.text = crudModel.storeDataArray[indexPath.row].genreName
@@ -69,5 +70,11 @@ extension ListViewController {
         showAlert.addAction(cancelAction)
         showAlert.addAction(deleteAction)
         present(showAlert, animated: true, completion: nil)
+    }
+}
+//MARK: - protocol
+extension ListViewController: ListPageTableViewCellDelegate {
+    func didTapEditButton() {
+        performSegue(withIdentifier: "goToEditVC", sender: nil)
     }
 }

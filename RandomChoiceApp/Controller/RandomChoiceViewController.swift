@@ -44,6 +44,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
             storeDataCell.storeNameLabel.text = resultStoreName
             storeDataCell.placeLabel.text = resultPlaceName
             storeDataCell.genreLabel.text = resultGenreName
+            storeDataCell.editButton.isHidden = true
             return storeDataCell
         case 1:
             buttonCell.delegate = self

@@ -59,6 +59,15 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDa-Z1-jzR">
+                                <rect key="frame" x="361" y="25" width="24" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button" image="info.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="touchedEditButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nDG-po-QAS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -82,6 +91,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="editButton" destination="xDa-Z1-jzR" id="oBc-jz-f33"/>
                 <outlet property="BGBaseView" destination="D0L-lx-30k" id="cOG-P1-fOd"/>
                 <outlet property="genreLabel" destination="a6q-Xg-ll1" id="FRk-SY-gdk"/>
                 <outlet property="placeLabel" destination="koF-dk-dch" id="mn4-Om-QH5"/>
@@ -90,4 +100,7 @@
             <point key="canvasLocation" x="139.13043478260872" y="140.95982142857142"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

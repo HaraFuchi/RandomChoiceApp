@@ -8,12 +8,23 @@
 
 import UIKit
 
+protocol ListPageTableViewCellDelegate {
+    func didTapEditButton()
+}
+
 class ListPageTableViewCell: UITableViewCell {
+    
+    var delegate: ListPageTableViewCellDelegate?
     
     @IBOutlet weak var BGBaseView: UIView!
     @IBOutlet weak var storeNameLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var editButton: UIButton!
+    
+    @IBAction func touchedEditButton(_ sender: UIButton) {
+        delegate?.didTapEditButton()
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +34,7 @@ class ListPageTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
     //MARK: - Private
     private func setupDetailCell(){
         self.selectionStyle = .none
