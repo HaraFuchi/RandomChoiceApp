@@ -47,23 +47,26 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        showDeleteAlert(tableView: tableView, editingStyle: editingStyle, indexpath: indexPath)
+        showDeleteAlert(tableView: tableView, editingStyle: editingStyle, indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return AlertButtonLiteral.delete
     }
 }
 
-//MARK: - Private func
+//MARK: - Private Method
 extension ListViewController {
-    private func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexpath: IndexPath) {
-        let showAlert = UIAlertController(title: "お店一覧から削除しますか？", message: "", preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "削除", style: .destructive, handler: { _ -> Void in
-            self.crudModel.deleteStoreInfo(indexpath: indexpath)
+    private func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
+        let showAlert = UIAlertController(title: AlertTitleLiteral.delete, message: nil, preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: AlertButtonLiteral.delete, style: .destructive, handler: { _ -> Void in
+            self.crudModel.deleteStoreInfo(indexPath: indexPath)
             if editingStyle == UITableViewCell.EditingStyle.delete {
-                self.crudModel.storeDataArray.remove(at: indexpath.row)
-                tableView.deleteRows(at: [indexpath as IndexPath], with: UITableView.RowAnimation.automatic)
+                self.crudModel.storeDataArray.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
             }
         })
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: { _ -> Void in
-        })
+        let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
         showAlert.addAction(cancelAction)
         showAlert.addAction(deleteAction)
         present(showAlert, animated: true, completion: nil)

@@ -11,9 +11,9 @@ import UIKit
 class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let crudModel = StoreDataCrudModel()
-    var resultStoreName = "???"
-    var resultPlaceName = "???"
-    var resultGenreName = "???"
+    var resultStoreName = LiteralQuestions.questions
+    var resultPlaceName = LiteralQuestions.questions
+    var resultGenreName = LiteralQuestions.questions
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,7 +22,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
         crudModel.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPagewCell")
+        tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPageViewCell")
         tableView.register(UINib(nibName: "RandomChoiceButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "RandomChoiceButtonCell")
     }
     
@@ -36,7 +36,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: "ListPagewCell") as! ListPageTableViewCell
+        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: "ListPageViewCell") as! ListPageTableViewCell
         let buttonCell = tableView.dequeueReusableCell(withIdentifier: "RandomChoiceButtonCell") as! RandomChoiceButtonTableViewCell
         
         switch indexPath.row {
@@ -49,14 +49,13 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
         case 1:
             buttonCell.delegate = self
             return buttonCell
-        default:
-            break
+        default: break
         }
         return UITableViewCell()
     }
 }
 
-// MARK: -protcol
+// MARK: -protocol
 extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
     func didTapDiceButton() {
         //FIXME:データを取ってくる前にタップするとnilが帰ってくるためリファクタリングが必要
@@ -71,8 +70,8 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
     }
     
     func showNoStoreDataAlert() {
-        let alert = UIAlertController(title: "よく行くお店を登録しよう", message: "お店がまだ登録されていません", preferredStyle: .alert)
-        let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
+        let alert = UIAlertController(title: AlertTitleLiteral.signUp_1, message: AlertMessageLiteral.signUp, preferredStyle: .alert)
+        let signupAction = UIAlertAction(title: AlertButtonLiteral.signUp, style: .default) { _ in
             self.performSegue(withIdentifier: "goToSignupVC", sender: nil)
         }
         alert.addAction(signupAction)

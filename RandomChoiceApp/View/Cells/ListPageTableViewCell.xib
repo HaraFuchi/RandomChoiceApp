@@ -91,8 +91,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="backgroungBaseView" destination="D0L-lx-30k" id="pGg-R0-s1p"/>
                 <outlet property="editButton" destination="xDa-Z1-jzR" id="oBc-jz-f33"/>
+                <outlet property="BGBaseView" destination="D0L-lx-30k" id="cOG-P1-fOd"/>
                 <outlet property="genreLabel" destination="a6q-Xg-ll1" id="FRk-SY-gdk"/>
                 <outlet property="placeLabel" destination="koF-dk-dch" id="mn4-Om-QH5"/>
                 <outlet property="storeNameLabel" destination="q8R-u0-ZGt" id="xfv-07-Au2"/>

@@ -16,7 +16,7 @@ class ListPageTableViewCell: UITableViewCell {
     
     var delegate: ListPageTableViewCellDelegate?
     
-    @IBOutlet weak var backgroungBaseView: UIView!
+    @IBOutlet weak var BGBaseView: UIView!
     @IBOutlet weak var storeNameLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
@@ -38,6 +38,6 @@ class ListPageTableViewCell: UITableViewCell {
     //MARK: - Private
     private func setupDetailCell(){
         self.selectionStyle = .none
-        backgroungBaseView.layer.cornerRadius = 8
+        BGBaseView.layer.cornerRadius = 8
     }
 }

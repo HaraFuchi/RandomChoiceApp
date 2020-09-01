@@ -28,7 +28,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         var CategoryPlaceHolderList: String {
             switch self {
-            case .storeName: return "例)サイゼリア"
+            case .storeName: return "例)サイゼリヤ"
             case .placeName: return "例)新宿"
             case .genreName: return "例)イタリアン"
             }
@@ -39,9 +39,9 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        let sinupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
+        let signupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
         let signupAndCancelButtonCell = UINib(nibName: "CommonActionButtonTableViewCell", bundle: nil)
-        tableView.register(sinupCategoryNib, forCellReuseIdentifier: "SignupCell")
+        tableView.register(signupCategoryNib, forCellReuseIdentifier: "SignupCell")
         tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: "ActionButtonCell")
     }
     
@@ -53,7 +53,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: "SignupCell", for: indexPath) as! SignupCategoryTableViewCell
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: "ActionButtonCell", for: indexPath) as! CommonActionButtonTableViewCell
         
-        categoryCell.delegete = self
+        categoryCell.delegate = self
         
         switch indexPath.row {
         case 0:
@@ -74,14 +74,13 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 3:
             signupAndCancelButtonCell.delegate = self
             return signupAndCancelButtonCell
-        default:
-            break
+        default: break
         }
         return UITableViewCell()
     }
 }
 
-// MARK: -Protcol
+// MARK: -Protocol
 extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupCategoryTableViewCellDelegate{
     func fetchCategoryNameText(textField: UITextField, indexNumber: Int) {
         switch indexNumber {
@@ -101,18 +100,47 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
     }
 }
 
-// MARK: -Private func
+// MARK: -Private Method
 extension SignupViewController {
     private func showSignupAlert() {
-        let alert = UIAlertController(title: "お店を登録しますか？", message: nil, preferredStyle: .alert)
-        let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
-            let crudModel = StoreDataCrudModel()
-            crudModel.createStoreInfo(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
-            self.dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(title: AlertTitleLiteral
+            .signUp_2, message: nil, preferredStyle: .alert)
+        let signupAction = UIAlertAction(title: AlertButtonLiteral.signUp, style: .default) { _ in
+            self.textConvertNil()
+            if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
+                self.showAlertAllNilTextField()
+            } else {
+                let crudModel = StoreDataCrudModel()
+                crudModel.createStoreInfo(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
+                self.dismiss(animated: true, completion: nil)
+            }
+            
         }
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
         alert.addAction(signupAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func showAlertAllNilTextField() {
+        let alert = UIAlertController(title: AlertTitleLiteral.allTextEmpty, message: AlertMessageLiteral
+            .allTextEmpty, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    //TFが""の場合Cellのレイアウトが崩れるため、nilを返す
+    //nilの場合は「???」が返されレイアウトは崩れない
+    private func textConvertNil() {
+        if storeNameString == "" {
+            storeNameString = nil
+        }
+        if placeNameString == "" {
+            placeNameString = nil
+        }
+        if genreNameString == "" {
+            genreNameString = nil
+        }
     }
 }
