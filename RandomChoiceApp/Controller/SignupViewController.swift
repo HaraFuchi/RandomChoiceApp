@@ -15,6 +15,8 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var placeNameString: String?
     var genreNameString: String?
     
+    var isHiddenCancelButton: Bool = false
+    
     @IBOutlet var tableView: UITableView!
     
     @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
@@ -73,6 +75,8 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return categoryCell
         case 3:
             signupAndCancelButtonCell.delegate = self
+            //値の受け渡しでtrueを持ってこれるようにしたい
+            signupAndCancelButtonCell.cancelButton.isHidden = isHiddenCancelButton
             signupAndCancelButtonCell.signUpButton.setTitle(ButtonTittle.signUp, for: .normal)
             return signupAndCancelButtonCell
         default: break
