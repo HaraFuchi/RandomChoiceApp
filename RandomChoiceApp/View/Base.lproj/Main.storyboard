@@ -51,7 +51,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gfK-Ri-eJc">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="mwd-El-xam" kind="presentation" identifier="goToSignupVC" modalPresentationStyle="fullScreen" id="9r5-3L-hSW"/>
+                                <segue destination="Ko3-W4-qBb" kind="presentation" identifier="goToSignupVC" modalPresentationStyle="fullScreen" id="aci-31-F6H"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -72,7 +72,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wOl-Ww-3SB">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="4px-Dz-mLs" customClass="SignupCategoryTableViewCell" customModule="さいころdeごはん" customModuleProvider="target">
@@ -111,7 +111,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3319" y="-10"/>
+            <point key="canvasLocation" x="2558" y="-10"/>
         </scene>
         <!--お店一覧-->
         <scene sceneID="CZ2-es-7US">
@@ -153,7 +153,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ByB-uY-6Oi">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="mwd-El-xam" kind="presentation" identifier="goToSignupVC" modalPresentationStyle="fullScreen" id="Qgw-0k-o0S"/>
+                                <segue destination="Ko3-W4-qBb" kind="presentation" identifier="goToSignupVC" modalPresentationStyle="fullScreen" id="oRq-p8-Jtt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -272,28 +272,6 @@
             <point key="canvasLocation" x="354" y="-10"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="eLW-oe-6bd">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mwd-El-xam" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TL7-eX-4dz">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.99376636740000002" green="0.4226302207" blue="0.36204394699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Ko3-W4-qBb" kind="relationship" relationship="rootViewController" id="Eow-h1-Sdr"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8PM-b8-B7K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2559" y="-10"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="NrS-Em-xA2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wrO-ny-Iyd" sceneMemberID="viewController">
@@ -317,7 +295,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Qgw-0k-o0S"/>
+        <segue reference="oRq-p8-Jtt"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
