@@ -80,9 +80,9 @@ extension EditViewController {
     private func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        let sinupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
+        let singUpCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
         let signupAndCancelButtonCell = UINib(nibName: "CommonActionButtonTableViewCell", bundle: nil)
-        tableView.register(sinupCategoryNib, forCellReuseIdentifier: "SignupCell")
+        tableView.register(singUpCategoryNib, forCellReuseIdentifier: "SignupCell")
         tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: "ActionButtonCell")
     }
 }
