@@ -18,6 +18,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var isHiddenCancelButton: Bool = false
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
@@ -41,11 +42,14 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        navigationBar.delegate = self
         let signupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
         let signupAndCancelButtonCell = UINib(nibName: "CommonActionButtonTableViewCell", bundle: nil)
         tableView.register(signupCategoryNib, forCellReuseIdentifier: "SignupCell")
         tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: "ActionButtonCell")
     }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CategoryList.allCases.count + 1 //1は登録ボタン(CommonActionButtonTableViewCell)の分
@@ -147,5 +151,13 @@ extension SignupViewController {
         if genreNameString == "" {
             genreNameString = nil
         }
+    }
+}
+
+//MARK: - UINavigationBarDelegate
+extension SignupViewController: UINavigationBarDelegate {
+    
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
 }
