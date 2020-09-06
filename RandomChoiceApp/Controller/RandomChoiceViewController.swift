@@ -31,15 +31,6 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
         crudModel.fetchStoreData(tableView: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToSignupVC" {
-            let signupVC = segue.destination as! SignupViewController
-            if crudModel.storeDataArray.isEmpty == true {
-                signupVC.isHiddenCancelButton = true
-            }
-        }
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -85,6 +76,15 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
         }
         alert.addAction(signupAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSignupVC" {
+            let signupVC = segue.destination as! SignupViewController
+            if crudModel.storeDataArray.isEmpty == true {
+                signupVC.isHiddenCancelButton = true
+            }
+        }
     }
 }
 

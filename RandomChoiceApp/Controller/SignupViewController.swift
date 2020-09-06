@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
     
     //登録する内容の値を保持
     var storeNameString: String?
@@ -19,6 +19,11 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    //UINavigationBarをステータスバーまで広げる
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
     
     @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
@@ -49,8 +54,6 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: "ActionButtonCell")
     }
     
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CategoryList.allCases.count + 1 //1は登録ボタン(CommonActionButtonTableViewCell)の分
     }
@@ -79,7 +82,6 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return categoryCell
         case 3:
             signupAndCancelButtonCell.delegate = self
-            //値の受け渡しでtrueを持ってこれるようにしたい
             signupAndCancelButtonCell.cancelButton.isHidden = isHiddenCancelButton
             signupAndCancelButtonCell.signUpButton.setTitle(ButtonTittle.signUp, for: .normal)
             return signupAndCancelButtonCell
@@ -151,13 +153,5 @@ extension SignupViewController {
         if genreNameString == "" {
             genreNameString = nil
         }
-    }
-}
-
-//MARK: - UINavigationBarDelegate
-extension SignupViewController: UINavigationBarDelegate {
-    //UINavigationBarをステータスバーまで広げる
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
     }
 }
