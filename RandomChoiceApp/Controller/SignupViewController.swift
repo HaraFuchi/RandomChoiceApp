@@ -63,17 +63,17 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         case 0:
             categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.storeName.CategoryPlaceHolderList
-            categoryCell.IndexPathNumber = indexPath.row
+            categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 1:
             categoryCell.categoryLabel.text = CategoryList.placeName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.placeName.CategoryPlaceHolderList
-            categoryCell.IndexPathNumber = indexPath.row
+            categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 2:
             categoryCell.categoryLabel.text = CategoryList.genreName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.genreName.CategoryPlaceHolderList
-            categoryCell.IndexPathNumber = indexPath.row
+            categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 3:
             signupAndCancelButtonCell.delegate = self
