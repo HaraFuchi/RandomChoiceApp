@@ -61,11 +61,8 @@ extension ListViewController: ListPageTableViewCellDelegate {
         if segue.identifier == "goToEditVC" {
             let editVC = segue.destination as! EditViewController
             if let indexPath = indexPathNumber {
-                print("お店")
                 editVC.editStoreName = crudModel.storeDataArray[indexPath].storeName
-                print("場所")
                 editVC.editPlaceName = crudModel.storeDataArray[indexPath].placeName
-                print("ジャンル")
                 editVC.editGenreName = crudModel.storeDataArray[indexPath].genreName
             }
         }

@@ -51,6 +51,8 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: "SignupCell", for: indexPath) as! SignupCategoryTableViewCell
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: "ActionButtonCell", for: indexPath) as! CommonActionButtonTableViewCell
         
+        textConvertNil()
+        
         switch indexPath.row {
         case 0:
             categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
@@ -95,5 +97,18 @@ extension EditViewController {
         let signupAndCancelButtonCell = UINib(nibName: "CommonActionButtonTableViewCell", bundle: nil)
         tableView.register(singUpCategoryNib, forCellReuseIdentifier: "SignupCell")
         tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: "ActionButtonCell")
+    }
+    
+    //TFに???を反映させる必要はないため、nilを返す
+    private func textConvertNil() {
+        if editStoreName == "???" {
+            editStoreName = nil
+        }
+        if editPlaceName == "???" {
+            editPlaceName = nil
+        }
+        if editGenreName == "???" {
+            editGenreName = nil
+        }
     }
 }
