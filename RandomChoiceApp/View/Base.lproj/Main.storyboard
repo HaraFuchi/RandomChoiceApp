@@ -190,16 +190,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YDJ-Y9-BrQ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YDJ-Y9-BrQ">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="106" id="ae7-9x-bcE">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="106"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ae7-9x-bcE" id="0H8-oT-NPy">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="106"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -207,6 +206,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="bottom" secondItem="I3Z-qq-FnY" secondAttribute="bottom" id="0IM-Xx-CsZ"/>
+                            <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="top" secondItem="I3Z-qq-FnY" secondAttribute="top" id="HC6-Ox-u1r"/>
+                            <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="trailing" secondItem="I3Z-qq-FnY" secondAttribute="trailing" id="TFv-7N-FCi"/>
+                            <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="leading" secondItem="I3Z-qq-FnY" secondAttribute="leading" id="kPe-PP-zh0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="I3Z-qq-FnY"/>
                     </view>
                     <navigationItem key="navigationItem" title="お店を編集" id="oSW-b7-cEn"/>
@@ -216,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWU-lD-dMX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3318.840579710145" y="650.89285714285711"/>
+            <point key="canvasLocation" x="3317.5999999999999" y="650.2463054187192"/>
         </scene>
         <!--さいころdeごはん-->
         <scene sceneID="Rra-lW-lbQ">
