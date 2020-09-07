@@ -8,14 +8,22 @@
 
 import UIKit
 
-class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
     
     //登録する内容の値を保持
     var storeNameString: String?
     var placeNameString: String?
     var genreNameString: String?
     
+    var isHiddenCancelButton: Bool = false
+    
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    //UINavigationBarをステータスバーまで広げる
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
     
     @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
@@ -68,6 +76,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return categoryCell
         case 3:
             signupAndCancelButtonCell.delegate = self
+            signupAndCancelButtonCell.cancelButton.isHidden = isHiddenCancelButton
             signupAndCancelButtonCell.signUpButton.setTitle(ButtonTittle.signUp, for: .normal)
             return signupAndCancelButtonCell
         default: break
