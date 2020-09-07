@@ -52,6 +52,13 @@ extension ListViewController: ListPageTableViewCellDelegate {
     func didTapEditButton() {
         performSegue(withIdentifier: "goToEditVC", sender: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToEditVC" {
+            let editVC = segue.destination as! EditViewController
+            
+        }
+    }
 }
 
 //MARK: - Method

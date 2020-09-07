@@ -13,6 +13,11 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
+    //TFに入れる値を所持
+    var editStoreName: String?
+    var editPlaceName: String?
+    var editGenreName: String?
+    
     //UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
