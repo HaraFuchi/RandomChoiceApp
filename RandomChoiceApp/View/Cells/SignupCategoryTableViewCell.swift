@@ -15,7 +15,7 @@ protocol SignupCategoryTableViewCellDelegate {
 class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     var delegate: SignupCategoryTableViewCellDelegate?
-    var indexPathNumber:Int?//登録画面で繰り返しすCellを分別する変数
+    var indexPathNumber:Int?//登録画面で繰り返すCellを分別する変数
     
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var categoryTextField: UITextField!
