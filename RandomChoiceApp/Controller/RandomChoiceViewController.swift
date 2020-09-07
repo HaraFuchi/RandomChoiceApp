@@ -20,10 +20,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         crudModel.delegate = self
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPageViewCell")
-        tableView.register(UINib(nibName: "RandomChoiceButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "RandomChoiceButtonCell")
+        setUpTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +52,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     }
 }
 
-// MARK: -protocol
+// MARK: -Protocol
 extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
     func didTapDiceButton() {
         //FIXME:データを取ってくる前にタップするとnilが帰ってくるためリファクタリングが必要
@@ -85,6 +82,16 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
                 signupVC.isHiddenCancelButton = true
             }
         }
+    }
+}
+
+// MARK: -Method
+extension RandomChoiceViewController {
+    private func setUpTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPageViewCell")
+        tableView.register(UINib(nibName: "RandomChoiceButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "RandomChoiceButtonCell")
     }
 }
 

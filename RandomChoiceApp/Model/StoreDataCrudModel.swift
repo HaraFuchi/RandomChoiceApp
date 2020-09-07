@@ -39,9 +39,7 @@ class StoreDataCrudModel {
                         self.storeDataArray.append(storeDataContent)
                     }
                 }
-                if self.storeDataArray.isEmpty == true {
-                    self.delegate?.showNoStoreDataAlert()
-                }
+                self.showAlertIfNoStoreData()
                 self.storeDataArray.reverse()
                 tableView?.reloadData()
             }
@@ -51,5 +49,12 @@ class StoreDataCrudModel {
     func deleteStoreInfo(indexPath: IndexPath) {
         let childKey = storeDataArray[indexPath.row].childID
         ref.child(Auth.auth().currentUser!.uid).child(childKey!).removeValue()
+    }
+    
+    // MARK: - Method
+    private func showAlertIfNoStoreData() {
+        if self.storeDataArray.isEmpty == true {
+            self.delegate?.showNoStoreDataAlert()
+        }
     }
 }

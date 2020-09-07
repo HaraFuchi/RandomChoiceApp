@@ -17,10 +17,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        let listPageNib = UINib(nibName: "ListPageTableViewCell", bundle: nil)
-        tableView.register(listPageNib, forCellReuseIdentifier: "ListPageCell")
+        setUpTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,8 +52,22 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 }
 
-//MARK: - Private Method
+//MARK: - protocol
+extension ListViewController: ListPageTableViewCellDelegate {
+    func didTapEditButton() {
+        performSegue(withIdentifier: "goToEditVC", sender: nil)
+    }
+}
+
+//MARK: - Method
 extension ListViewController {
+    private func setUpTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        let listPageNib = UINib(nibName: "ListPageTableViewCell", bundle: nil)
+        tableView.register(listPageNib, forCellReuseIdentifier: "ListPageCell")
+    }
+    
     private func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
         let showAlert = UIAlertController(title: AlertTitleLiteral.delete, message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: AlertButtonLiteral.delete, style: .destructive, handler: { _ -> Void in
@@ -70,11 +81,5 @@ extension ListViewController {
         showAlert.addAction(cancelAction)
         showAlert.addAction(deleteAction)
         present(showAlert, animated: true, completion: nil)
-    }
-}
-//MARK: - protocol
-extension ListViewController: ListPageTableViewCellDelegate {
-    func didTapEditButton() {
-        performSegue(withIdentifier: "goToEditVC", sender: nil)
     }
 }

@@ -45,13 +45,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        navigationBar.delegate = self
-        let signupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
-        let signupAndCancelButtonCell = UINib(nibName: "CommonActionButtonTableViewCell", bundle: nil)
-        tableView.register(signupCategoryNib, forCellReuseIdentifier: "SignupCell")
-        tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: "ActionButtonCell")
+        setUpTableView()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -111,8 +105,17 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
     }
 }
 
-// MARK: -Private Method
+// MARK: - Method
 extension SignupViewController {
+    private func setUpTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        let signupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
+        let signupAndCancelButtonCell = UINib(nibName: "CommonActionButtonTableViewCell", bundle: nil)
+        tableView.register(signupCategoryNib, forCellReuseIdentifier: "SignupCell")
+        tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: "ActionButtonCell")
+    }
+    
     private func showSignupAlert() {
         let alert = UIAlertController(title: AlertTitleLiteral
             .signUp_2, message: nil, preferredStyle: .alert)
@@ -141,8 +144,7 @@ extension SignupViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    //TFが""の場合Cellのレイアウトが崩れるため、nilを返す
-    //nilの場合は「???」が返されレイアウトは崩れない
+    //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
     private func textConvertNil() {
         if storeNameString == "" {
             storeNameString = nil
