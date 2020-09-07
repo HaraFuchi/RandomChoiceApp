@@ -12,6 +12,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     let crudModel = StoreDataCrudModel()
     
+    var indexPathNumber: Int?
+        
     @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
@@ -35,6 +37,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.storeNameLabel.text = crudModel.storeDataArray[indexPath.row].storeName
         cell.placeLabel.text = crudModel.storeDataArray[indexPath.row].placeName
         cell.genreLabel.text = crudModel.storeDataArray[indexPath.row].genreName
+        cell.indexPathNumber = indexPath.row
         return cell
     }
     
@@ -49,14 +52,22 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
 //MARK: - protocol
 extension ListViewController: ListPageTableViewCellDelegate {
-    func didTapEditButton() {
+    func didTapEditButton(indexPath: Int) { //このindexPathの値をprepareに持っていきたい。
+        indexPathNumber = indexPath
         performSegue(withIdentifier: "goToEditVC", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToEditVC" {
             let editVC = segue.destination as! EditViewController
-            
+            if let indexPath = indexPathNumber {
+                print("お店")
+                print(crudModel.storeDataArray[indexPath].storeName)
+                print("場所")
+                print(crudModel.storeDataArray[indexPath].placeName)
+                print("ジャンル")
+                print(crudModel.storeDataArray[indexPath].genreName)
+            }
         }
     }
 }
