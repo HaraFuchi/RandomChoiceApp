@@ -174,7 +174,7 @@
                     <connections>
                         <outlet property="signupVCBarButtonItem" destination="ByB-uY-6Oi" id="Rco-wp-xTj"/>
                         <outlet property="tableView" destination="uRH-rC-F8z" id="WfN-if-rhi"/>
-                        <segue destination="wrO-ny-Iyd" kind="presentation" identifier="goToEditVC" modalPresentationStyle="fullScreen" id="0mZ-25-Hr0"/>
+                        <segue destination="J2i-Mb-V9B" kind="presentation" identifier="goToEditVC" modalPresentationStyle="fullScreen" id="al6-yQ-CCQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ruu-Jv-01a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -190,33 +190,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YDJ-Y9-BrQ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YDJ-Y9-BrQ">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="106" id="ae7-9x-bcE">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="106"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ae7-9x-bcE" id="0H8-oT-NPy">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="106"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BiK-Pb-tsF">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <color key="barTintColor" red="0.99376636740000002" green="0.4226302207" blue="0.36204394699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="お店を編集" id="r6P-E0-GSB"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="bottom" secondItem="I3Z-qq-FnY" secondAttribute="bottom" id="0IM-Xx-CsZ"/>
+                            <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="top" secondItem="BiK-Pb-tsF" secondAttribute="bottom" id="HC6-Ox-u1r"/>
+                            <constraint firstItem="BiK-Pb-tsF" firstAttribute="leading" secondItem="YDJ-Y9-BrQ" secondAttribute="leading" id="Qna-VL-cnA"/>
+                            <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="trailing" secondItem="I3Z-qq-FnY" secondAttribute="trailing" id="TFv-7N-FCi"/>
+                            <constraint firstItem="BiK-Pb-tsF" firstAttribute="trailing" secondItem="YDJ-Y9-BrQ" secondAttribute="trailing" id="TJf-29-iHF"/>
+                            <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="leading" secondItem="I3Z-qq-FnY" secondAttribute="leading" id="kPe-PP-zh0"/>
+                            <constraint firstItem="BiK-Pb-tsF" firstAttribute="top" secondItem="I3Z-qq-FnY" secondAttribute="top" id="pVk-ZA-Ac1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="I3Z-qq-FnY"/>
                     </view>
                     <navigationItem key="navigationItem" title="お店を編集" id="oSW-b7-cEn"/>
                     <connections>
+                        <outlet property="navigationBar" destination="BiK-Pb-tsF" id="Jrx-1V-XFn"/>
                         <outlet property="tableView" destination="YDJ-Y9-BrQ" id="hGI-F7-6f2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWU-lD-dMX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3318.840579710145" y="650.89285714285711"/>
+            <point key="canvasLocation" x="2557.5999999999999" y="649.50738916256159"/>
         </scene>
         <!--さいころdeごはん-->
         <scene sceneID="Rra-lW-lbQ">
@@ -284,28 +303,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbW-v7-A8h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="354" y="-10"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="NrS-Em-xA2">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wrO-ny-Iyd" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P6n-Ut-4g6">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.98591953519999997" green="0.50742834810000004" blue="0.44544196130000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="J2i-Mb-V9B" kind="relationship" relationship="rootViewController" id="DOB-iG-Ywh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MFj-op-gDc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2558" y="651"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

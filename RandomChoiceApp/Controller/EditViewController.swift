@@ -8,9 +8,15 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDataSource {
+class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    //UINavigationBarをステータスバーまで広げる
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
     
     enum CategoryList: String, CaseIterable{
         case storeName = "店名"
@@ -29,6 +35,7 @@ class EditViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
+        navigationBar.delegate = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
