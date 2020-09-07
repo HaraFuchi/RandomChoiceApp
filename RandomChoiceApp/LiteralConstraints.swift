@@ -42,3 +42,15 @@ struct ButtonTittle {
     static let saveEdit = "編集を保存"
     static let cancel = "キャンセル"
 }
+
+struct CellIdentifierLiteral {
+    
+}
+
+struct NibNameLiteral {
+    
+}
+
+struct SegueIdentifierLiteral {
+    
+}
