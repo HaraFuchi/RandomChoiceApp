@@ -227,6 +227,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="お店を編集" id="oSW-b7-cEn"/>
                     <connections>
+                        <outlet property="navigationBar" destination="BiK-Pb-tsF" id="Jrx-1V-XFn"/>
                         <outlet property="tableView" destination="YDJ-Y9-BrQ" id="hGI-F7-6f2"/>
                     </connections>
                 </viewController>
