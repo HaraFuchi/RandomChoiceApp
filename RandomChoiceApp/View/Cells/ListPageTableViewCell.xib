@@ -59,9 +59,12 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDa-Z1-jzR">
-                                <rect key="frame" x="361" y="25" width="24" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDa-Z1-jzR">
+                                <rect key="frame" x="376" y="24.5" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xDa-Z1-jzR" secondAttribute="height" multiplier="1:1" id="aKJ-ok-WKL"/>
+                                    <constraint firstAttribute="width" constant="24" id="tA7-Lk-omy"/>
+                                </constraints>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button" image="info.circle" catalog="system"/>
                                 <connections>
@@ -76,7 +79,9 @@
                             <constraint firstAttribute="bottom" secondItem="txe-pM-BgT" secondAttribute="bottom" constant="8" id="Q8M-AA-azN"/>
                             <constraint firstItem="YN8-pG-EJw" firstAttribute="leading" secondItem="txe-pM-BgT" secondAttribute="trailing" constant="8" id="Qtp-i3-Anb"/>
                             <constraint firstItem="txe-pM-BgT" firstAttribute="top" secondItem="q8R-u0-ZGt" secondAttribute="bottom" constant="8" id="SXe-xo-Lab"/>
+                            <constraint firstAttribute="trailing" secondItem="xDa-Z1-jzR" secondAttribute="trailing" constant="8" id="YBM-K4-6wj"/>
                             <constraint firstItem="txe-pM-BgT" firstAttribute="leading" secondItem="q8R-u0-ZGt" secondAttribute="leading" id="dos-Gc-MxX"/>
+                            <constraint firstItem="xDa-Z1-jzR" firstAttribute="centerY" secondItem="D0L-lx-30k" secondAttribute="centerY" id="u99-s7-5jC"/>
                             <constraint firstItem="q8R-u0-ZGt" firstAttribute="top" secondItem="D0L-lx-30k" secondAttribute="top" constant="8" id="w7u-WS-oJw"/>
                         </constraints>
                     </view>
@@ -91,8 +96,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="editButton" destination="xDa-Z1-jzR" id="oBc-jz-f33"/>
                 <outlet property="BGBaseView" destination="D0L-lx-30k" id="cOG-P1-fOd"/>
+                <outlet property="editButton" destination="xDa-Z1-jzR" id="oBc-jz-f33"/>
                 <outlet property="genreLabel" destination="a6q-Xg-ll1" id="FRk-SY-gdk"/>
                 <outlet property="placeLabel" destination="koF-dk-dch" id="mn4-Om-QH5"/>
                 <outlet property="storeNameLabel" destination="q8R-u0-ZGt" id="xfv-07-Au2"/>
