@@ -44,13 +44,21 @@ struct ButtonTittle {
 }
 
 struct CellIdentifierLiteral {
-    
+    static let listPageViewCell = "ListPageViewCell"
+    static let listPageCell = "ListPageCell"//上と統一できそう
+    static let randomChoiceButtonCell = "RandomChoiceButtonCell"
+    static let signupCell = "SignupCell"
+    static let actionButtonCell = "ActionButtonCell"
 }
 
 struct NibNameLiteral {
-    
+    static let listPageTableViewCell = "ListPageTableViewCell"
+    static let randomChoiceButtonTableViewCell = "RandomChoiceButtonTableViewCell"
+    static let signupCategoryTableViewCell = "SignupCategoryTableViewCell"
+    static let commonActionButtonTableViewCell = "CommonActionButtonTableViewCell"
 }
 
 struct SegueIdentifierLiteral {
-    
+    static let goToSignUpVC = "goToSignupVC"
+    static let goToEditVC = "goToEditVC"
 }
