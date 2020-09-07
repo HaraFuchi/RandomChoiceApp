@@ -38,11 +38,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    //セルの編集許可(スワイプを可能にする)
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         showDeleteAlert(tableView: tableView, editingStyle: editingStyle, indexPath: indexPath)
     }
