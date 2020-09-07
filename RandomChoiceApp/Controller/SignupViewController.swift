@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
+class SignupViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate {
     
     //登録する内容の値を保持
     var storeNameString: String?
@@ -109,7 +109,6 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
 // MARK: - Method
 extension SignupViewController {
     private func setUpTableView() {
-        tableView.delegate = self
         tableView.dataSource = self
         let signupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
         let signupAndCancelButtonCell = UINib(nibName: "CommonActionButtonTableViewCell", bundle: nil)

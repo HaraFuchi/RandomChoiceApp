@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EditViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -78,7 +78,6 @@ extension EditViewController: CommonActionButtonTableViewCellDelegate {
 //MARK: - Method
 extension EditViewController {
     private func setUpTableView() {
-        tableView.delegate = self
         tableView.dataSource = self
         let singUpCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
         let signupAndCancelButtonCell = UINib(nibName: "CommonActionButtonTableViewCell", bundle: nil)

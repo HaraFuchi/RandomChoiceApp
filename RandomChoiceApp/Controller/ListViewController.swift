@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListViewController: UIViewController, UITableViewDataSource {
     
     let crudModel = StoreDataCrudModel()
     
@@ -62,7 +62,6 @@ extension ListViewController: ListPageTableViewCellDelegate {
 //MARK: - Method
 extension ListViewController {
     private func setUpTableView() {
-        tableView.delegate = self
         tableView.dataSource = self
         let listPageNib = UINib(nibName: "ListPageTableViewCell", bundle: nil)
         tableView.register(listPageNib, forCellReuseIdentifier: "ListPageCell")

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     
     let crudModel = StoreDataCrudModel()
     var resultStoreName = LiteralQuestions.questions
@@ -88,7 +88,6 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
 // MARK: -Method
 extension RandomChoiceViewController {
     private func setUpTableView() {
-        tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPageViewCell")
         tableView.register(UINib(nibName: "RandomChoiceButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "RandomChoiceButtonCell")
