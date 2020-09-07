@@ -30,8 +30,10 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-    //MARK: - Private
+}
+
+//MARK: -  Method
+extension RandomChoiceButtonTableViewCell {
     private func randomChoiceButtonDetail() {
         self.selectionStyle = .none
         randomChoiceButton.layer.shadowOpacity = 0.5

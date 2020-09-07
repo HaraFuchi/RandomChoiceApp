@@ -35,8 +35,10 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-    // MARK: - Private
+}
+
+// MARK: - Method
+extension CommonActionButtonTableViewCell {
     private func setupButtons(){
         self.selectionStyle = .none
         cancelButton.setTitle(ButtonTittle.cancel, for: .normal)

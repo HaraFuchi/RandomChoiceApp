@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
+class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -50,17 +50,17 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 0:
             categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.storeName.CategoryPlaceHolderList
-            categoryCell.IndexPathNumber = indexPath.row
+            categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 1:
             categoryCell.categoryLabel.text = CategoryList.placeName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.placeName.CategoryPlaceHolderList
-            categoryCell.IndexPathNumber = indexPath.row
+            categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 2:
             categoryCell.categoryLabel.text = CategoryList.genreName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.genreName.CategoryPlaceHolderList
-            categoryCell.IndexPathNumber = indexPath.row
+            categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 3:
             signupAndCancelButtonCell.delegate = self
@@ -85,7 +85,6 @@ extension EditViewController: CommonActionButtonTableViewCellDelegate {
 //MARK: - Method
 extension EditViewController {
     private func setUpTableView() {
-        tableView.delegate = self
         tableView.dataSource = self
         let singUpCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
         let signupAndCancelButtonCell = UINib(nibName: "CommonActionButtonTableViewCell", bundle: nil)

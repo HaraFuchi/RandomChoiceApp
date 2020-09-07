@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let crudModel = StoreDataCrudModel()
     
@@ -36,11 +36,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.placeLabel.text = crudModel.storeDataArray[indexPath.row].placeName
         cell.genreLabel.text = crudModel.storeDataArray[indexPath.row].genreName
         return cell
-    }
-    
-    //セルの編集許可(スワイプを可能にする)
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

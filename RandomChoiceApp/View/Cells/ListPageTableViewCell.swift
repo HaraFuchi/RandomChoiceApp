@@ -30,12 +30,14 @@ class ListPageTableViewCell: UITableViewCell {
         super.awakeFromNib()
         setupDetailCell()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-    //MARK: - Private
+}
+
+//MARK: - Method
+extension ListPageTableViewCell {
     private func setupDetailCell(){
         self.selectionStyle = .none
         BGBaseView.layer.cornerRadius = 8

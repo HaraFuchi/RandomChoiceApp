@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
+class SignupViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate {
     
     //登録する内容の値を保持
     var storeNameString: String?
@@ -63,17 +63,17 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 0:
             categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.storeName.CategoryPlaceHolderList
-            categoryCell.IndexPathNumber = indexPath.row
+            categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 1:
             categoryCell.categoryLabel.text = CategoryList.placeName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.placeName.CategoryPlaceHolderList
-            categoryCell.IndexPathNumber = indexPath.row
+            categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 2:
             categoryCell.categoryLabel.text = CategoryList.genreName.rawValue
             categoryCell.categoryTextField.placeholder = CategoryList.genreName.CategoryPlaceHolderList
-            categoryCell.IndexPathNumber = indexPath.row
+            categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 3:
             signupAndCancelButtonCell.delegate = self
@@ -109,7 +109,6 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
 // MARK: - Method
 extension SignupViewController {
     private func setUpTableView() {
-        tableView.delegate = self
         tableView.dataSource = self
         let signupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
         let signupAndCancelButtonCell = UINib(nibName: "CommonActionButtonTableViewCell", bundle: nil)

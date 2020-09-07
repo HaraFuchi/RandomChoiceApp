@@ -50,8 +50,10 @@ class StoreDataCrudModel {
         let childKey = storeDataArray[indexPath.row].childID
         ref.child(Auth.auth().currentUser!.uid).child(childKey!).removeValue()
     }
-    
-    // MARK: - Method
+}
+
+// MARK: - Method
+extension StoreDataCrudModel {
     private func showAlertIfNoStoreData() {
         if self.storeDataArray.isEmpty == true {
             self.delegate?.showNoStoreDataAlert()
