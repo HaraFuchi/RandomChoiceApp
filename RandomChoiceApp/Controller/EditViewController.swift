@@ -13,6 +13,11 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
+    //TFに入れる値を所持
+    var editStoreNameString: String?
+    var editPlaceNameString: String?
+    var editGenreNameString: String?
+    
     //UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
@@ -22,14 +27,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         case storeName = "店名"
         case placeName = "場所"
         case genreName = "ジャンル"
-        
-        var CategoryPlaceHolderList: String {
-            switch self {
-            case .storeName: return "例)サイゼリア"
-            case .placeName: return "例)新宿"
-            case .genreName: return "例)イタリアン"
-            }
-        }
     }
     
     override func viewDidLoad() {
@@ -46,20 +43,22 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.signupCell, for: indexPath) as! SignupCategoryTableViewCell
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
+        convertValueNil()
+        
         switch indexPath.row {
         case 0:
             categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
-            categoryCell.categoryTextField.placeholder = CategoryList.storeName.CategoryPlaceHolderList
+            categoryCell.categoryTextField.text = editStoreNameString
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 1:
             categoryCell.categoryLabel.text = CategoryList.placeName.rawValue
-            categoryCell.categoryTextField.placeholder = CategoryList.placeName.CategoryPlaceHolderList
+            categoryCell.categoryTextField.text = editPlaceNameString
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 2:
             categoryCell.categoryLabel.text = CategoryList.genreName.rawValue
-            categoryCell.categoryTextField.placeholder = CategoryList.genreName.CategoryPlaceHolderList
+            categoryCell.categoryTextField.text = editGenreNameString
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 3:
@@ -90,5 +89,18 @@ extension EditViewController {
         let signupAndCancelButtonCell = UINib(nibName: NibNameLiteral.commonActionButtonTableViewCell, bundle: nil)
         tableView.register(singUpCategoryNib, forCellReuseIdentifier: CellIdentifierLiteral.signupCell)
         tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: CellIdentifierLiteral.actionButtonCell)
+    }
+    
+    //TFに???を反映させる必要はないため、nilを返す
+    private func convertValueNil() {
+        if editStoreNameString == LiteralQuestions.questions {
+            editStoreNameString = nil
+        }
+        if editPlaceNameString == LiteralQuestions.questions {
+            editPlaceNameString = nil
+        }
+        if editGenreNameString == LiteralQuestions.questions {
+            editGenreNameString = nil
+        }
     }
 }
