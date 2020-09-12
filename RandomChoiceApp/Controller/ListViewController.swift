@@ -58,7 +58,7 @@ extension ListViewController: ListPageTableViewCellDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToEditVC" {
+        if segue.identifier == SegueIdentifierLiteral.goToEditVC {
             let editVC = segue.destination as! EditViewController
             if let indexPath = indexPathNumber {
                 editVC.editStoreNameString = crudModel.storeDataArray[indexPath].storeName
