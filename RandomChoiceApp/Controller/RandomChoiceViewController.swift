@@ -33,8 +33,8 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: "ListPageViewCell") as! ListPageTableViewCell
-        let buttonCell = tableView.dequeueReusableCell(withIdentifier: "RandomChoiceButtonCell") as! RandomChoiceButtonTableViewCell
+        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.listPageViewCell) as! ListPageTableViewCell
+        let buttonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.randomChoiceButtonCell) as! RandomChoiceButtonTableViewCell
         
         switch indexPath.row {
         case 0:
@@ -69,14 +69,14 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
     func showNoStoreDataAlert() {
         let alert = UIAlertController(title: AlertTitleLiteral.signUp_1, message: AlertMessageLiteral.signUp, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonLiteral.signUp, style: .default) { _ in
-            self.performSegue(withIdentifier: "goToSignupVC", sender: nil)
+            self.performSegue(withIdentifier: SegueIdentifierLiteral.goToSignUpVC, sender: nil)
         }
         alert.addAction(signupAction)
         present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToSignupVC" {
+        if segue.identifier == SegueIdentifierLiteral.goToSignUpVC {
             let signupVC = segue.destination as! SignupViewController
             if crudModel.storeDataArray.isEmpty == true {
                 signupVC.isHiddenCancelButton = true
@@ -89,8 +89,8 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
 extension RandomChoiceViewController {
     private func setUpTableView() {
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPageViewCell")
-        tableView.register(UINib(nibName: "RandomChoiceButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "RandomChoiceButtonCell")
+        tableView.register(UINib(nibName: NibNameLiteral.listPageTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifierLiteral.listPageViewCell)
+        tableView.register(UINib(nibName: NibNameLiteral.randomChoiceButtonTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifierLiteral.randomChoiceButtonCell)
     }
 }
 

@@ -32,7 +32,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListPageCell", for: indexPath) as! ListPageTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.listPageCell, for: indexPath) as! ListPageTableViewCell
         cell.delegate = self
         cell.storeNameLabel.text = crudModel.storeDataArray[indexPath.row].storeName
         cell.placeLabel.text = crudModel.storeDataArray[indexPath.row].placeName
@@ -52,9 +52,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
 //MARK: - protocol
 extension ListViewController: ListPageTableViewCellDelegate {
-    func didTapEditButton(indexPath: Int) { //このindexPathの値をprepareに持っていきたい。
+    func didTapEditButton(indexPath: Int) {
+        performSegue(withIdentifier: SegueIdentifierLiteral.goToEditVC, sender: nil)
         indexPathNumber = indexPath
-        performSegue(withIdentifier: "goToEditVC", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -74,8 +74,8 @@ extension ListViewController {
     private func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        let listPageNib = UINib(nibName: "ListPageTableViewCell", bundle: nil)
-        tableView.register(listPageNib, forCellReuseIdentifier: "ListPageCell")
+        let listPageNib = UINib(nibName: NibNameLiteral.listPageTableViewCell, bundle: nil)
+        tableView.register(listPageNib, forCellReuseIdentifier: CellIdentifierLiteral.listPageCell)
     }
     
     private func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {

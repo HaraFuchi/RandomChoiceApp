@@ -42,3 +42,24 @@ struct ButtonTittle {
     static let saveEdit = "編集を保存"
     static let cancel = "キャンセル"
 }
+
+struct CellIdentifierLiteral {
+    static let randomChoiceButtonCell = "RandomChoiceButtonCell"
+    static let listPageViewCell = "ListPageViewCell"
+    static let listPageCell = "ListPageCell"
+    //FIXME:上2つは統合できそう
+    static let signupCell = "SignupCell"
+    static let actionButtonCell = "ActionButtonCell"
+}
+
+struct NibNameLiteral {
+    static let randomChoiceButtonTableViewCell = "RandomChoiceButtonTableViewCell"
+    static let listPageTableViewCell = "ListPageTableViewCell"
+    static let signupCategoryTableViewCell = "SignupCategoryTableViewCell"
+    static let commonActionButtonTableViewCell = "CommonActionButtonTableViewCell"
+}
+
+struct SegueIdentifierLiteral {
+    static let goToSignUpVC = "goToSignupVC"
+    static let goToEditVC = "goToEditVC"
+}

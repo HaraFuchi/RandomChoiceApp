@@ -54,8 +54,9 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let categoryCell = tableView.dequeueReusableCell(withIdentifier: "SignupCell", for: indexPath) as! SignupCategoryTableViewCell
-        let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: "ActionButtonCell", for: indexPath) as! CommonActionButtonTableViewCell
+        let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.signupCell, for: indexPath) as! SignupCategoryTableViewCell
+        let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral
+            .actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
         categoryCell.delegate = self
         
@@ -110,10 +111,10 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
 extension SignupViewController {
     private func setUpTableView() {
         tableView.dataSource = self
-        let signupCategoryNib = UINib(nibName: "SignupCategoryTableViewCell", bundle: nil)
-        let signupAndCancelButtonCell = UINib(nibName: "CommonActionButtonTableViewCell", bundle: nil)
-        tableView.register(signupCategoryNib, forCellReuseIdentifier: "SignupCell")
-        tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: "ActionButtonCell")
+        let signupCategoryNib = UINib(nibName: NibNameLiteral.signupCategoryTableViewCell, bundle: nil)
+        let signupAndCancelButtonCell = UINib(nibName: NibNameLiteral.commonActionButtonTableViewCell, bundle: nil)
+        tableView.register(signupCategoryNib, forCellReuseIdentifier: CellIdentifierLiteral.signupCell)
+        tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: CellIdentifierLiteral.actionButtonCell)
     }
     
     private func showSignupAlert() {
