@@ -53,8 +53,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //MARK: - protocol
 extension ListViewController: ListPageTableViewCellDelegate {
     func didTapEditButton(indexPath: Int) {
-        performSegue(withIdentifier: SegueIdentifierLiteral.goToEditVC, sender: nil)
         indexPathNumber = indexPath
+        performSegue(withIdentifier: SegueIdentifierLiteral.goToEditVC, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
