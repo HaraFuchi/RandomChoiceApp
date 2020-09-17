@@ -78,6 +78,7 @@ extension EditViewController: CommonActionButtonTableViewCellDelegate {
     }
     
     func signupStoreInfoButton() {
+        showEditAlert()
     }
 }
 
@@ -102,5 +103,17 @@ extension EditViewController {
         if editGenreNameString == LiteralQuestions.questions {
             editGenreNameString = nil
         }
+    }
+    
+    private func showEditAlert() {
+        let alert = UIAlertController(title: "編集した内容を保存しますか？", message: nil, preferredStyle: .alert)
+        let editAction = UIAlertAction(title: "保存する", style: .default) { _ in
+            //Firebaseの更新機能追加
+            print("編集を保存")
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alert.addAction(editAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 }
