@@ -44,6 +44,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
         convertValueNil()
+        categoryCell.delegate_2 = self
         
         switch indexPath.row {
         case 0:
@@ -72,7 +73,16 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
 }
 
 //MARK: - Protocol
-extension EditViewController: CommonActionButtonTableViewCellDelegate {
+extension EditViewController: CommonActionButtonTableViewCellDelegate, SignupCategoryTableViewCell_2Delegate {
+    func fetchEditCategoryNameText(textField: UITextField, indexNumber: Int) {
+        switch indexNumber {
+        case 0: editStoreNameString = textField.text
+        case 1: editPlaceNameString = textField.text
+        case 2: editGenreNameString = textField.text
+        default: break
+        }
+    }
+    
     func cancelButton() {
         dismiss(animated: true, completion: nil)
     }
@@ -110,6 +120,9 @@ extension EditViewController {
         let editAction = UIAlertAction(title: "保存する", style: .default) { _ in
             //Firebaseの更新機能追加
             print("編集を保存")
+            print(self.editStoreNameString)
+            print(self.editPlaceNameString)
+            print(self.editGenreNameString)
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         alert.addAction(editAction)
