@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
+    let crudModel = StoreDataCrudModel()
+    
     //TFに入れる値を所持
     var editStoreNameString: String?
     var editPlaceNameString: String?
     var editGenreNameString: String?
+    var childID: String?
+    
     
     //UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
@@ -120,10 +125,15 @@ extension EditViewController {
         let alert = UIAlertController(title: "編集した内容を保存しますか？", message: nil, preferredStyle: .alert)
         let editAction = UIAlertAction(title: "保存する", style: .default) { _ in
             //Firebaseの更新機能追加
+            let ref = Database.database().reference()
+            let newEditData = ["店名": self.editStoreNameString ?? "???", "場所": self.editPlaceNameString ?? "???", "ジャンル": self.editGenreNameString ?? "???"]
+            ref.child(Auth.auth().currentUser!.uid).child(self.childID!).updateChildValues(newEditData)
+            
             print("編集を保存")
             print(self.editStoreNameString)
             print(self.editPlaceNameString)
             print(self.editGenreNameString)
+            print(self.childID)
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         alert.addAction(editAction)
