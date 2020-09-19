@@ -132,6 +132,7 @@ extension EditViewController {
                 let ref = Database.database().reference()
                 let newEditData = ["店名": self.editStoreNameString ?? "???", "場所": self.editPlaceNameString ?? "???", "ジャンル": self.editGenreNameString ?? "???"]
                 ref.child(Auth.auth().currentUser!.uid).child(self.childID!).updateChildValues(newEditData)
+                self.dismiss(animated: true, completion: nil)
             }
             
             print("編集を保存")
