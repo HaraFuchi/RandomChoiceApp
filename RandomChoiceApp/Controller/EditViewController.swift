@@ -125,9 +125,14 @@ extension EditViewController {
         let alert = UIAlertController(title: "編集した内容を保存しますか？", message: nil, preferredStyle: .alert)
         let editAction = UIAlertAction(title: "保存する", style: .default) { _ in
             //Firebaseの更新機能追加
-            let ref = Database.database().reference()
-            let newEditData = ["店名": self.editStoreNameString ?? "???", "場所": self.editPlaceNameString ?? "???", "ジャンル": self.editGenreNameString ?? "???"]
-            ref.child(Auth.auth().currentUser!.uid).child(self.childID!).updateChildValues(newEditData)
+            self.textConvertNil()
+            if self.editStoreNameString == nil, self.editPlaceNameString == nil, self.editGenreNameString == nil {
+                self.showAlertAllNilTextField()
+            } else {
+                let ref = Database.database().reference()
+                let newEditData = ["店名": self.editStoreNameString ?? "???", "場所": self.editPlaceNameString ?? "???", "ジャンル": self.editGenreNameString ?? "???"]
+                ref.child(Auth.auth().currentUser!.uid).child(self.childID!).updateChildValues(newEditData)
+            }
             
             print("編集を保存")
             print(self.editStoreNameString)
@@ -137,6 +142,27 @@ extension EditViewController {
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         alert.addAction(editAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
+    private func textConvertNil() {
+        if editStoreNameString == "" {
+            editStoreNameString = nil
+        }
+        if editPlaceNameString == "" {
+            editPlaceNameString = nil
+        }
+        if editGenreNameString == "" {
+            editGenreNameString = nil
+        }
+    }
+    
+    private func showAlertAllNilTextField() {
+        let alert = UIAlertController(title: AlertTitleLiteral.allTextEmpty, message: AlertMessageLiteral
+            .allTextEmpty, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
