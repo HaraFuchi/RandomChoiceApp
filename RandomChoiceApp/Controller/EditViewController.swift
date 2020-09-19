@@ -44,7 +44,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
         convertValueNil()
-        categoryCell.delegate_2 = self
+        categoryCell.delegate = self
         
         switch indexPath.row {
         case 0:
@@ -73,8 +73,9 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
 }
 
 //MARK: - Protocol
-extension EditViewController: CommonActionButtonTableViewCellDelegate, SignupCategoryTableViewCell_2Delegate {
-    func fetchEditCategoryNameText(textField: UITextField, indexNumber: Int) {
+extension EditViewController: SignupCategoryTableViewCellDelegate, CommonActionButtonTableViewCellDelegate {
+    
+    func fetchCategoryNameText(textField: UITextField, indexNumber: Int) {
         switch indexNumber {
         case 0: editStoreNameString = textField.text
         case 1: editPlaceNameString = textField.text
