@@ -122,15 +122,15 @@ extension EditViewController {
     }
     
     private func showEditAlert() {
-        let alert = UIAlertController(title: "編集した内容を保存しますか？", message: nil, preferredStyle: .alert)
-        let editAction = UIAlertAction(title: "保存する", style: .default) { _ in
+        let alert = UIAlertController(title: AlertTitleLiteral.edit, message: nil, preferredStyle: .alert)
+        let editAction = UIAlertAction(title: AlertButtonLiteral.save, style: .default) { _ in
             //Firebaseの更新機能追加
             self.textConvertNil()
             if self.editStoreNameString == nil, self.editPlaceNameString == nil, self.editGenreNameString == nil {
                 self.showAlertAllNilTextField()
             } else {
                 let ref = Database.database().reference()
-                let newEditData = ["店名": self.editStoreNameString ?? "???", "場所": self.editPlaceNameString ?? "???", "ジャンル": self.editGenreNameString ?? "???"]
+                let newEditData = [StoreDataLiteral.store: self.editStoreNameString ?? "???", StoreDataLiteral.place: self.editPlaceNameString ?? "???", StoreDataLiteral.genre: self.editGenreNameString ?? "???"]
                 ref.child(Auth.auth().currentUser!.uid).child(self.childID!).updateChildValues(newEditData)
                 self.dismiss(animated: true, completion: nil)
             }
@@ -141,7 +141,7 @@ extension EditViewController {
             print(self.editGenreNameString)
             print(self.childID)
         }
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
         alert.addAction(editAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)

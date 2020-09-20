@@ -23,6 +23,7 @@ struct AlertTitleLiteral {
     static let signUp_2 = "お店を登録しますか？"
     static let delete = "お店一覧から削除しますか？"
     static let allTextEmpty = "全て空欄です"
+    static let edit = "編集した内容を保存しますか？"
 }
 
 struct AlertMessageLiteral {
@@ -35,6 +36,7 @@ struct AlertButtonLiteral {
     static let OK = "OK"
     static let cancel = "キャンセル"
     static let delete = "削除"
+    static let save = "保存する"
 }
 
 struct ButtonTittle {
