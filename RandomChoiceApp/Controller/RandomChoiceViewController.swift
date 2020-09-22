@@ -54,15 +54,16 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
 
 // MARK: -Protocol
 extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
+    private var emptyNameText: String { return "???" }
+    
     func didTapDiceButton() {
         let storeDataArray = crudModel.storeDataArray
-        let element = storeDataArray.randomElement()
         
-        guard let _ = element else { return }
+        guard let element = storeDataArray.randomElement() else { return }
         
-        resultStoreName = element?.storeName ?? "???"
-        resultPlaceName = element?.placeName ?? "???"
-        resultGenreName = element?.genreName ?? "???"
+        resultStoreName = element.storeName ?? emptyNameText
+        resultPlaceName = element.placeName ?? emptyNameText
+        resultGenreName = element.genreName ?? emptyNameText
         
         tableView.reloadData()
     }
