@@ -70,7 +70,7 @@
 		C59B1DDE24E9FD5E0060C622 /* AnonymousLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousLoginModel.swift; sourceTree = "<group>"; };
 		D53F25C5FFD3771D4FEDB82B /* Pods-RandomChoiceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomChoiceApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E3396A4624F90AE10020AF8E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		E354B6AB24C42E8E00759289 /* さいころdeごはん.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "さいころdeごはん.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E354B6AB24C42E8E00759289 /* dev-さいころdeごはん.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dev-さいころdeごはん.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E354B6AE24C42E8E00759289 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E354B6B024C42E8E00759289 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E354B6B224C42E8E00759289 /* RandomChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomChoiceViewController.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 		E354B6AC24C42E8E00759289 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E354B6AB24C42E8E00759289 /* さいころdeごはん.app */,
+				E354B6AB24C42E8E00759289 /* dev-さいころdeごはん.app */,
 				C5202C0124FAFD9500656F6D /* RandomChoiceTests.xctest */,
 				C5202C0F24FAFE1C00656F6D /* RandomChoiceUITests.xctest */,
 			);
@@ -287,7 +287,7 @@
 			);
 			name = RandomChoiceApp;
 			productName = RandomChoiceApp;
-			productReference = E354B6AB24C42E8E00759289 /* さいころdeごはん.app */;
+			productReference = E354B6AB24C42E8E00759289 /* dev-さいころdeごはん.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -693,7 +693,7 @@
 				);
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.harafuchi.RandomChoiceApp${BUNDLE_ID_SUFFIX}";
-				PRODUCT_NAME = "さいころdeごはん";
+				PRODUCT_NAME = "dev-さいころdeごはん";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
