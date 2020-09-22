@@ -46,6 +46,13 @@ class StoreDataCrudModel {
         }
     }
     
+    func editStoreData(store: String, place: String, genre: String, childID: String?) {
+        let editVC = EditViewController()
+        let newEditData = [StoreDataLiteral.store: store, StoreDataLiteral.place: place, StoreDataLiteral.genre: genre]
+        guard let childKey = childID else { return }
+        ref.child(Auth.auth().currentUser!.uid).child(childID!).updateChildValues(newEditData)
+    }
+    
     func deleteStoreInfo(indexPath: IndexPath) {
         let childKey = storeDataArray[indexPath.row].childID
         ref.child(Auth.auth().currentUser!.uid).child(childKey!).removeValue()

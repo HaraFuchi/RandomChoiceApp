@@ -129,9 +129,7 @@ extension EditViewController {
             if self.editStoreNameString == nil, self.editPlaceNameString == nil, self.editGenreNameString == nil {
                 self.showAlertAllNilTextField()
             } else {
-                let ref = Database.database().reference()
-                let newEditData = [StoreDataLiteral.store: self.editStoreNameString ?? "???", StoreDataLiteral.place: self.editPlaceNameString ?? "???", StoreDataLiteral.genre: self.editGenreNameString ?? "???"]
-                ref.child(Auth.auth().currentUser!.uid).child(self.childID!).updateChildValues(newEditData)
+                self.crudModel.editStoreData(store: self.editStoreNameString ?? "???", place: self.editPlaceNameString ?? "???", genre: self.editGenreNameString ?? "???", childID: self.childID)
                 self.dismiss(animated: true, completion: nil)
             }
             
