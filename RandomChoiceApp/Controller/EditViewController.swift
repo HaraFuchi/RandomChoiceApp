@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate {
     
@@ -15,6 +14,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     let crudModel = StoreDataCrudModel()
+    var emptyNameText: String { return "???" }
     
     //TFに入れる値を所持
     var editStoreNameString: String?
@@ -98,6 +98,7 @@ extension EditViewController: SignupCategoryTableViewCellDelegate, CommonActionB
 
 //MARK: - Method
 extension EditViewController {
+    
     private func setUpTableView() {
         tableView.dataSource = self
         let singUpCategoryNib = UINib(nibName: NibNameLiteral.signupCategoryTableViewCell, bundle: nil)
@@ -124,12 +125,7 @@ extension EditViewController {
         let editAction = UIAlertAction(title: AlertButtonLiteral.save, style: .default) { _ in
             //Firebaseの更新機能追加
             self.textConvertNil()
-            if self.editStoreNameString == nil, self.editPlaceNameString == nil, self.editGenreNameString == nil {
-                self.showAlertAllNilTextField()
-            } else {
-                self.crudModel.editStoreData(store: self.editStoreNameString ?? "???", place: self.editPlaceNameString ?? "???", genre: self.editGenreNameString ?? "???", childID: self.childID)
-                self.dismiss(animated: true, completion: nil)
-            }
+            self.editAction()
         }
         let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
         alert.addAction(editAction)
@@ -147,6 +143,15 @@ extension EditViewController {
         }
         if editGenreNameString == "" {
             editGenreNameString = nil
+        }
+    }
+    
+    private func editAction() {
+        if editStoreNameString == nil, editPlaceNameString == nil, editGenreNameString == nil {
+            showAlertAllNilTextField()
+        } else {
+            crudModel.editStoreData(store: editStoreNameString ?? emptyNameText, place: editPlaceNameString ?? emptyNameText, genre: editGenreNameString ?? emptyNameText, childID: childID)
+            dismiss(animated: true, completion: nil)
         }
     }
     

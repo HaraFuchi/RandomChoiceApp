@@ -49,7 +49,7 @@ class StoreDataCrudModel {
     func editStoreData(store: String, place: String, genre: String, childID: String?) {
         let newEditData = [StoreDataLiteral.store: store, StoreDataLiteral.place: place, StoreDataLiteral.genre: genre]
         guard let childKey = childID else { return }
-        ref.child(Auth.auth().currentUser!.uid).child(childID!).updateChildValues(newEditData)
+        ref.child(Auth.auth().currentUser!.uid).child(childKey).updateChildValues(newEditData)
     }
     
     func deleteStoreInfo(indexPath: IndexPath) {
