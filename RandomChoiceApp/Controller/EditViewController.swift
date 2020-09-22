@@ -22,7 +22,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     var editGenreNameString: String?
     var childID: String?
     
-    
     //UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
@@ -79,7 +78,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
 
 //MARK: - Protocol
 extension EditViewController: SignupCategoryTableViewCellDelegate, CommonActionButtonTableViewCellDelegate {
-    
     func fetchCategoryNameText(textField: UITextField, indexNumber: Int) {
         switch indexNumber {
         case 0: editStoreNameString = textField.text
@@ -132,12 +130,6 @@ extension EditViewController {
                 self.crudModel.editStoreData(store: self.editStoreNameString ?? "???", place: self.editPlaceNameString ?? "???", genre: self.editGenreNameString ?? "???", childID: self.childID)
                 self.dismiss(animated: true, completion: nil)
             }
-            
-            print("編集を保存")
-            print(self.editStoreNameString)
-            print(self.editPlaceNameString)
-            print(self.editGenreNameString)
-            print(self.childID)
         }
         let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
         alert.addAction(editAction)
