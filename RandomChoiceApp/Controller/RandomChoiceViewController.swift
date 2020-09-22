@@ -60,9 +60,9 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
         
         guard let _ = element else { return }
         
-        resultStoreName = (element?.storeName ?? "???") as String
-        resultPlaceName = (element?.placeName ?? "???") as String
-        resultGenreName = (element?.genreName ?? "???") as String
+        resultStoreName = element?.storeName ?? "???"
+        resultPlaceName = element?.placeName ?? "???"
+        resultGenreName = element?.genreName ?? "???"
         
         tableView.reloadData()
     }
@@ -79,7 +79,7 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifierLiteral.goToSignUpVC {
             let signupVC = segue.destination as! SignupViewController
-            if crudModel.storeDataArray.isEmpty == true {
+            if crudModel.storeDataArray.isEmpty {
                 signupVC.isHiddenCancelButton = true
             }
         }

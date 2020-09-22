@@ -55,7 +55,7 @@ class StoreDataCrudModel {
 // MARK: - Method
 extension StoreDataCrudModel {
     private func showAlertIfNoStoreData() {
-        if self.storeDataArray.isEmpty == true {
+        if self.storeDataArray.isEmpty {
             self.delegate?.showNoStoreDataAlert()
         }
     }
