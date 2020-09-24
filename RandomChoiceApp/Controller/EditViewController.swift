@@ -79,11 +79,18 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
 //MARK: - Protocol
 extension EditViewController: SignupCategoryTableViewCellDelegate, CommonActionButtonTableViewCellDelegate {
     func fetchCategoryNameText(textField: UITextField, indexNumber: Int) {
-        switch indexNumber {
-        case 0: editStoreNameString = textField.text
-        case 1: editPlaceNameString = textField.text
-        case 2: editGenreNameString = textField.text
-        default: break
+        enum CategoryNameText: Int {
+            case store
+            case place
+            case genre
+        }
+        
+        let categoryNameText = CategoryNameText(rawValue: indexNumber)
+        switch categoryNameText {
+        case .store: editStoreNameString = textField.text
+        case .place: editPlaceNameString = textField.text
+        case .genre: editGenreNameString = textField.text
+        case .none: break
         }
     }
     
@@ -135,13 +142,13 @@ extension EditViewController {
     
     //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
     private func textConvertNil() {
-        if editStoreNameString == "" {
+        if editStoreNameString?.isEmpty == true {
             editStoreNameString = nil
         }
-        if editPlaceNameString == "" {
+        if editPlaceNameString?.isEmpty == true {
             editPlaceNameString = nil
         }
-        if editGenreNameString == "" {
+        if editGenreNameString?.isEmpty == true {
             editGenreNameString = nil
         }
     }
