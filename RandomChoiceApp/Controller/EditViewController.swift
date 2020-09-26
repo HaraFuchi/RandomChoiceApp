@@ -142,13 +142,13 @@ extension EditViewController {
     
     //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
     private func textConvertNil() {
-        if editStoreNameString?.isEmpty == true {
+        if editStoreNameString == nil || editStoreNameString == "" {
             editStoreNameString = nil
         }
-        if editPlaceNameString?.isEmpty == true {
+        if editPlaceNameString == nil || editPlaceNameString == "" {
             editPlaceNameString = nil
         }
-        if editGenreNameString?.isEmpty == true {
+        if editGenreNameString == nil || editGenreNameString == "" {
             editGenreNameString = nil
         }
     }
