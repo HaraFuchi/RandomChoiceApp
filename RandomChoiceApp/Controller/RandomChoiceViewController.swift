@@ -54,14 +54,16 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
 
 // MARK: -Protocol
 extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
+    private var emptyNameText: String { return "???" }
+    
     func didTapDiceButton() {
-        //FIXME:データを取ってくる前にタップするとnilが帰ってくるためリファクタリングが必要
         let storeDataArray = crudModel.storeDataArray
-        let element = storeDataArray.randomElement()
         
-        resultStoreName = (element?.storeName ?? "???") as String
-        resultPlaceName = (element?.placeName ?? "???") as String
-        resultGenreName = (element?.genreName ?? "???") as String
+        guard let element = storeDataArray.randomElement() else { return }
+        
+        resultStoreName = element.storeName ?? emptyNameText
+        resultPlaceName = element.placeName ?? emptyNameText
+        resultGenreName = element.genreName ?? emptyNameText
         
         tableView.reloadData()
     }
@@ -78,7 +80,7 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifierLiteral.goToSignUpVC {
             let signupVC = segue.destination as! SignupViewController
-            if crudModel.storeDataArray.isEmpty == true {
+            if crudModel.storeDataArray.isEmpty {
                 signupVC.isHiddenCancelButton = true
             }
         }
