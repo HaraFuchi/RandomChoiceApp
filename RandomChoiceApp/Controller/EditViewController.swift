@@ -115,14 +115,15 @@ extension EditViewController {
     }
     
     //TFに???を反映させる必要はないため、nilを返す
+    //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
     private func convertValueNil() {
-        if editStoreNameString == LiteralQuestions.questions {
+        if editStoreNameString == LiteralQuestions.questions || editStoreNameString == "" {
             editStoreNameString = nil
         }
-        if editPlaceNameString == LiteralQuestions.questions {
+        if editPlaceNameString == LiteralQuestions.questions || editPlaceNameString == "" {
             editPlaceNameString = nil
         }
-        if editGenreNameString == LiteralQuestions.questions {
+        if editGenreNameString == LiteralQuestions.questions || editGenreNameString == "" {
             editGenreNameString = nil
         }
     }
@@ -131,26 +132,13 @@ extension EditViewController {
         let alert = UIAlertController(title: AlertTitleLiteral.edit, message: nil, preferredStyle: .alert)
         let editAction = UIAlertAction(title: AlertButtonLiteral.save, style: .default) { _ in
             //Firebaseの更新機能追加
-            self.textConvertNil()
+            self.convertValueNil()
             self.editAction()
         }
         let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
         alert.addAction(editAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
-    }
-    
-    //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
-    private func textConvertNil() {
-        if editStoreNameString == nil || editStoreNameString == "" {
-            editStoreNameString = nil
-        }
-        if editPlaceNameString == nil || editPlaceNameString == "" {
-            editPlaceNameString = nil
-        }
-        if editGenreNameString == nil || editGenreNameString == "" {
-            editGenreNameString = nil
-        }
     }
     
     private func editAction() {
