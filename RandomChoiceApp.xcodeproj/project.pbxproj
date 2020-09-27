@@ -602,7 +602,7 @@
 				MARKETING_VERSION = 1.1.0;
 				OTHER_SWIFT_FLAGS = "-D DEVELOP";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harafuchi.RandomChoiceApp;
-				PRODUCT_NAME = "さいころdeごはん";
+				PRODUCT_NAME = "Devさいころdeごはん";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
