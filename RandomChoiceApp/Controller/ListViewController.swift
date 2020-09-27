@@ -52,6 +52,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
 //MARK: - protocol
 extension ListViewController: ListPageTableViewCellDelegate {
+    
     func didTapEditButton(indexPath: Int) {
         indexPathNumber = indexPath
         performSegue(withIdentifier: SegueIdentifierLiteral.goToEditVC, sender: nil)
@@ -64,6 +65,7 @@ extension ListViewController: ListPageTableViewCellDelegate {
                 editVC.editStoreNameString = crudModel.storeDataArray[indexPath].storeName
                 editVC.editPlaceNameString = crudModel.storeDataArray[indexPath].placeName
                 editVC.editGenreNameString = crudModel.storeDataArray[indexPath].genreName
+                editVC.childID = crudModel.storeDataArray[indexPath].childID
             }
         }
     }

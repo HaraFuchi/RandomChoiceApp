@@ -13,10 +13,14 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
+    let crudModel = StoreDataCrudModel()
+    var emptyNameText: String { return "???" }
+    
     //TFに入れる値を所持
     var editStoreNameString: String?
     var editPlaceNameString: String?
     var editGenreNameString: String?
+    var childID: String?
     
     //UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
@@ -44,6 +48,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
         convertValueNil()
+        categoryCell.delegate = self
         
         switch indexPath.row {
         case 0:
@@ -72,17 +77,35 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
 }
 
 //MARK: - Protocol
-extension EditViewController: CommonActionButtonTableViewCellDelegate {
+extension EditViewController: SignupCategoryTableViewCellDelegate, CommonActionButtonTableViewCellDelegate {
+    func fetchCategoryNameText(textField: UITextField, indexNumber: Int) {
+        enum CategoryNameText: Int {
+            case store
+            case place
+            case genre
+        }
+        
+        let categoryNameText = CategoryNameText(rawValue: indexNumber)
+        switch categoryNameText {
+        case .store: editStoreNameString = textField.text
+        case .place: editPlaceNameString = textField.text
+        case .genre: editGenreNameString = textField.text
+        case .none: break
+        }
+    }
+    
     func cancelButton() {
         dismiss(animated: true, completion: nil)
     }
     
     func signupStoreInfoButton() {
+        showEditAlert()
     }
 }
 
 //MARK: - Method
 extension EditViewController {
+    
     private func setUpTableView() {
         tableView.dataSource = self
         let singUpCategoryNib = UINib(nibName: NibNameLiteral.signupCategoryTableViewCell, bundle: nil)
@@ -92,15 +115,46 @@ extension EditViewController {
     }
     
     //TFに???を反映させる必要はないため、nilを返す
+    //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
     private func convertValueNil() {
-        if editStoreNameString == LiteralQuestions.questions {
+        if editStoreNameString == LiteralQuestions.questions || editStoreNameString == "" {
             editStoreNameString = nil
         }
-        if editPlaceNameString == LiteralQuestions.questions {
+        if editPlaceNameString == LiteralQuestions.questions || editPlaceNameString == "" {
             editPlaceNameString = nil
         }
-        if editGenreNameString == LiteralQuestions.questions {
+        if editGenreNameString == LiteralQuestions.questions || editGenreNameString == "" {
             editGenreNameString = nil
         }
+    }
+    
+    private func showEditAlert() {
+        let alert = UIAlertController(title: AlertTitleLiteral.edit, message: nil, preferredStyle: .alert)
+        let editAction = UIAlertAction(title: AlertButtonLiteral.save, style: .default) { _ in
+            //Firebaseの更新機能追加
+            self.convertValueNil()
+            self.editAction()
+        }
+        let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
+        alert.addAction(editAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func editAction() {
+        if editStoreNameString == nil, editPlaceNameString == nil, editGenreNameString == nil {
+            showAlertAllNilTextField()
+        } else {
+            crudModel.editStoreData(store: editStoreNameString ?? emptyNameText, place: editPlaceNameString ?? emptyNameText, genre: editGenreNameString ?? emptyNameText, childID: childID)
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    private func showAlertAllNilTextField() {
+        let alert = UIAlertController(title: AlertTitleLiteral.allTextEmpty, message: AlertMessageLiteral
+            .allTextEmpty, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 }
