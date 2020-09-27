@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		78064BCCB19484E70510B8E7 /* Pods_RandomChoiceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009E936E1D45001D6DCD36B /* Pods_RandomChoiceApp.framework */; };
 		C5194F9924E085A40050DE18 /* StoreDataCrudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5194F9824E085A40050DE18 /* StoreDataCrudModel.swift */; };
 		C5194F9B24E174D60050DE18 /* StoreDataContentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5194F9A24E174D60050DE18 /* StoreDataContentsModel.swift */; };
 		C5202BC024FAEAD300656F6D /* LiteralConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5202BBF24FAEAD300656F6D /* LiteralConstraints.swift */; };
@@ -32,6 +31,7 @@
 		E3955A4224C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A4024C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift */; };
 		E3955A4324C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3955A4124C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib */; };
 		E3D7A6BD24CDF0CB005B3249 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3D7A6BC24CDF0CB005B3249 /* GoogleService-Info.plist */; };
+		F5A80105A4F8D67C91877967 /* Pods_RandomChoiceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD4CBDEFA47B1112B3153FF /* Pods_RandomChoiceApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3009E936E1D45001D6DCD36B /* Pods_RandomChoiceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomChoiceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		60B974E3F6D0AD7408FF8D9C /* Pods-RandomChoiceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomChoiceApp.release.xcconfig"; path = "Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp.release.xcconfig"; sourceTree = "<group>"; };
+		6DA89881C7E836BC12540F38 /* Pods-RandomChoiceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomChoiceApp.release.xcconfig"; path = "Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp.release.xcconfig"; sourceTree = "<group>"; };
+		8BD4CBDEFA47B1112B3153FF /* Pods_RandomChoiceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomChoiceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A5D55F27305D0D2F32D7C21 /* Pods-RandomChoiceApp.develop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomChoiceApp.develop.xcconfig"; path = "Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp.develop.xcconfig"; sourceTree = "<group>"; };
 		C5194F9824E085A40050DE18 /* StoreDataCrudModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDataCrudModel.swift; sourceTree = "<group>"; };
 		C5194F9A24E174D60050DE18 /* StoreDataContentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataContentsModel.swift; sourceTree = "<group>"; };
 		C5202BBF24FAEAD300656F6D /* LiteralConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiteralConstraints.swift; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		C59B1DDE24E9FD5E0060C622 /* AnonymousLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousLoginModel.swift; sourceTree = "<group>"; };
-		D53F25C5FFD3771D4FEDB82B /* Pods-RandomChoiceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomChoiceApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E3396A4624F90AE10020AF8E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		E354B6AB24C42E8E00759289 /* さいころdeごはん.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "さいころdeごはん.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E354B6AE24C42E8E00759289 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +85,7 @@
 		E3955A4024C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomChoiceButtonTableViewCell.swift; sourceTree = "<group>"; };
 		E3955A4124C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RandomChoiceButtonTableViewCell.xib; sourceTree = "<group>"; };
 		E3D7A6BC24CDF0CB005B3249 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E8AAA08FA629CA3AA31609BC /* Pods-RandomChoiceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomChoiceApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,28 +107,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78064BCCB19484E70510B8E7 /* Pods_RandomChoiceApp.framework in Frameworks */,
+				F5A80105A4F8D67C91877967 /* Pods_RandomChoiceApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26028496B2DE7F430B200F32 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8BD4CBDEFA47B1112B3153FF /* Pods_RandomChoiceApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2C2EC87DC680A439137D46EF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D53F25C5FFD3771D4FEDB82B /* Pods-RandomChoiceApp.debug.xcconfig */,
-				60B974E3F6D0AD7408FF8D9C /* Pods-RandomChoiceApp.release.xcconfig */,
+				E8AAA08FA629CA3AA31609BC /* Pods-RandomChoiceApp.debug.xcconfig */,
+				9A5D55F27305D0D2F32D7C21 /* Pods-RandomChoiceApp.develop.xcconfig */,
+				6DA89881C7E836BC12540F38 /* Pods-RandomChoiceApp.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		62D854F43F6BE4327B542DA9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3009E936E1D45001D6DCD36B /* Pods_RandomChoiceApp.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C5202C0224FAFD9500656F6D /* RandomChoiceTests */ = {
@@ -195,7 +197,7 @@
 				C5202C1024FAFE1C00656F6D /* RandomChoiceUITests */,
 				E354B6AC24C42E8E00759289 /* Products */,
 				2C2EC87DC680A439137D46EF /* Pods */,
-				62D854F43F6BE4327B542DA9 /* Frameworks */,
+				26028496B2DE7F430B200F32 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,11 +277,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E354B6BF24C42E9400759289 /* Build configuration list for PBXNativeTarget "RandomChoiceApp" */;
 			buildPhases = (
-				A339018F3D4B7E87BF5113FA /* [CP] Check Pods Manifest.lock */,
+				DD12952040993BAC0409DD4A /* [CP] Check Pods Manifest.lock */,
 				E354B6A724C42E8E00759289 /* Sources */,
 				E354B6A824C42E8E00759289 /* Frameworks */,
 				E354B6A924C42E8E00759289 /* Resources */,
-				857793EA5F1197B0C5B7C2F4 /* [CP] Embed Pods Frameworks */,
+				7F4560F5F439AB62B97FE1E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -366,7 +368,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		857793EA5F1197B0C5B7C2F4 /* [CP] Embed Pods Frameworks */ = {
+		7F4560F5F439AB62B97FE1E9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -383,7 +385,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A339018F3D4B7E87BF5113FA /* [CP] Check Pods Manifest.lock */ = {
+		DD12952040993BAC0409DD4A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -562,6 +564,132 @@
 			};
 			name = Release;
 		};
+		C54F4DBD252059470048B75B /* Develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEVELOP=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Develop;
+		};
+		C54F4DBE252059470048B75B /* Develop */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A5D55F27305D0D2F32D7C21 /* Pods-RandomChoiceApp.develop.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 737XJB84YA;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"COCOAPODS=1",
+					"PB_FIELD_32BIT=1",
+					"PB_NO_PACKED_STRUCTS=1",
+					"PB_ENABLE_MALLOC=1",
+				);
+				INFOPLIST_FILE = RandomChoiceApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1.0;
+				OTHER_SWIFT_FLAGS = "-D DEVELOP";
+				PRODUCT_BUNDLE_IDENTIFIER = com.harafuchi.RandomChoiceApp;
+				PRODUCT_NAME = "さいころdeごはん";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Develop;
+		};
+		C54F4DBF252059470048B75B /* Develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 737XJB84YA;
+				INFOPLIST_FILE = RanTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fuchi.RanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/さいころdeごはん.app/さいころdeごはん";
+			};
+			name = Develop;
+		};
+		C54F4DC0252059470048B75B /* Develop */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 737XJB84YA;
+				INFOPLIST_FILE = RandomChoiceUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.harafuchi.RandomChoiceApp.RandomChoiceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RandomChoiceApp;
+			};
+			name = Develop;
+		};
 		E354B6BD24C42E9400759289 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -678,7 +806,7 @@
 		};
 		E354B6C024C42E9400759289 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D53F25C5FFD3771D4FEDB82B /* Pods-RandomChoiceApp.debug.xcconfig */;
+			baseConfigurationReference = E8AAA08FA629CA3AA31609BC /* Pods-RandomChoiceApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -699,7 +827,7 @@
 		};
 		E354B6C124C42E9400759289 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60B974E3F6D0AD7408FF8D9C /* Pods-RandomChoiceApp.release.xcconfig */;
+			baseConfigurationReference = 6DA89881C7E836BC12540F38 /* Pods-RandomChoiceApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -725,6 +853,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C5202C0824FAFD9500656F6D /* Debug */,
+				C54F4DBF252059470048B75B /* Develop */,
 				C5202C0924FAFD9500656F6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -734,6 +863,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C5202C1724FAFE1C00656F6D /* Debug */,
+				C54F4DC0252059470048B75B /* Develop */,
 				C5202C1824FAFE1C00656F6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -743,6 +873,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E354B6BD24C42E9400759289 /* Debug */,
+				C54F4DBD252059470048B75B /* Develop */,
 				E354B6BE24C42E9400759289 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -752,6 +883,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E354B6C024C42E9400759289 /* Debug */,
+				C54F4DBE252059470048B75B /* Develop */,
 				E354B6C124C42E9400759289 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

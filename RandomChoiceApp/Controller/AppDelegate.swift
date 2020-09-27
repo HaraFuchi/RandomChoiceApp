@@ -21,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         anonymousLoginModel.anonymousLogin()
         sleep(UInt32(launchTime))
+        
+        #if DEBUG
+            print("デバック/開発環境")
+        #endif
+        
         return true
     }
     
