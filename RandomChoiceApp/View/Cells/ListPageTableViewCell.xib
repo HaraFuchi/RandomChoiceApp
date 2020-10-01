@@ -60,10 +60,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDa-Z1-jzR">
-                                <rect key="frame" x="376" y="24.5" width="24" height="24"/>
+                                <rect key="frame" x="368" y="20.5" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xDa-Z1-jzR" secondAttribute="height" multiplier="1:1" id="aKJ-ok-WKL"/>
-                                    <constraint firstAttribute="width" constant="24" id="tA7-Lk-omy"/>
+                                    <constraint firstAttribute="width" constant="32" id="tA7-Lk-omy"/>
                                 </constraints>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button" image="editButtonImage"/>
