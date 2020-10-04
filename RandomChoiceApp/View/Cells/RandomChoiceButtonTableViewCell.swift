@@ -24,7 +24,7 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        randomChoiceButtonDetail()
+        setupDetailCell()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,7 +34,7 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
 
 //MARK: -  Method
 extension RandomChoiceButtonTableViewCell {
-    private func randomChoiceButtonDetail() {
+    private func setupDetailCell() {
         self.selectionStyle = .none
         randomChoiceButton.layer.shadowOpacity = 0.5
         randomChoiceButton.layer.shadowOffset = CGSize(width: 3, height: 3)
