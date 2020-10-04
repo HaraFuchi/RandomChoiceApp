@@ -47,9 +47,7 @@ struct ButtonTitleLiteral {
 
 struct CellIdentifierLiteral {
     static let randomChoiceButtonCell = "RandomChoiceButtonCell"
-    static let listPageViewCell = "ListPageViewCell"
     static let listPageCell = "ListPageCell"
-    //FIXME:上2つは統合できそう
     static let signupCell = "SignupCell"
     static let actionButtonCell = "ActionButtonCell"
 }
