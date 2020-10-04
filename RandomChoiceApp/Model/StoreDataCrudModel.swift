@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 protocol StoreDataCrudModelDelegate {
-    func showNoStoreDataAlert()
+    func showAlertNoStoreData()
 }
 
 class StoreDataCrudModel {
@@ -20,9 +20,9 @@ class StoreDataCrudModel {
     
     let ref = Database.database().reference()
     
-    func createStoreInfo(store: String, place: String, genre: String) {
-        let createInfoDict = [StoreDataLiteral.store: store, StoreDataLiteral.place: place, StoreDataLiteral.genre: genre]
-        ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createInfoDict)
+    func createStoreData(store: String, place: String, genre: String) {
+        let createDataDict = [StoreDataLiteral.store: store, StoreDataLiteral.place: place, StoreDataLiteral.genre: genre]
+        ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createDataDict)
     }
     
     func fetchStoreData(tableView: UITableView?) {
@@ -52,7 +52,7 @@ class StoreDataCrudModel {
         ref.child(Auth.auth().currentUser!.uid).child(childKey).updateChildValues(newEditData)
     }
     
-    func deleteStoreInfo(indexPath: IndexPath) {
+    func deleteStoreData(indexPath: IndexPath) {
         let childKey = storeDataArray[indexPath.row].childID
         ref.child(Auth.auth().currentUser!.uid).child(childKey!).removeValue()
     }
@@ -62,7 +62,7 @@ class StoreDataCrudModel {
 extension StoreDataCrudModel {
     private func showAlertIfNoStoreData() {
         if self.storeDataArray.isEmpty {
-            self.delegate?.showNoStoreDataAlert()
+            self.delegate?.showAlertNoStoreData()
         }
     }
 }

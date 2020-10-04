@@ -79,7 +79,7 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         case 3:
             signupAndCancelButtonCell.delegate = self
             signupAndCancelButtonCell.cancelButton.isHidden = isHiddenCancelButton
-            signupAndCancelButtonCell.signUpButton.setTitle(ButtonTittle.signUp, for: .normal)
+            signupAndCancelButtonCell.signUpButton.setTitle(ButtonTitleLiteral.signUp, for: .normal)
             return signupAndCancelButtonCell
         default: break
         }
@@ -126,7 +126,7 @@ extension SignupViewController {
                 self.showAlertAllNilTextField()
             } else {
                 let crudModel = StoreDataCrudModel()
-                crudModel.createStoreInfo(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
+                crudModel.createStoreData(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
                 self.dismiss(animated: true, completion: nil)
             }
             

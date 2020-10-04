@@ -29,7 +29,7 @@ class CommonActionButtonTableViewCell: UITableViewCell {
    
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupButtons()
+        setupDetailCell()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -39,9 +39,13 @@ class CommonActionButtonTableViewCell: UITableViewCell {
 
 // MARK: - Method
 extension CommonActionButtonTableViewCell {
-    private func setupButtons(){
+    private func setupDetailCell() {
         self.selectionStyle = .none
-        cancelButton.setTitle(ButtonTittle.cancel, for: .normal)
+        setupButtons()
+    }
+    
+    private func setupButtons(){
+        cancelButton.setTitle(ButtonTitleLiteral.cancel, for: .normal)
         signUpButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         signUpButton.layer.borderWidth = 1.0
         signUpButton.layer.cornerRadius = 28.0

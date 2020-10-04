@@ -68,7 +68,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
             return categoryCell
         case 3:
             signupAndCancelButtonCell.delegate = self
-            signupAndCancelButtonCell.signUpButton.setTitle(ButtonTittle.saveEdit, for: .normal)
+            signupAndCancelButtonCell.signUpButton.setTitle(ButtonTitleLiteral.saveEdit, for: .normal)
             return signupAndCancelButtonCell
         default: break
         }
@@ -117,13 +117,13 @@ extension EditViewController {
     //TFに???を反映させる必要はないため、nilを返す
     //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
     private func convertValueNil() {
-        if editStoreNameString == LiteralQuestions.questions || editStoreNameString == "" {
+        if editStoreNameString == QuestionsLiteral.questions || editStoreNameString == "" {
             editStoreNameString = nil
         }
-        if editPlaceNameString == LiteralQuestions.questions || editPlaceNameString == "" {
+        if editPlaceNameString == QuestionsLiteral.questions || editPlaceNameString == "" {
             editPlaceNameString = nil
         }
-        if editGenreNameString == LiteralQuestions.questions || editGenreNameString == "" {
+        if editGenreNameString == QuestionsLiteral.questions || editGenreNameString == "" {
             editGenreNameString = nil
         }
     }

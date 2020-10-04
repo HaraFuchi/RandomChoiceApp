@@ -83,7 +83,7 @@ extension ListViewController {
     private func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
         let showAlert = UIAlertController(title: AlertTitleLiteral.delete, message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: AlertButtonLiteral.delete, style: .destructive, handler: { _ -> Void in
-            self.crudModel.deleteStoreInfo(indexPath: indexPath)
+            self.crudModel.deleteStoreData(indexPath: indexPath)
             if editingStyle == UITableViewCell.EditingStyle.delete {
                 self.crudModel.storeDataArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)

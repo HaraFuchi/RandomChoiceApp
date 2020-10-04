@@ -11,9 +11,9 @@ import UIKit
 class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     
     let crudModel = StoreDataCrudModel()
-    var resultStoreName = LiteralQuestions.questions
-    var resultPlaceName = LiteralQuestions.questions
-    var resultGenreName = LiteralQuestions.questions
+    var resultStoreName = QuestionsLiteral.questions
+    var resultPlaceName = QuestionsLiteral.questions
+    var resultGenreName = QuestionsLiteral.questions
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -68,7 +68,7 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
         tableView.reloadData()
     }
     
-    func showNoStoreDataAlert() {
+    func showAlertNoStoreData() {
         let alert = UIAlertController(title: AlertTitleLiteral.signUp_1, message: AlertMessageLiteral.signUp, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonLiteral.signUp, style: .default) { _ in
             self.performSegue(withIdentifier: SegueIdentifierLiteral.goToSignUpVC, sender: nil)
