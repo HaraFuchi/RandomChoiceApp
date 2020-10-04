@@ -14,7 +14,7 @@ struct StoreDataLiteral {
     static let genre = "ジャンル"
 }
 
-struct LiteralQuestions {
+struct QuestionsLiteral {
     static let questions = "???"
 }
 
@@ -39,7 +39,7 @@ struct AlertButtonLiteral {
     static let save = "保存する"
 }
 
-struct ButtonTittle {
+struct ButtonTittleLiteral {
     static let signUp = "お店を登録"
     static let saveEdit = "編集を保存"
     static let cancel = "キャンセル"
