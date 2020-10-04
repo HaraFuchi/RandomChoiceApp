@@ -26,12 +26,12 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     @IBAction func touchedCancelButton(_ sender: UIButton) {
         delegate?.cancelButton()
     }
-   
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupDetailCell()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -44,12 +44,27 @@ extension CommonActionButtonTableViewCell {
         setupButtons()
     }
     
+    //FIXME: 登録画面と編集画面で配色を条件分岐する
     private func setupButtons(){
         cancelButton.setTitle(ButtonTitleLiteral.cancel, for: .normal)
         signUpButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         signUpButton.layer.borderWidth = 1.0
         signUpButton.layer.cornerRadius = 28.0
         cancelButton.layer.borderColor = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
+        cancelButton.layer.borderWidth = 1.0
+        cancelButton.layer.cornerRadius = 28.0
+    }
+    
+    func setupButtons_edit() {
+        signUpButton.setTitle(ButtonTitleLiteral.saveEdit, for: .normal)
+        signUpButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        signUpButton.backgroundColor = #colorLiteral(red: 0.9821648002, green: 0.817013079, blue: 0.2579555598, alpha: 1)
+        signUpButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        signUpButton.layer.borderWidth = 1.0
+        signUpButton.layer.cornerRadius = 28.0
+        cancelButton.setTitle(ButtonTitleLiteral.cancel, for: .normal)
+        cancelButton.setTitleColor(#colorLiteral(red: 0.9821648002, green: 0.817013079, blue: 0.2579555598, alpha: 1), for: .normal)
+        cancelButton.layer.borderColor = #colorLiteral(red: 0.9821648002, green: 0.817013079, blue: 0.2579555598, alpha: 1)
         cancelButton.layer.borderWidth = 1.0
         cancelButton.layer.cornerRadius = 28.0
     }
