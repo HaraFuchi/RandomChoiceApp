@@ -39,7 +39,7 @@ struct AlertButtonLiteral {
     static let save = "保存する"
 }
 
-struct ButtonTittleLiteral {
+struct ButtonTitleLiteral {
     static let signUp = "お店を登録"
     static let saveEdit = "編集を保存"
     static let cancel = "キャンセル"
