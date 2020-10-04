@@ -126,7 +126,7 @@ extension SignupViewController {
                 self.showAlertAllNilTextField()
             } else {
                 let crudModel = StoreDataCrudModel()
-                crudModel.createStoreInfo(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
+                crudModel.createStoreData(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
                 self.dismiss(animated: true, completion: nil)
             }
             

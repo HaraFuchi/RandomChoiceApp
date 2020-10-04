@@ -68,7 +68,7 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
         tableView.reloadData()
     }
     
-    func showNoStoreDataAlert() {
+    func showAlertNoStoreData() {
         let alert = UIAlertController(title: AlertTitleLiteral.signUp_1, message: AlertMessageLiteral.signUp, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonLiteral.signUp, style: .default) { _ in
             self.performSegue(withIdentifier: SegueIdentifierLiteral.goToSignUpVC, sender: nil)
