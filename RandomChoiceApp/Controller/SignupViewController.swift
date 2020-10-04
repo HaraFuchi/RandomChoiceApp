@@ -79,7 +79,7 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         case 3:
             signupAndCancelButtonCell.delegate = self
             signupAndCancelButtonCell.cancelButton.isHidden = isHiddenCancelButton
-            signupAndCancelButtonCell.signUpButton.setTitle(ButtonTitleLiteral.signUp, for: .normal)
+            signupAndCancelButtonCell.setupButtons_signUp()
             return signupAndCancelButtonCell
         default: break
         }
