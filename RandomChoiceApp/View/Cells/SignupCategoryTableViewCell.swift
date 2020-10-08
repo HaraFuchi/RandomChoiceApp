@@ -22,7 +22,7 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .none
+        setupDetailCell()
         categoryTextField.delegate = self
     }
     
@@ -36,5 +36,13 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         delegate?.fetchCategoryNameText(textField: textField, indexNumber: indexPathNumber!)
+    }
+}
+
+//MARK: - Method
+extension SignupCategoryTableViewCell {
+    private func setupDetailCell() {
+        self.selectionStyle = .none
+        categoryTextField.backgroundColor = .white
     }
 }
