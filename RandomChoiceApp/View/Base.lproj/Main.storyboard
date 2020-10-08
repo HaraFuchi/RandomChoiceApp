@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +19,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jkk-3n-UJT">
                                 <rect key="frame" x="0.0" y="250.33333333333334" width="375" height="478.66666666666663"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="183" id="Qdf-7Q-H7p">
                                         <rect key="frame" x="0.0" y="28" width="375" height="183"/>
@@ -31,9 +33,10 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xs-Nc-JvG" userLabel="SpaceView">
                                 <rect key="frame" x="0.0" y="88.000000000000014" width="375" height="162.33333333333337"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5xs-Nc-JvG" secondAttribute="trailing" id="9eQ-cA-Ik5"/>
@@ -45,7 +48,6 @@
                             <constraint firstItem="5xs-Nc-JvG" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="nZo-8D-AnY"/>
                             <constraint firstItem="jkk-3n-UJT" firstAttribute="top" secondItem="5xs-Nc-JvG" secondAttribute="bottom" id="x5b-eB-VKO"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="さいころdeごはん" id="PVD-Q0-bJM">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gfK-Ri-eJc">
@@ -73,7 +75,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wOl-Ww-3SB">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="4px-Dz-mLs" customClass="SignupCategoryTableViewCell" customModule="さいころdeごはん" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
@@ -96,7 +98,8 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="5an-H8-dRb"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="5an-H8-dRb" firstAttribute="trailing" secondItem="wOl-Ww-3SB" secondAttribute="trailing" id="IX1-pb-PhF"/>
@@ -107,7 +110,6 @@
                             <constraint firstItem="LJK-NV-7As" firstAttribute="top" secondItem="5an-H8-dRb" secondAttribute="top" id="raY-vW-BcI"/>
                             <constraint firstItem="5an-H8-dRb" firstAttribute="bottom" secondItem="wOl-Ww-3SB" secondAttribute="bottom" id="udo-PV-bmi"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="5an-H8-dRb"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="GIo-PE-7Oc" appends="YES" id="STY-yw-t8x"/>
                         </connections>
@@ -137,7 +139,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uRH-rC-F8z">
                                 <rect key="frame" x="0.0" y="88" width="375" height="641"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="79" id="1zf-b0-HZM">
                                         <rect key="frame" x="0.0" y="28" width="375" height="79"/>
@@ -150,6 +152,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zd9-G8-Ovq"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -158,7 +161,6 @@
                             <constraint firstItem="uRH-rC-F8z" firstAttribute="bottom" secondItem="Zd9-G8-Ovq" secondAttribute="bottom" id="bVe-gg-cJ8"/>
                             <constraint firstItem="uRH-rC-F8z" firstAttribute="trailing" secondItem="Zd9-G8-Ovq" secondAttribute="trailing" id="rVH-Ae-Tbw"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Zd9-G8-Ovq"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="3Ni-bv-ZQJ" appends="YES" id="Dw6-RC-p9p"/>
                         </connections>
@@ -192,7 +194,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YDJ-Y9-BrQ">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="106" id="ae7-9x-bcE">
                                         <rect key="frame" x="0.0" y="28" width="375" height="106"/>
@@ -206,7 +208,7 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BiK-Pb-tsF">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <color key="barTintColor" red="0.98216480019999997" green="0.8170130790432989" blue="0.25795555983586493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.99215686270000003" green="0.6393200201" blue="0.218539124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
@@ -215,7 +217,8 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="I3Z-qq-FnY"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="bottom" secondItem="I3Z-qq-FnY" secondAttribute="bottom" id="0IM-Xx-CsZ"/>
                             <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="top" secondItem="BiK-Pb-tsF" secondAttribute="bottom" id="HC6-Ox-u1r"/>
@@ -225,7 +228,6 @@
                             <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="leading" secondItem="I3Z-qq-FnY" secondAttribute="leading" id="kPe-PP-zh0"/>
                             <constraint firstItem="BiK-Pb-tsF" firstAttribute="top" secondItem="I3Z-qq-FnY" secondAttribute="top" id="pVk-ZA-Ac1"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="I3Z-qq-FnY"/>
                     </view>
                     <navigationItem key="navigationItem" title="お店を編集" id="oSW-b7-cEn"/>
                     <connections>
@@ -311,5 +313,8 @@
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

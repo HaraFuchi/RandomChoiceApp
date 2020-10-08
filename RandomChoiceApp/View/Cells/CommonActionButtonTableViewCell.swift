@@ -61,13 +61,13 @@ extension CommonActionButtonTableViewCell {
     func setupButtons_edit() {
         signUpButton.setTitle(ButtonTitleLiteral.saveEdit, for: .normal)
         signUpButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        signUpButton.backgroundColor = #colorLiteral(red: 0.9821648002, green: 0.817013079, blue: 0.2579555598, alpha: 1)
+        signUpButton.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
         signUpButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         signUpButton.layer.borderWidth = 1.0
         signUpButton.layer.cornerRadius = 28.0
         cancelButton.setTitle(ButtonTitleLiteral.cancel, for: .normal)
-        cancelButton.setTitleColor(#colorLiteral(red: 0.9821648002, green: 0.817013079, blue: 0.2579555598, alpha: 1), for: .normal)
-        cancelButton.layer.borderColor = #colorLiteral(red: 0.9821648002, green: 0.817013079, blue: 0.2579555598, alpha: 1)
+        cancelButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1), for: .normal)
+        cancelButton.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
         cancelButton.layer.borderWidth = 1.0
         cancelButton.layer.cornerRadius = 28.0
     }
