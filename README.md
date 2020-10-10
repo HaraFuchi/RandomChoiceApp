@@ -17,7 +17,13 @@
 - 使用言語: Swift (V5.3)
 - 対応デバイス: iPhone, iPad (サポート対象: iOS13.0〜)
 - CocoaPods (V1.9.1)
-- Firebase 
+
+# 使用ライブラリ
+- Firebase Authentication 
+簡単に認証機能を追加することができるライブラリ。本アプリでは匿名ログインを使用
+
+- Firebase Realtime 
+Database Firebaseから提供されているNoSQLデータベース
 
 # バージョン管理
 GitHubを使用
