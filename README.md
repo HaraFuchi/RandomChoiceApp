@@ -13,10 +13,10 @@
 タスク管理ツールTrelloを使用
 
 # 開発情報
-- 開発環境: Xcode
-- 使用言語: Swift
-- 対応デバイス: iPhone, iPad
-- CocoaPods
+- 開発環境: Xcode ( V12.0.1 )
+- 使用言語: Swift (V5.3)
+- 対応デバイス: iPhone, iPad (サポート対象: iOS13.0〜)
+- CocoaPods (V1.9.1)
 - Firebase 
 
 # バージョン管理
