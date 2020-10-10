@@ -43,6 +43,14 @@ extension CommonActionButtonTableViewCell {
         self.selectionStyle = .none
     }
     
+    func buttons(_ VC: UIViewController) {
+        if VC is SignupViewController {
+            print("✌️登録")
+        } else if VC is EditViewController {
+            print("✌️編集")
+        }
+    }
+    
     //FIXME: 登録画面と編集画面で配色を条件分岐する
     func setupButtons_signUp() {
         signUpButton.setTitle(ButtonTitleLiteral.signUp, for: .normal)
