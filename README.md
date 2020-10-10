@@ -27,19 +27,25 @@ Database Firebaseから提供されているNoSQLデータベース
 
 # バージョン管理
 GitHubを使用
+- Git-flow に基づき運用
 
 # ブランチルール
 - master: リリースブランチ  
 基本的にここにコミットはしない  
 リリース単位のマージコミットが並ぶ
 
+- release: リリースブランチ 
+リリース作業の場合に使用
+もしバグが発生した場合は hotfixブランチを切って修正する
+
 - develop: 開発ブランチ  
 トピックブランチのマージコミットが並ぶ
 
 - トピックブランチ  
-feature/xxxxx: 機能  
-hotfix/xxxxx: 不具合修正  
+feature/xxxxx: 機能追加
 refactor/xxxxx: リファクタリング  
+fix/xxxxx: バグ修正時
+hotfix/xxxxx: 緊急度の高い不具合時に使用して優先度高めでレビューを実行
 
 # インストール
 `$ git clone https://github.com/HaraFuchi/RandomChoiceApp.git`
