@@ -45,6 +45,9 @@ class CommonActionButtonTableViewCell: UITableViewCell {
 
 // MARK: - Method
 extension CommonActionButtonTableViewCell {
+    private func setupDetailCell() {
+        self.selectionStyle = .none
+    }
     //FIXME 同じようなプロパティを繰り返し使用しているため修正する
     public func setupButton(_ VC: UIViewController) {
         setUpCommonButton()
@@ -70,9 +73,5 @@ extension CommonActionButtonTableViewCell {
         signUpButton.layer.cornerRadius = 28.0
         cancelButton.layer.borderWidth = 1.0
         cancelButton.layer.cornerRadius = 28.0
-    }
-    
-    private func setupDetailCell() {
-        self.selectionStyle = .none
     }
 }
