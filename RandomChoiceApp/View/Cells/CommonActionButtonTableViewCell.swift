@@ -43,40 +43,40 @@ extension CommonActionButtonTableViewCell {
         self.selectionStyle = .none
     }
     
-    func buttons(_ VC: UIViewController) {
+    func setupButtons(_ VC: UIViewController) {
         if VC is SignupViewController {
-            print("✌️登録")
+            signUpButton.setTitle(ButtonTitleLiteral.signUp, for: .normal)
+            signUpButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            signUpButton.backgroundColor = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
+            signUpButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            signUpButton.layer.borderWidth = 1.0
+            signUpButton.layer.cornerRadius = 28.0
+            cancelButton.setTitle(ButtonTitleLiteral.cancel, for: .normal)
+            cancelButton.setTitleColor(#colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1), for: .normal)
+            cancelButton.layer.borderColor = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
+            cancelButton.layer.borderWidth = 1.0
+            cancelButton.layer.cornerRadius = 28.0
         } else if VC is EditViewController {
-            print("✌️編集")
+            signUpButton.setTitle(ButtonTitleLiteral.saveEdit, for: .normal)
+            signUpButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            signUpButton.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
+            signUpButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            signUpButton.layer.borderWidth = 1.0
+            signUpButton.layer.cornerRadius = 28.0
+            cancelButton.setTitle(ButtonTitleLiteral.cancel, for: .normal)
+            cancelButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1), for: .normal)
+            cancelButton.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
+            cancelButton.layer.borderWidth = 1.0
+            cancelButton.layer.cornerRadius = 28.0
         }
     }
     
     //FIXME: 登録画面と編集画面で配色を条件分岐する
     func setupButtons_signUp() {
-        signUpButton.setTitle(ButtonTitleLiteral.signUp, for: .normal)
-        signUpButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        signUpButton.backgroundColor = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
-        signUpButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        signUpButton.layer.borderWidth = 1.0
-        signUpButton.layer.cornerRadius = 28.0
-        cancelButton.setTitle(ButtonTitleLiteral.cancel, for: .normal)
-        cancelButton.setTitleColor(#colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1), for: .normal)
-        cancelButton.layer.borderColor = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
-        cancelButton.layer.borderWidth = 1.0
-        cancelButton.layer.cornerRadius = 28.0
+        
     }
     
     func setupButtons_edit() {
-        signUpButton.setTitle(ButtonTitleLiteral.saveEdit, for: .normal)
-        signUpButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        signUpButton.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
-        signUpButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        signUpButton.layer.borderWidth = 1.0
-        signUpButton.layer.cornerRadius = 28.0
-        cancelButton.setTitle(ButtonTitleLiteral.cancel, for: .normal)
-        cancelButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1), for: .normal)
-        cancelButton.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
-        cancelButton.layer.borderWidth = 1.0
-        cancelButton.layer.cornerRadius = 28.0
+        
     }
 }
