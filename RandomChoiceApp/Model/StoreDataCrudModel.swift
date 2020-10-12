@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 protocol StoreDataCrudModelDelegate {
-    func showNoStoreDataAlert()
+    func showAlertNoStoreData()
 }
 
 class StoreDataCrudModel {
@@ -20,9 +20,9 @@ class StoreDataCrudModel {
     
     let ref = Database.database().reference()
     
-    func createStoreInfo(store: String, place: String, genre: String) {
-        let createInfoDict = ["店名":store, "場所": place, "ジャンル": genre]
-        ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createInfoDict)
+    func createStoreData(store: String, place: String, genre: String) {
+        let createDataDict = [StoreDataLiteral.store: store, StoreDataLiteral.place: place, StoreDataLiteral.genre: genre]
+        ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createDataDict)
     }
     
     func fetchStoreData(tableView: UITableView?) {
@@ -32,24 +32,37 @@ class StoreDataCrudModel {
                 for snap in snapShot {
                     if let postData = snap.value as? [String: Any] {
                         let childID = snap.key
-                        let storeName = postData["店名"]
-                        let placeName = postData["場所"]
-                        let genreName = postData["ジャンル"]
+                        let storeName = postData[StoreDataLiteral.store]
+                        let placeName = postData[StoreDataLiteral.place]
+                        let genreName = postData[StoreDataLiteral.genre]
                         let storeDataContent = StoreDataContentsModel(childID: childID , store: storeName as! String, place: placeName as! String, genre: genreName as! String )
                         self.storeDataArray.append(storeDataContent)
                     }
                 }
-                if self.storeDataArray.isEmpty == true {
-                    self.delegate?.showNoStoreDataAlert()
-                }
+                self.showAlertIfNoStoreData()
                 self.storeDataArray.reverse()
                 tableView?.reloadData()
             }
         }
     }
     
-    func deleteStoreInfo(indexpath: IndexPath) {
-        let childKey = storeDataArray[indexpath.row].childID
+    func editStoreData(store: String, place: String, genre: String, childID: String?) {
+        let newEditData = [StoreDataLiteral.store: store, StoreDataLiteral.place: place, StoreDataLiteral.genre: genre]
+        guard let childKey = childID else { return }
+        ref.child(Auth.auth().currentUser!.uid).child(childKey).updateChildValues(newEditData)
+    }
+    
+    func deleteStoreData(indexPath: IndexPath) {
+        let childKey = storeDataArray[indexPath.row].childID
         ref.child(Auth.auth().currentUser!.uid).child(childKey!).removeValue()
+    }
+}
+
+// MARK: - Method
+extension StoreDataCrudModel {
+    private func showAlertIfNoStoreData() {
+        if self.storeDataArray.isEmpty {
+            self.delegate?.showAlertNoStoreData()
+        }
     }
 }

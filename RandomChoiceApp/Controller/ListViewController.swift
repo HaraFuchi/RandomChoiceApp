@@ -8,19 +8,18 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let crudModel = StoreDataCrudModel()
     
+    var indexPathNumber: Int? //CellのindexPathを保持
+        
     @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        let listPageNib = UINib(nibName: "ListPageTableViewCell", bundle: nil)
-        tableView.register(listPageNib, forCellReuseIdentifier: "ListPageCell")
+        setUpTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,36 +32,64 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListPageCell", for: indexPath) as! ListPageTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.listPageCell, for: indexPath) as! ListPageTableViewCell
+        cell.delegate = self
         cell.storeNameLabel.text = crudModel.storeDataArray[indexPath.row].storeName
         cell.placeLabel.text = crudModel.storeDataArray[indexPath.row].placeName
         cell.genreLabel.text = crudModel.storeDataArray[indexPath.row].genreName
+        cell.indexPathNumber = indexPath.row
         return cell
     }
     
-    //セルの編集許可(スワイプを可能にする)
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        showDeleteAlert(tableView: tableView, editingStyle: editingStyle, indexPath: indexPath)
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        showDeleteAlert(tableView: tableView, editingStyle: editingStyle, indexpath: indexPath)
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return AlertButtonLiteral.delete
     }
 }
 
-//MARK: - Private func
+//MARK: - protocol
+extension ListViewController: ListPageTableViewCellDelegate {
+    
+    func didTapEditButton(indexPath: Int) {
+        indexPathNumber = indexPath
+        performSegue(withIdentifier: SegueIdentifierLiteral.goToEditVC, sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifierLiteral.goToEditVC {
+            let editVC = segue.destination as! EditViewController
+            if let indexPath = indexPathNumber {
+                editVC.editStoreNameString = crudModel.storeDataArray[indexPath].storeName
+                editVC.editPlaceNameString = crudModel.storeDataArray[indexPath].placeName
+                editVC.editGenreNameString = crudModel.storeDataArray[indexPath].genreName
+                editVC.childID = crudModel.storeDataArray[indexPath].childID
+            }
+        }
+    }
+}
+
+//MARK: - Method
 extension ListViewController {
-    private func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexpath: IndexPath) {
-        let showAlert = UIAlertController(title: "お店一覧から削除しますか？", message: "", preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "削除", style: .destructive, handler: { _ -> Void in
-            self.crudModel.deleteStoreInfo(indexpath: indexpath)
+    private func setUpTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        let listPageNib = UINib(nibName: NibNameLiteral.listPageTableViewCell, bundle: nil)
+        tableView.register(listPageNib, forCellReuseIdentifier: CellIdentifierLiteral.listPageCell)
+    }
+    
+    private func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
+        let showAlert = UIAlertController(title: AlertTitleLiteral.delete, message: nil, preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: AlertButtonLiteral.delete, style: .destructive, handler: { _ -> Void in
+            self.crudModel.deleteStoreData(indexPath: indexPath)
             if editingStyle == UITableViewCell.EditingStyle.delete {
-                self.crudModel.storeDataArray.remove(at: indexpath.row)
-                tableView.deleteRows(at: [indexpath as IndexPath], with: UITableView.RowAnimation.automatic)
+                self.crudModel.storeDataArray.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
             }
         })
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: { _ -> Void in
-        })
+        let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
         showAlert.addAction(cancelAction)
         showAlert.addAction(deleteAction)
         present(showAlert, animated: true, completion: nil)

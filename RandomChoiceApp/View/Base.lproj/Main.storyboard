@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,28 +14,29 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RandomChoiceViewController" customModule="さいころdeごはん" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jkk-3n-UJT">
-                                <rect key="frame" x="0.0" y="267" width="414" height="546"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="250.33333333333334" width="375" height="478.66666666666663"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="183" id="Qdf-7Q-H7p">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="183"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="183"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qdf-7Q-H7p" id="cYX-7K-wrz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="183"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="183"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xs-Nc-JvG" userLabel="SpaceView">
-                                <rect key="frame" x="0.0" y="88" width="414" height="179"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="88.000000000000014" width="375" height="162.33333333333337"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5xs-Nc-JvG" secondAttribute="trailing" id="9eQ-cA-Ik5"/>
@@ -45,13 +48,12 @@
                             <constraint firstItem="5xs-Nc-JvG" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="nZo-8D-AnY"/>
                             <constraint firstItem="jkk-3n-UJT" firstAttribute="top" secondItem="5xs-Nc-JvG" secondAttribute="bottom" id="x5b-eB-VKO"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="さいころdeごはん" id="PVD-Q0-bJM">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gfK-Ri-eJc">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="mwd-El-xam" kind="presentation" identifier="goToSignupVC" modalPresentationStyle="fullScreen" id="9r5-3L-hSW"/>
+                                <segue destination="Ko3-W4-qBb" kind="presentation" identifier="goToSignupVC" modalPresentationStyle="fullScreen" id="aci-31-F6H"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -68,39 +70,53 @@
             <objects>
                 <viewController id="Ko3-W4-qBb" customClass="SignupViewController" customModule="さいころdeごはん" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S4O-Te-s8D">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wOl-Ww-3SB">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="4px-Dz-mLs" customClass="SignupCategoryTableViewCell" customModule="さいころdeごはん" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4px-Dz-mLs" id="9qt-dr-WoP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJK-NV-7As">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <color key="barTintColor" red="0.99376636740000002" green="0.4226302207" blue="0.36204394699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="お店を登録" id="p5y-8o-mjm"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="5an-H8-dRb"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="5an-H8-dRb" firstAttribute="trailing" secondItem="wOl-Ww-3SB" secondAttribute="trailing" id="IX1-pb-PhF"/>
+                            <constraint firstItem="wOl-Ww-3SB" firstAttribute="top" secondItem="LJK-NV-7As" secondAttribute="bottom" id="KwW-0u-uhK"/>
+                            <constraint firstItem="LJK-NV-7As" firstAttribute="leading" secondItem="wOl-Ww-3SB" secondAttribute="leading" id="POF-pV-ryQ"/>
                             <constraint firstItem="wOl-Ww-3SB" firstAttribute="leading" secondItem="5an-H8-dRb" secondAttribute="leading" id="cAK-VD-3Cw"/>
+                            <constraint firstItem="LJK-NV-7As" firstAttribute="trailing" secondItem="wOl-Ww-3SB" secondAttribute="trailing" id="dhp-so-msX"/>
+                            <constraint firstItem="LJK-NV-7As" firstAttribute="top" secondItem="5an-H8-dRb" secondAttribute="top" id="raY-vW-BcI"/>
                             <constraint firstItem="5an-H8-dRb" firstAttribute="bottom" secondItem="wOl-Ww-3SB" secondAttribute="bottom" id="udo-PV-bmi"/>
-                            <constraint firstItem="wOl-Ww-3SB" firstAttribute="top" secondItem="5an-H8-dRb" secondAttribute="top" id="zzz-8o-9br"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="5an-H8-dRb"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="GIo-PE-7Oc" appends="YES" id="STY-yw-t8x"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="お店を登録" id="Vrd-Il-g7B"/>
                     <connections>
+                        <outlet property="navigationBar" destination="LJK-NV-7As" id="AxE-5T-T4D"/>
                         <outlet property="tableView" destination="wOl-Ww-3SB" id="dU1-24-Yy8"/>
                     </connections>
                 </viewController>
@@ -111,31 +127,32 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3319" y="-10"/>
+            <point key="canvasLocation" x="2557.5999999999999" y="-10.344827586206897"/>
         </scene>
         <!--お店一覧-->
         <scene sceneID="CZ2-es-7US">
             <objects>
                 <viewController id="2Gj-wH-W6X" customClass="ListViewController" customModule="さいころdeごはん" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Pa-Yu-LDY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uRH-rC-F8z">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="79" id="1zf-b0-HZM">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="79"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1zf-b0-HZM" id="FtB-r8-C56">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zd9-G8-Ovq"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -144,7 +161,6 @@
                             <constraint firstItem="uRH-rC-F8z" firstAttribute="bottom" secondItem="Zd9-G8-Ovq" secondAttribute="bottom" id="bVe-gg-cJ8"/>
                             <constraint firstItem="uRH-rC-F8z" firstAttribute="trailing" secondItem="Zd9-G8-Ovq" secondAttribute="trailing" id="rVH-Ae-Tbw"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Zd9-G8-Ovq"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="3Ni-bv-ZQJ" appends="YES" id="Dw6-RC-p9p"/>
                         </connections>
@@ -153,19 +169,75 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ByB-uY-6Oi">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="mwd-El-xam" kind="presentation" identifier="goToSignupVC" modalPresentationStyle="fullScreen" id="Qgw-0k-o0S"/>
+                                <segue destination="Ko3-W4-qBb" kind="presentation" identifier="goToSignupVC" modalPresentationStyle="fullScreen" id="oRq-p8-Jtt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="signupVCBarButtonItem" destination="ByB-uY-6Oi" id="Rco-wp-xTj"/>
                         <outlet property="tableView" destination="uRH-rC-F8z" id="WfN-if-rhi"/>
+                        <segue destination="J2i-Mb-V9B" kind="presentation" identifier="goToEditVC" modalPresentationStyle="fullScreen" id="al6-yQ-CCQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ruu-Jv-01a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="3Ni-bv-ZQJ"/>
             </objects>
             <point key="canvasLocation" x="1744.9275362318842" y="322.76785714285711"/>
+        </scene>
+        <!--お店を編集-->
+        <scene sceneID="jS1-F0-SYh">
+            <objects>
+                <viewController id="J2i-Mb-V9B" customClass="EditViewController" customModule="さいころdeごはん" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="chQ-hi-mXp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YDJ-Y9-BrQ">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="106" id="ae7-9x-bcE">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="106"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ae7-9x-bcE" id="0H8-oT-NPy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BiK-Pb-tsF">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <color key="barTintColor" red="0.99215686270000003" green="0.6393200201" blue="0.218539124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="お店を編集" id="r6P-E0-GSB"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="I3Z-qq-FnY"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="bottom" secondItem="I3Z-qq-FnY" secondAttribute="bottom" id="0IM-Xx-CsZ"/>
+                            <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="top" secondItem="BiK-Pb-tsF" secondAttribute="bottom" id="HC6-Ox-u1r"/>
+                            <constraint firstItem="BiK-Pb-tsF" firstAttribute="leading" secondItem="YDJ-Y9-BrQ" secondAttribute="leading" id="Qna-VL-cnA"/>
+                            <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="trailing" secondItem="I3Z-qq-FnY" secondAttribute="trailing" id="TFv-7N-FCi"/>
+                            <constraint firstItem="BiK-Pb-tsF" firstAttribute="trailing" secondItem="YDJ-Y9-BrQ" secondAttribute="trailing" id="TJf-29-iHF"/>
+                            <constraint firstItem="YDJ-Y9-BrQ" firstAttribute="leading" secondItem="I3Z-qq-FnY" secondAttribute="leading" id="kPe-PP-zh0"/>
+                            <constraint firstItem="BiK-Pb-tsF" firstAttribute="top" secondItem="I3Z-qq-FnY" secondAttribute="top" id="pVk-ZA-Ac1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="お店を編集" id="oSW-b7-cEn"/>
+                    <connections>
+                        <outlet property="navigationBar" destination="BiK-Pb-tsF" id="Jrx-1V-XFn"/>
+                        <outlet property="tableView" destination="YDJ-Y9-BrQ" id="hGI-F7-6f2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EWU-lD-dMX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2557.5999999999999" y="649.50738916256159"/>
         </scene>
         <!--さいころdeごはん-->
         <scene sceneID="Rra-lW-lbQ">
@@ -174,7 +246,7 @@
                     <tabBarItem key="tabBarItem" title="さいころdeごはん" image="house.fill" catalog="system" id="lcE-XT-qGa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1qS-aQ-hCW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.99215686270000003" green="0.6393200201" blue="0.218539124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -197,7 +269,7 @@
                     <tabBarItem key="tabBarItem" title="お店一覧" image="list.dash" catalog="system" id="OJa-gL-W2z"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xPv-We-ZHC">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.99215686270000003" green="0.6393200201" blue="0.218539124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -234,34 +306,15 @@
             </objects>
             <point key="canvasLocation" x="354" y="-10"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="eLW-oe-6bd">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mwd-El-xam" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TL7-eX-4dz">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.99376636740000002" green="0.4226302207" blue="0.36204394699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Ko3-W4-qBb" kind="relationship" relationship="rootViewController" id="Eow-h1-Sdr"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8PM-b8-B7K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2559" y="-10"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9r5-3L-hSW"/>
+        <segue reference="oRq-p8-Jtt"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

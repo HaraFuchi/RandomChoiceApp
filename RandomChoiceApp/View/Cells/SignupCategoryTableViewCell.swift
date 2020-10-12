@@ -14,18 +14,18 @@ protocol SignupCategoryTableViewCellDelegate {
 
 class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     
-    var delegete: SignupCategoryTableViewCellDelegate?
-    var IndexPathNumber:Int?//登録画面で繰り返しすCellを分別するのコード
+    var delegate: SignupCategoryTableViewCellDelegate?
+    var indexPathNumber:Int?//登録画面で繰り返すCellを分別する変数
     
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var categoryTextField: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .none
+        setupDetailCell()
         categoryTextField.delegate = self
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -35,6 +35,14 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        delegete?.fetchCategoryNameText(textField: textField, indexNumber: IndexPathNumber!)
+        delegate?.fetchCategoryNameText(textField: textField, indexNumber: indexPathNumber!)
+    }
+}
+
+//MARK: - Method
+extension SignupCategoryTableViewCell {
+    private func setupDetailCell() {
+        self.selectionStyle = .none
+        categoryTextField.backgroundColor = .white
     }
 }

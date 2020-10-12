@@ -8,22 +8,19 @@
 
 import UIKit
 
-class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     
     let crudModel = StoreDataCrudModel()
-    var resultStoreName = "???"
-    var resultPlaceName = "???"
-    var resultGenreName = "???"
+    var resultStoreName = QuestionsLiteral.questions
+    var resultPlaceName = QuestionsLiteral.questions
+    var resultGenreName = QuestionsLiteral.questions
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         crudModel.delegate = self
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "ListPageTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPagewCell")
-        tableView.register(UINib(nibName: "RandomChoiceButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "RandomChoiceButtonCell")
+        setUpTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,46 +33,66 @@ class RandomChoiceViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: "ListPagewCell") as! ListPageTableViewCell
-        let buttonCell = tableView.dequeueReusableCell(withIdentifier: "RandomChoiceButtonCell") as! RandomChoiceButtonTableViewCell
+        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.listPageCell) as! ListPageTableViewCell
+        let buttonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.randomChoiceButtonCell) as! RandomChoiceButtonTableViewCell
         
         switch indexPath.row {
         case 0:
             storeDataCell.storeNameLabel.text = resultStoreName
             storeDataCell.placeLabel.text = resultPlaceName
             storeDataCell.genreLabel.text = resultGenreName
+            storeDataCell.editButton.isHidden = true
             return storeDataCell
         case 1:
             buttonCell.delegate = self
             return buttonCell
-        default:
-            break
+        default: break
         }
         return UITableViewCell()
     }
 }
 
-// MARK: -protcol
+// MARK: -Protocol
 extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
+    private var emptyNameText: String { return "???" }
+    
     func didTapDiceButton() {
-        //FIXME:データを取ってくる前にタップするとnilが帰ってくるためリファクタリングが必要
         let storeDataArray = crudModel.storeDataArray
-        let element = storeDataArray.randomElement()
         
-        resultStoreName = (element?.storeName ?? "???") as String
-        resultPlaceName = (element?.placeName ?? "???") as String
-        resultGenreName = (element?.genreName ?? "???") as String
+        guard let element = storeDataArray.randomElement() else { return }
+        
+        resultStoreName = element.storeName ?? emptyNameText
+        resultPlaceName = element.placeName ?? emptyNameText
+        resultGenreName = element.genreName ?? emptyNameText
         
         tableView.reloadData()
     }
     
-    func showNoStoreDataAlert() {
-        let alert = UIAlertController(title: "よく行くお店を登録しよう", message: "お店がまだ登録されていません", preferredStyle: .alert)
-        let signupAction = UIAlertAction(title: "登録する", style: .default) { _ in
-            self.performSegue(withIdentifier: "goToSignupVC", sender: nil)
+    func showAlertNoStoreData() {
+        let alert = UIAlertController(title: AlertTitleLiteral.signUp_1, message: AlertMessageLiteral.signUp, preferredStyle: .alert)
+        let signupAction = UIAlertAction(title: AlertButtonLiteral.signUp, style: .default) { _ in
+            self.performSegue(withIdentifier: SegueIdentifierLiteral.goToSignUpVC, sender: nil)
         }
         alert.addAction(signupAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifierLiteral.goToSignUpVC {
+            let signupVC = segue.destination as! SignupViewController
+            if crudModel.storeDataArray.isEmpty {
+                signupVC.isHiddenCancelButton = true
+            }
+        }
+    }
+}
+
+// MARK: -Method
+extension RandomChoiceViewController {
+    private func setUpTableView() {
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: NibNameLiteral.listPageTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifierLiteral.listPageCell)
+        tableView.register(UINib(nibName: NibNameLiteral.randomChoiceButtonTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifierLiteral.randomChoiceButtonCell)
     }
 }
 

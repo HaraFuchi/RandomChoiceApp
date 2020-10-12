@@ -8,24 +8,42 @@
 
 import UIKit
 
+protocol ListPageTableViewCellDelegate {
+    func didTapEditButton(indexPath: Int)
+}
+
 class ListPageTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var backgroungBaseView: UIView!
+    var delegate: ListPageTableViewCellDelegate?
+    
+    var indexPathNumber: Int?//Cellに分別する変数
+    
+    @IBOutlet weak var BGBaseView: UIView!
     @IBOutlet weak var storeNameLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var editButton: UIButton!
+    
+    @IBAction func touchedEditButton(_ sender: UIButton) {
+        if let indexPath = indexPathNumber {
+            delegate?.didTapEditButton(indexPath: indexPath)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupDetailCell()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    //MARK: - Private
+}
+
+//MARK: - Method
+extension ListPageTableViewCell {
     private func setupDetailCell(){
         self.selectionStyle = .none
-        backgroungBaseView.layer.cornerRadius = 8
+        BGBaseView.layer.cornerRadius = 8
     }
 }
