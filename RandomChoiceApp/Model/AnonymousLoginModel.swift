@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 class AnonymousLoginModel {
-    func anonymousLogin() {
+    public func anonymousLogin() {
         Auth.auth().signInAnonymously() { (authResult, error) in
             if let error = error {
                 print("Auth Error :\(error.localizedDescription)")

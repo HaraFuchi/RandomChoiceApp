@@ -10,12 +10,12 @@ import Foundation
 
 class StoreDataContentsModel {
     
-    var childID: String?
-    var storeName: String?
-    var placeName: String?
-    var genreName: String?
+    public var childID: String?
+    public var storeName: String?
+    public var placeName: String?
+    public var genreName: String?
     
-    init(childID: String, store: String, place: String, genre: String) {
+    public init(childID: String, store: String, place: String, genre: String) {
         self.childID = childID
         self.storeName = store
         self.placeName = place
