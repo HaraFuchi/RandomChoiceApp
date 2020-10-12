@@ -68,7 +68,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
             return categoryCell
         case 3:
             signupAndCancelButtonCell.delegate = self
-            signupAndCancelButtonCell.setupButtons_edit()
+            signupAndCancelButtonCell.setupButton(self)
             return signupAndCancelButtonCell
         default: break
         }
