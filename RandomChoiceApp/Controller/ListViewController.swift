@@ -58,6 +58,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        //スケルトンビュー表示時はセルをスワイプ不可にする
         if crudModel.storeDataArray.isEmpty {
             return UITableViewCell.EditingStyle.none
         } else {
@@ -69,6 +70,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return AlertButtonLiteral.delete
     }
     
+    //スケルトンビュー対象セルのReusableCellIdentifierを登録
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return CellIdentifierLiteral.listPageCell
     }
