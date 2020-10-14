@@ -12,6 +12,7 @@ import SkeletonView
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SkeletonTableViewDataSource {
     
     let crudModel = StoreDataCrudModel()
+    let blankCellNum = 10
     
     var indexPathNumber: Int? //CellのindexPathを保持
     
@@ -29,20 +30,26 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return crudModel.storeDataArray.count
+        if crudModel.storeDataArray.isEmpty {
+            return blankCellNum
+        } else {
+            return crudModel.storeDataArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.listPageCell, for: indexPath) as! ListPageTableViewCell
         cell.delegate = self
         
-        setUpSkeleton(cell: cell)
-        
-        
-        cell.storeNameLabel.text = crudModel.storeDataArray[indexPath.row].storeName
-        cell.placeLabel.text = crudModel.storeDataArray[indexPath.row].placeName
-        cell.genreLabel.text = crudModel.storeDataArray[indexPath.row].genreName
-        cell.indexPathNumber = indexPath.row
+        if crudModel.storeDataArray.isEmpty {
+            setUpSkeleton(cell: cell)
+        } else {
+            cell.hideSkeleton()
+            cell.storeNameLabel.text = crudModel.storeDataArray[indexPath.row].storeName
+            cell.placeLabel.text = crudModel.storeDataArray[indexPath.row].placeName
+            cell.genreLabel.text = crudModel.storeDataArray[indexPath.row].genreName
+            cell.indexPathNumber = indexPath.row
+        }
         return cell
     }
     
@@ -105,13 +112,8 @@ extension ListViewController {
     }
     
     private func setUpSkeleton(cell: ListPageTableViewCell) {
-        //スケルトンの色を設定
-        let gradient = SkeletonGradient(baseColor: .clouds)
-        cell.showAnimatedGradientSkeleton(usingGradient: gradient, transition: .crossDissolve(0.25))
-        // 擬似的なAPIコール
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {
-            // スケルトン表示をやめることで上で設定した内容が表示される
-            cell.hideSkeleton()
-        }
+            //スケルトンの色を設定
+            let gradient = SkeletonGradient(baseColor: .clouds)
+            cell.showAnimatedGradientSkeleton(usingGradient: gradient, transition: .crossDissolve(0.25))
     }
 }
