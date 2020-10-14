@@ -15,17 +15,17 @@ protocol StoreDataCrudModelDelegate {
 
 class StoreDataCrudModel {
     
-    public var delegate: StoreDataCrudModelDelegate?
-    public var storeDataArray = [StoreDataContentsModel]()
+    internal var delegate: StoreDataCrudModelDelegate?
+    internal var storeDataArray = [StoreDataContentsModel]()
     
     private let ref = Database.database().reference()
     
-    public func createStoreData(store: String, place: String, genre: String) {
+    internal func createStoreData(store: String, place: String, genre: String) {
         let createDataDict = [StoreDataLiteral.store: store, StoreDataLiteral.place: place, StoreDataLiteral.genre: genre]
         ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createDataDict)
     }
     
-    public func fetchStoreData(tableView: UITableView? = nil) {
+    internal func fetchStoreData(tableView: UITableView? = nil) {
         ref.child(Auth.auth().currentUser?.uid ?? "uid").observe(.value) { (snapShot) in
             self.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
@@ -46,13 +46,13 @@ class StoreDataCrudModel {
         }
     }
     
-    public func editStoreData(store: String, place: String, genre: String, childID: String?) {
+    internal func editStoreData(store: String, place: String, genre: String, childID: String?) {
         let newEditData = [StoreDataLiteral.store: store, StoreDataLiteral.place: place, StoreDataLiteral.genre: genre]
         guard let childKey = childID else { return }
         ref.child(Auth.auth().currentUser!.uid).child(childKey).updateChildValues(newEditData)
     }
     
-    public func deleteStoreData(indexPath: IndexPath) {
+    internal func deleteStoreData(indexPath: IndexPath) {
         let childKey = storeDataArray[indexPath.row].childID
         ref.child(Auth.auth().currentUser!.uid).child(childKey!).removeValue()
     }
