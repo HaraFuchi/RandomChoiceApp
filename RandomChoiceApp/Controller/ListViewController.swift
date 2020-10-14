@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import SkeletonView
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SkeletonTableViewDataSource {
     
     let crudModel = StoreDataCrudModel()
     
     var indexPathNumber: Int? //CellのindexPathを保持
-        
+    
     @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,6 +35,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.listPageCell, for: indexPath) as! ListPageTableViewCell
         cell.delegate = self
+        
+        setUpSkeleton(cell: cell)
+        
+        
         cell.storeNameLabel.text = crudModel.storeDataArray[indexPath.row].storeName
         cell.placeLabel.text = crudModel.storeDataArray[indexPath.row].placeName
         cell.genreLabel.text = crudModel.storeDataArray[indexPath.row].genreName
@@ -47,6 +52,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return AlertButtonLiteral.delete
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return CellIdentifierLiteral.listPageCell
     }
 }
 
@@ -93,5 +102,16 @@ extension ListViewController {
         showAlert.addAction(cancelAction)
         showAlert.addAction(deleteAction)
         present(showAlert, animated: true, completion: nil)
+    }
+    
+    private func setUpSkeleton(cell: ListPageTableViewCell) {
+        //スケルトンの色を設定
+        let gradient = SkeletonGradient(baseColor: .clouds)
+        cell.showAnimatedGradientSkeleton(usingGradient: gradient, transition: .crossDissolve(0.25))
+        // 擬似的なAPIコール
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {
+            // スケルトン表示をやめることで上で設定した内容が表示される
+            cell.hideSkeleton()
+        }
     }
 }
