@@ -57,6 +57,14 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         showDeleteAlert(tableView: tableView, editingStyle: editingStyle, indexPath: indexPath)
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if crudModel.storeDataArray.isEmpty {
+            return UITableViewCell.EditingStyle.none
+        } else {
+            return UITableViewCell.EditingStyle.delete
+        }
+    }
+    
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return AlertButtonLiteral.delete
     }
