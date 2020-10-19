@@ -121,8 +121,8 @@ extension ListViewController {
     }
     
     private func setUpSkeleton(cell: ListPageTableViewCell) {
-            //スケルトンの色を設定
-            let gradient = SkeletonGradient(baseColor: .clouds)
-            cell.showAnimatedGradientSkeleton(usingGradient: gradient, transition: .crossDissolve(0.25))
+        //スケルトンの色を設定
+        let gradient = SkeletonGradient(baseColor: .clouds)
+        cell.showAnimatedGradientSkeleton(usingGradient: gradient, transition: .crossDissolve(0.25))
     }
 }
