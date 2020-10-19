@@ -4,3 +4,6 @@
 # Xcode
 xcuserdata
 
+#cocoaPods
+RandomChoiceApp/Pods/
+
