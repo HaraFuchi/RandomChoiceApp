@@ -12,8 +12,6 @@ import SkeletonView
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SkeletonTableViewDataSource {
     
     let crudModel = StoreDataCrudModel()
-    let blankCellNum = 10
-    
     var indexPathNumber: Int? //CellのindexPathを保持
     
     @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
@@ -31,6 +29,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if crudModel.storeDataArray.isEmpty {
+            let blankCellNum = 10
             return blankCellNum
         } else {
             return crudModel.storeDataArray.count
