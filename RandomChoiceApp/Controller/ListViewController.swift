@@ -29,8 +29,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if crudModel.storeDataArray.isEmpty {
-            let blankCellNum = 10
-            return blankCellNum
+            let skeletonCellNum = 10
+            return skeletonCellNum
         } else {
             return crudModel.storeDataArray.count
         }
