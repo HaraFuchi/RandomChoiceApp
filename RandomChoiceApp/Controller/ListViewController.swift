@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import SkeletonView
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SkeletonTableViewDataSource {
     
     let crudModel = StoreDataCrudModel()
-    
     var indexPathNumber: Int? //CellのindexPathを保持
-        
+    
     @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,16 +28,27 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return crudModel.storeDataArray.count
+        if crudModel.storeDataArray.isEmpty {
+            let skeletonCellNum = 10
+            return skeletonCellNum
+        } else {
+            return crudModel.storeDataArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.listPageCell, for: indexPath) as! ListPageTableViewCell
         cell.delegate = self
-        cell.storeNameLabel.text = crudModel.storeDataArray[indexPath.row].storeName
-        cell.placeLabel.text = crudModel.storeDataArray[indexPath.row].placeName
-        cell.genreLabel.text = crudModel.storeDataArray[indexPath.row].genreName
-        cell.indexPathNumber = indexPath.row
+        
+        if crudModel.storeDataArray.isEmpty {
+            setUpSkeleton(cell: cell)
+        } else {
+            cell.hideSkeleton()
+            cell.storeNameLabel.text = crudModel.storeDataArray[indexPath.row].storeName
+            cell.placeLabel.text = crudModel.storeDataArray[indexPath.row].placeName
+            cell.genreLabel.text = crudModel.storeDataArray[indexPath.row].genreName
+            cell.indexPathNumber = indexPath.row
+        }
         return cell
     }
     
@@ -45,8 +56,22 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         showDeleteAlert(tableView: tableView, editingStyle: editingStyle, indexPath: indexPath)
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        //スケルトンビュー表示時はセルをスワイプ不可にする
+        if crudModel.storeDataArray.isEmpty {
+            return UITableViewCell.EditingStyle.none
+        } else {
+            return UITableViewCell.EditingStyle.delete
+        }
+    }
+    
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return AlertButtonLiteral.delete
+    }
+    
+    //スケルトンビュー対象セルのReusableCellIdentifierを登録
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return CellIdentifierLiteral.listPageCell
     }
 }
 
@@ -93,5 +118,11 @@ extension ListViewController {
         showAlert.addAction(cancelAction)
         showAlert.addAction(deleteAction)
         present(showAlert, animated: true, completion: nil)
+    }
+    
+    private func setUpSkeleton(cell: ListPageTableViewCell) {
+        //スケルトンの色を設定
+        let gradient = SkeletonGradient(baseColor: .clouds)
+        cell.showAnimatedGradientSkeleton(usingGradient: gradient, transition: .crossDissolve(0.25))
     }
 }
