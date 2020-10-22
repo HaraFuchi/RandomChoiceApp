@@ -18,7 +18,7 @@ class StoreDataCrudModel {
     var delegate: StoreDataCrudModelDelegate?
     var storeDataArray = [StoreDataContentsModel]()
     
-    let ref = Database.database().reference()
+    private let ref = Database.database().reference()
     
     func createStoreData(store: String, place: String, genre: String) {
         let createDataDict = [StoreDataLiteral.store: store, StoreDataLiteral.place: place, StoreDataLiteral.genre: genre]

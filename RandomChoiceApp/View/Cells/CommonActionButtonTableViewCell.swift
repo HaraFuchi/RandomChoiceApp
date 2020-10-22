@@ -49,7 +49,7 @@ extension CommonActionButtonTableViewCell {
         self.selectionStyle = .none
     }
     //FIXME 同じようなプロパティを繰り返し使用しているため修正する
-    public func setupButton(_ VC: UIViewController) {
+    func setupButton(_ VC: UIViewController) {
         setUpCommonButton()
         if VC is SignupViewController {
             signUpButton.setTitle(ButtonTitleLiteral.signUp, for: .normal)
