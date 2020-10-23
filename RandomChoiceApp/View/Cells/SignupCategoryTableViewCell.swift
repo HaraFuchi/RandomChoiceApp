@@ -26,10 +26,6 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
         categoryTextField.delegate = self
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }
