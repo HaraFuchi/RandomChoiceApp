@@ -18,7 +18,7 @@ class ListPageTableViewCell: UITableViewCell {
     
     var indexPathNumber: Int?//Cellに分別する変数
     
-    @IBOutlet weak var BGBaseView: UIView!
+    @IBOutlet private weak var BGBaseView: UIView!
     @IBOutlet weak var storeNameLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!

@@ -19,7 +19,7 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     var delegate: CommonActionButtonTableViewCellDelegate?
     
     //TODO 使用されている部分が登録のみではないためリネームする
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet private weak var signUpButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
     //TODO 使用されている部分が登録のみではないためリネームする
