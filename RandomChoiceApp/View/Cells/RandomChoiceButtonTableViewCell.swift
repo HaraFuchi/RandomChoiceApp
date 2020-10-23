@@ -16,8 +16,10 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
     
     var delegate: RandomChoiceButtonTableViewCellDelegate?
     
+    // TODO: Diceボタンにリネーム
     @IBOutlet private weak var randomChoiceButton: UIButton!
     
+    // TODO: アクション接続はdidTapxxxにリネームする
     @IBAction func touchedRandomChoiceButton(_ sender: UIButton) {
         delegate?.didTapDiceButton()
     }
