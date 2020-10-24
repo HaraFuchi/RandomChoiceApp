@@ -11,14 +11,14 @@ import UIKit
 class SignupViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate {
     
     //登録する内容の値を保持
-    var storeNameString: String?
-    var placeNameString: String?
-    var genreNameString: String?
+    private var storeNameString: String?
+    private var placeNameString: String?
+    private var genreNameString: String?
     
     var isHiddenCancelButton: Bool = false
     
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private weak var navigationBar: UINavigationBar!
     
     //UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
