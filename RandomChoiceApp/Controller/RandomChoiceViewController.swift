@@ -10,12 +10,12 @@ import UIKit
 
 class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     
-    let crudModel = StoreDataCrudModel()
-    var resultStoreName = QuestionsLiteral.questions
-    var resultPlaceName = QuestionsLiteral.questions
-    var resultGenreName = QuestionsLiteral.questions
+    private let crudModel = StoreDataCrudModel()
+    private var resultStoreName = QuestionsLiteral.questions
+    private var resultPlaceName = QuestionsLiteral.questions
+    private var resultGenreName = QuestionsLiteral.questions
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

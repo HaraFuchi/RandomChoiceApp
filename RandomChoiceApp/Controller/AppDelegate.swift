@@ -14,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    let anonymousLoginModel = AnonymousLoginModel()
-    let launchTime: UInt32 = 1
+    private let anonymousLoginModel = AnonymousLoginModel()
+    private let launchTime: UInt32 = 1
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()

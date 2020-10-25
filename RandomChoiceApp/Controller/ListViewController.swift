@@ -11,11 +11,11 @@ import SkeletonView
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SkeletonTableViewDataSource {
     
-    let crudModel = StoreDataCrudModel()
-    var indexPathNumber: Int? //CellのindexPathを保持
+    private let crudModel = StoreDataCrudModel()
+    private var indexPathNumber: Int? //CellのindexPathを保持
     
-    @IBOutlet weak var signupVCBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var signupVCBarButtonItem: UIBarButtonItem!
+    @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
