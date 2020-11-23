@@ -13,6 +13,7 @@ class SettingTableViewCell: UITableViewCell {
     var indexPathNumber:Int?//登録画面で繰り返すCellを分別する変数
     
     @IBOutlet weak var settingTitleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

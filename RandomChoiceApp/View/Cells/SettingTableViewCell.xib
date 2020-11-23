@@ -18,7 +18,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfp-Fp-fFe">
-                        <rect key="frame" x="16" y="16" width="356" height="60"/>
+                        <rect key="frame" x="16" y="16" width="41.5" height="60"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEo-9i-CZN">
+                        <rect key="frame" x="304" y="16" width="68" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="68" id="r9c-pZ-aXZ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -26,14 +35,17 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="sfp-Fp-fFe" secondAttribute="bottom" constant="16" id="4UN-R1-9RL"/>
-                    <constraint firstAttribute="trailing" secondItem="sfp-Fp-fFe" secondAttribute="trailing" id="G2Q-Zh-Fcx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="wEo-9i-CZN" secondAttribute="trailing" constant="-8" id="QzF-b2-chn"/>
+                    <constraint firstItem="wEo-9i-CZN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="fyL-Ch-Xsl"/>
                     <constraint firstItem="sfp-Fp-fFe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="hjL-Kr-ERx"/>
+                    <constraint firstAttribute="bottom" secondItem="wEo-9i-CZN" secondAttribute="bottom" constant="16" id="i1E-p6-jE1"/>
                     <constraint firstItem="sfp-Fp-fFe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="iBV-1r-1PM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="settingTitleLabel" destination="sfp-Fp-fFe" id="FNw-21-A3C"/>
+                <outlet property="subTitleLabel" destination="wEo-9i-CZN" id="ACM-bp-H2f"/>
             </connections>
             <point key="canvasLocation" x="197.82608695652175" y="103.79464285714285"/>
         </tableViewCell>

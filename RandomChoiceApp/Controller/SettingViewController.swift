@@ -45,17 +45,20 @@ class SettingViewController: UIViewController, UINavigationBarDelegate, UITableV
         switch indexPath.row {
         case 0:
             settingCell.settingTitleLabel.text = SettingCategoryList.contactUs.rawValue
+            settingCell.subTitleLabel.text = ""
             settingCell.indexPathNumber = indexPath.row
             return settingCell
         case 1:
             settingCell.settingTitleLabel.text = SettingCategoryList.review.rawValue
+            settingCell.subTitleLabel.text = ""
             settingCell.indexPathNumber = indexPath.row
             return settingCell
         case 2:
-            let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-            settingCell.settingTitleLabel.text = SettingCategoryList.appVersion.rawValue + version
-            settingCell.indexPathNumber = indexPath.row
+            settingCell.settingTitleLabel.text = SettingCategoryList.appVersion.rawValue
             settingCell.accessoryType = .none
+            let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+            settingCell.subTitleLabel.text = version
+            settingCell.indexPathNumber = indexPath.row
             return settingCell
         default: break
         }
