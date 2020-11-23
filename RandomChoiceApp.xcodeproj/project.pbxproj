@@ -19,6 +19,7 @@
 		C5780BB224C4997A0007972D /* SignupCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */; };
 		C59B1DDF24E9FD5E0060C622 /* AnonymousLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B1DDE24E9FD5E0060C622 /* AnonymousLoginModel.swift */; };
 		E3396A4724F90AE10020AF8E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3396A4624F90AE10020AF8E /* EditViewController.swift */; };
+		E3549029256B92E20038305A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3549028256B92E20038305A /* SettingViewController.swift */; };
 		E354B6AF24C42E8E00759289 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354B6AE24C42E8E00759289 /* AppDelegate.swift */; };
 		E354B6B124C42E8E00759289 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354B6B024C42E8E00759289 /* SceneDelegate.swift */; };
 		E354B6B324C42E8E00759289 /* RandomChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354B6B224C42E8E00759289 /* RandomChoiceViewController.swift */; };
@@ -70,6 +71,7 @@
 		C59B1DDE24E9FD5E0060C622 /* AnonymousLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousLoginModel.swift; sourceTree = "<group>"; };
 		D53F25C5FFD3771D4FEDB82B /* Pods-RandomChoiceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomChoiceApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E3396A4624F90AE10020AF8E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		E3549028256B92E20038305A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E354B6AB24C42E8E00759289 /* さいころdeごはん.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "さいころdeごはん.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E354B6AE24C42E8E00759289 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E354B6B024C42E8E00759289 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				E3955A3424C4682F0028FD67 /* ListViewController.swift */,
 				E3955A3624C468590028FD67 /* SignupViewController.swift */,
 				E3396A4624F90AE10020AF8E /* EditViewController.swift */,
+				E3549028256B92E20038305A /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				E354B6B324C42E8E00759289 /* RandomChoiceViewController.swift in Sources */,
 				E354B6AF24C42E8E00759289 /* AppDelegate.swift in Sources */,
 				E3955A3724C468590028FD67 /* SignupViewController.swift in Sources */,
+				E3549029256B92E20038305A /* SettingViewController.swift in Sources */,
 				C5194F9B24E174D60050DE18 /* StoreDataContentsModel.swift in Sources */,
 				E3955A3524C4682F0028FD67 /* ListViewController.swift in Sources */,
 				E354B6B124C42E8E00759289 /* SceneDelegate.swift in Sources */,
