@@ -319,6 +319,7 @@
                     <connections>
                         <outlet property="goBackBarButtonItem" destination="Cg2-cI-BVx" id="tuC-Up-EJ8"/>
                         <outlet property="navigationBar" destination="v6n-5F-4jp" id="gzx-mf-p43"/>
+                        <outlet property="tableView" destination="ma7-Pr-9Sw" id="6r8-ON-EHC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2RO-5R-PHU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
