@@ -8,23 +8,22 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class SettingViewController: UIViewController, UINavigationBarDelegate {
+    
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var goBackBarButtonItem: UIBarButtonItem!
+    
+    //UINavigationBarをステータスバーまで広げる
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationBar.delegate = self
     }
-    */
-
+    
+    @IBAction func didTapGoBackButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
 }
