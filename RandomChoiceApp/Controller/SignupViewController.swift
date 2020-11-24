@@ -137,14 +137,6 @@ extension SignupViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    private func showAlertAllNilTextField() {
-        let alert = UIAlertController(title: AlertTitleLiteral.allTextEmpty, message: AlertMessageLiteral
-            .allTextEmpty, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .cancel, handler: nil)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
     //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
     private func textConvertNil() {
         if storeNameString == "" {
