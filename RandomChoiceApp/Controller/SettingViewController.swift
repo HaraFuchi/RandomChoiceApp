@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Firebase
+import MessageUI
 
 class SettingViewController: UIViewController, UINavigationBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
     var settingCell = SettingTableViewCell()
+    var appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var goBackBarButtonItem: UIBarButtonItem!
@@ -59,8 +62,7 @@ class SettingViewController: UIViewController, UINavigationBarDelegate, UITableV
             settingCell.settingTitleLabel.text = SettingCategoryList.appVersion.rawValue
             settingCell.accessoryType = .none
             settingCell.selectionStyle = .none
-            let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-            settingCell.subTitleLabel.text = version
+            settingCell.subTitleLabel.text = appVersion
             settingCell.indexPathNumber = indexPath.row
             return settingCell
         default: break
@@ -71,6 +73,17 @@ class SettingViewController: UIViewController, UINavigationBarDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
+            //            let email = "harafuchi0324@gmail.com"
+            //            if let url = URL(string: "mailto:\(email)") {
+            //                if #available(iOS 10.0, *) {
+            //                    UIApplication.shared.open(url)
+            //                } else {
+            //                    UIApplication.shared.openURL(url)
+            //                }
+            //            }
+            
+            composeMail()
+            
             settingCell.indexPathNumber = indexPath.row
         case 1:
             //外部ブラウザでURLを開く
@@ -92,5 +105,55 @@ extension SettingViewController {
         tableView.delegate = self
         let settingTableViewNib = UINib(nibName: "SettingTableViewCell", bundle: nil)
         tableView.register(settingTableViewNib, forCellReuseIdentifier: "SettingCell")
+    }
+}
+
+// MARK: MFMailComposeViewController
+extension SettingViewController: MFMailComposeViewControllerDelegate {
+    /// メール送信画面を開く
+    private func composeMail() {
+        guard MFMailComposeViewController.canSendMail() else {
+            // 有効なメールアドレスがないため、メール送信画面が開けない場合
+            print("有効なメールアドレスが存在しません")
+            return
+        }
+        // メール作成
+        let composer = MFMailComposeViewController()
+        let iOSVersion = UIDevice.current.systemVersion
+        let user = Auth.auth().currentUser!.uid
+        composer.mailComposeDelegate = self
+        // 宛先 (TO・CC・BCC)
+        composer.setToRecipients(["harafuchi0324@gmail.com"])
+        // 件名
+        composer.setSubject("【さいころdeごはん】お問い合わせ")
+        // 本文
+        composer.setMessageBody("下記にお問い合わせ内容を書いてください。\n\n\n\n\nAppVersion: \(appVersion)\nPlatformVersion: \(iOSVersion)\nUserID: \(user)",isHTML: false)
+        present(composer, animated: true, completion: nil)
+    }
+    
+    // メール送信結果をハンドリング
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if let error = error {
+            print(error)
+        } else {
+            switch result {
+            case .cancelled:
+                print("メールの作成がキャンセルされました")
+                break
+            case .saved:
+                print("メールが下書きに保存されました")
+                break
+            case .sent:
+                print("メールの送信に成功しました")
+                break
+            case .failed:
+                print("メールの送信に失敗しました")
+                break
+            default:
+                break
+            }
+        }
+        // メール画面を閉じる
+        controller.dismiss(animated: true, completion: nil)
     }
 }
