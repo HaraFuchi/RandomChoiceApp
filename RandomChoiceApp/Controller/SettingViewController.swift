@@ -12,12 +12,12 @@ import MessageUI
 
 class SettingViewController: UIViewController, UINavigationBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
-    var settingCell = SettingTableViewCell()
-    var appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+    private var settingCell = SettingTableViewCell()
+    private var appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
     
-    @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var goBackBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var navigationBar: UINavigationBar!
+    @IBOutlet private weak var goBackBarButtonItem: UIBarButtonItem!
+    @IBOutlet private weak var tableView: UITableView!
     
     //UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
@@ -36,7 +36,7 @@ class SettingViewController: UIViewController, UINavigationBarDelegate, UITableV
         navigationBar.delegate = self
     }
     
-    @IBAction func didTapGoBackButton(_ sender: UIBarButtonItem) {
+    @IBAction private func didTapGoBackButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
@@ -74,17 +74,7 @@ class SettingViewController: UIViewController, UINavigationBarDelegate, UITableV
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            //            let email = "harafuchi0324@gmail.com"
-            //            if let url = URL(string: "mailto:\(email)") {
-            //                if #available(iOS 10.0, *) {
-            //                    UIApplication.shared.open(url)
-            //                } else {
-            //                    UIApplication.shared.openURL(url)
-            //                }
-            //            }
-            
             composeMail()
-            
             settingCell.indexPathNumber = indexPath.row
         case 1:
             //外部ブラウザでURLを開く
@@ -101,7 +91,7 @@ class SettingViewController: UIViewController, UINavigationBarDelegate, UITableV
 }
 
 extension SettingViewController {
-    func setUpTableView() {
+    private func setUpTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         let settingTableViewNib = UINib(nibName: "SettingTableViewCell", bundle: nil)
@@ -129,7 +119,7 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         // 件名
         composer.setSubject("【さいころdeごはん】お問い合わせ")
         // 本文
-        composer.setMessageBody("下記にお問い合わせ内容を書いてください。\n\n\n\n\nAppVersion: \(appVersion)\nPlatformVersion: \(iOSVersion)\nUserID: \(user)",isHTML: false)
+        composer.setMessageBody("下記にお問い合わせ内容をお書きください。\n\n\n\n\nAppVersion: \(appVersion)\nPlatformVersion: \(iOSVersion)\nUserID: \(user)",isHTML: false)
         present(composer, animated: true, completion: nil)
     }
     
@@ -159,7 +149,7 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
     }
     
-    func showAlertNoEmailAddress() {
+    private func showAlertNoEmailAddress() {
         let alert = UIAlertController(title: "メールが開けません", message: "設定からメールアドレスを追加してください。", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(defaultAction)
