@@ -46,22 +46,22 @@ class SettingViewController: UIViewController, UINavigationBarDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         settingCell = tableView.dequeueReusableCell(withIdentifier: "SettingCell", for: indexPath) as! SettingTableViewCell
+        settingCell.subTitleLabel.isHidden = true
         
         switch indexPath.row {
         case 0:
             settingCell.settingTitleLabel.text = SettingCategoryList.contactUs.rawValue
-            settingCell.subTitleLabel.text = ""
             settingCell.indexPathNumber = indexPath.row
             return settingCell
         case 1:
             settingCell.settingTitleLabel.text = SettingCategoryList.review.rawValue
-            settingCell.subTitleLabel.text = ""
             settingCell.indexPathNumber = indexPath.row
             return settingCell
         case 2:
             settingCell.settingTitleLabel.text = SettingCategoryList.appVersion.rawValue
             settingCell.accessoryType = .none
             settingCell.selectionStyle = .none
+            settingCell.subTitleLabel.isHidden = false
             settingCell.subTitleLabel.text = appVersion
             settingCell.indexPathNumber = indexPath.row
             return settingCell
