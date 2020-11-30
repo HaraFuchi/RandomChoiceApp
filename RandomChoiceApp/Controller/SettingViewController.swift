@@ -71,6 +71,7 @@ class SettingViewController: UIViewController, UINavigationBarDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
             //            let email = "harafuchi0324@gmail.com"
@@ -114,6 +115,7 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
     private func composeMail() {
         guard MFMailComposeViewController.canSendMail() else {
             // 有効なメールアドレスがないため、メール送信画面が開けない場合
+            showAlertNoEmailAddress()
             print("有効なメールアドレスが存在しません")
             return
         }
@@ -155,5 +157,12 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         }
         // メール画面を閉じる
         controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func showAlertNoEmailAddress() {
+        let alert = UIAlertController(title: "メールが開けません", message: "設定からメールアドレスを追加してください。", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
     }
 }
