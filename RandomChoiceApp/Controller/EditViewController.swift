@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate {
+class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate {
+class SignupViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
     
     //登録する内容の値を保持
     private var storeNameString: String?

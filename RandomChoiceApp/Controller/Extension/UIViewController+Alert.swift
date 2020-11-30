@@ -8,7 +8,9 @@
 
 import UIKit
 
-extension UIViewController {
+protocol AlertDisplayable { }
+
+extension AlertDisplayable where Self: UIViewController {
     func showAlertAllNilTextField() {
         let alert = UIAlertController(title: AlertTitleLiteral.allTextEmpty, message: AlertMessageLiteral
             .allTextEmpty, preferredStyle: .alert)
