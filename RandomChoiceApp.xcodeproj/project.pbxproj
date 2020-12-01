@@ -13,6 +13,7 @@
 		C5202BC024FAEAD300656F6D /* LiteralConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5202BBF24FAEAD300656F6D /* LiteralConstraints.swift */; };
 		C5202C0424FAFD9500656F6D /* RandomChoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5202C0324FAFD9500656F6D /* RandomChoiceTests.swift */; };
 		C5202C1224FAFE1C00656F6D /* RandomChoiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5202C1124FAFE1C00656F6D /* RandomChoiceUITests.swift */; };
+		C53EB1F7256D898D00C98935 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53EB1F6256D898D00C98935 /* UIViewController+Alert.swift */; };
 		C548E98524C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */; };
 		C548E98624C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */; };
 		C5780BB124C4997A0007972D /* SignupCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */; };
@@ -63,6 +64,7 @@
 		C5202C0F24FAFE1C00656F6D /* RandomChoiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomChoiceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5202C1124FAFE1C00656F6D /* RandomChoiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomChoiceUITests.swift; sourceTree = "<group>"; };
 		C5202C1324FAFE1C00656F6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C53EB1F6256D898D00C98935 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonActionButtonTableViewCell.swift; sourceTree = "<group>"; };
 		C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonActionButtonTableViewCell.xib; sourceTree = "<group>"; };
 		C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -148,6 +150,14 @@
 			path = RandomChoiceUITests;
 			sourceTree = "<group>";
 		};
+		C53EB1FB256D8DC900C98935 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C53EB1F6256D898D00C98935 /* UIViewController+Alert.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		C548E98724C69C68008685D7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 		C5780BAA24C46B000007972D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C53EB1FB256D8DC900C98935 /* Extension */,
 				E354B6AE24C42E8E00759289 /* AppDelegate.swift */,
 				E354B6B024C42E8E00759289 /* SceneDelegate.swift */,
 				E354B6B224C42E8E00759289 /* RandomChoiceViewController.swift */,
@@ -428,6 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C53EB1F7256D898D00C98935 /* UIViewController+Alert.swift in Sources */,
 				E3396A4724F90AE10020AF8E /* EditViewController.swift in Sources */,
 				C5194F9924E085A40050DE18 /* StoreDataCrudModel.swift in Sources */,
 				E354B6B324C42E8E00759289 /* RandomChoiceViewController.swift in Sources */,
