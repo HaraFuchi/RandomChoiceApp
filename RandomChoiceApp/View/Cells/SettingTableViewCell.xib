@@ -24,10 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEo-9i-CZN">
-                        <rect key="frame" x="304" y="16" width="68" height="60"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="68" id="r9c-pZ-aXZ"/>
-                        </constraints>
+                        <rect key="frame" x="322.5" y="16" width="41.5" height="60"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -35,7 +32,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="sfp-Fp-fFe" secondAttribute="bottom" constant="16" id="4UN-R1-9RL"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="wEo-9i-CZN" secondAttribute="trailing" constant="-8" id="QzF-b2-chn"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="wEo-9i-CZN" secondAttribute="trailing" id="QzF-b2-chn"/>
                     <constraint firstItem="wEo-9i-CZN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="fyL-Ch-Xsl"/>
                     <constraint firstItem="sfp-Fp-fFe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="hjL-Kr-ERx"/>
                     <constraint firstAttribute="bottom" secondItem="wEo-9i-CZN" secondAttribute="bottom" constant="16" id="i1E-p6-jE1"/>
