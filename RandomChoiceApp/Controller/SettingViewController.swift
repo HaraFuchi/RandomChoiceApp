@@ -18,7 +18,8 @@ class SettingViewController: UIViewController, UINavigationBarDelegate, UITableV
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var backBarButtonItem: UIBarButtonItem!
     @IBOutlet private weak var tableView: UITableView!
-    
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+
     //UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
@@ -36,6 +37,10 @@ class SettingViewController: UIViewController, UINavigationBarDelegate, UITableV
         navigationBar.delegate = self
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        tableViewHeight.constant = CGFloat(tableView.contentSize.height)
+    }
     
     @IBAction private func didTapBackButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -97,6 +102,7 @@ extension SettingViewController {
         tableView.delegate = self
         let settingTableViewNib = UINib(nibName: NibNameLiteral.settingTableViewCell, bundle: nil)
         tableView.register(settingTableViewNib, forCellReuseIdentifier: CellIdentifierLiteral.settingCell)
+        tableView.isScrollEnabled = false
     }
 }
 
