@@ -296,7 +296,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="Cg2-cI-BVx">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <action selector="didTapGoBackButton:" destination="pUA-zi-x52" id="xrA-DO-g2E"/>
+                                                <action selector="didTapBackButton:" destination="pUA-zi-x52" id="agf-aL-ukk"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -317,7 +317,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="uDK-3f-9r1"/>
                     <connections>
-                        <outlet property="goBackBarButtonItem" destination="Cg2-cI-BVx" id="tuC-Up-EJ8"/>
+                        <outlet property="backBarButtonItem" destination="Cg2-cI-BVx" id="GqL-yH-JO9"/>
                         <outlet property="navigationBar" destination="v6n-5F-4jp" id="gzx-mf-p43"/>
                         <outlet property="tableView" destination="ma7-Pr-9Sw" id="6r8-ON-EHC"/>
                     </connections>

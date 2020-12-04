@@ -13,10 +13,10 @@ import MessageUI
 class SettingViewController: UIViewController, UINavigationBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
     private var settingCell = SettingTableViewCell()
-    private var appVersion = Bundle.main.object(forInfoDictionaryKey: BundleIdentifierLiteral.appVersion) as! String
+    private let appVersion = Bundle.main.object(forInfoDictionaryKey: BundleIdentifierLiteral.appVersion) as! String
     
     @IBOutlet private weak var navigationBar: UINavigationBar!
-    @IBOutlet private weak var goBackBarButtonItem: UIBarButtonItem!
+    @IBOutlet private weak var backBarButtonItem: UIBarButtonItem!
     @IBOutlet private weak var tableView: UITableView!
     
     //UINavigationBarをステータスバーまで広げる
@@ -36,7 +36,8 @@ class SettingViewController: UIViewController, UINavigationBarDelegate, UITableV
         navigationBar.delegate = self
     }
     
-    @IBAction private func didTapGoBackButton(_ sender: UIBarButtonItem) {
+    
+    @IBAction private func didTapBackButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
