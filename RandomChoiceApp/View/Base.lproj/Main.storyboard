@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zU4-XU-z26">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -50,6 +50,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="さいころdeごはん" id="PVD-Q0-bJM">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="gearshape" catalog="system" id="Zkd-zA-CPA">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="pUA-zi-x52" kind="presentation" modalPresentationStyle="fullScreen" id="460-mf-GtH"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gfK-Ri-eJc">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -63,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1792.753623188406" y="-323.4375"/>
+            <point key="canvasLocation" x="1822" y="-667"/>
         </scene>
         <!--お店を登録-->
         <scene sceneID="tzO-Rg-ghT">
@@ -127,7 +133,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2557.5999999999999" y="-10.344827586206897"/>
+            <point key="canvasLocation" x="2729" y="-667"/>
         </scene>
         <!--お店一覧-->
         <scene sceneID="CZ2-es-7US">
@@ -178,6 +184,12 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="お店一覧" id="SAR-ZA-ASK">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="gearshape" catalog="system" id="tBd-6i-NbQ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="pUA-zi-x52" kind="presentation" modalPresentationStyle="fullScreen" id="9MS-bR-yVb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ByB-uY-6Oi">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -194,7 +206,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ruu-Jv-01a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="3Ni-bv-ZQJ"/>
             </objects>
-            <point key="canvasLocation" x="1744.9275362318842" y="322.76785714285711"/>
+            <point key="canvasLocation" x="1822" y="360"/>
         </scene>
         <!--お店を編集-->
         <scene sceneID="jS1-F0-SYh">
@@ -220,7 +232,7 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BiK-Pb-tsF">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <color key="barTintColor" red="0.99215686270000003" green="0.6393200201" blue="0.218539124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.9743663669" green="0.69202023739999996" blue="0.2856785953" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
@@ -249,7 +261,73 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWU-lD-dMX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2557.5999999999999" y="649.50738916256159"/>
+            <point key="canvasLocation" x="2729" y="761"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="Tbp-wr-bUq">
+            <objects>
+                <viewController id="pUA-zi-x52" customClass="SettingViewController" customModule="さいころdeごはん" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OXE-8E-Ik6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ma7-Pr-9Sw">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="690" id="ab1-ZH-Xtz"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="122" id="quh-9w-t25">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="122"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="quh-9w-t25" id="RY0-9R-1iG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="122"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6n-5F-4jp">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <color key="barTintColor" red="0.9743663669" green="0.69202023739999996" blue="0.2856785953" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="設定" id="B4V-63-98g">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="Cg2-cI-BVx">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="didTapBackButton:" destination="pUA-zi-x52" id="agf-aL-ukk"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="E8r-VL-PPN"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="v6n-5F-4jp" firstAttribute="leading" secondItem="ma7-Pr-9Sw" secondAttribute="leading" id="CiI-sD-PLl"/>
+                            <constraint firstItem="v6n-5F-4jp" firstAttribute="top" secondItem="E8r-VL-PPN" secondAttribute="top" id="IY7-Ad-Ue1"/>
+                            <constraint firstItem="ma7-Pr-9Sw" firstAttribute="trailing" secondItem="E8r-VL-PPN" secondAttribute="trailing" id="Y9K-rB-X56"/>
+                            <constraint firstItem="ma7-Pr-9Sw" firstAttribute="leading" secondItem="E8r-VL-PPN" secondAttribute="leading" id="eQW-B5-XbH"/>
+                            <constraint firstItem="v6n-5F-4jp" firstAttribute="trailing" secondItem="ma7-Pr-9Sw" secondAttribute="trailing" id="mEu-pS-9g4"/>
+                            <constraint firstItem="ma7-Pr-9Sw" firstAttribute="top" secondItem="v6n-5F-4jp" secondAttribute="bottom" id="mld-Wj-9Ot"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uDK-3f-9r1"/>
+                    <connections>
+                        <outlet property="backBarButtonItem" destination="Cg2-cI-BVx" id="GqL-yH-JO9"/>
+                        <outlet property="navigationBar" destination="v6n-5F-4jp" id="gzx-mf-p43"/>
+                        <outlet property="tableView" destination="ma7-Pr-9Sw" id="6r8-ON-EHC"/>
+                        <outlet property="tableViewHeight" destination="ab1-ZH-Xtz" id="j7Y-Ls-evP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2RO-5R-PHU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2728.8000000000002" y="62.807881773399018"/>
         </scene>
         <!--さいころdeごはん-->
         <scene sceneID="Rra-lW-lbQ">
@@ -272,7 +350,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgl-2a-a9X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1107" y="-323"/>
+            <point key="canvasLocation" x="1105" y="-666"/>
         </scene>
         <!--お店一覧-->
         <scene sceneID="ccN-Gv-41j">
@@ -295,7 +373,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KzW-X7-swU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="323"/>
+            <point key="canvasLocation" x="1105" y="360"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pDH-Wf-xzL">
@@ -320,9 +398,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oRq-p8-Jtt"/>
+        <segue reference="460-mf-GtH"/>
+        <segue reference="aci-31-F6H"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <systemColor name="systemGray5Color">
