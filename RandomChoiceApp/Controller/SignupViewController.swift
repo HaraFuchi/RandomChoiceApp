@@ -14,9 +14,7 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
     private var storeNameString: String?
     private var placeNameString: String?
     private var genreNameString: String?
-    
-    var isHiddenCancelButton: Bool = false
-    
+        
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private weak var navigationBar: UINavigationBar!
     
@@ -78,7 +76,6 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
             return categoryCell
         case 3:
             signupAndCancelButtonCell.delegate = self
-            signupAndCancelButtonCell.cancelButton.isHidden = isHiddenCancelButton
             signupAndCancelButtonCell.setupButton(self)
             return signupAndCancelButtonCell
         default: break

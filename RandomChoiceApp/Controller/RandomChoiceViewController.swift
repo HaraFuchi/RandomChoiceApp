@@ -76,15 +76,6 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
         alert.addAction(signupAction)
         present(alert, animated: true, completion: nil)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifierLiteral.goToSignUpVC {
-            let signupVC = segue.destination as! SignupViewController
-            if crudModel.storeDataArray.isEmpty {
-                signupVC.isHiddenCancelButton = true
-            }
-        }
-    }
 }
 
 // MARK: -Method
