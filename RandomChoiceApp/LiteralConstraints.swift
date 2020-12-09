@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**********************************************************************/
+// MARK: - 命名のリテラル
+/**********************************************************************/
+
 struct StoreDataLiteral {
     static let store = "店名"
     static let place = "場所"
@@ -47,6 +51,26 @@ struct ButtonTitleLiteral {
     static let cancel = "キャンセル"
 }
 
+struct EmailLiteral {
+    static let emailAddress = "harafuchi0324@gmail.com"
+    static let emailSubject = "【さいころdeごはん】お問い合わせ"
+    static let messageBody_1 = "下記にお問い合わせ内容をお書きください。\n\n\n\n\nAppVersion: "
+    static let messageBody_2 = "\nPlatformVersion: "
+    static let messageBody_3 = "\nUserID: "
+}
+
+struct DebugEmailLiteral {
+    static let noEmailAddress = "有効なメールアドレスが存在しません"
+    static let cancelled = "メールの作成がキャンセルされました"
+    static let saved = "メールが下書きに保存されました"
+    static let sent = "メールの送信に成功しました"
+    static let failed = "メールの送信に失敗しました"
+}
+
+/**********************************************************************/
+// MARK: - IDのリテラル
+/**********************************************************************/
+
 struct CellIdentifierLiteral {
     static let randomChoiceButtonCell = "RandomChoiceButtonCell"
     static let listPageCell = "ListPageCell"
@@ -75,20 +99,4 @@ struct BundleIdentifierLiteral {
 struct UrlLiteral {
     //「さいころdeごはん」AppStoreページのリンク
     static let appStoreReviewUrl = "https://apps.apple.com/jp/app/%E3%81%95%E3%81%84%E3%81%93%E3%82%8Dde%E3%81%94%E3%81%AF%E3%82%93/id1528912786?mt=8&action=write-review"
-}
-
-struct EmailLiteral {
-    static let emailAddress = "harafuchi0324@gmail.com"
-    static let emailSubject = "【さいころdeごはん】お問い合わせ"
-    static let messageBody_1 = "下記にお問い合わせ内容をお書きください。\n\n\n\n\nAppVersion: "
-    static let messageBody_2 = "\nPlatformVersion: "
-    static let messageBody_3 = "\nUserID: "
-}
-
-struct DebugEmailLiteral {
-    static let noEmailAddress = "有効なメールアドレスが存在しません"
-    static let cancelled = "メールの作成がキャンセルされました"
-    static let saved = "メールが下書きに保存されました"
-    static let sent = "メールの送信に成功しました"
-    static let failed = "メールの送信に失敗しました"
 }
