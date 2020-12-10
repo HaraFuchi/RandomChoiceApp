@@ -60,18 +60,18 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         
         switch indexPath.row {
         case 0:
-            categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
-            categoryCell.categoryTextField.placeholder = CategoryList.storeName.CategoryPlaceHolderList
+            categoryCell.categoryTitle = CategoryList.storeName.rawValue
+            categoryCell.categoryPlaceHolder = CategoryList.storeName.CategoryPlaceHolderList
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 1:
-            categoryCell.categoryLabel.text = CategoryList.placeName.rawValue
-            categoryCell.categoryTextField.placeholder = CategoryList.placeName.CategoryPlaceHolderList
+            categoryCell.categoryTitle = CategoryList.placeName.rawValue
+            categoryCell.categoryPlaceHolder = CategoryList.placeName.CategoryPlaceHolderList
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 2:
-            categoryCell.categoryLabel.text = CategoryList.genreName.rawValue
-            categoryCell.categoryTextField.placeholder = CategoryList.genreName.CategoryPlaceHolderList
+            categoryCell.categoryTitle = CategoryList.genreName.rawValue
+            categoryCell.categoryPlaceHolder = CategoryList.genreName.CategoryPlaceHolderList
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 3:

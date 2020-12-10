@@ -16,7 +16,7 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
     
     var delegate: RandomChoiceButtonTableViewCellDelegate?
     
-    @IBOutlet weak var randomChoiceButton: UIButton!
+    @IBOutlet private weak var randomChoiceButton: UIButton!
     
     @IBAction func touchedRandomChoiceButton(_ sender: UIButton) {
         delegate?.didTapDiceButton()
