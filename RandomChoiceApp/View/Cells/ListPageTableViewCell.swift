@@ -18,11 +18,11 @@ class ListPageTableViewCell: UITableViewCell {
     
     var indexPathNumber: Int? //Cellに分別する変数
     
-    @IBOutlet weak var BGBaseView: UIView!
-    @IBOutlet weak var storeNameLabel: UILabel!
-    @IBOutlet weak var placeLabel: UILabel!
-    @IBOutlet weak var genreLabel: UILabel!
-    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet private weak var BGBaseView: UIView!
+    @IBOutlet private weak var storeNameLabel: UILabel!
+    @IBOutlet private weak var placeLabel: UILabel!
+    @IBOutlet private weak var genreLabel: UILabel!
+    @IBOutlet private weak var editButton: UIButton!
     
     @IBAction func touchedEditButton(_ sender: UIButton) {
         if let indexPath = indexPathNumber {
@@ -33,6 +33,30 @@ class ListPageTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupDetailCell()
+    }
+    
+    var storeDataText: String = "" {
+        didSet {
+            storeNameLabel.text = storeDataText
+        }
+    }
+    
+    var placeDataText: String = "" {
+        didSet {
+            placeLabel.text = placeDataText
+        }
+    }
+    
+    var genreDataText: String = "" {
+        didSet {
+            genreLabel.text = genreDataText
+        }
+    }
+    
+    var isHiddenEditButton: Bool = false {
+        didSet {
+            editButton.isHidden = isHiddenEditButton
+        }
     }
 }
 
