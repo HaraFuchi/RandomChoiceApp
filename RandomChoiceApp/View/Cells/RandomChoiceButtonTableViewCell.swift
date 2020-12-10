@@ -18,6 +18,7 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
     
     @IBOutlet weak var randomChoiceButton: UIButton!
     
+    // delegateではなくクロージャー化してみてもいいのでは
     @IBAction func touchedRandomChoiceButton(_ sender: UIButton) {
         delegate?.didTapDiceButton()
     }
