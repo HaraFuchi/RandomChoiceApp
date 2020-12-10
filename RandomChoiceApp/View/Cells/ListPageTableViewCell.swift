@@ -16,7 +16,7 @@ class ListPageTableViewCell: UITableViewCell {
     
     var delegate: ListPageTableViewCellDelegate?
     
-    var indexPathNumber: Int?//Cellに分別する変数
+    var indexPathNumber: Int? //Cellに分別する変数
     
     @IBOutlet weak var BGBaseView: UIView!
     @IBOutlet weak var storeNameLabel: UILabel!
