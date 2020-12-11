@@ -22,15 +22,9 @@ extension AlertDisplayable where Self: UIViewController {
     
     //オフライン時にのみ呼ばれるアラート
     func showAlertOffline() {
-        let reachability = try! Reachability()
-        let alert = UIAlertController(title: "エラー", message: "インターネット接続状況を確認して再度お試しください。", preferredStyle: .alert)
-        let reloadAction = UIAlertAction(title: "再試行", style: .default, handler: { [self] _ in
-            if reachability.connection == .unavailable {
-                showAlertOffline()
-                print("接続なし")
-            }
-        })
-        alert.addAction(reloadAction)
+        let alert = UIAlertController(title: "エラー", message: "インターネット接続状況を確認してください。", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(defaultAction)
         present(alert, animated: true, completion: nil)
     }
 }
