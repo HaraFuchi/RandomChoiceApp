@@ -44,9 +44,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             setUpSkeleton(cell: cell)
         } else {
             cell.hideSkeleton()
-            cell.storeNameLabel.text = crudModel.storeDataArray[indexPath.row].storeName
-            cell.placeLabel.text = crudModel.storeDataArray[indexPath.row].placeName
-            cell.genreLabel.text = crudModel.storeDataArray[indexPath.row].genreName
+            cell.storeDataText = crudModel.storeDataArray[indexPath.row].storeName ?? "???"
+            cell.placeDataText = crudModel.storeDataArray[indexPath.row].placeName ?? "???"
+            cell.genreDataText = crudModel.storeDataArray[indexPath.row].genreName ?? "???"
             cell.indexPathNumber = indexPath.row
         }
         return cell

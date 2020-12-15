@@ -52,18 +52,18 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         
         switch indexPath.row {
         case 0:
-            categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
-            categoryCell.categoryTextField.text = editStoreNameString
+            categoryCell.categoryTitle = CategoryList.storeName.rawValue
+            categoryCell.categoryText = editStoreNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 1:
-            categoryCell.categoryLabel.text = CategoryList.placeName.rawValue
-            categoryCell.categoryTextField.text = editPlaceNameString
+            categoryCell.categoryTitle = CategoryList.placeName.rawValue
+            categoryCell.categoryText = editPlaceNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 2:
-            categoryCell.categoryLabel.text = CategoryList.genreName.rawValue
-            categoryCell.categoryTextField.text = editGenreNameString
+            categoryCell.categoryTitle = CategoryList.genreName.rawValue
+            categoryCell.categoryText = editGenreNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 3:

@@ -38,10 +38,10 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            storeDataCell.storeNameLabel.text = resultStoreName
-            storeDataCell.placeLabel.text = resultPlaceName
-            storeDataCell.genreLabel.text = resultGenreName
-            storeDataCell.editButton.isHidden = true
+            storeDataCell.storeDataText = resultStoreName
+            storeDataCell.placeDataText = resultPlaceName
+            storeDataCell.genreDataText = resultGenreName
+            storeDataCell.isHiddenEditButton = true
             return storeDataCell
         case 1:
             buttonCell.delegate = self
