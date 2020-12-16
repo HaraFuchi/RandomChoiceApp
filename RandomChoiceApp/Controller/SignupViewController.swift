@@ -27,24 +27,24 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         self.view.endEditing(true)
     }
     
-    enum CategoryList: Int, CaseIterable{
-        case storeName
-        case placeName
-        case genreName
+    enum CategoryList: Int, CaseIterable {
+        case store
+        case place
+        case genre
         
-        var CategoryTitle: String {
+        var categoryTitle: String {
             switch self {
-            case .storeName: return "店名"
-            case .placeName: return "場所"
-            case .genreName: return "ジャンル"
+            case .store: return "店名"
+            case .place: return "場所"
+            case .genre: return "ジャンル"
             }
         }
         
-        var CategoryPlaceHolderList: String {
+        var categoryPlaceHolderList: String {
             switch self {
-            case .storeName: return "例)サイゼリヤ"
-            case .placeName: return "例)新宿"
-            case .genreName: return "例)イタリアン"
+            case .store: return "例)サイゼリヤ"
+            case .place: return "例)新宿"
+            case .genre: return "例)イタリアン"
             }
         }
     }
@@ -68,18 +68,18 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         
         switch indexPath.row {
         case 0:
-            categoryCell.categoryTitle = CategoryList.storeName.CategoryTitle
-            categoryCell.categoryPlaceHolder = CategoryList.storeName.CategoryPlaceHolderList
+            categoryCell.categoryTitle = CategoryList.store.categoryTitle
+            categoryCell.categoryPlaceHolder = CategoryList.store.categoryPlaceHolderList
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 1:
-            categoryCell.categoryTitle = CategoryList.placeName.CategoryTitle
-            categoryCell.categoryPlaceHolder = CategoryList.placeName.CategoryPlaceHolderList
+            categoryCell.categoryTitle = CategoryList.place.categoryTitle
+            categoryCell.categoryPlaceHolder = CategoryList.place.categoryPlaceHolderList
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 2:
-            categoryCell.categoryTitle = CategoryList.genreName.CategoryTitle
-            categoryCell.categoryPlaceHolder = CategoryList.genreName.CategoryPlaceHolderList
+            categoryCell.categoryTitle = CategoryList.genre.categoryTitle
+            categoryCell.categoryPlaceHolder = CategoryList.genre.categoryPlaceHolderList
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 3:
