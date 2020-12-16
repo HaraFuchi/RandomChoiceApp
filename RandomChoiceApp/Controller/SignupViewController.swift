@@ -27,10 +27,18 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         self.view.endEditing(true)
     }
     
-    enum CategoryList: String, CaseIterable{
-        case storeName = "店名"
-        case placeName = "場所"
-        case genreName = "ジャンル"
+    enum CategoryList: Int, CaseIterable{
+        case storeName
+        case placeName
+        case genreName
+        
+        var CategoryTitle: String {
+            switch self {
+            case .storeName: return "店名"
+            case .placeName: return "場所"
+            case .genreName: return "ジャンル"
+            }
+        }
         
         var CategoryPlaceHolderList: String {
             switch self {
@@ -60,17 +68,17 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         
         switch indexPath.row {
         case 0:
-            categoryCell.categoryTitle = CategoryList.storeName.rawValue
+            categoryCell.categoryTitle = CategoryList.storeName.CategoryTitle
             categoryCell.categoryPlaceHolder = CategoryList.storeName.CategoryPlaceHolderList
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 1:
-            categoryCell.categoryTitle = CategoryList.placeName.rawValue
+            categoryCell.categoryTitle = CategoryList.placeName.CategoryTitle
             categoryCell.categoryPlaceHolder = CategoryList.placeName.CategoryPlaceHolderList
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case 2:
-            categoryCell.categoryTitle = CategoryList.genreName.rawValue
+            categoryCell.categoryTitle = CategoryList.genreName.CategoryTitle
             categoryCell.categoryPlaceHolder = CategoryList.genreName.CategoryPlaceHolderList
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
