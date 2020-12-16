@@ -16,18 +16,18 @@ enum CategoryList: Int, CaseIterable {
     
     var categoryTitle: String? {
         switch self {
-        case .store: return "店名"
-        case .place: return "場所"
-        case .genre: return "ジャンル"
+        case .store: return StoreDataLiteral.store
+        case .place: return StoreDataLiteral.place
+        case .genre: return StoreDataLiteral.genre
         case .signup: return nil
         }
     }
     
     var categoryPlaceHolder: String? {
         switch self {
-        case .store: return "例)サイゼリヤ"
-        case .place: return "例)新宿"
-        case .genre: return "例)イタリアン"
+        case .store: return CategoryPlaceHolder.store
+        case .place: return CategoryPlaceHolder.place
+        case .genre: return CategoryPlaceHolder.genre
         case .signup: return nil
         }
     }
