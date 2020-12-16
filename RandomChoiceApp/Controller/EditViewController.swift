@@ -27,22 +27,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         return .topAttached
     }
     
-    enum CategoryList: Int, CaseIterable{
-        case store
-        case place
-        case genre
-        case edit
-        
-        var categoryTitle: String? {
-            switch self {
-            case .store: return "店名"
-            case .place: return "場所"
-            case .genre: return "ジャンル"
-            case .edit: return nil
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
@@ -79,7 +63,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
             categoryCell.categoryText = editGenreNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case .edit:
+        case .signup:
             signupAndCancelButtonCell.delegate = self
             signupAndCancelButtonCell.setupButton(self)
             return signupAndCancelButtonCell

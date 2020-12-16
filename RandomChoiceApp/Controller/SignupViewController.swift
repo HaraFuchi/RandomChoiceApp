@@ -27,31 +27,6 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         self.view.endEditing(true)
     }
     
-    enum CategoryList: Int, CaseIterable {
-        case store
-        case place
-        case genre
-        case signup
-        
-        var categoryTitle: String? {
-            switch self {
-            case .store: return "店名"
-            case .place: return "場所"
-            case .genre: return "ジャンル"
-            case .signup: return nil
-            }
-        }
-        
-        var categoryPlaceHolderList: String? {
-            switch self {
-            case .store: return "例)サイゼリヤ"
-            case .place: return "例)新宿"
-            case .genre: return "例)イタリアン"
-            case .signup: return nil
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
