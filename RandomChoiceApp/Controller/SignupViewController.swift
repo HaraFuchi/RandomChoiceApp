@@ -31,20 +31,23 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         case store
         case place
         case genre
+        case signup
         
-        var categoryTitle: String {
+        var categoryTitle: String? {
             switch self {
             case .store: return "店名"
             case .place: return "場所"
             case .genre: return "ジャンル"
+            case .signup: return nil
             }
         }
         
-        var categoryPlaceHolderList: String {
+        var categoryPlaceHolderList: String? {
             switch self {
             case .store: return "例)サイゼリヤ"
             case .place: return "例)新宿"
             case .genre: return "例)イタリアン"
+            case .signup: return nil
             }
         }
     }
@@ -56,7 +59,7 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryList.allCases.count + 1 //1は登録ボタン(CommonActionButtonTableViewCell)の分
+        return CategoryList.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,31 +67,31 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral
             .actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
+        guard let cellType = CategoryList(rawValue: indexPath.row) else { return UITableViewCell() }
+        
         categoryCell.delegate = self
         
-        switch indexPath.row {
-        case 0:
-            categoryCell.categoryTitle = CategoryList.store.categoryTitle
-            categoryCell.categoryPlaceHolder = CategoryList.store.categoryPlaceHolderList
+        switch cellType {
+        case .store:
+            categoryCell.categoryTitle = CategoryList.store.categoryTitle ?? ""
+            categoryCell.categoryPlaceHolder = CategoryList.store.categoryPlaceHolderList ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 1:
-            categoryCell.categoryTitle = CategoryList.place.categoryTitle
-            categoryCell.categoryPlaceHolder = CategoryList.place.categoryPlaceHolderList
+        case .place:
+            categoryCell.categoryTitle = CategoryList.place.categoryTitle ?? ""
+            categoryCell.categoryPlaceHolder = CategoryList.place.categoryPlaceHolderList ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 2:
-            categoryCell.categoryTitle = CategoryList.genre.categoryTitle
-            categoryCell.categoryPlaceHolder = CategoryList.genre.categoryPlaceHolderList
+        case .genre:
+            categoryCell.categoryTitle = CategoryList.genre.categoryTitle ?? ""
+            categoryCell.categoryPlaceHolder = CategoryList.genre.categoryPlaceHolderList ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 3:
+        case .signup:
             signupAndCancelButtonCell.delegate = self
             signupAndCancelButtonCell.setupButton(self)
             return signupAndCancelButtonCell
-        default: break
         }
-        return UITableViewCell()
     }
 }
 
