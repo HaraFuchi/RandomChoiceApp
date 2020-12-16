@@ -27,10 +27,20 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         return .topAttached
     }
     
-    enum CategoryList: String, CaseIterable{
-        case storeName = "店名"
-        case placeName = "場所"
-        case genreName = "ジャンル"
+    enum CategoryList: Int, CaseIterable{
+        case store
+        case place
+        case genre
+        case edit
+        
+        var categoryTitle: String? {
+            switch self {
+            case .store: return "店名"
+            case .place: return "場所"
+            case .genre: return "ジャンル"
+            case .edit: return nil
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -40,39 +50,40 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryList.allCases.count + 1 //1は登録ボタン(CommonActionButtonTableViewCell)の分
+        return CategoryList.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.signupCell, for: indexPath) as! SignupCategoryTableViewCell
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
+        guard let cellType = CategoryList(rawValue: indexPath.row) else { return UITableViewCell() }
+        
         convertValueNil()
+        
         categoryCell.delegate = self
         
-        switch indexPath.row {
-        case 0:
-            categoryCell.categoryTitle = CategoryList.storeName.rawValue
+        switch cellType {
+        case .store:
+            categoryCell.categoryTitle = CategoryList.store.categoryTitle ?? ""
             categoryCell.categoryText = editStoreNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 1:
-            categoryCell.categoryTitle = CategoryList.placeName.rawValue
+        case .place:
+            categoryCell.categoryTitle = CategoryList.place.categoryTitle ?? ""
             categoryCell.categoryText = editPlaceNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 2:
-            categoryCell.categoryTitle = CategoryList.genreName.rawValue
+        case .genre:
+            categoryCell.categoryTitle = CategoryList.genre.categoryTitle ?? ""
             categoryCell.categoryText = editGenreNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 3:
+        case .edit:
             signupAndCancelButtonCell.delegate = self
             signupAndCancelButtonCell.setupButton(self)
             return signupAndCancelButtonCell
-        default: break
         }
-        return UITableViewCell()
     }
 }
 
