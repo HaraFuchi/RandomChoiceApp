@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol SignupCategoryTableViewCellDelegate {
+protocol SignupCategoryTableViewCellDelegate: class {
     func fetchCategoryNameText(textField: UITextField, indexNumber: Int)
 }
 
 class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     
-    var delegate: SignupCategoryTableViewCellDelegate?
+    weak var delegate: SignupCategoryTableViewCellDelegate?
     var indexPathNumber:Int? //登録画面で繰り返すCellを分別する変数
     
     @IBOutlet private var categoryLabel: UILabel!

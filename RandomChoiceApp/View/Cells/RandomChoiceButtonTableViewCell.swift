@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol RandomChoiceButtonTableViewCellDelegate {
+protocol RandomChoiceButtonTableViewCellDelegate: class {
     func didTapDiceButton()
 }
 
 class RandomChoiceButtonTableViewCell: UITableViewCell {
     
-    var delegate: RandomChoiceButtonTableViewCellDelegate?
+    weak var delegate: RandomChoiceButtonTableViewCellDelegate?
     
     @IBOutlet private weak var randomChoiceButton: UIButton!
     

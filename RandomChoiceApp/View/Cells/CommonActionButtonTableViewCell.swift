@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CommonActionButtonTableViewCellDelegate {
+protocol CommonActionButtonTableViewCellDelegate: class {
     func cancelButton()
     //TODO 使用されている部分が登録のみではないためリネームする
     func signupStoreInfoButton()
@@ -16,7 +16,7 @@ protocol CommonActionButtonTableViewCellDelegate {
 
 class CommonActionButtonTableViewCell: UITableViewCell {
     
-    var delegate: CommonActionButtonTableViewCellDelegate?
+    weak var delegate: CommonActionButtonTableViewCellDelegate?
     
     //TODO 使用されている部分が登録のみではないためリネームする
     @IBOutlet private weak var signUpButton: UIButton!
