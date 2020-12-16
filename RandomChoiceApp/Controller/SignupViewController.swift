@@ -49,17 +49,17 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         switch cellType {
         case .store:
             categoryCell.categoryTitle = CategoryList.store.categoryTitle ?? ""
-            categoryCell.categoryPlaceHolder = CategoryList.store.categoryPlaceHolderList ?? ""
+            categoryCell.categoryPlaceHolder = CategoryList.store.categoryPlaceHolder ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case .place:
             categoryCell.categoryTitle = CategoryList.place.categoryTitle ?? ""
-            categoryCell.categoryPlaceHolder = CategoryList.place.categoryPlaceHolderList ?? ""
+            categoryCell.categoryPlaceHolder = CategoryList.place.categoryPlaceHolder ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case .genre:
             categoryCell.categoryTitle = CategoryList.genre.categoryTitle ?? ""
-            categoryCell.categoryPlaceHolder = CategoryList.genre.categoryPlaceHolderList ?? ""
+            categoryCell.categoryPlaceHolder = CategoryList.genre.categoryPlaceHolder ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case .signup:

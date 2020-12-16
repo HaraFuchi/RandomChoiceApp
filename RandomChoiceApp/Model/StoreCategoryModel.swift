@@ -23,7 +23,7 @@ enum CategoryList: Int, CaseIterable {
         }
     }
     
-    var categoryPlaceHolderList: String? {
+    var categoryPlaceHolder: String? {
         switch self {
         case .store: return "例)サイゼリヤ"
         case .place: return "例)新宿"
