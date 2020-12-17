@@ -27,12 +27,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         return .topAttached
     }
     
-    enum CategoryList: String, CaseIterable{
-        case storeName = "店名"
-        case placeName = "場所"
-        case genreName = "ジャンル"
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
@@ -40,39 +34,40 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryList.allCases.count + 1 //1は登録ボタン(CommonActionButtonTableViewCell)の分
+        return CategoryListType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.signupCell, for: indexPath) as! SignupCategoryTableViewCell
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
+        guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
+        
         convertValueNil()
+        
         categoryCell.delegate = self
         
-        switch indexPath.row {
-        case 0:
-            categoryCell.categoryTitle = CategoryList.storeName.rawValue
+        switch cellType {
+        case .store:
+            categoryCell.categoryTitle = CategoryListType.store.title ?? ""
             categoryCell.categoryText = editStoreNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 1:
-            categoryCell.categoryTitle = CategoryList.placeName.rawValue
+        case .place:
+            categoryCell.categoryTitle = CategoryListType.place.title ?? ""
             categoryCell.categoryText = editPlaceNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 2:
-            categoryCell.categoryTitle = CategoryList.genreName.rawValue
+        case .genre:
+            categoryCell.categoryTitle = CategoryListType.genre.title ?? ""
             categoryCell.categoryText = editGenreNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 3:
+        case .signup:
             signupAndCancelButtonCell.delegate = self
             signupAndCancelButtonCell.setupButton(self)
             return signupAndCancelButtonCell
-        default: break
         }
-        return UITableViewCell()
     }
 }
 

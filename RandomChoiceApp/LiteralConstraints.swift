@@ -18,6 +18,13 @@ struct StoreDataLiteral {
     static let genre = "ジャンル"
 }
 
+struct CategoryPlaceHolder {
+    static private let ex = "例) "
+    static let store = ex + "サイゼリヤ"
+    static let place = ex + "新宿"
+    static let genre = ex + "イタリアン"
+}
+
 struct QuestionsLiteral {
     static let questions = "???"
 }
