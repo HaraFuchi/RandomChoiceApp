@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum CategoryList: Int, CaseIterable {
+enum CategoryListType: Int, CaseIterable {
     case store
     case place
     case genre
     case signup
     
-    var categoryTitle: String? {
+    var title: String? {
         switch self {
         case .store: return StoreDataLiteral.store
         case .place: return StoreDataLiteral.place
@@ -23,7 +23,7 @@ enum CategoryList: Int, CaseIterable {
         }
     }
     
-    var categoryPlaceHolder: String? {
+    var placeHolder: String? {
         switch self {
         case .store: return CategoryPlaceHolder.store
         case .place: return CategoryPlaceHolder.place

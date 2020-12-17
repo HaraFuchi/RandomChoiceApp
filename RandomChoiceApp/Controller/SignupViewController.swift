@@ -34,7 +34,7 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryList.allCases.count
+        return CategoryListType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,24 +42,24 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral
             .actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
-        guard let cellType = CategoryList(rawValue: indexPath.row) else { return UITableViewCell() }
+        guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
         
         categoryCell.delegate = self
         
         switch cellType {
         case .store:
-            categoryCell.categoryTitle = CategoryList.store.categoryTitle ?? ""
-            categoryCell.categoryPlaceHolder = CategoryList.store.categoryPlaceHolder ?? ""
+            categoryCell.categoryTitle = CategoryListType.store.title ?? ""
+            categoryCell.categoryPlaceHolder = CategoryListType.store.placeHolder ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case .place:
-            categoryCell.categoryTitle = CategoryList.place.categoryTitle ?? ""
-            categoryCell.categoryPlaceHolder = CategoryList.place.categoryPlaceHolder ?? ""
+            categoryCell.categoryTitle = CategoryListType.place.title ?? ""
+            categoryCell.categoryPlaceHolder = CategoryListType.place.placeHolder ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case .genre:
-            categoryCell.categoryTitle = CategoryList.genre.categoryTitle ?? ""
-            categoryCell.categoryPlaceHolder = CategoryList.genre.categoryPlaceHolder ?? ""
+            categoryCell.categoryTitle = CategoryListType.genre.title ?? ""
+            categoryCell.categoryPlaceHolder = CategoryListType.genre.placeHolder ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case .signup:

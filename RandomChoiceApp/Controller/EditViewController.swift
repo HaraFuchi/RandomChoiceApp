@@ -34,14 +34,14 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryList.allCases.count
+        return CategoryListType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.signupCell, for: indexPath) as! SignupCategoryTableViewCell
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
-        guard let cellType = CategoryList(rawValue: indexPath.row) else { return UITableViewCell() }
+        guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
         
         convertValueNil()
         
@@ -49,17 +49,17 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         
         switch cellType {
         case .store:
-            categoryCell.categoryTitle = CategoryList.store.categoryTitle ?? ""
+            categoryCell.categoryTitle = CategoryListType.store.title ?? ""
             categoryCell.categoryText = editStoreNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case .place:
-            categoryCell.categoryTitle = CategoryList.place.categoryTitle ?? ""
+            categoryCell.categoryTitle = CategoryListType.place.title ?? ""
             categoryCell.categoryText = editPlaceNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
         case .genre:
-            categoryCell.categoryTitle = CategoryList.genre.categoryTitle ?? ""
+            categoryCell.categoryTitle = CategoryListType.genre.title ?? ""
             categoryCell.categoryText = editGenreNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
