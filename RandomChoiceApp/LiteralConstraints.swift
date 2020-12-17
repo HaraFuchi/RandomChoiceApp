@@ -19,7 +19,7 @@ struct StoreDataLiteral {
 }
 
 struct CategoryPlaceHolder {
-    static let ex = "例) "
+    static private let ex = "例) "
     static let store = ex + "サイゼリヤ"
     static let place = ex + "新宿"
     static let genre = ex + "イタリアン"
