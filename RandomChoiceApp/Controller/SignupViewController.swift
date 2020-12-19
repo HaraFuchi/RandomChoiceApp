@@ -8,17 +8,15 @@
 
 import UIKit
 
-class SignupViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate {
+class SignupViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
     
     //登録する内容の値を保持
-    var storeNameString: String?
-    var placeNameString: String?
-    var genreNameString: String?
-    
-    var isHiddenCancelButton: Bool = false
-    
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var navigationBar: UINavigationBar!
+    private var storeNameString: String?
+    private var placeNameString: String?
+    private var genreNameString: String?
+        
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private weak var navigationBar: UINavigationBar!
     
     //UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
@@ -29,20 +27,6 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         self.view.endEditing(true)
     }
     
-    enum CategoryList: String, CaseIterable{
-        case storeName = "店名"
-        case placeName = "場所"
-        case genreName = "ジャンル"
-        
-        var CategoryPlaceHolderList: String {
-            switch self {
-            case .storeName: return "例)サイゼリヤ"
-            case .placeName: return "例)新宿"
-            case .genreName: return "例)イタリアン"
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
@@ -50,7 +34,7 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryList.allCases.count + 1 //1は登録ボタン(CommonActionButtonTableViewCell)の分
+        return CategoryListType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,32 +42,31 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral
             .actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
+        guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
+        
         categoryCell.delegate = self
         
-        switch indexPath.row {
-        case 0:
-            categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
-            categoryCell.categoryTextField.placeholder = CategoryList.storeName.CategoryPlaceHolderList
+        switch cellType {
+        case .store:
+            categoryCell.categoryTitle = CategoryListType.store.title ?? ""
+            categoryCell.categoryPlaceHolder = CategoryListType.store.placeHolder ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 1:
-            categoryCell.categoryLabel.text = CategoryList.placeName.rawValue
-            categoryCell.categoryTextField.placeholder = CategoryList.placeName.CategoryPlaceHolderList
+        case .place:
+            categoryCell.categoryTitle = CategoryListType.place.title ?? ""
+            categoryCell.categoryPlaceHolder = CategoryListType.place.placeHolder ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 2:
-            categoryCell.categoryLabel.text = CategoryList.genreName.rawValue
-            categoryCell.categoryTextField.placeholder = CategoryList.genreName.CategoryPlaceHolderList
+        case .genre:
+            categoryCell.categoryTitle = CategoryListType.genre.title ?? ""
+            categoryCell.categoryPlaceHolder = CategoryListType.genre.placeHolder ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 3:
+        case .signup:
             signupAndCancelButtonCell.delegate = self
-            signupAndCancelButtonCell.cancelButton.isHidden = isHiddenCancelButton
-            signupAndCancelButtonCell.setupButtons_signUp()
+            signupAndCancelButtonCell.setupButton(self)
             return signupAndCancelButtonCell
-        default: break
         }
-        return UITableViewCell()
     }
 }
 
@@ -133,14 +116,6 @@ extension SignupViewController {
         }
         let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
         alert.addAction(signupAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    private func showAlertAllNilTextField() {
-        let alert = UIAlertController(title: AlertTitleLiteral.allTextEmpty, message: AlertMessageLiteral
-            .allTextEmpty, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }

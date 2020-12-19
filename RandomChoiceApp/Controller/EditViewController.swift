@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate {
+class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -27,12 +27,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         return .topAttached
     }
     
-    enum CategoryList: String, CaseIterable{
-        case storeName = "店名"
-        case placeName = "場所"
-        case genreName = "ジャンル"
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
@@ -40,39 +34,40 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryList.allCases.count + 1 //1は登録ボタン(CommonActionButtonTableViewCell)の分
+        return CategoryListType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.signupCell, for: indexPath) as! SignupCategoryTableViewCell
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
+        guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
+        
         convertValueNil()
+        
         categoryCell.delegate = self
         
-        switch indexPath.row {
-        case 0:
-            categoryCell.categoryLabel.text = CategoryList.storeName.rawValue
-            categoryCell.categoryTextField.text = editStoreNameString
+        switch cellType {
+        case .store:
+            categoryCell.categoryTitle = CategoryListType.store.title ?? ""
+            categoryCell.categoryText = editStoreNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 1:
-            categoryCell.categoryLabel.text = CategoryList.placeName.rawValue
-            categoryCell.categoryTextField.text = editPlaceNameString
+        case .place:
+            categoryCell.categoryTitle = CategoryListType.place.title ?? ""
+            categoryCell.categoryText = editPlaceNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 2:
-            categoryCell.categoryLabel.text = CategoryList.genreName.rawValue
-            categoryCell.categoryTextField.text = editGenreNameString
+        case .genre:
+            categoryCell.categoryTitle = CategoryListType.genre.title ?? ""
+            categoryCell.categoryText = editGenreNameString ?? ""
             categoryCell.indexPathNumber = indexPath.row
             return categoryCell
-        case 3:
+        case .signup:
             signupAndCancelButtonCell.delegate = self
-            signupAndCancelButtonCell.setupButtons_edit()
+            signupAndCancelButtonCell.setupButton(self)
             return signupAndCancelButtonCell
-        default: break
         }
-        return UITableViewCell()
     }
 }
 
@@ -148,13 +143,5 @@ extension EditViewController {
             crudModel.editStoreData(store: editStoreNameString ?? emptyNameText, place: editPlaceNameString ?? emptyNameText, genre: editGenreNameString ?? emptyNameText, childID: childID)
             dismiss(animated: true, completion: nil)
         }
-    }
-    
-    private func showAlertAllNilTextField() {
-        let alert = UIAlertController(title: AlertTitleLiteral.allTextEmpty, message: AlertMessageLiteral
-            .allTextEmpty, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .cancel, handler: nil)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
     }
 }

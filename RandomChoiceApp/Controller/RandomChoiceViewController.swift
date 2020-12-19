@@ -10,12 +10,12 @@ import UIKit
 
 class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     
-    let crudModel = StoreDataCrudModel()
-    var resultStoreName = QuestionsLiteral.questions
-    var resultPlaceName = QuestionsLiteral.questions
-    var resultGenreName = QuestionsLiteral.questions
+    private let crudModel = StoreDataCrudModel()
+    private var resultStoreName = QuestionsLiteral.questions
+    private var resultPlaceName = QuestionsLiteral.questions
+    private var resultGenreName = QuestionsLiteral.questions
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        crudModel.fetchStoreData(tableView: nil)
+        crudModel.fetchStoreData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,10 +38,10 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            storeDataCell.storeNameLabel.text = resultStoreName
-            storeDataCell.placeLabel.text = resultPlaceName
-            storeDataCell.genreLabel.text = resultGenreName
-            storeDataCell.editButton.isHidden = true
+            storeDataCell.storeDataText = resultStoreName
+            storeDataCell.placeDataText = resultPlaceName
+            storeDataCell.genreDataText = resultGenreName
+            storeDataCell.isHiddenEditButton = true
             return storeDataCell
         case 1:
             buttonCell.delegate = self
@@ -75,15 +75,6 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
         }
         alert.addAction(signupAction)
         present(alert, animated: true, completion: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifierLiteral.goToSignUpVC {
-            let signupVC = segue.destination as! SignupViewController
-            if crudModel.storeDataArray.isEmpty {
-                signupVC.isHiddenCancelButton = true
-            }
-        }
     }
 }
 

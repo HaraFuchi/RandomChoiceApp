@@ -18,14 +18,14 @@ class StoreDataCrudModel {
     var delegate: StoreDataCrudModelDelegate?
     var storeDataArray = [StoreDataContentsModel]()
     
-    let ref = Database.database().reference()
+    private let ref = Database.database().reference()
     
     func createStoreData(store: String, place: String, genre: String) {
         let createDataDict = [StoreDataLiteral.store: store, StoreDataLiteral.place: place, StoreDataLiteral.genre: genre]
         ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createDataDict)
     }
     
-    func fetchStoreData(tableView: UITableView?) {
+    func fetchStoreData(tableView: UITableView? = nil) {
         ref.child(Auth.auth().currentUser?.uid ?? "uid").observe(.value) { (snapShot) in
             self.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
