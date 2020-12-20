@@ -9,9 +9,7 @@
 import UIKit
 
 class SettingTableViewCell: UITableViewCell {
-    
-    var indexPathNumber:Int? //登録画面で繰り返すCellを分別する変数
-    
+        
     @IBOutlet private weak var settingTitleLabel: UILabel!
     @IBOutlet private weak var subTitleLabel: UILabel!
     

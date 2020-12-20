@@ -75,7 +75,6 @@ extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         settingCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.settingCell, for: indexPath) as! SettingTableViewCell
         settingCell.isSubTitleLabelHidden = true
-        settingCell.indexPathNumber = indexPath.row
         
         guard let cellType = SettingCategoryList(rawValue: indexPath.row) else {
             return UITableViewCell()
@@ -102,7 +101,6 @@ extension SettingViewController: UITableViewDataSource {
 extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        settingCell.indexPathNumber = indexPath.row
         
         guard let cellType = SettingCategoryList(rawValue: indexPath.row) else { return }
         
