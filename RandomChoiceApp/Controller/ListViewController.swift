@@ -126,15 +126,15 @@ extension ListViewController {
     private func showAlertOffline() {
         let alert = UIAlertController(title: AlertTitleLiteral.error, message: AlertMessageLiteral.offline, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .default, handler: nil)
-            alert.addAction(defaultAction)
-            present(alert, animated: true, completion: nil)
-        }
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
+    }
     
     private func checkNetworkStatus() {
         let reachability = try! Reachability()
         if reachability.connection == .unavailable {
-                // インターネット接続なし
-                showAlertOffline()
+            // インターネット接続なし
+            showAlertOffline()
         }
     }
     
