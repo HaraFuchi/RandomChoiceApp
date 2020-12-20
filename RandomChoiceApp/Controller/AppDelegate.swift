@@ -19,7 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        anonymousLoginModel.anonymousLogin()
+        
+        if Auth.auth().currentUser == nil {
+            anonymousLoginModel.anonymousLogin()
+        }
+        
         sleep(launchTime)
         return true
     }
