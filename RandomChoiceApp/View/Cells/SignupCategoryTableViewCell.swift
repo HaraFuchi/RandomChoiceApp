@@ -31,7 +31,8 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        delegate?.fetchCategoryNameText(textField: textField, cellType: cellType!)
+        guard let cellType = cellType else { return }
+        delegate?.fetchCategoryNameText(textField: textField, cellType: cellType)
     }
     
     var categoryTitle: String = "" {
