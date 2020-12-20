@@ -60,13 +60,6 @@ extension SettingViewController {
     }
 }
 
-extension SettingViewController: UINavigationBarDelegate {
-    //UINavigationBarをステータスバーまで広げる
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-}
-
 extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SettingCategoryList.allCases.count

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
+class EditViewController: UIViewController, UITableViewDataSource, AlertDisplayable {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -21,11 +21,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     var editPlaceNameString: String?
     var editGenreNameString: String?
     var childID: String?
-    
-    //UINavigationBarをステータスバーまで広げる
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

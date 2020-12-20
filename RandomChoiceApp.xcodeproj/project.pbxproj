@@ -16,6 +16,7 @@
 		C53EB1F7256D898D00C98935 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53EB1F6256D898D00C98935 /* UIViewController+Alert.swift */; };
 		C548E98524C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */; };
 		C548E98624C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */; };
+		C55E133A258FB97D00DEA33D /* UIViewController+UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E1339258FB97D00DEA33D /* UIViewController+UINavigationBar.swift */; };
 		C5780BB124C4997A0007972D /* SignupCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */; };
 		C5780BB224C4997A0007972D /* SignupCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */; };
 		C59B1DDF24E9FD5E0060C622 /* AnonymousLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B1DDE24E9FD5E0060C622 /* AnonymousLoginModel.swift */; };
@@ -71,6 +72,7 @@
 		C53EB1F6256D898D00C98935 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonActionButtonTableViewCell.swift; sourceTree = "<group>"; };
 		C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonActionButtonTableViewCell.xib; sourceTree = "<group>"; };
+		C55E1339258FB97D00DEA33D /* UIViewController+UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UINavigationBar.swift"; sourceTree = "<group>"; };
 		C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		C59B1DDE24E9FD5E0060C622 /* AnonymousLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousLoginModel.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				C53EB1F6256D898D00C98935 /* UIViewController+Alert.swift */,
+				C55E1339258FB97D00DEA33D /* UIViewController+UINavigationBar.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				C5C4B8A0258A5C4800FD2BFE /* StoreCategoryModel.swift in Sources */,
 				E354B6B324C42E8E00759289 /* RandomChoiceViewController.swift in Sources */,
 				E354B6AF24C42E8E00759289 /* AppDelegate.swift in Sources */,
+				C55E133A258FB97D00DEA33D /* UIViewController+UINavigationBar.swift in Sources */,
 				E3955A3724C468590028FD67 /* SignupViewController.swift in Sources */,
 				E3549029256B92E20038305A /* SettingViewController.swift in Sources */,
 				E354902F256BF2C40038305A /* SettingTableViewCell.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
+class SignupViewController: UIViewController, UITableViewDataSource, AlertDisplayable{
     
     //登録する内容の値を保持
     private var storeNameString: String?
@@ -17,11 +17,6 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private weak var navigationBar: UINavigationBar!
-    
-    //UINavigationBarをステータスバーまで広げる
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
     
     @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
