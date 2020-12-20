@@ -124,8 +124,8 @@ extension ListViewController {
     
     //オフラインの際に出すアラート
     private func showAlertOffline() {
-            let alert = UIAlertController(title: "エラー", message: "ネットワーク環境が不安定です\n設定をご確認ください", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let alert = UIAlertController(title: AlertTitleLiteral.error, message: AlertMessageLiteral.offline, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .default, handler: nil)
             alert.addAction(defaultAction)
             present(alert, animated: true, completion: nil)
         }

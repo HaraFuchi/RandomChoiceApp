@@ -36,12 +36,14 @@ struct AlertTitleLiteral {
     static let allTextEmpty = "全て空欄です"
     static let edit = "編集した内容を保存しますか？"
     static let email = "メールが開けません"
+    static let error = "エラー"
 }
 
 struct AlertMessageLiteral {
     static let signUp = "お店がまだ登録されていません"
     static let allTextEmpty = "空欄に記入してください"
     static let email = "設定からメールアドレスを追加してください。"
+    static let offline = "ネットワーク環境が不安定です\n設定をご確認ください"
 }
 
 struct AlertButtonLiteral {
