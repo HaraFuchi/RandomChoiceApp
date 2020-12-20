@@ -8,6 +8,7 @@
 
 import UIKit
 import SkeletonView
+import Reachability
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SkeletonTableViewDataSource {
     
@@ -119,6 +120,14 @@ extension ListViewController {
         showAlert.addAction(deleteAction)
         present(showAlert, animated: true, completion: nil)
     }
+    
+    //オフラインの際に出すアラート
+    private func showAlertOffline() {
+            let alert = UIAlertController(title: "エラー", message: "ネットワーク環境が不安定です\n設定をご確認ください", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(defaultAction)
+            present(alert, animated: true, completion: nil)
+        }
     
     private func setUpSkeleton(cell: ListPageTableViewCell) {
         //スケルトンの色を設定
