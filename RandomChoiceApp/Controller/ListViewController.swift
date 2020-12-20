@@ -26,6 +26,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         crudModel.fetchStoreData(tableView: tableView)
+        checkNetworkStatus()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -128,6 +129,14 @@ extension ListViewController {
             alert.addAction(defaultAction)
             present(alert, animated: true, completion: nil)
         }
+    
+    private func checkNetworkStatus() {
+        let reachability = try! Reachability()
+        if reachability.connection == .unavailable {
+                // インターネット接続なし
+                showAlertOffline()
+        }
+    }
     
     private func setUpSkeleton(cell: ListPageTableViewCell) {
         //スケルトンの色を設定
