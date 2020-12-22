@@ -98,16 +98,16 @@ extension ListViewController: ListPageTableViewCellDelegate {
     }
 }
 
-//MARK: - Method
-extension ListViewController {
-    private func setUpTableView() {
+//MARK: - Private Method
+private extension ListViewController {
+    func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         let listPageNib = UINib(nibName: NibNameLiteral.listPageTableViewCell, bundle: nil)
         tableView.register(listPageNib, forCellReuseIdentifier: CellIdentifierLiteral.listPageCell)
     }
     
-    private func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
+    func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
         let showAlert = UIAlertController(title: AlertTitleLiteral.delete, message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: AlertButtonLiteral.delete, style: .destructive, handler: { _ -> Void in
             self.crudModel.deleteStoreData(indexPath: indexPath)
@@ -123,14 +123,14 @@ extension ListViewController {
     }
     
     //オフラインの際に出すアラート
-    private func showAlertOffline() {
+    func showAlertOffline() {
         let alert = UIAlertController(title: AlertTitleLiteral.error, message: AlertMessageLiteral.offline, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .default, handler: nil)
         alert.addAction(defaultAction)
         present(alert, animated: true, completion: nil)
     }
     
-    private func checkNetworkStatus() {
+    func checkNetworkStatus() {
         let reachability = try! Reachability()
         if reachability.connection == .unavailable {
             // インターネット接続なし
@@ -138,7 +138,7 @@ extension ListViewController {
         }
     }
     
-    private func setUpSkeleton(cell: ListPageTableViewCell) {
+    func setUpSkeleton(cell: ListPageTableViewCell) {
         //スケルトンの色を設定
         let gradient = SkeletonGradient(baseColor: .clouds)
         cell.showAnimatedGradientSkeleton(usingGradient: gradient, transition: .crossDissolve(0.25))
