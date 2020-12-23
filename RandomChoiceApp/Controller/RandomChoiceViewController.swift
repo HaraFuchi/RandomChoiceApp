@@ -15,7 +15,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     private var resultPlaceName = QuestionsLiteral.questions
     private var resultGenreName = QuestionsLiteral.questions
     
-    enum DiceScreen: Int, CaseIterable {
+    enum DiceScreenType: Int, CaseIterable {
         case result
         case dice
     }
@@ -34,14 +34,14 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DiceScreen.allCases.count
+        return DiceScreenType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let storeDataCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.listPageCell) as! ListPageTableViewCell
         let buttonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.randomChoiceButtonCell) as! RandomChoiceButtonTableViewCell
         
-        guard let cellType = DiceScreen(rawValue: indexPath.row) else { return UITableViewCell() }
+        guard let cellType = DiceScreenType(rawValue: indexPath.row) else { return UITableViewCell() }
         
         switch cellType {
         case .result:
