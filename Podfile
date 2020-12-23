@@ -11,6 +11,7 @@ target 'RandomChoiceApp' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'SkeletonView'
+  pod 'ReachabilitySwift'
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
