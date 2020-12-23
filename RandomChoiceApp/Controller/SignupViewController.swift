@@ -50,17 +50,17 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         case .store:
             categoryCell.categoryTitle = CategoryListType.store.title ?? ""
             categoryCell.categoryPlaceHolder = CategoryListType.store.placeHolder ?? ""
-            categoryCell.indexPathNumber = indexPath.row
+            categoryCell.cellType = .store
             return categoryCell
         case .place:
             categoryCell.categoryTitle = CategoryListType.place.title ?? ""
             categoryCell.categoryPlaceHolder = CategoryListType.place.placeHolder ?? ""
-            categoryCell.indexPathNumber = indexPath.row
+            categoryCell.cellType = .place
             return categoryCell
         case .genre:
             categoryCell.categoryTitle = CategoryListType.genre.title ?? ""
             categoryCell.categoryPlaceHolder = CategoryListType.genre.placeHolder ?? ""
-            categoryCell.indexPathNumber = indexPath.row
+            categoryCell.cellType = .genre
             return categoryCell
         case .signup:
             signupAndCancelButtonCell.delegate = self
@@ -72,12 +72,12 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
 
 // MARK: -Protocol
 extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupCategoryTableViewCellDelegate{
-    func fetchCategoryNameText(textField: UITextField, indexNumber: Int) {
-        switch indexNumber {
-        case 0: storeNameString = textField.text
-        case 1: placeNameString = textField.text
-        case 2: genreNameString = textField.text
-        default: break
+    func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
+        switch cellType {
+        case .store: storeNameString = textField.text
+        case .place: placeNameString = textField.text
+        case .genre: genreNameString = textField.text
+        case .signup: break
         }
     }
     

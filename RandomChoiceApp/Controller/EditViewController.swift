@@ -51,17 +51,17 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         case .store:
             categoryCell.categoryTitle = CategoryListType.store.title ?? ""
             categoryCell.categoryText = editStoreNameString ?? ""
-            categoryCell.indexPathNumber = indexPath.row
+            categoryCell.cellType = .store
             return categoryCell
         case .place:
             categoryCell.categoryTitle = CategoryListType.place.title ?? ""
             categoryCell.categoryText = editPlaceNameString ?? ""
-            categoryCell.indexPathNumber = indexPath.row
+            categoryCell.cellType = .place
             return categoryCell
         case .genre:
             categoryCell.categoryTitle = CategoryListType.genre.title ?? ""
             categoryCell.categoryText = editGenreNameString ?? ""
-            categoryCell.indexPathNumber = indexPath.row
+            categoryCell.cellType = .genre
             return categoryCell
         case .signup:
             signupAndCancelButtonCell.delegate = self
@@ -73,19 +73,12 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
 
 //MARK: - Protocol
 extension EditViewController: SignupCategoryTableViewCellDelegate, CommonActionButtonTableViewCellDelegate {
-    func fetchCategoryNameText(textField: UITextField, indexNumber: Int) {
-        enum CategoryNameText: Int {
-            case store
-            case place
-            case genre
-        }
-        
-        let categoryNameText = CategoryNameText(rawValue: indexNumber)
-        switch categoryNameText {
+    func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
+        switch cellType {
         case .store: editStoreNameString = textField.text
         case .place: editPlaceNameString = textField.text
         case .genre: editGenreNameString = textField.text
-        case .none: break
+        case .signup: break
         }
     }
     
