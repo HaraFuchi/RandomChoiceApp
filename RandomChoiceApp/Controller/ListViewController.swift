@@ -113,7 +113,9 @@ private extension ListViewController {
             self.crudModel.deleteStoreData(indexPath: indexPath)
             if editingStyle == UITableViewCell.EditingStyle.delete {
                 self.crudModel.storeDataArray.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+                if !self.crudModel.storeDataArray.isEmpty {
+                    tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+                }
             }
         })
         let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
