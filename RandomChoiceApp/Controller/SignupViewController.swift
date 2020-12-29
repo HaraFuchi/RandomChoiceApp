@@ -27,20 +27,6 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         self.view.endEditing(true)
     }
     
-    enum CategoryList: String, CaseIterable{
-        case storeName = "店名"
-        case placeName = "場所"
-        case genreName = "ジャンル"
-        
-        var CategoryPlaceHolderList: String {
-            switch self {
-            case .storeName: return "例)サイゼリヤ"
-            case .placeName: return "例)新宿"
-            case .genreName: return "例)イタリアン"
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
@@ -48,7 +34,7 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryList.allCases.count + 1 //1は登録ボタン(CommonActionButtonTableViewCell)の分
+        return CategoryListType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,42 +42,42 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral
             .actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
+        guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
+        
         categoryCell.delegate = self
         
-        switch indexPath.row {
-        case 0:
-            categoryCell.categoryTitle = CategoryList.storeName.rawValue
-            categoryCell.categoryPlaceHolder = CategoryList.storeName.CategoryPlaceHolderList
-            categoryCell.indexPathNumber = indexPath.row
+        switch cellType {
+        case .store:
+            categoryCell.categoryTitle = CategoryListType.store.title ?? ""
+            categoryCell.categoryPlaceHolder = CategoryListType.store.placeHolder ?? ""
+            categoryCell.cellType = .store
             return categoryCell
-        case 1:
-            categoryCell.categoryTitle = CategoryList.placeName.rawValue
-            categoryCell.categoryPlaceHolder = CategoryList.placeName.CategoryPlaceHolderList
-            categoryCell.indexPathNumber = indexPath.row
+        case .place:
+            categoryCell.categoryTitle = CategoryListType.place.title ?? ""
+            categoryCell.categoryPlaceHolder = CategoryListType.place.placeHolder ?? ""
+            categoryCell.cellType = .place
             return categoryCell
-        case 2:
-            categoryCell.categoryTitle = CategoryList.genreName.rawValue
-            categoryCell.categoryPlaceHolder = CategoryList.genreName.CategoryPlaceHolderList
-            categoryCell.indexPathNumber = indexPath.row
+        case .genre:
+            categoryCell.categoryTitle = CategoryListType.genre.title ?? ""
+            categoryCell.categoryPlaceHolder = CategoryListType.genre.placeHolder ?? ""
+            categoryCell.cellType = .genre
             return categoryCell
-        case 3:
+        case .signup:
             signupAndCancelButtonCell.delegate = self
             signupAndCancelButtonCell.setupButton(self)
             return signupAndCancelButtonCell
-        default: break
         }
-        return UITableViewCell()
     }
 }
 
 // MARK: -Protocol
 extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupCategoryTableViewCellDelegate{
-    func fetchCategoryNameText(textField: UITextField, indexNumber: Int) {
-        switch indexNumber {
-        case 0: storeNameString = textField.text
-        case 1: placeNameString = textField.text
-        case 2: genreNameString = textField.text
-        default: break
+    func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
+        switch cellType {
+        case .store: storeNameString = textField.text
+        case .place: placeNameString = textField.text
+        case .genre: genreNameString = textField.text
+        case .signup: break
         }
     }
     

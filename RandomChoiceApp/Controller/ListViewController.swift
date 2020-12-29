@@ -8,6 +8,7 @@
 
 import UIKit
 import SkeletonView
+import Reachability
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SkeletonTableViewDataSource {
     
@@ -25,6 +26,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         crudModel.fetchStoreData(tableView: tableView)
+        checkNetworkStatus()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,16 +98,16 @@ extension ListViewController: ListPageTableViewCellDelegate {
     }
 }
 
-//MARK: - Method
-extension ListViewController {
-    private func setUpTableView() {
+//MARK: - Private Method
+private extension ListViewController {
+    func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         let listPageNib = UINib(nibName: NibNameLiteral.listPageTableViewCell, bundle: nil)
         tableView.register(listPageNib, forCellReuseIdentifier: CellIdentifierLiteral.listPageCell)
     }
     
-    private func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
+    func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
         let showAlert = UIAlertController(title: AlertTitleLiteral.delete, message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: AlertButtonLiteral.delete, style: .destructive, handler: { _ -> Void in
             self.crudModel.deleteStoreData(indexPath: indexPath)
@@ -120,7 +122,23 @@ extension ListViewController {
         present(showAlert, animated: true, completion: nil)
     }
     
-    private func setUpSkeleton(cell: ListPageTableViewCell) {
+    //オフラインの際に出すアラート
+    func showAlertOffline() {
+        let alert = UIAlertController(title: AlertTitleLiteral.error, message: AlertMessageLiteral.offline, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .default, handler: nil)
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func checkNetworkStatus() {
+        let reachability = try! Reachability()
+        if reachability.connection == .unavailable {
+            // インターネット接続なし
+            showAlertOffline()
+        }
+    }
+    
+    func setUpSkeleton(cell: ListPageTableViewCell) {
         //スケルトンの色を設定
         let gradient = SkeletonGradient(baseColor: .clouds)
         cell.showAnimatedGradientSkeleton(usingGradient: gradient, transition: .crossDissolve(0.25))

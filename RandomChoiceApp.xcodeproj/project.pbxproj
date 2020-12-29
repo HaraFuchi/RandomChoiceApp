@@ -19,6 +19,7 @@
 		C5780BB124C4997A0007972D /* SignupCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */; };
 		C5780BB224C4997A0007972D /* SignupCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */; };
 		C59B1DDF24E9FD5E0060C622 /* AnonymousLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B1DDE24E9FD5E0060C622 /* AnonymousLoginModel.swift */; };
+		C5C4B8A0258A5C4800FD2BFE /* StoreCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C4B89F258A5C4800FD2BFE /* StoreCategoryModel.swift */; };
 		E3396A4724F90AE10020AF8E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3396A4624F90AE10020AF8E /* EditViewController.swift */; };
 		E3549029256B92E20038305A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3549028256B92E20038305A /* SettingViewController.swift */; };
 		E354902F256BF2C40038305A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354902D256BF2C40038305A /* SettingTableViewCell.swift */; };
@@ -73,6 +74,7 @@
 		C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		C59B1DDE24E9FD5E0060C622 /* AnonymousLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousLoginModel.swift; sourceTree = "<group>"; };
+		C5C4B89F258A5C4800FD2BFE /* StoreCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCategoryModel.swift; sourceTree = "<group>"; };
 		D53F25C5FFD3771D4FEDB82B /* Pods-RandomChoiceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomChoiceApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E3396A4624F90AE10020AF8E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		E3549028256B92E20038305A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				C5194F9824E085A40050DE18 /* StoreDataCrudModel.swift */,
 				C5194F9A24E174D60050DE18 /* StoreDataContentsModel.swift */,
 				C59B1DDE24E9FD5E0060C622 /* AnonymousLoginModel.swift */,
+				C5C4B89F258A5C4800FD2BFE /* StoreCategoryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				C53EB1F7256D898D00C98935 /* UIViewController+Alert.swift in Sources */,
 				E3396A4724F90AE10020AF8E /* EditViewController.swift in Sources */,
 				C5194F9924E085A40050DE18 /* StoreDataCrudModel.swift in Sources */,
+				C5C4B8A0258A5C4800FD2BFE /* StoreCategoryModel.swift in Sources */,
 				E354B6B324C42E8E00759289 /* RandomChoiceViewController.swift in Sources */,
 				E354B6AF24C42E8E00759289 /* AppDelegate.swift in Sources */,
 				E3955A3724C468590028FD67 /* SignupViewController.swift in Sources */,
@@ -706,14 +710,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10200;
+				CURRENT_PROJECT_VERSION = 10300;
 				DEVELOPMENT_TEAM = 737XJB84YA;
 				INFOPLIST_FILE = RandomChoiceApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.harafuchi.RandomChoiceApp;
 				PRODUCT_NAME = "さいころdeごはん";
 				SWIFT_VERSION = 5.0;
@@ -727,14 +731,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10200;
+				CURRENT_PROJECT_VERSION = 10300;
 				DEVELOPMENT_TEAM = 737XJB84YA;
 				INFOPLIST_FILE = RandomChoiceApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.harafuchi.RandomChoiceApp;
 				PRODUCT_NAME = "さいころdeごはん";
 				SWIFT_VERSION = 5.0;

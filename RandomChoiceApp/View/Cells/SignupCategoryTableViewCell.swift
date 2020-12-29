@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol SignupCategoryTableViewCellDelegate: class {
-    func fetchCategoryNameText(textField: UITextField, indexNumber: Int)
+protocol SignupCategoryTableViewCellDelegate {
+    func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType)
 }
 
 class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     
-    weak var delegate: SignupCategoryTableViewCellDelegate?
-    var indexPathNumber:Int? //登録画面で繰り返すCellを分別する変数
+    var delegate: SignupCategoryTableViewCellDelegate?
+    var cellType: CategoryListType?
     
     @IBOutlet private var categoryLabel: UILabel!
     @IBOutlet private var categoryTextField: UITextField!
@@ -31,7 +31,8 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        delegate?.fetchCategoryNameText(textField: textField, indexNumber: indexPathNumber!)
+        guard let cellType = cellType else { return }
+        delegate?.fetchCategoryNameText(textField: textField, cellType: cellType)
     }
     
     var categoryTitle: String = "" {
