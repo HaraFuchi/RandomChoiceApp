@@ -60,6 +60,12 @@ struct ButtonTitleLiteral {
     static let cancel = "キャンセル"
 }
 
+struct SettingTitle {
+    static let contact = "お問い合わせ"
+    static let review = "レビューする"
+    static let appVersion = "アプリバージョン"
+}
+
 struct EmailLiteral {
     static let emailAddress = "harafuchi0324@gmail.com"
     static let emailSubject = "【さいころdeごはん】お問い合わせ"

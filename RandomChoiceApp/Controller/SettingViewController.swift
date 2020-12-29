@@ -27,9 +27,9 @@ class SettingViewController: UIViewController {
         
         var title: String {
             switch self {
-            case .contactUs: return "お問い合わせ"
-            case .review: return "レビューする"
-            case .appVersion: return "アプリバージョン"
+            case .contactUs: return SettingTitle.contact
+            case .review: return SettingTitle.review
+            case .appVersion: return SettingTitle.appVersion
             }
         }
     }
