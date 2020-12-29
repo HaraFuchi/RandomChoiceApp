@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol RandomChoiceButtonTableViewCellDelegate: class {
+protocol RandomChoiceButtonTableViewCellDelegate: AnyObject {
     func didTapDiceButton()
 }
 

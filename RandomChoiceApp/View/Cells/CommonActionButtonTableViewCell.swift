@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CommonActionButtonTableViewCellDelegate: class {
+protocol CommonActionButtonTableViewCellDelegate: AnyObject {
     func cancelButton()
     //TODO 使用されている部分が登録のみではないためリネームする
     func signupStoreInfoButton()

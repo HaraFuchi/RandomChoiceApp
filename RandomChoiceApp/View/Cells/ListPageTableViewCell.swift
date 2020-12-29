@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ListPageTableViewCellDelegate: class {
+protocol ListPageTableViewCellDelegate: AnyObject {
     func didTapEditButton(indexPath: Int)
 }
 
