@@ -14,12 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    private let anonymousLoginModel = AnonymousLoginModel()
     private let launchTime: UInt32 = 1
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        anonymousLoginModel.anonymousLogin()
+        
+        if Auth.auth().currentUser == nil {
+            UserLoginModel.anonymous()
+        }
+        
         sleep(launchTime)
         return true
     }
