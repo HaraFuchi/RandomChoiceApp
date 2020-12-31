@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol ListPageTableViewCellDelegate {
+protocol ListPageTableViewCellDelegate: AnyObject {
     func didTapEditButton(indexPath: Int)
 }
 
 class ListPageTableViewCell: UITableViewCell {
     
-    var delegate: ListPageTableViewCellDelegate?
+    weak var delegate: ListPageTableViewCellDelegate?
     
     var indexPathNumber: Int? //Cellに分別する変数
     
