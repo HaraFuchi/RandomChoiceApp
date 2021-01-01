@@ -9,19 +9,19 @@
 import Foundation
 
 class ResultStoreDataModel {
-    var resultStoreName = QuestionsLiteral.questions
-    var resultPlaceName = QuestionsLiteral.questions
-    var resultGenreName = QuestionsLiteral.questions
+    var store = QuestionsLiteral.questions
+    var place = QuestionsLiteral.questions
+    var genre = QuestionsLiteral.questions
     
     private var emptyNameText: String { return "???" }
 
+    
     func showResultStoreData() {
-        let storeDataArray = StoreDataCrudModel.storeDataArray
         
-        guard let element = storeDataArray.randomElement() else { return }
-        
-        resultStoreName = element.storeName ?? emptyNameText
-        resultPlaceName = element.placeName ?? emptyNameText
-        resultGenreName = element.genreName ?? emptyNameText
+        guard let element = StoreDataCrudModel.storeDataArray.randomElement() else { return }
+                
+        store = element.storeName ?? emptyNameText
+        place = element.placeName ?? emptyNameText
+        genre = element.genreName ?? emptyNameText
     }
 }
