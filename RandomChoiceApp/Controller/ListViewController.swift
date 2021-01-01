@@ -111,9 +111,6 @@ private extension ListViewController {
         let showAlert = UIAlertController(title: AlertTitleLiteral.delete, message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: AlertButtonLiteral.delete, style: .destructive, handler: { _ -> Void in
             self.crudModel.deleteStoreData(indexPath: indexPath)
-            if editingStyle == UITableViewCell.EditingStyle.delete {
-                self.crudModel.storeDataArray.remove(at: indexPath.row)
-            }
         })
         let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
         showAlert.addAction(cancelAction)
