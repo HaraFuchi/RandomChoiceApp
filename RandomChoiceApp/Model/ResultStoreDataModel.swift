@@ -14,9 +14,9 @@ class ResultStoreDataModel {
     var genre = QuestionsLiteral.questions
     
     private var emptyNameText: String { return "???" }
-
     
     func showResultStoreData() {
+        
         
         guard let element = StoreDataCrudModel.storeDataArray.randomElement() else { return }
                 
