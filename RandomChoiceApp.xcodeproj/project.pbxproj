@@ -20,6 +20,7 @@
 		C5780BB224C4997A0007972D /* SignupCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */; };
 		C59B1DDF24E9FD5E0060C622 /* UserLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B1DDE24E9FD5E0060C622 /* UserLoginModel.swift */; };
 		C5C4B8A0258A5C4800FD2BFE /* StoreCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C4B89F258A5C4800FD2BFE /* StoreCategoryModel.swift */; };
+		C5F76772259F93E600EF11A0 /* ResultStoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76771259F93E600EF11A0 /* ResultStoreDataModel.swift */; };
 		E3396A4724F90AE10020AF8E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3396A4624F90AE10020AF8E /* EditViewController.swift */; };
 		E3549029256B92E20038305A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3549028256B92E20038305A /* SettingViewController.swift */; };
 		E354902F256BF2C40038305A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354902D256BF2C40038305A /* SettingTableViewCell.swift */; };
@@ -75,6 +76,7 @@
 		C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		C59B1DDE24E9FD5E0060C622 /* UserLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginModel.swift; sourceTree = "<group>"; };
 		C5C4B89F258A5C4800FD2BFE /* StoreCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCategoryModel.swift; sourceTree = "<group>"; };
+		C5F76771259F93E600EF11A0 /* ResultStoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultStoreDataModel.swift; sourceTree = "<group>"; };
 		D53F25C5FFD3771D4FEDB82B /* Pods-RandomChoiceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomChoiceApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomChoiceApp/Pods-RandomChoiceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E3396A4624F90AE10020AF8E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		E3549028256B92E20038305A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				C5194F9A24E174D60050DE18 /* StoreDataContentsModel.swift */,
 				C59B1DDE24E9FD5E0060C622 /* UserLoginModel.swift */,
 				C5C4B89F258A5C4800FD2BFE /* StoreCategoryModel.swift */,
+				C5F76771259F93E600EF11A0 /* ResultStoreDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				E354902F256BF2C40038305A /* SettingTableViewCell.swift in Sources */,
 				C5194F9B24E174D60050DE18 /* StoreDataContentsModel.swift in Sources */,
 				E3955A3524C4682F0028FD67 /* ListViewController.swift in Sources */,
+				C5F76772259F93E600EF11A0 /* ResultStoreDataModel.swift in Sources */,
 				E354B6B124C42E8E00759289 /* SceneDelegate.swift in Sources */,
 				E3955A4224C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift in Sources */,
 				C5202BC024FAEAD300656F6D /* LiteralConstraints.swift in Sources */,
