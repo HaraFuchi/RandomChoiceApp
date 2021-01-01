@@ -17,7 +17,6 @@ class ResultStoreDataModel {
     
     func showResultStoreData() {
         
-        
         guard let element = StoreDataCrudModel.storeDataArray.randomElement() else { return }
                 
         store = element.storeName ?? emptyNameText
