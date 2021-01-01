@@ -62,7 +62,7 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
     private var emptyNameText: String { return "???" }
     
     func didTapDiceButton() {
-        let storeDataArray = crudModel.storeDataArray
+        let storeDataArray = StoreDataCrudModel.storeDataArray
         
         guard let element = storeDataArray.randomElement() else { return }
         
