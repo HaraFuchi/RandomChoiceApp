@@ -13,7 +13,7 @@ import MessageUI
 class SettingViewController: UIViewController {
     
     private var settingCell = SettingTableViewCell()
-    private let appVersion = Bundle.main.object(forInfoDictionaryKey: BundleIdentifierLiteral.appVersion) as! String
+    private let appVersion = Bundle.main.object(forInfoDictionaryKey: BundleIdentifier.appVersion) as! String
     
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var backBarButtonItem: UIBarButtonItem!

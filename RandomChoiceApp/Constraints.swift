@@ -107,7 +107,7 @@ struct SegueIdentifier {
     static let goToEditVC = "goToEditVC"
 }
 
-struct BundleIdentifierLiteral {
+struct BundleIdentifier {
     static let appVersion = "CFBundleShortVersionString"
 }
 
