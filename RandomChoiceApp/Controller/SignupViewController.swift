@@ -101,9 +101,9 @@ extension SignupViewController {
     }
     
     private func showSignupAlert() {
-        let alert = UIAlertController(title: AlertTitleLiteral
+        let alert = UIAlertController(title: AlertTitle
             .signUp_2, message: nil, preferredStyle: .alert)
-        let signupAction = UIAlertAction(title: AlertButtonLiteral.signUp, style: .default) { _ in
+        let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in
             self.textConvertNil()
             if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
                 self.showAlertAllNilTextField()
@@ -114,7 +114,7 @@ extension SignupViewController {
             }
             
         }
-        let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
         alert.addAction(signupAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)

@@ -12,9 +12,9 @@ protocol AlertDisplayable { }
 
 extension AlertDisplayable where Self: UIViewController {
     func showAlertAllNilTextField() {
-        let alert = UIAlertController(title: AlertTitleLiteral.allTextEmpty, message: AlertMessageLiteral
+        let alert = UIAlertController(title: AlertTitle.allTextEmpty, message: AlertMessage
             .allTextEmpty, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: AlertButtonTitle.ok, style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }

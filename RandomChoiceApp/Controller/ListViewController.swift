@@ -68,7 +68,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return AlertButtonLiteral.delete
+        return AlertButtonTitle.delete
     }
     
     //スケルトンビュー対象セルのReusableCellIdentifierを登録
@@ -108,15 +108,15 @@ private extension ListViewController {
     }
     
     func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
-        let showAlert = UIAlertController(title: AlertTitleLiteral.delete, message: nil, preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: AlertButtonLiteral.delete, style: .destructive, handler: { _ -> Void in
+        let showAlert = UIAlertController(title: AlertTitle.delete, message: nil, preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive, handler: { _ -> Void in
             self.crudModel.deleteStoreData(indexPath: indexPath)
             if editingStyle == UITableViewCell.EditingStyle.delete {
                 self.crudModel.storeDataArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
             }
         })
-        let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
         showAlert.addAction(cancelAction)
         showAlert.addAction(deleteAction)
         present(showAlert, animated: true, completion: nil)
@@ -124,8 +124,8 @@ private extension ListViewController {
     
     //オフラインの際に出すアラート
     func showAlertOffline() {
-        let alert = UIAlertController(title: AlertTitleLiteral.error, message: AlertMessageLiteral.offline, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .default, handler: nil)
+        let alert = UIAlertController(title: AlertTitle.error, message: AlertMessage.offline, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: AlertButtonTitle.ok, style: .default, handler: nil)
         alert.addAction(defaultAction)
         present(alert, animated: true, completion: nil)
     }

@@ -12,7 +12,7 @@ import Foundation
 // MARK: - 命名のリテラル
 /**********************************************************************/
 
-struct StoreDataLiteral {
+struct StoreDataType {
     static let store = "店名"
     static let place = "場所"
     static let genre = "ジャンル"
@@ -29,7 +29,7 @@ struct QuestionsLiteral {
     static let questions = "???"
 }
 
-struct AlertTitleLiteral {
+struct AlertTitle {
     static let signUp_1 = "よく行くお店を登録しよう"
     static let signUp_2 = "お店を登録しますか？"
     static let delete = "お店一覧から削除しますか？"
@@ -39,22 +39,22 @@ struct AlertTitleLiteral {
     static let error = "エラー"
 }
 
-struct AlertMessageLiteral {
+struct AlertMessage {
     static let signUp = "お店がまだ登録されていません"
     static let allTextEmpty = "空欄に記入してください"
     static let email = "設定からメールアドレスを追加してください。"
     static let offline = "ネットワーク環境が不安定です\n設定をご確認ください"
 }
 
-struct AlertButtonLiteral {
+struct AlertButtonTitle {
     static let signUp = "登録する"
-    static let OK = "OK"
+    static let ok = "OK"
     static let cancel = "キャンセル"
     static let delete = "削除"
     static let save = "保存する"
 }
 
-struct ButtonTitleLiteral {
+struct ButtonTitle {
     static let signUp = "お店を登録"
     static let saveEdit = "編集を保存"
     static let cancel = "キャンセル"
@@ -66,16 +66,16 @@ struct SettingTitle {
     static let appVersion = "アプリバージョン"
 }
 
-struct EmailLiteral {
-    static let emailAddress = "harafuchi0324@gmail.com"
-    static let emailSubject = "【さいころdeごはん】お問い合わせ"
+struct EmailInfo {
+    static let address = "harafuchi0324@gmail.com"
+    static let subject = "【さいころdeごはん】お問い合わせ"
     static let messageBody_1 = "下記にお問い合わせ内容をお書きください。\n\n\n\n\nAppVersion: "
     static let messageBody_2 = "\nPlatformVersion: "
     static let messageBody_3 = "\nUserID: "
 }
 
-struct DebugEmailLiteral {
-    static let noEmailAddress = "有効なメールアドレスが存在しません"
+struct EmailStatus {
+    static let noAddress = "有効なメールアドレスが存在しません"
     static let cancelled = "メールの作成がキャンセルされました"
     static let saved = "メールが下書きに保存されました"
     static let sent = "メールの送信に成功しました"

@@ -117,13 +117,13 @@ extension EditViewController {
     }
     
     private func showEditAlert() {
-        let alert = UIAlertController(title: AlertTitleLiteral.edit, message: nil, preferredStyle: .alert)
-        let editAction = UIAlertAction(title: AlertButtonLiteral.save, style: .default) { _ in
+        let alert = UIAlertController(title: AlertTitle.edit, message: nil, preferredStyle: .alert)
+        let editAction = UIAlertAction(title: AlertButtonTitle.save, style: .default) { _ in
             //Firebaseの更新機能追加
             self.convertValueNil()
             self.editAction()
         }
-        let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
         alert.addAction(editAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
