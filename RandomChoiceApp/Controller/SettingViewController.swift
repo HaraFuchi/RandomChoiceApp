@@ -54,8 +54,8 @@ extension SettingViewController {
     private func setUpTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        let settingTableViewNib = UINib(nibName: NibNameLiteral.settingTableViewCell, bundle: nil)
-        tableView.register(settingTableViewNib, forCellReuseIdentifier: CellIdentifierLiteral.settingCell)
+        let settingTableViewNib = UINib(nibName: Nib.settingTableViewCell, bundle: nil)
+        tableView.register(settingTableViewNib, forCellReuseIdentifier: CellIdentifier.settingCell)
         tableView.isScrollEnabled = false
     }
 }
@@ -73,7 +73,7 @@ extension SettingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        settingCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.settingCell, for: indexPath) as! SettingTableViewCell
+        settingCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.settingCell, for: indexPath) as! SettingTableViewCell
         settingCell.isSubTitleLabelHidden = true
         
         guard let cellType = SettingCategoryList(rawValue: indexPath.row) else {
@@ -109,7 +109,7 @@ extension SettingViewController: UITableViewDelegate {
             composeMail()
         case .review:
             //外部ブラウザでURLを開く
-            guard let url = URL(string: UrlLiteral.appStoreReviewUrl),
+            guard let url = URL(string: Url.appStoreReview),
                   UIApplication.shared.canOpenURL(url) else { return }
             UIApplication.shared.open(url)
         case .appVersion: break

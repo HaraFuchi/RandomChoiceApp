@@ -86,7 +86,7 @@ struct EmailStatus {
 // MARK: - IDのリテラル
 /**********************************************************************/
 
-struct CellIdentifierLiteral {
+struct CellIdentifier {
     static let randomChoiceButtonCell = "RandomChoiceButtonCell"
     static let listPageCell = "ListPageCell"
     static let signupCell = "SignupCell"
@@ -94,7 +94,7 @@ struct CellIdentifierLiteral {
     static let settingCell = "SettingCell"
 }
 
-struct NibNameLiteral {
+struct Nib {
     static let randomChoiceButtonTableViewCell = "RandomChoiceButtonTableViewCell"
     static let listPageTableViewCell = "ListPageTableViewCell"
     static let signupCategoryTableViewCell = "SignupCategoryTableViewCell"
@@ -102,7 +102,7 @@ struct NibNameLiteral {
     static let settingTableViewCell = "SettingTableViewCell"
 }
 
-struct SegueIdentifierLiteral {
+struct SegueIdentifier {
     static let goToSignUpVC = "goToSignupVC"
     static let goToEditVC = "goToEditVC"
 }
@@ -111,7 +111,7 @@ struct BundleIdentifierLiteral {
     static let appVersion = "CFBundleShortVersionString"
 }
 
-struct UrlLiteral {
+struct Url {
     //「さいころdeごはん」AppStoreページのリンク
-    static let appStoreReviewUrl = "https://apps.apple.com/jp/app/%E3%81%95%E3%81%84%E3%81%93%E3%82%8Dde%E3%81%94%E3%81%AF%E3%82%93/id1528912786?mt=8&action=write-review"
+    static let appStoreReview = "https://apps.apple.com/jp/app/%E3%81%95%E3%81%84%E3%81%93%E3%82%8Dde%E3%81%94%E3%81%AF%E3%82%93/id1528912786?mt=8&action=write-review"
 }

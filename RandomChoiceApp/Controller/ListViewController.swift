@@ -39,7 +39,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.listPageCell, for: indexPath) as! ListPageTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listPageCell, for: indexPath) as! ListPageTableViewCell
         cell.delegate = self
         
         if crudModel.storeDataArray.isEmpty {
@@ -73,7 +73,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     //スケルトンビュー対象セルのReusableCellIdentifierを登録
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return CellIdentifierLiteral.listPageCell
+        return CellIdentifier.listPageCell
     }
 }
 
@@ -82,11 +82,11 @@ extension ListViewController: ListPageTableViewCellDelegate {
     
     func didTapEditButton(indexPath: Int) {
         indexPathNumber = indexPath
-        performSegue(withIdentifier: SegueIdentifierLiteral.goToEditVC, sender: nil)
+        performSegue(withIdentifier: SegueIdentifier.goToEditVC, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifierLiteral.goToEditVC {
+        if segue.identifier == SegueIdentifier.goToEditVC {
             let editVC = segue.destination as! EditViewController
             if let indexPath = indexPathNumber {
                 editVC.editStoreNameString = crudModel.storeDataArray[indexPath].storeName
@@ -103,8 +103,8 @@ private extension ListViewController {
     func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        let listPageNib = UINib(nibName: NibNameLiteral.listPageTableViewCell, bundle: nil)
-        tableView.register(listPageNib, forCellReuseIdentifier: CellIdentifierLiteral.listPageCell)
+        let listPageNib = UINib(nibName: Nib.listPageTableViewCell, bundle: nil)
+        tableView.register(listPageNib, forCellReuseIdentifier: CellIdentifier.listPageCell)
     }
     
     func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
