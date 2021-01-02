@@ -1,5 +1,5 @@
 //
-//  LiteralConstrains.swift
+//  Constrains.swift
 //  RandomChoiceApp
 //
 //  Created by 渕一真 on 2020/08/30.
