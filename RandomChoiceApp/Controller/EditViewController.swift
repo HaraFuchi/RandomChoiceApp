@@ -105,13 +105,13 @@ extension EditViewController {
     //TFに???を反映させる必要はないため、nilを返す
     //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
     private func convertValueNil() {
-        if editStoreNameString == QuestionsLiteral.questions || editStoreNameString == "" {
+        if editStoreNameString == Mark.questions || editStoreNameString == "" {
             editStoreNameString = nil
         }
-        if editPlaceNameString == QuestionsLiteral.questions || editPlaceNameString == "" {
+        if editPlaceNameString == Mark.questions || editPlaceNameString == "" {
             editPlaceNameString = nil
         }
-        if editGenreNameString == QuestionsLiteral.questions || editGenreNameString == "" {
+        if editGenreNameString == Mark.questions || editGenreNameString == "" {
             editGenreNameString = nil
         }
     }

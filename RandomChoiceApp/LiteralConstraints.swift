@@ -25,7 +25,7 @@ struct CategoryPlaceHolder {
     static let genre = ex + "イタリアン"
 }
 
-struct QuestionsLiteral {
+struct Mark {
     static let questions = "???"
 }
 

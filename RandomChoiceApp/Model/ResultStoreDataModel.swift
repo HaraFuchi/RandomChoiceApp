@@ -9,9 +9,9 @@
 import Foundation
 
 class ResultStoreDataModel {
-    var store = QuestionsLiteral.questions
-    var place = QuestionsLiteral.questions
-    var genre = QuestionsLiteral.questions
+    var store = Mark.questions
+    var place = Mark.questions
+    var genre = Mark.questions
     
     private var emptyNameText: String { return "???" }
     
