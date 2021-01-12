@@ -39,18 +39,18 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.signupCell, for: indexPath) as! SignupCategoryTableViewCell
-        let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier
+        let actionButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier
             .actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
         guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
         
         categoryCell.delegate = self
         
-        signupAndCancelButtonCell.signupButtonTapHandler = { [weak self] _ in
+        actionButtonCell.signupButtonTapHandler = { [weak self] _ in
             self?.showSignupAlert()
         }
         
-        signupAndCancelButtonCell.cancelButtonTapHandler = { [weak self] _ in
+        actionButtonCell.cancelButtonTapHandler = { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
         }
         
@@ -71,8 +71,8 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
             categoryCell.cellType = .genre
             return categoryCell
         case .signup:
-            signupAndCancelButtonCell.setupButton(self)
-            return signupAndCancelButtonCell
+            actionButtonCell.setupButton(self)
+            return actionButtonCell
         }
     }
 }
