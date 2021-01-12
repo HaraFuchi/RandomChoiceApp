@@ -46,6 +46,10 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         
         categoryCell.delegate = self
         
+        signupAndCancelButtonCell.cancelButtonTapHandler = { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
+        }
+        
         switch cellType {
         case .store:
             categoryCell.categoryTitle = CategoryListType.store.title ?? ""
@@ -83,10 +87,6 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
     
     func signupStoreInfoButton() {
         showSignupAlert()
-    }
-    
-    func cancelButton() {
-        dismiss(animated: true, completion: nil)
     }
 }
 

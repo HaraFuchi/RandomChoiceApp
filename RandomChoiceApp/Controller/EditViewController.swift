@@ -47,6 +47,10 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         
         categoryCell.delegate = self
         
+        signupAndCancelButtonCell.cancelButtonTapHandler = { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
+        }
+        
         switch cellType {
         case .store:
             categoryCell.categoryTitle = CategoryListType.store.title ?? ""
@@ -80,10 +84,6 @@ extension EditViewController: SignupCategoryTableViewCellDelegate, CommonActionB
         case .genre: editGenreNameString = textField.text
         case .signup: break
         }
-    }
-    
-    func cancelButton() {
-        dismiss(animated: true, completion: nil)
     }
     
     func signupStoreInfoButton() {

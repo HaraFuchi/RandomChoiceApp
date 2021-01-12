@@ -9,14 +9,15 @@
 import UIKit
 
 protocol CommonActionButtonTableViewCellDelegate: AnyObject {
-    func cancelButton()
     //TODO 使用されている部分が登録のみではないためリネームする
     func signupStoreInfoButton()
 }
 
 class CommonActionButtonTableViewCell: UITableViewCell {
-    
+
     weak var delegate: CommonActionButtonTableViewCellDelegate?
+    
+    var cancelButtonTapHandler: ((_ sender: UIButton) -> Void)?
     
     //TODO 使用されている部分が登録のみではないためリネームする
     @IBOutlet private weak var signUpButton: UIButton!
@@ -30,7 +31,7 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     
     //TODO actionはdidTapから始める
     @IBAction func touchedCancelButton(_ sender: UIButton) {
-        delegate?.cancelButton()
+        cancelButtonTapHandler?(sender)
     }
     
     override func awakeFromNib() {
