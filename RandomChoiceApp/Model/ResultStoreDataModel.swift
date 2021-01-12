@@ -8,19 +8,21 @@
 
 import Foundation
 
+struct ResultStoreDate {
+    static var store = Mark.questions
+    static var place = Mark.questions
+    static var genre = Mark.questions
+}
+
 class ResultStoreDataModel {
-    var store = Mark.questions
-    var place = Mark.questions
-    var genre = Mark.questions
+    static var questions: String { return Mark.questions }
     
-    private var emptyNameText: String { return "???" }
-    
-    func showResultStoreData() {
+    static func showResultStoreData() {
         
         guard let element = StoreDataCrudModel.storeDataArray.randomElement() else { return }
                 
-        store = element.storeName ?? emptyNameText
-        place = element.placeName ?? emptyNameText
-        genre = element.genreName ?? emptyNameText
+        ResultStoreDate.store = element.storeName ?? questions
+        ResultStoreDate.place = element.placeName ?? questions
+        ResultStoreDate.genre = element.genreName ?? questions
     }
 }
