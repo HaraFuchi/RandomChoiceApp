@@ -84,7 +84,7 @@ extension CommonActionButtonTableViewCell {
     private func cancelButtonDetailInEditScreen() {
         cancelButton.setTitle(ButtonTitle.cancel, for: .normal)
         cancelButton.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
-        cancelButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1), for: .normal)
+        cancelButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1), for: .normal)git
         cancelButton.layer.borderWidth = 1.0
         cancelButton.layer.cornerRadius = 28.0
     }
