@@ -46,6 +46,10 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         
         categoryCell.delegate = self
         
+        signupAndCancelButtonCell.signupButtonTapHandler = { [weak self] _ in
+            self?.showSignupAlert()
+        }
+        
         signupAndCancelButtonCell.cancelButtonTapHandler = { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
         }
@@ -75,7 +79,7 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
 }
 
 // MARK: -Protocol
-extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupCategoryTableViewCellDelegate{
+extension SignupViewController: SignupCategoryTableViewCellDelegate{
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
         switch cellType {
         case .store: storeNameString = textField.text
@@ -83,10 +87,6 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
         case .genre: genreNameString = textField.text
         case .signup: break
         }
-    }
-    
-    func signupStoreInfoButton() {
-        showSignupAlert()
     }
 }
 

@@ -47,6 +47,10 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         
         categoryCell.delegate = self
         
+        signupAndCancelButtonCell.signupButtonTapHandler = { [weak self] _ in
+            self?.showEditAlert()
+        }
+        
         signupAndCancelButtonCell.cancelButtonTapHandler = { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
         }
@@ -76,7 +80,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
 }
 
 //MARK: - Protocol
-extension EditViewController: SignupCategoryTableViewCellDelegate, CommonActionButtonTableViewCellDelegate {
+extension EditViewController: SignupCategoryTableViewCellDelegate {
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
         switch cellType {
         case .store: editStoreNameString = textField.text
@@ -84,10 +88,6 @@ extension EditViewController: SignupCategoryTableViewCellDelegate, CommonActionB
         case .genre: editGenreNameString = textField.text
         case .signup: break
         }
-    }
-    
-    func signupStoreInfoButton() {
-        showEditAlert()
     }
 }
 

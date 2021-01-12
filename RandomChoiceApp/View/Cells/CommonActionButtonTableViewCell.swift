@@ -8,15 +8,9 @@
 
 import UIKit
 
-protocol CommonActionButtonTableViewCellDelegate: AnyObject {
-    //TODO 使用されている部分が登録のみではないためリネームする
-    func signupStoreInfoButton()
-}
-
 class CommonActionButtonTableViewCell: UITableViewCell {
-
-    weak var delegate: CommonActionButtonTableViewCellDelegate?
     
+    var signupButtonTapHandler: ((_ sender: UIButton) -> Void)?
     var cancelButtonTapHandler: ((_ sender: UIButton) -> Void)?
     
     //TODO 使用されている部分が登録のみではないためリネームする
@@ -26,7 +20,7 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     //TODO 使用されている部分が登録のみではないためリネームする
     //TODO actionはdidTapから始める
     @IBAction func touchedSignupButton(_ sender: UIButton) {
-        delegate?.signupStoreInfoButton()
+        signupButtonTapHandler?(sender)
     }
     
     //TODO actionはdidTapから始める
