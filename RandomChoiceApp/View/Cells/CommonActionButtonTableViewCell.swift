@@ -48,15 +48,15 @@ extension CommonActionButtonTableViewCell {
     func setupButton(_ VC: UIViewController) {
         setUpCommonButton()
         if VC is SignupViewController {
-            signUpButton.setTitle(ButtonTitleLiteral.signUp, for: .normal)
+            signUpButton.setTitle(ButtonTitle.signUp, for: .normal)
             signUpButton.backgroundColor = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
-            cancelButton.setTitle(ButtonTitleLiteral.cancel, for: .normal)
+            cancelButton.setTitle(ButtonTitle.cancel, for: .normal)
             cancelButton.setTitleColor(#colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1), for: .normal)
             cancelButton.layer.borderColor = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
         } else if VC is EditViewController {
-            signUpButton.setTitle(ButtonTitleLiteral.saveEdit, for: .normal)
+            signUpButton.setTitle(ButtonTitle.saveEdit, for: .normal)
             signUpButton.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
-            cancelButton.setTitle(ButtonTitleLiteral.cancel, for: .normal)
+            cancelButton.setTitle(ButtonTitle.cancel, for: .normal)
             cancelButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1), for: .normal)
             cancelButton.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
         }

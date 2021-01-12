@@ -38,8 +38,8 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.signupCell, for: indexPath) as! SignupCategoryTableViewCell
-        let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral
+        let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.signupCell, for: indexPath) as! SignupCategoryTableViewCell
+        let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier
             .actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
         guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
@@ -94,16 +94,16 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
 extension SignupViewController {
     private func setUpTableView() {
         tableView.dataSource = self
-        let signupCategoryNib = UINib(nibName: NibNameLiteral.signupCategoryTableViewCell, bundle: nil)
-        let signupAndCancelButtonCell = UINib(nibName: NibNameLiteral.commonActionButtonTableViewCell, bundle: nil)
-        tableView.register(signupCategoryNib, forCellReuseIdentifier: CellIdentifierLiteral.signupCell)
-        tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: CellIdentifierLiteral.actionButtonCell)
+        let signupCategoryNib = UINib(nibName: Nib.signupCategoryTableViewCell, bundle: nil)
+        let signupAndCancelButtonCell = UINib(nibName: Nib.commonActionButtonTableViewCell, bundle: nil)
+        tableView.register(signupCategoryNib, forCellReuseIdentifier: CellIdentifier.signupCell)
+        tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: CellIdentifier.actionButtonCell)
     }
     
     private func showSignupAlert() {
-        let alert = UIAlertController(title: AlertTitleLiteral
+        let alert = UIAlertController(title: AlertTitle
             .signUp_2, message: nil, preferredStyle: .alert)
-        let signupAction = UIAlertAction(title: AlertButtonLiteral.signUp, style: .default) { _ in
+        let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in
             self.textConvertNil()
             if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
                 self.showAlertAllNilTextField()
@@ -114,7 +114,7 @@ extension SignupViewController {
             }
             
         }
-        let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
         alert.addAction(signupAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
