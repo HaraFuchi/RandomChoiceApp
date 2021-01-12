@@ -13,18 +13,13 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     var signupButtonTapHandler: ((_ sender: UIButton) -> Void)?
     var cancelButtonTapHandler: ((_ sender: UIButton) -> Void)?
     
-    //TODO 使用されている部分が登録のみではないためリネームする
     @IBOutlet private weak var signUpButton: UIButton!
     @IBOutlet private weak var cancelButton: UIButton!
     
-    //TODO 使用されている部分が登録のみではないためリネームする
-    //TODO actionはdidTapから始める
-    @IBAction func touchedSignupButton(_ sender: UIButton) {
+    @IBAction func didTapSignupButton(_ sender: UIButton) {
         signupButtonTapHandler?(sender)
     }
-    
-    //TODO actionはdidTapから始める
-    @IBAction func touchedCancelButton(_ sender: UIButton) {
+    @IBAction func didTapCancelButton(_ sender: UIButton) {
         cancelButtonTapHandler?(sender)
     }
     
