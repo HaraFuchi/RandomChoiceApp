@@ -72,7 +72,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
             categoryCell.cellType = .genre
             return categoryCell
         case .signup:
-            signupAndCancelButtonCell.delegate = self
             signupAndCancelButtonCell.setupButton(self)
             return signupAndCancelButtonCell
         }

@@ -71,7 +71,6 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
             categoryCell.cellType = .genre
             return categoryCell
         case .signup:
-            signupAndCancelButtonCell.delegate = self
             signupAndCancelButtonCell.setupButton(self)
             return signupAndCancelButtonCell
         }
