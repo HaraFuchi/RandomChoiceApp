@@ -30,9 +30,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        crudModel.fetchStoreData { (_) in
-            
-        }
+        crudModel.fetchStoreData { }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
