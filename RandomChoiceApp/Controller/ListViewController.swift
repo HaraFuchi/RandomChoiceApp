@@ -25,7 +25,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        crudModel.fetchStoreData(tableView: tableView)
+        crudModel.fetchStoreData { (tableView) in
+            tableView?.reloadData()
+        }
         checkNetworkStatus()
     }
     
