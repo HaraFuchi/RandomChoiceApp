@@ -25,8 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         #if DEBUG
             print("デバック環境")
-        #else
-            print("⚠️⚠️⚠️本番環境⚠️⚠️⚠️")
         #endif
         
         sleep(launchTime)
