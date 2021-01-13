@@ -13,7 +13,7 @@ import MessageUI
 class SettingViewController: UIViewController {
     
     private var settingCell = SettingTableViewCell()
-    private let appVersion = Bundle.main.object(forInfoDictionaryKey: BundleIdentifierLiteral.appVersion) as! String
+    private let appVersion = Bundle.main.object(forInfoDictionaryKey: BundleIdentifier.appVersion) as! String
     
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var backBarButtonItem: UIBarButtonItem!
@@ -27,9 +27,9 @@ class SettingViewController: UIViewController {
         
         var title: String {
             switch self {
-            case .contactUs: return "お問い合わせ"
-            case .review: return "レビューする"
-            case .appVersion: return "アプリバージョン"
+            case .contactUs: return SettingTitle.contact
+            case .review: return SettingTitle.review
+            case .appVersion: return SettingTitle.appVersion
             }
         }
     }
@@ -54,8 +54,8 @@ extension SettingViewController {
     private func setUpTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        let settingTableViewNib = UINib(nibName: NibNameLiteral.settingTableViewCell, bundle: nil)
-        tableView.register(settingTableViewNib, forCellReuseIdentifier: CellIdentifierLiteral.settingCell)
+        let settingTableViewNib = UINib(nibName: Nib.settingTableViewCell, bundle: nil)
+        tableView.register(settingTableViewNib, forCellReuseIdentifier: CellIdentifier.settingCell)
         tableView.isScrollEnabled = false
     }
 }
@@ -73,7 +73,7 @@ extension SettingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        settingCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.settingCell, for: indexPath) as! SettingTableViewCell
+        settingCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.settingCell, for: indexPath) as! SettingTableViewCell
         settingCell.isSubTitleLabelHidden = true
         
         guard let cellType = SettingCategoryList(rawValue: indexPath.row) else {
@@ -109,7 +109,7 @@ extension SettingViewController: UITableViewDelegate {
             composeMail()
         case .review:
             //外部ブラウザでURLを開く
-            guard let url = URL(string: UrlLiteral.appStoreReviewUrl),
+            guard let url = URL(string: Url.appStoreReview),
                   UIApplication.shared.canOpenURL(url) else { return }
             UIApplication.shared.open(url)
         case .appVersion: break
@@ -123,7 +123,7 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         guard MFMailComposeViewController.canSendMail() else {
             // 有効なメールアドレスがないため、メール送信画面が開けない場合
             showAlertNoEmailAddress()
-            print(DebugEmailLiteral.noEmailAddress)
+            print(EmailStatus.noAddress)
             return
         }
         // メール作成
@@ -132,11 +132,11 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         let user = Auth.auth().currentUser!.uid
         composer.mailComposeDelegate = self
         // 宛先 (TO・CC・BCC)
-        composer.setToRecipients([EmailLiteral.emailAddress])
+        composer.setToRecipients([EmailInfo.address])
         // 件名
-        composer.setSubject(EmailLiteral.emailSubject)
+        composer.setSubject(EmailInfo.subject)
         // 本文
-        composer.setMessageBody(EmailLiteral.messageBody_1 + appVersion + EmailLiteral.messageBody_2 + iOSVersion + EmailLiteral.messageBody_3 + user, isHTML: false)
+        composer.setMessageBody(EmailInfo.messageBody_1 + appVersion + EmailInfo.messageBody_2 + iOSVersion + EmailInfo.messageBody_3 + user, isHTML: false)
         present(composer, animated: true, completion: nil)
     }
     
@@ -147,13 +147,13 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         }
         switch result {
         case .cancelled:
-            print(DebugEmailLiteral.cancelled)
+            print(EmailStatus.cancelled)
         case .saved:
-            print(DebugEmailLiteral.saved)
+            print(EmailStatus.saved)
         case .sent:
-            print(DebugEmailLiteral.sent)
+            print(EmailStatus.sent)
         case .failed:
-            print(DebugEmailLiteral.failed)
+            print(EmailStatus.failed)
         default: break
         }
         // メール画面を閉じる
@@ -161,8 +161,8 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
     }
     
     private func showAlertNoEmailAddress() {
-        let alert = UIAlertController(title: AlertTitleLiteral.email, message: AlertMessageLiteral.email, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .default, handler: nil)
+        let alert = UIAlertController(title: AlertTitle.email, message: AlertMessage.email, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: AlertButtonTitle.ok, style: .default, handler: nil)
         alert.addAction(defaultAction)
         present(alert, animated: true, completion: nil)
     }

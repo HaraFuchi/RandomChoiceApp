@@ -11,9 +11,6 @@ import UIKit
 class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     
     private let crudModel = StoreDataCrudModel()
-    private var resultStoreName = QuestionsLiteral.questions
-    private var resultPlaceName = QuestionsLiteral.questions
-    private var resultGenreName = QuestionsLiteral.questions
     
     enum DiceScreenType: Int, CaseIterable {
         case result
@@ -38,16 +35,16 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.listPageCell) as! ListPageTableViewCell
-        let buttonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.randomChoiceButtonCell) as! RandomChoiceButtonTableViewCell
+        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listPageCell) as! ListPageTableViewCell
+        let buttonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.randomChoiceButtonCell) as! RandomChoiceButtonTableViewCell
         
         guard let cellType = DiceScreenType(rawValue: indexPath.row) else { return UITableViewCell() }
         
         switch cellType {
         case .result:
-            storeDataCell.storeDataText = resultStoreName
-            storeDataCell.placeDataText = resultPlaceName
-            storeDataCell.genreDataText = resultGenreName
+            storeDataCell.storeDataText = ResultStoreDate.store
+            storeDataCell.placeDataText = ResultStoreDate.place
+            storeDataCell.genreDataText = ResultStoreDate.genre
             storeDataCell.isHiddenEditButton = true
             return storeDataCell
         case .dice:
@@ -59,24 +56,17 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
 
 // MARK: -Protocol
 extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
-    private var emptyNameText: String { return "???" }
-    
     func didTapDiceButton() {
-        let storeDataArray = crudModel.storeDataArray
         
-        guard let element = storeDataArray.randomElement() else { return }
-        
-        resultStoreName = element.storeName ?? emptyNameText
-        resultPlaceName = element.placeName ?? emptyNameText
-        resultGenreName = element.genreName ?? emptyNameText
+        ResultStoreDataModel.showResultStoreData()
         
         tableView.reloadData()
     }
     
     func showAlertNoStoreData() {
-        let alert = UIAlertController(title: AlertTitleLiteral.signUp_1, message: AlertMessageLiteral.signUp, preferredStyle: .alert)
-        let signupAction = UIAlertAction(title: AlertButtonLiteral.signUp, style: .default) { _ in
-            self.performSegue(withIdentifier: SegueIdentifierLiteral.goToSignUpVC, sender: nil)
+        let alert = UIAlertController(title: AlertTitle.signUp_1, message: AlertMessage.signUp, preferredStyle: .alert)
+        let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in
+            self.performSegue(withIdentifier: SegueIdentifier.goToSignUpVC, sender: nil)
         }
         alert.addAction(signupAction)
         present(alert, animated: true, completion: nil)
@@ -87,8 +77,8 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceBu
 extension RandomChoiceViewController {
     private func setUpTableView() {
         tableView.dataSource = self
-        tableView.register(UINib(nibName: NibNameLiteral.listPageTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifierLiteral.listPageCell)
-        tableView.register(UINib(nibName: NibNameLiteral.randomChoiceButtonTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifierLiteral.randomChoiceButtonCell)
+        tableView.register(UINib(nibName: Nib.listPageTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.listPageCell)
+        tableView.register(UINib(nibName: Nib.randomChoiceButtonTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.randomChoiceButtonCell)
     }
 }
 

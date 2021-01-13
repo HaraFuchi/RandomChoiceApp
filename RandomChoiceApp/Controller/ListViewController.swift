@@ -30,25 +30,25 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if crudModel.storeDataArray.isEmpty {
+        if StoreDataCrudModel.storeDataArray.isEmpty {
             let skeletonCellNum = 10
             return skeletonCellNum
         } else {
-            return crudModel.storeDataArray.count
+            return StoreDataCrudModel.storeDataArray.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierLiteral.listPageCell, for: indexPath) as! ListPageTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listPageCell, for: indexPath) as! ListPageTableViewCell
         cell.delegate = self
         
-        if crudModel.storeDataArray.isEmpty {
+        if StoreDataCrudModel.storeDataArray.isEmpty {
             setUpSkeleton(cell: cell)
         } else {
             cell.hideSkeleton()
-            cell.storeDataText = crudModel.storeDataArray[indexPath.row].storeName ?? "???"
-            cell.placeDataText = crudModel.storeDataArray[indexPath.row].placeName ?? "???"
-            cell.genreDataText = crudModel.storeDataArray[indexPath.row].genreName ?? "???"
+            cell.storeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].storeName ?? "???"
+            cell.placeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].placeName ?? "???"
+            cell.genreDataText = StoreDataCrudModel.storeDataArray[indexPath.row].genreName ?? "???"
             cell.indexPathNumber = indexPath.row
         }
         return cell
@@ -60,7 +60,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         //スケルトンビュー表示時はセルをスワイプ不可にする
-        if crudModel.storeDataArray.isEmpty {
+        if StoreDataCrudModel.storeDataArray.isEmpty {
             return UITableViewCell.EditingStyle.none
         } else {
             return UITableViewCell.EditingStyle.delete
@@ -68,12 +68,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return AlertButtonLiteral.delete
+        return AlertButtonTitle.delete
     }
     
     //スケルトンビュー対象セルのReusableCellIdentifierを登録
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return CellIdentifierLiteral.listPageCell
+        return CellIdentifier.listPageCell
     }
 }
 
@@ -82,17 +82,17 @@ extension ListViewController: ListPageTableViewCellDelegate {
     
     func didTapEditButton(indexPath: Int) {
         indexPathNumber = indexPath
-        performSegue(withIdentifier: SegueIdentifierLiteral.goToEditVC, sender: nil)
+        performSegue(withIdentifier: SegueIdentifier.goToEditVC, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifierLiteral.goToEditVC {
+        if segue.identifier == SegueIdentifier.goToEditVC {
             let editVC = segue.destination as! EditViewController
             if let indexPath = indexPathNumber {
-                editVC.editStoreNameString = crudModel.storeDataArray[indexPath].storeName
-                editVC.editPlaceNameString = crudModel.storeDataArray[indexPath].placeName
-                editVC.editGenreNameString = crudModel.storeDataArray[indexPath].genreName
-                editVC.childID = crudModel.storeDataArray[indexPath].childID
+                editVC.editStoreNameString = StoreDataCrudModel.storeDataArray[indexPath].storeName
+                editVC.editPlaceNameString = StoreDataCrudModel.storeDataArray[indexPath].placeName
+                editVC.editGenreNameString = StoreDataCrudModel.storeDataArray[indexPath].genreName
+                editVC.childID = StoreDataCrudModel.storeDataArray[indexPath].childID
             }
         }
     }
@@ -103,24 +103,24 @@ private extension ListViewController {
     func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        let listPageNib = UINib(nibName: NibNameLiteral.listPageTableViewCell, bundle: nil)
-        tableView.register(listPageNib, forCellReuseIdentifier: CellIdentifierLiteral.listPageCell)
+        let listPageNib = UINib(nibName: Nib.listPageTableViewCell, bundle: nil)
+        tableView.register(listPageNib, forCellReuseIdentifier: CellIdentifier.listPageCell)
     }
     
     func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
-        let showAlert = UIAlertController(title: AlertTitleLiteral.delete, message: nil, preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: AlertButtonLiteral.delete, style: .destructive, handler: { _ -> Void in
+        let showAlert = UIAlertController(title: AlertTitle.delete, message: nil, preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive, handler: { _ -> Void in
             self.crudModel.deleteStoreData(indexPath: indexPath)
             
             guard self.crudModel.storeDataArray.isEmpty else { return }
             
             if editingStyle == UITableViewCell.EditingStyle.delete {
                 /// Cell削除時のアニメーション
-                self.crudModel.storeDataArray.remove(at: indexPath.row)
+                StoreDataCrudModel.storeDataArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
             }
         })
-        let cancelAction = UIAlertAction(title: AlertButtonLiteral.cancel, style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
         showAlert.addAction(cancelAction)
         showAlert.addAction(deleteAction)
         present(showAlert, animated: true, completion: nil)
@@ -128,8 +128,8 @@ private extension ListViewController {
     
     //オフラインの際に出すアラート
     func showAlertOffline() {
-        let alert = UIAlertController(title: AlertTitleLiteral.error, message: AlertMessageLiteral.offline, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: AlertButtonLiteral.OK, style: .default, handler: nil)
+        let alert = UIAlertController(title: AlertTitle.error, message: AlertMessage.offline, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: AlertButtonTitle.ok, style: .default, handler: nil)
         alert.addAction(defaultAction)
         present(alert, animated: true, completion: nil)
     }

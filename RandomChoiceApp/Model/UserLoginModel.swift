@@ -1,5 +1,5 @@
 //
-//  AnonymousLoginModel.swift
+//  UserLoginModel.swift
 //  RandomChoiceApp
 //
 //  Created by 渕一真 on 2020/08/17.
@@ -9,8 +9,8 @@
 import Foundation
 import Firebase
 
-class AnonymousLoginModel {
-    func anonymousLogin() {
+class UserLoginModel {
+    static func anonymous() {
         Auth.auth().signInAnonymously() { (authResult, error) in
             if let error = error {
                 print("Auth Error :\(error.localizedDescription)")

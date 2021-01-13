@@ -16,9 +16,9 @@ enum CategoryListType: Int, CaseIterable {
     
     var title: String? {
         switch self {
-        case .store: return StoreDataLiteral.store
-        case .place: return StoreDataLiteral.place
-        case .genre: return StoreDataLiteral.genre
+        case .store: return StoreDataType.store
+        case .place: return StoreDataType.place
+        case .genre: return StoreDataType.genre
         case .signup: return nil
         }
     }
