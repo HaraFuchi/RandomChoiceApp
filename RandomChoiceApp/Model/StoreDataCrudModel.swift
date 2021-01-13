@@ -16,7 +16,7 @@ protocol StoreDataCrudModelDelegate {
 class StoreDataCrudModel {
     
     var delegate: StoreDataCrudModelDelegate?
-    var storeDataArray = [StoreDataContentsModel]()
+    static var storeDataArray = [StoreDataContentsModel]()
     
     private let ref = Database.database().reference()
     
@@ -27,7 +27,7 @@ class StoreDataCrudModel {
     
     func fetchStoreData(tableView: UITableView? = nil) {
         ref.child(Auth.auth().currentUser?.uid ?? "uid").observe(.value) { (snapShot) in
-            self.storeDataArray.removeAll()
+            StoreDataCrudModel.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
                 for snap in snapShot {
                     if let postData = snap.value as? [String: Any] {
@@ -36,11 +36,11 @@ class StoreDataCrudModel {
                         let placeName = postData[StoreDataType.place]
                         let genreName = postData[StoreDataType.genre]
                         let storeDataContent = StoreDataContentsModel(childID: childID , store: storeName as! String, place: placeName as! String, genre: genreName as! String )
-                        self.storeDataArray.append(storeDataContent)
+                        StoreDataCrudModel.storeDataArray.append(storeDataContent)
                     }
                 }
                 self.showAlertIfNoStoreData()
-                self.storeDataArray.reverse()
+                StoreDataCrudModel.storeDataArray.reverse()
                 tableView?.reloadData()
             }
         }
@@ -53,7 +53,7 @@ class StoreDataCrudModel {
     }
     
     func deleteStoreData(indexPath: IndexPath) {
-        let childKey = storeDataArray[indexPath.row].childID
+        let childKey = StoreDataCrudModel.storeDataArray[indexPath.row].childID
         ref.child(Auth.auth().currentUser!.uid).child(childKey!).removeValue()
     }
 }
@@ -61,7 +61,7 @@ class StoreDataCrudModel {
 // MARK: - Method
 extension StoreDataCrudModel {
     private func showAlertIfNoStoreData() {
-        if self.storeDataArray.isEmpty {
+        if StoreDataCrudModel.storeDataArray.isEmpty {
             self.delegate?.showAlertNoStoreData()
         }
     }
