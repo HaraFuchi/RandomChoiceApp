@@ -22,10 +22,7 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
         super.awakeFromNib()
         setupDetailCell()
     }
-}
-
-//MARK: -  Method
-extension RandomChoiceButtonTableViewCell {
+    
     private func setupDetailCell() {
         self.selectionStyle = .none
         randomChoiceButton.layer.shadowOpacity = 0.5
