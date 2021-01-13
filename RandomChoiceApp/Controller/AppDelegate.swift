@@ -23,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserLoginModel.anonymous()
         }
         
+        #if DEBUG
+            print("デバック環境")
+        #endif
+        
         sleep(launchTime)
         return true
     }

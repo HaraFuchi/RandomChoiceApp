@@ -82,7 +82,7 @@
 		E3549028256B92E20038305A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E354902D256BF2C40038305A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		E354902E256BF2C40038305A /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
-		E354B6AB24C42E8E00759289 /* さいころdeごはん.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "さいころdeごはん.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E354B6AB24C42E8E00759289 /* Debugさいころdeごはん.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Debugさいころdeごはん.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E354B6AE24C42E8E00759289 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E354B6B024C42E8E00759289 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E354B6B224C42E8E00759289 /* RandomChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomChoiceViewController.swift; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 		E354B6AC24C42E8E00759289 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E354B6AB24C42E8E00759289 /* さいころdeごはん.app */,
+				E354B6AB24C42E8E00759289 /* Debugさいころdeごはん.app */,
 				C5202C0124FAFD9500656F6D /* RandomChoiceTests.xctest */,
 				C5202C0F24FAFE1C00656F6D /* RandomChoiceUITests.xctest */,
 			);
@@ -313,7 +313,7 @@
 			);
 			name = RandomChoiceApp;
 			productName = RandomChoiceApp;
-			productReference = E354B6AB24C42E8E00759289 /* さいころdeごはん.app */;
+			productReference = E354B6AB24C42E8E00759289 /* Debugさいころdeごはん.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -598,6 +598,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_ID_SUFFIX = .debug;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -658,6 +659,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_ID_SUFFIX = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -722,8 +724,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.harafuchi.RandomChoiceApp;
-				PRODUCT_NAME = "さいころdeごはん";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.harafuchi.RandomChoiceApp${BUNDLE_ID_SUFFIX}";
+				PRODUCT_NAME = "Debugさいころdeごはん";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -743,7 +745,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.harafuchi.RandomChoiceApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.harafuchi.RandomChoiceApp${BUNDLE_ID_SUFFIX}";
 				PRODUCT_NAME = "さいころdeごはん";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
