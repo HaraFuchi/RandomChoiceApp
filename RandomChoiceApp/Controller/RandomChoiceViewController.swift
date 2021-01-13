@@ -11,9 +11,6 @@ import UIKit
 class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     
     private let crudModel = StoreDataCrudModel()
-    private var resultStoreName = QuestionsLiteral.questions
-    private var resultPlaceName = QuestionsLiteral.questions
-    private var resultGenreName = QuestionsLiteral.questions
     
     enum DiceScreenType: Int, CaseIterable {
         case result
@@ -45,9 +42,9 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
         
         switch cellType {
         case .result:
-            storeDataCell.storeDataText = resultStoreName
-            storeDataCell.placeDataText = resultPlaceName
-            storeDataCell.genreDataText = resultGenreName
+            storeDataCell.storeDataText = ResultStoreDate.store
+            storeDataCell.placeDataText = ResultStoreDate.place
+            storeDataCell.genreDataText = ResultStoreDate.genre
             storeDataCell.isHiddenEditButton = true
             return storeDataCell
         case .dice:
@@ -59,16 +56,9 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
 
 // MARK: -Protocol
 extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
-    private var emptyNameText: String { return "???" }
-    
     func didTapDiceButton() {
-        let storeDataArray = crudModel.storeDataArray
         
-        guard let element = storeDataArray.randomElement() else { return }
-        
-        resultStoreName = element.storeName ?? emptyNameText
-        resultPlaceName = element.placeName ?? emptyNameText
-        resultGenreName = element.genreName ?? emptyNameText
+        ResultStoreDataModel.showResultStoreData()
         
         tableView.reloadData()
     }

@@ -32,11 +32,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if crudModel.storeDataArray.isEmpty {
+        if StoreDataCrudModel.storeDataArray.isEmpty {
             let skeletonCellNum = 10
             return skeletonCellNum
         } else {
-            return crudModel.storeDataArray.count
+            return StoreDataCrudModel.storeDataArray.count
         }
     }
     
@@ -44,13 +44,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listPageCell, for: indexPath) as! ListPageTableViewCell
         cell.delegate = self
         
-        if crudModel.storeDataArray.isEmpty {
+        if StoreDataCrudModel.storeDataArray.isEmpty {
             setUpSkeleton(cell: cell)
         } else {
             cell.hideSkeleton()
-            cell.storeDataText = crudModel.storeDataArray[indexPath.row].storeName ?? "???"
-            cell.placeDataText = crudModel.storeDataArray[indexPath.row].placeName ?? "???"
-            cell.genreDataText = crudModel.storeDataArray[indexPath.row].genreName ?? "???"
+            cell.storeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].storeName ?? "???"
+            cell.placeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].placeName ?? "???"
+            cell.genreDataText = StoreDataCrudModel.storeDataArray[indexPath.row].genreName ?? "???"
             cell.indexPathNumber = indexPath.row
         }
         return cell
@@ -62,7 +62,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         //スケルトンビュー表示時はセルをスワイプ不可にする
-        if crudModel.storeDataArray.isEmpty {
+        if StoreDataCrudModel.storeDataArray.isEmpty {
             return UITableViewCell.EditingStyle.none
         } else {
             return UITableViewCell.EditingStyle.delete
@@ -91,10 +91,10 @@ extension ListViewController: ListPageTableViewCellDelegate {
         if segue.identifier == SegueIdentifier.goToEditVC {
             let editVC = segue.destination as! EditViewController
             if let indexPath = indexPathNumber {
-                editVC.editStoreNameString = crudModel.storeDataArray[indexPath].storeName
-                editVC.editPlaceNameString = crudModel.storeDataArray[indexPath].placeName
-                editVC.editGenreNameString = crudModel.storeDataArray[indexPath].genreName
-                editVC.childID = crudModel.storeDataArray[indexPath].childID
+                editVC.editStoreNameString = StoreDataCrudModel.storeDataArray[indexPath].storeName
+                editVC.editPlaceNameString = StoreDataCrudModel.storeDataArray[indexPath].placeName
+                editVC.editGenreNameString = StoreDataCrudModel.storeDataArray[indexPath].genreName
+                editVC.childID = StoreDataCrudModel.storeDataArray[indexPath].childID
             }
         }
     }
@@ -113,8 +113,12 @@ private extension ListViewController {
         let showAlert = UIAlertController(title: AlertTitle.delete, message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive, handler: { _ -> Void in
             self.crudModel.deleteStoreData(indexPath: indexPath)
+            
+            guard self.crudModel.storeDataArray.isEmpty else { return }
+            
             if editingStyle == UITableViewCell.EditingStyle.delete {
-                self.crudModel.storeDataArray.remove(at: indexPath.row)
+                /// Cell削除時のアニメーション
+                StoreDataCrudModel.storeDataArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
             }
         })
