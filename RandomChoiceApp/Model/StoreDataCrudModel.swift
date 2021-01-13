@@ -25,7 +25,7 @@ class StoreDataCrudModel {
         ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createDataDict)
     }
     
-    func fetchStoreData(completionHandler: @escaping () -> Void) {
+    func fetchStoreData(completionHandler: (() -> Void)? = nil) {
         ref.child(Auth.auth().currentUser?.uid ?? "uid").observe(.value) { (snapShot) in
             StoreDataCrudModel.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
@@ -41,7 +41,7 @@ class StoreDataCrudModel {
                 }
                 self.showAlertIfNoStoreData()
                 StoreDataCrudModel.storeDataArray.reverse()  
-                completionHandler()             
+                completionHandler?()
             }
         }
     }
