@@ -12,9 +12,9 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
     
     var diceButtonTapHandler: ((_ sender: UIButton) -> Void)?
     
-    @IBOutlet private weak var randomChoiceButton: UIButton!
+    @IBOutlet private weak var diceButton: UIButton!
     
-    @IBAction func touchedRandomChoiceButton(_ sender: UIButton) {
+    @IBAction func didTapDiceButton(_ sender: UIButton) {
         diceButtonTapHandler?(sender)
     }
     
@@ -25,7 +25,7 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
     
     private func setupDetailCell() {
         self.selectionStyle = .none
-        randomChoiceButton.layer.shadowOpacity = 0.5
-        randomChoiceButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+        diceButton.layer.shadowOpacity = 0.5
+        diceButton.layer.shadowOffset = CGSize(width: 3, height: 3)
     }
 }
