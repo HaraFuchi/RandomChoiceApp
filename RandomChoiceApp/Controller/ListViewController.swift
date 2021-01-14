@@ -112,7 +112,7 @@ private extension ListViewController {
         let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive, handler: { _ -> Void in
             self.crudModel.deleteStoreData(indexPath: indexPath)
             
-            guard self.crudModel.storeDataArray.isEmpty else { return }
+            guard StoreDataCrudModel.storeDataArray.isEmpty else { return }
             
             if editingStyle == UITableViewCell.EditingStyle.delete {
                 /// Cell削除時のアニメーション
