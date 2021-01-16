@@ -20,7 +20,7 @@ class SettingViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
-    enum SettingCategoryList: Int, CaseIterable {
+    private enum SettingCategoryList: Int, CaseIterable {
         case contactUs
         case review
         case appVersion
