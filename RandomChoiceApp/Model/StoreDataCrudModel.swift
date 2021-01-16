@@ -9,8 +9,8 @@
 import Foundation
 import Firebase
 
-protocol StoreDataCrudModelDelegate {
-    func showAlertNoStoreData()
+protocol InvalidAlertProtocal {
+    func showAlertNoStoreData() -> Void
 }
 
 protocol ReloadProtocal {
@@ -19,8 +19,8 @@ protocol ReloadProtocal {
 
 class StoreDataCrudModel {
     
-    var delegate1: StoreDataCrudModelDelegate?
-    var delegate2: ReloadProtocal?
+    var invalidAlertDelegate: InvalidAlertProtocal?
+    var reloadDelegate: ReloadProtocal?
     static var storeDataArray = [StoreDataContentsModel]()
     
     private let ref = Database.database().reference()
@@ -46,7 +46,7 @@ class StoreDataCrudModel {
                 }
                 self.showAlertIfNoStoreData()
                 StoreDataCrudModel.storeDataArray.reverse()
-                self.delegate2?.reload()
+                self.reloadDelegate?.reload()
             }
         }
     }
@@ -67,7 +67,7 @@ class StoreDataCrudModel {
 extension StoreDataCrudModel {
     private func showAlertIfNoStoreData() {
         if StoreDataCrudModel.storeDataArray.isEmpty {
-            self.delegate1?.showAlertNoStoreData()
+            self.invalidAlertDelegate?.showAlertNoStoreData()
         }
     }
 }
