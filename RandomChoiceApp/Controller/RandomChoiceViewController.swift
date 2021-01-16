@@ -21,7 +21,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        crudModel.delegate = self
+        crudModel.delegate1 = self
         setUpTableView()
     }
     
