@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol diceButtonTapProtocal: AnyObject {
+protocol diceButtonViewProtocal: AnyObject {
     func didTapDiceButton() -> Void
 }
 
 class RandomChoiceButtonTableViewCell: UITableViewCell {
     
-    weak var delegate: diceButtonTapProtocal?
+    weak var delegate: diceButtonViewProtocal?
     
     @IBOutlet private weak var diceButton: UIButton!
     

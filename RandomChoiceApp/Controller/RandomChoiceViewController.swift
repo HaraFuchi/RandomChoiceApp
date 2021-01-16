@@ -66,7 +66,7 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate {
     }
 }
 
-extension RandomChoiceViewController: diceButtonTapProtocal {
+extension RandomChoiceViewController: diceButtonViewProtocal {
     func didTapDiceButton() {
         ResultStoreDataModel.showResultStoreData()
         tableView.reloadData()
