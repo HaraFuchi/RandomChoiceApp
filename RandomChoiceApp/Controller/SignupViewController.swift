@@ -50,9 +50,9 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
             self?.showSignupAlert()
         }
         
-        actionButtonCell.cancelButtonTapHandler = { [weak self] _ in
-            self?.dismiss(animated: true, completion: nil)
-        }
+//        actionButtonCell.cancelButtonTapHandler = { [weak self] _ in
+//            self?.dismiss(animated: true, completion: nil)
+//        }
         
         switch cellType {
         case .store:
@@ -72,6 +72,7 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
             return categoryCell
         case .signup:
             actionButtonCell.setupButton(self)
+            actionButtonCell.delegate = self
             return actionButtonCell
         }
     }
@@ -86,6 +87,12 @@ extension SignupViewController: SignupCategoryTableViewCellDelegate{
         case .genre: genreNameString = textField.text
         case .signup: break
         }
+    }
+}
+
+extension SignupViewController: actionButtonProtocal {
+    func didTapCancel() {
+        dismiss(animated: true, completion: nil)
     }
 }
 

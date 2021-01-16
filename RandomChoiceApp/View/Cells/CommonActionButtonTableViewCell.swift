@@ -8,10 +8,14 @@
 
 import UIKit
 
+protocol actionButtonProtocal: AnyObject {
+    func didTapCancel() -> Void
+}
+
 class CommonActionButtonTableViewCell: UITableViewCell {
     
+    weak var delegate: actionButtonProtocal?
     var signupButtonTapHandler: ((_ sender: UIButton) -> Void)?
-    var cancelButtonTapHandler: ((_ sender: UIButton) -> Void)?
     
     @IBOutlet private weak var signUpButton: UIButton!
     @IBOutlet private weak var cancelButton: UIButton!
@@ -19,8 +23,9 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     @IBAction func didTapSignupButton(_ sender: UIButton) {
         signupButtonTapHandler?(sender)
     }
+    
     @IBAction func didTapCancelButton(_ sender: UIButton) {
-        cancelButtonTapHandler?(sender)
+        delegate?.didTapCancel()
     }
     
     override func awakeFromNib() {
