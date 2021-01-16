@@ -38,11 +38,6 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
         let storeDataCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listPageCell) as! ListPageTableViewCell
         let buttonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.randomChoiceButtonCell) as! RandomChoiceButtonTableViewCell
         
-        buttonCell.diceButtonTapHandler = { _ in
-            ResultStoreDataModel.showResultStoreData()
-            tableView.reloadData()
-        }
-        
         guard let cellType = DiceScreenType(rawValue: indexPath.row) else { return UITableViewCell() }
         
         switch cellType {
@@ -53,6 +48,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
             storeDataCell.isHiddenEditButton = true
             return storeDataCell
         case .dice:
+            buttonCell.delegate = self
             return buttonCell
         }
     }
@@ -67,6 +63,13 @@ extension RandomChoiceViewController: StoreDataCrudModelDelegate {
         }
         alert.addAction(signupAction)
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension RandomChoiceViewController: diceButtonTapProtocal {
+    func didTapDiceButton() {
+        ResultStoreDataModel.showResultStoreData()
+        tableView.reloadData()
     }
 }
 

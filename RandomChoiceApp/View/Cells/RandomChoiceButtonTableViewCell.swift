@@ -8,14 +8,18 @@
 
 import UIKit
 
+protocol diceButtonTapProtocal: AnyObject {
+    func didTapDiceButton() -> Void
+}
+
 class RandomChoiceButtonTableViewCell: UITableViewCell {
     
-    var diceButtonTapHandler: ((_ sender: UIButton) -> Void)?
+    weak var delegate: diceButtonTapProtocal?
     
     @IBOutlet private weak var diceButton: UIButton!
     
     @IBAction func didTapDiceButton(_ sender: UIButton) {
-        diceButtonTapHandler?(sender)
+        delegate?.didTapDiceButton()
     }
     
     override func awakeFromNib() {
