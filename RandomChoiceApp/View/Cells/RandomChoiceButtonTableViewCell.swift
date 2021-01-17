@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DiceButtonViewProtocal: AnyObject {
-    func didTapDiceButton() -> Void
+    func didTapDiceButton() 
 }
 
 class RandomChoiceButtonTableViewCell: UITableViewCell {
