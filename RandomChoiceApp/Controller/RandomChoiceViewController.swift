@@ -64,7 +64,7 @@ extension RandomChoiceViewController: RandomChoiceButtonTableViewCellDelegate {
     }
 }
 
-extension RandomChoiceViewController: InvalidAlertProtocal {
+extension RandomChoiceViewController: InvalidAlertDisplayable {
     func showAlertNoStoreData() {
         let alert = UIAlertController(title: AlertTitle.signUp_1, message: AlertMessage.signUp, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in

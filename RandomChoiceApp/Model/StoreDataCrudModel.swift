@@ -9,18 +9,18 @@
 import Foundation
 import Firebase
 
-protocol InvalidAlertProtocal {
+protocol InvalidAlertDisplayable {
     func showAlertNoStoreData() -> Void
 }
 
-protocol ReloadProtocal {
+protocol StoreDataCrudModelDelegate {
     func reload() -> Void
 }
 
 class StoreDataCrudModel {
     
-    var invalidAlertDelegate: InvalidAlertProtocal?
-    var reloadDelegate: ReloadProtocal?
+    var invalidAlertDelegate: InvalidAlertDisplayable?
+    var reloadDelegate: StoreDataCrudModelDelegate?
     static var storeDataArray = [StoreDataContentsModel]()
     
     private let ref = Database.database().reference()

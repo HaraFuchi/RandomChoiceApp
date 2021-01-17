@@ -99,7 +99,7 @@ extension ListViewController: ListPageTableViewCellDelegate {
     }
 }
 
-extension ListViewController: ReloadProtocal{
+extension ListViewController: StoreDataCrudModelDelegate {
     func reload() {
         tableView.reloadData()
     }
