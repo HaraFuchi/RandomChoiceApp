@@ -50,10 +50,6 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
             self?.showSignupAlert()
         }
         
-//        actionButtonCell.cancelButtonTapHandler = { [weak self] _ in
-//            self?.dismiss(animated: true, completion: nil)
-//        }
-        
         switch cellType {
         case .store:
             categoryCell.categoryTitle = CategoryListType.store.title ?? ""

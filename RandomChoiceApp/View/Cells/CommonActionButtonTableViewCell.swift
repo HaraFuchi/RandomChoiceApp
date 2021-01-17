@@ -9,7 +9,7 @@
 import UIKit
 
 protocol actionButtonProtocal: AnyObject {
-    func didTapCancel() -> Void
+    func didTapCancel()
 }
 
 class CommonActionButtonTableViewCell: UITableViewCell {
