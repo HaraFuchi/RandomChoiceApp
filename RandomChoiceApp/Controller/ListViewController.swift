@@ -20,7 +20,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        crudModel.reloadDelegate = self
+        crudModel.storeDataCrudModelDelegate = self
         setUpTableView()
     }
     

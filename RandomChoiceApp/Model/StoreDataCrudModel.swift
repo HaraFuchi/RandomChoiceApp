@@ -20,7 +20,7 @@ protocol StoreDataCrudModelDelegate {
 class StoreDataCrudModel {
     
     var invalidAlertDelegate: InvalidAlertDisplayable?
-    var reloadDelegate: StoreDataCrudModelDelegate?
+    var storeDataCrudModelDelegate: StoreDataCrudModelDelegate?
     static var storeDataArray = [StoreDataContentsModel]()
     
     private let ref = Database.database().reference()
@@ -46,7 +46,7 @@ class StoreDataCrudModel {
                 }
                 self.showAlertIfNoStoreData()
                 StoreDataCrudModel.storeDataArray.reverse()
-                self.reloadDelegate?.reload()
+                self.storeDataCrudModelDelegate?.reload()
             }
         }
     }
