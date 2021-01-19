@@ -39,13 +39,17 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.signupCell, for: indexPath) as! SignupCategoryTableViewCell
-        let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
+        let actionButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
         guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
         
         convertValueNil()
         
         categoryCell.delegate = self
+        
+        actionButtonCell.signupButtonTapHandler = { [weak self] _ in
+            self?.showEditAlert()
+        }
         
         switch cellType {
         case .store:
@@ -64,15 +68,15 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
             categoryCell.cellType = .genre
             return categoryCell
         case .signup:
-            signupAndCancelButtonCell.delegate = self
-            signupAndCancelButtonCell.setupButton(self)
-            return signupAndCancelButtonCell
+            actionButtonCell.setupButton(self)
+            actionButtonCell.delegate = self
+            return actionButtonCell
         }
     }
 }
 
 //MARK: - Protocol
-extension EditViewController: SignupCategoryTableViewCellDelegate, CommonActionButtonTableViewCellDelegate {
+extension EditViewController: SignupCategoryTableViewCellDelegate {
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
         switch cellType {
         case .store: editStoreNameString = textField.text
@@ -81,13 +85,11 @@ extension EditViewController: SignupCategoryTableViewCellDelegate, CommonActionB
         case .signup: break
         }
     }
-    
-    func cancelButton() {
+}
+
+extension EditViewController: actionButtonProtocal {
+    func didTapCancel() {
         dismiss(animated: true, completion: nil)
-    }
-    
-    func signupStoreInfoButton() {
-        showEditAlert()
     }
 }
 
