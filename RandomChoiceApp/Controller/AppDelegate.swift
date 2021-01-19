@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserLoginModel.anonymous()
         }
         
+        print("修正したよ")
+        
         #if DEBUG
             print("デバック環境")
         #endif
