@@ -20,12 +20,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        crudModel.storeDataCrudModelDelegate = self
         setUpTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        crudModel.fetchStoreData(tableView: tableView)
+        crudModel.fetchStoreData()
         checkNetworkStatus()
     }
     
@@ -95,6 +96,12 @@ extension ListViewController: ListPageTableViewCellDelegate {
                 editVC.childID = StoreDataCrudModel.storeDataArray[indexPath].childID
             }
         }
+    }
+}
+
+extension ListViewController: StoreDataCrudModelDelegate {
+    func reload() {
+        tableView.reloadData()
     }
 }
 

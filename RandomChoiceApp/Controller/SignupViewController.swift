@@ -39,12 +39,16 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.signupCell, for: indexPath) as! SignupCategoryTableViewCell
-        let signupAndCancelButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier
+        let actionButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier
             .actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
         
         guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
         
         categoryCell.delegate = self
+        
+        actionButtonCell.signupButtonTapHandler = { [weak self] _ in
+            self?.showSignupAlert()
+        }
         
         switch cellType {
         case .store:
@@ -63,15 +67,15 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
             categoryCell.cellType = .genre
             return categoryCell
         case .signup:
-            signupAndCancelButtonCell.delegate = self
-            signupAndCancelButtonCell.setupButton(self)
-            return signupAndCancelButtonCell
+            actionButtonCell.setupButton(self)
+            actionButtonCell.delegate = self
+            return actionButtonCell
         }
     }
 }
 
 // MARK: -Protocol
-extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupCategoryTableViewCellDelegate{
+extension SignupViewController: SignupCategoryTableViewCellDelegate{
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
         switch cellType {
         case .store: storeNameString = textField.text
@@ -80,12 +84,10 @@ extension SignupViewController: CommonActionButtonTableViewCellDelegate, SignupC
         case .signup: break
         }
     }
-    
-    func signupStoreInfoButton() {
-        showSignupAlert()
-    }
-    
-    func cancelButton() {
+}
+
+extension SignupViewController: actionButtonProtocal {
+    func didTapCancel() {
         dismiss(animated: true, completion: nil)
     }
 }

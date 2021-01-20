@@ -8,29 +8,24 @@
 
 import UIKit
 
-protocol CommonActionButtonTableViewCellDelegate: AnyObject {
-    func cancelButton()
-    //TODO 使用されている部分が登録のみではないためリネームする
-    func signupStoreInfoButton()
+protocol actionButtonProtocal: AnyObject {
+    func didTapCancel()
 }
 
 class CommonActionButtonTableViewCell: UITableViewCell {
     
-    weak var delegate: CommonActionButtonTableViewCellDelegate?
+    weak var delegate: actionButtonProtocal?
+    var signupButtonTapHandler: ((_ sender: UIButton) -> Void)?
     
-    //TODO 使用されている部分が登録のみではないためリネームする
     @IBOutlet private weak var signUpButton: UIButton!
     @IBOutlet private weak var cancelButton: UIButton!
     
-    //TODO 使用されている部分が登録のみではないためリネームする
-    //TODO actionはdidTapから始める
-    @IBAction func touchedSignupButton(_ sender: UIButton) {
-        delegate?.signupStoreInfoButton()
+    @IBAction func didTapSignupButton(_ sender: UIButton) {
+        signupButtonTapHandler?(sender)
     }
     
-    //TODO actionはdidTapから始める
-    @IBAction func touchedCancelButton(_ sender: UIButton) {
-        delegate?.cancelButton()
+    @IBAction func didTapCancelButton(_ sender: UIButton) {
+        delegate?.didTapCancel()
     }
     
     override func awakeFromNib() {
