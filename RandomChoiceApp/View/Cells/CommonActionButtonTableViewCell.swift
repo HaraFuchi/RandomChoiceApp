@@ -61,8 +61,8 @@ extension CommonActionButtonTableViewCell {
     
     private func cancelButtonDetailInSignupScreen() {
         cancelButton.setTitle(ButtonTitle.cancel, for: .normal)
-        cancelButton.layer.borderColor = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
-        cancelButton.setTitleColor(#colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1), for: .normal)
+        cancelButton.layer.borderColor = (Color.red as! CGColor)
+        cancelButton.setTitleColor(Color.red, for: .normal)
         cancelButton.layer.borderWidth = Layer.borderWidth
         cancelButton.layer.cornerRadius = Layer.cornerRadius
     }
@@ -88,4 +88,16 @@ extension CommonActionButtonTableViewCell {
 struct Layer {
     static let borderWidth: CGFloat = 1.0
     static let cornerRadius: CGFloat = 28.0
+}
+
+///TODO: UIColor と CGColor で型が異なるため一元管理できない
+// ジェネリクス化して一元管理できそうだがうまくいかなかった
+
+/*
+ cancelButton.layer.borderColor = (Color.red as! CGColor)
+ 上記のようにキャストすれば問題ないが、汚く見えてしまう
+ */
+
+struct Color {
+    static let red = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
 }
