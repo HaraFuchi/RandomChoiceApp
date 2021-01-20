@@ -55,15 +55,6 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
 }
 
 // MARK: -Protocol
-extension RandomChoiceViewController: RandomChoiceButtonTableViewCellDelegate {
-    func didTapDiceButton() {
-        
-        ResultStoreDataModel.showResultStoreData()
-        
-        tableView.reloadData()
-    }
-}
-
 extension RandomChoiceViewController: InvalidAlertDisplayable {
     func showAlertNoStoreData() {
         let alert = UIAlertController(title: AlertTitle.signUp_1, message: AlertMessage.signUp, preferredStyle: .alert)
@@ -72,6 +63,13 @@ extension RandomChoiceViewController: InvalidAlertDisplayable {
         }
         alert.addAction(signupAction)
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension RandomChoiceViewController: DiceButtonViewProtocal {
+    func didTapDiceButton() {
+        ResultStoreDataModel.showResultStoreData()
+        tableView.reloadData()
     }
 }
 

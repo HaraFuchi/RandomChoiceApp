@@ -8,17 +8,17 @@
 
 import UIKit
 
-protocol RandomChoiceButtonTableViewCellDelegate: AnyObject {
-    func didTapDiceButton()
+protocol DiceButtonViewProtocal: AnyObject {
+    func didTapDiceButton() 
 }
 
 class RandomChoiceButtonTableViewCell: UITableViewCell {
     
-    weak var delegate: RandomChoiceButtonTableViewCellDelegate?
+    weak var delegate: DiceButtonViewProtocal?
     
-    @IBOutlet private weak var randomChoiceButton: UIButton!
+    @IBOutlet private weak var diceButton: UIButton!
     
-    @IBAction func touchedRandomChoiceButton(_ sender: UIButton) {
+    @IBAction func didTapDiceButton(_ sender: UIButton) {
         delegate?.didTapDiceButton()
     }
     
@@ -26,13 +26,10 @@ class RandomChoiceButtonTableViewCell: UITableViewCell {
         super.awakeFromNib()
         setupDetailCell()
     }
-}
-
-//MARK: -  Method
-extension RandomChoiceButtonTableViewCell {
+    
     private func setupDetailCell() {
         self.selectionStyle = .none
-        randomChoiceButton.layer.shadowOpacity = 0.5
-        randomChoiceButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+        diceButton.layer.shadowOpacity = 0.5
+        diceButton.layer.shadowOffset = CGSize(width: 3, height: 3)
     }
 }
