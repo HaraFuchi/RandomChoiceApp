@@ -9,13 +9,18 @@
 import Foundation
 import Firebase
 
+protocol InvalidAlertDisplayable {
+    func showAlertNoStoreData() -> Void
+}
+
 protocol StoreDataCrudModelDelegate {
-    func showAlertNoStoreData()
+    func reload() -> Void
 }
 
 class StoreDataCrudModel {
     
-    var delegate: StoreDataCrudModelDelegate?
+    var invalidAlertDelegate: InvalidAlertDisplayable?
+    var storeDataCrudModelDelegate: StoreDataCrudModelDelegate?
     static var storeDataArray = [StoreDataContentsModel]()
     
     private let ref = Database.database().reference()
@@ -25,7 +30,7 @@ class StoreDataCrudModel {
         ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createDataDict)
     }
     
-    func fetchStoreData(tableView: UITableView? = nil) {
+    func fetchStoreData() {
         ref.child(Auth.auth().currentUser?.uid ?? "uid").observe(.value) { (snapShot) in
             StoreDataCrudModel.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
@@ -41,7 +46,7 @@ class StoreDataCrudModel {
                 }
                 self.showAlertIfNoStoreData()
                 StoreDataCrudModel.storeDataArray.reverse()
-                tableView?.reloadData()
+                self.storeDataCrudModelDelegate?.reload()
             }
         }
     }
@@ -62,7 +67,7 @@ class StoreDataCrudModel {
 extension StoreDataCrudModel {
     private func showAlertIfNoStoreData() {
         if StoreDataCrudModel.storeDataArray.isEmpty {
-            self.delegate?.showAlertNoStoreData()
+            self.invalidAlertDelegate?.showAlertNoStoreData()
         }
     }
 }

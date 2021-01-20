@@ -21,7 +21,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        crudModel.delegate = self
+        crudModel.invalidAlertDelegate = self
         setUpTableView()
     }
     
@@ -55,14 +55,16 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
 }
 
 // MARK: -Protocol
-extension RandomChoiceViewController: StoreDataCrudModelDelegate, RandomChoiceButtonTableViewCellDelegate {
+extension RandomChoiceViewController: RandomChoiceButtonTableViewCellDelegate {
     func didTapDiceButton() {
         
         ResultStoreDataModel.showResultStoreData()
         
         tableView.reloadData()
     }
-    
+}
+
+extension RandomChoiceViewController: InvalidAlertDisplayable {
     func showAlertNoStoreData() {
         let alert = UIAlertController(title: AlertTitle.signUp_1, message: AlertMessage.signUp, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in
