@@ -55,16 +55,16 @@ extension CommonActionButtonTableViewCell {
         signUpButton.backgroundColor = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
         signUpButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         signUpButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        signUpButton.layer.borderWidth = 1.0
-        signUpButton.layer.cornerRadius = 28.0
+        signUpButton.layer.borderWidth = Layer.borderWidth
+        signUpButton.layer.cornerRadius = Layer.cornerRadius
     }
     
     private func cancelButtonDetailInSignupScreen() {
         cancelButton.setTitle(ButtonTitle.cancel, for: .normal)
         cancelButton.layer.borderColor = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
         cancelButton.setTitleColor(#colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1), for: .normal)
-        cancelButton.layer.borderWidth = 1.0
-        cancelButton.layer.cornerRadius = 28.0
+        cancelButton.layer.borderWidth = Layer.borderWidth
+        cancelButton.layer.cornerRadius = Layer.cornerRadius
     }
     
     private func signupButtonDetailInEditScreen() {
@@ -72,15 +72,20 @@ extension CommonActionButtonTableViewCell {
         signUpButton.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
         signUpButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         signUpButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        signUpButton.layer.borderWidth = 1.0
-        signUpButton.layer.cornerRadius = 28.0
+        signUpButton.layer.borderWidth = Layer.borderWidth
+        signUpButton.layer.cornerRadius = Layer.cornerRadius
     }
     
     private func cancelButtonDetailInEditScreen() {
         cancelButton.setTitle(ButtonTitle.cancel, for: .normal)
         cancelButton.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
         cancelButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1), for: .normal)
-        cancelButton.layer.borderWidth = 1.0
-        cancelButton.layer.cornerRadius = 28.0
+        cancelButton.layer.borderWidth = Layer.borderWidth
+        cancelButton.layer.cornerRadius = Layer.cornerRadius
     }
+}
+
+struct Layer {
+    static let borderWidth: CGFloat = 1.0
+    static let cornerRadius: CGFloat = 28.0
 }
