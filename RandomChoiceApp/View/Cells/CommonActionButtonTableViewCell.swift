@@ -49,34 +49,34 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     
     private func signupButtonDetailInSignupScreen() {
         signUpButton.setTitle(ButtonTitle.signUp, for: .normal)
-        signUpButton.backgroundColor = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
-        signUpButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        signUpButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        signUpButton.backgroundColor = Color.red
+        signUpButton.setTitleColor(Color.white, for: .normal)
+        signUpButton.layer.borderColor = Color.white.cgColor
         signUpButton.layer.borderWidth = Layer.borderWidth
         signUpButton.layer.cornerRadius = Layer.cornerRadius
     }
     
     private func cancelButtonDetailInSignupScreen() {
         cancelButton.setTitle(ButtonTitle.cancel, for: .normal)
-        cancelButton.layer.borderColor = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
-        cancelButton.setTitleColor(#colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1), for: .normal)
+        cancelButton.layer.borderColor = Color.red.cgColor
+        cancelButton.setTitleColor(Color.red, for: .normal)
         cancelButton.layer.borderWidth = Layer.borderWidth
         cancelButton.layer.cornerRadius = Layer.cornerRadius
     }
     
     private func signupButtonDetailInEditScreen() {
         signUpButton.setTitle(ButtonTitle.saveEdit, for: .normal)
-        signUpButton.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
-        signUpButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        signUpButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        signUpButton.backgroundColor = Color.yellow
+        signUpButton.setTitleColor(Color.white, for: .normal)
+        signUpButton.layer.borderColor = Color.white.cgColor
         signUpButton.layer.borderWidth = Layer.borderWidth
         signUpButton.layer.cornerRadius = Layer.cornerRadius
     }
     
     private func cancelButtonDetailInEditScreen() {
         cancelButton.setTitle(ButtonTitle.cancel, for: .normal)
-        cancelButton.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
-        cancelButton.setTitleColor(#colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1), for: .normal)
+        cancelButton.layer.borderColor = Color.yellow.cgColor
+        cancelButton.setTitleColor(Color.yellow, for: .normal)
         cancelButton.layer.borderWidth = Layer.borderWidth
         cancelButton.layer.cornerRadius = Layer.cornerRadius
     }
@@ -87,13 +87,8 @@ struct Layer {
     static let cornerRadius: CGFloat = 28.0
 }
 
-///TODO: UIColor と CGColor で型が異なるため一元管理できない
-// ジェネリクス化して一元管理できそうだがうまくいかなかった
-/*
-   cancelButton.layer.borderColor = (Color.red as! CGColor)
-   上記のようにキャストすれば問題ないが、汚く見えてしまう
-   */
-
 struct Color {
+    static let white = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     static let red = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
+    static let yellow = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
 }
