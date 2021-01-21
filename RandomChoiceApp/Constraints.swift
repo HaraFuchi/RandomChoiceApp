@@ -6,7 +6,7 @@
 //  Copyright © 2020 AYANO HARA. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /**********************************************************************/
 // MARK: - 命名のリテラル
@@ -80,6 +80,25 @@ struct EmailStatus {
     static let saved = "メールが下書きに保存されました"
     static let sent = "メールの送信に成功しました"
     static let failed = "メールの送信に失敗しました"
+}
+
+/**********************************************************************/
+// MARK: - Layerのリテラル
+/**********************************************************************/
+
+struct Layer {
+    static let borderWidth: CGFloat = 1.0
+    static let cornerRadius: CGFloat = 28.0
+}
+
+/**********************************************************************/
+// MARK: - 色のリテラル
+/**********************************************************************/
+
+struct Color {
+    static let white = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    static let red = #colorLiteral(red: 0.9972122312, green: 0.4152126908, blue: 0.3679206967, alpha: 1)
+    static let yellow = #colorLiteral(red: 0.9921568627, green: 0.6393200201, blue: 0.218539124, alpha: 1)
 }
 
 /**********************************************************************/
