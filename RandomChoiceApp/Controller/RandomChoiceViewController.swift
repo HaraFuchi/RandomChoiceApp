@@ -17,12 +17,18 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
         case dice
     }
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            tableView.dataSource = self
+            tableView.register(UINib(nibName: Nib.listPageTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.listPageCell)
+            tableView.register(UINib(nibName: Nib.randomChoiceButtonTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.randomChoiceButtonCell)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         crudModel.invalidAlertDelegate = self
-        setUpTableView()
+//        setUpTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,11 +80,11 @@ extension RandomChoiceViewController: DiceButtonViewProtocal {
 }
 
 // MARK: -Method
-extension RandomChoiceViewController {
-    private func setUpTableView() {
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: Nib.listPageTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.listPageCell)
-        tableView.register(UINib(nibName: Nib.randomChoiceButtonTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.randomChoiceButtonCell)
-    }
-}
-
+//extension RandomChoiceViewController {
+//    private func setUpTableView() {
+//        tableView.dataSource = self
+//        tableView.register(UINib(nibName: Nib.listPageTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.listPageCell)
+//        tableView.register(UINib(nibName: Nib.randomChoiceButtonTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.randomChoiceButtonCell)
+//    }
+//}
+//
