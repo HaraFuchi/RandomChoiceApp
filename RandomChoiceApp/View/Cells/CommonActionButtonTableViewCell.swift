@@ -49,35 +49,35 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     
     private func signupButtonDetailInSignupScreen() {
         signUpButton.setTitle(ButtonTitle.signUp, for: .normal)
-        signUpButton.backgroundColor = Color.red
-        signUpButton.setTitleColor(Color.white, for: .normal)
-        signUpButton.layer.borderColor = Color.white.cgColor
-        signUpButton.layer.borderWidth = Layer.borderWidth
-        signUpButton.layer.cornerRadius = Layer.cornerRadius
+        signUpButton.backgroundColor = RandomChoiceAppColor.red
+        signUpButton.setTitleColor(RandomChoiceAppColor.white, for: .normal)
+        signUpButton.layer.borderColor = RandomChoiceAppColor.white.cgColor
+        signUpButton.layer.borderWidth = ButtonCustomViewLayer.borderWidth
+        signUpButton.layer.cornerRadius = ButtonCustomViewLayer.cornerRadius
     }
     
     private func cancelButtonDetailInSignupScreen() {
         cancelButton.setTitle(ButtonTitle.cancel, for: .normal)
-        cancelButton.layer.borderColor = Color.red.cgColor
-        cancelButton.setTitleColor(Color.red, for: .normal)
-        cancelButton.layer.borderWidth = Layer.borderWidth
-        cancelButton.layer.cornerRadius = Layer.cornerRadius
+        cancelButton.layer.borderColor = RandomChoiceAppColor.red.cgColor
+        cancelButton.setTitleColor(RandomChoiceAppColor.red, for: .normal)
+        cancelButton.layer.borderWidth = ButtonCustomViewLayer.borderWidth
+        cancelButton.layer.cornerRadius = ButtonCustomViewLayer.cornerRadius
     }
     
     private func signupButtonDetailInEditScreen() {
         signUpButton.setTitle(ButtonTitle.saveEdit, for: .normal)
-        signUpButton.backgroundColor = Color.yellow
-        signUpButton.setTitleColor(Color.white, for: .normal)
-        signUpButton.layer.borderColor = Color.white.cgColor
-        signUpButton.layer.borderWidth = Layer.borderWidth
-        signUpButton.layer.cornerRadius = Layer.cornerRadius
+        signUpButton.backgroundColor = RandomChoiceAppColor.yellow
+        signUpButton.setTitleColor(RandomChoiceAppColor.white, for: .normal)
+        signUpButton.layer.borderColor = RandomChoiceAppColor.white.cgColor
+        signUpButton.layer.borderWidth = ButtonCustomViewLayer.borderWidth
+        signUpButton.layer.cornerRadius = ButtonCustomViewLayer.cornerRadius
     }
     
     private func cancelButtonDetailInEditScreen() {
         cancelButton.setTitle(ButtonTitle.cancel, for: .normal)
-        cancelButton.layer.borderColor = Color.yellow.cgColor
-        cancelButton.setTitleColor(Color.yellow, for: .normal)
-        cancelButton.layer.borderWidth = Layer.borderWidth
-        cancelButton.layer.cornerRadius = Layer.cornerRadius
+        cancelButton.layer.borderColor = RandomChoiceAppColor.yellow.cgColor
+        cancelButton.setTitleColor(RandomChoiceAppColor.yellow, for: .normal)
+        cancelButton.layer.borderWidth = ButtonCustomViewLayer.borderWidth
+        cancelButton.layer.cornerRadius = ButtonCustomViewLayer.cornerRadius
     }
 }
