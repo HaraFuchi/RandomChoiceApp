@@ -10,7 +10,7 @@ import XCTest
 @testable import Debugさいころdeごはん
 
 class StoreDataContentsModelTests: XCTestCase {
-    func test_イニシャライザ時_正しく値が入っているか() {
+    func test_イニシャライザ時_正しく値が入る() {
         let model = StoreDataContentsModel(childID: "123456789",
                                            store: "日高屋",
                                            place: "千葉",
@@ -20,7 +20,7 @@ class StoreDataContentsModelTests: XCTestCase {
         XCTAssertEqual(model.placeName, "千葉")
         XCTAssertEqual(model.genreName, "中華")
     }
-    func test_イニシャライザ時_空の値を入れる_正しく値が入る() {
+    func test_イニシャライザ時_空の値が入る() {
         let model = StoreDataContentsModel(childID: "ABCDEFGHI",
                                            store: "",
                                            place: "",
