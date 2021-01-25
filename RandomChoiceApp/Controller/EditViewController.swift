@@ -22,7 +22,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         }
     }
     
-    
     let crudModel = StoreDataCrudModel()
     var emptyNameText: String { return "???" }
     
