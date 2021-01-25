@@ -28,7 +28,6 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         crudModel.invalidAlertDelegate = self
-//        setUpTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,13 +77,3 @@ extension RandomChoiceViewController: DiceButtonViewProtocal {
         tableView.reloadData()
     }
 }
-
-// MARK: -Method
-//extension RandomChoiceViewController {
-//    private func setUpTableView() {
-//        tableView.dataSource = self
-//        tableView.register(UINib(nibName: Nib.listPageTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.listPageCell)
-//        tableView.register(UINib(nibName: Nib.randomChoiceButtonTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.randomChoiceButtonCell)
-//    }
-//}
-//

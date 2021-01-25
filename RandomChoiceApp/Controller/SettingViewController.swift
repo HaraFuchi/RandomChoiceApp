@@ -17,8 +17,17 @@ class SettingViewController: UIViewController {
     
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var backBarButtonItem: UIBarButtonItem!
-    @IBOutlet private weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            tableView.dataSource = self
+            tableView.delegate = self
+            let settingTableViewNib = UINib(nibName: Nib.settingTableViewCell, bundle: nil)
+            tableView.register(settingTableViewNib, forCellReuseIdentifier: CellIdentifier.settingCell)
+            tableView.isScrollEnabled = false
+        }
+    }
     
     private enum SettingCategoryList: Int, CaseIterable {
         case contactUs
@@ -36,7 +45,6 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpTableView()
         navigationBar.delegate = self
     }
     
@@ -47,16 +55,6 @@ class SettingViewController: UIViewController {
     
     @IBAction private func didTapBackButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
-    }
-}
-
-extension SettingViewController {
-    private func setUpTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-        let settingTableViewNib = UINib(nibName: Nib.settingTableViewCell, bundle: nil)
-        tableView.register(settingTableViewNib, forCellReuseIdentifier: CellIdentifier.settingCell)
-        tableView.isScrollEnabled = false
     }
 }
 

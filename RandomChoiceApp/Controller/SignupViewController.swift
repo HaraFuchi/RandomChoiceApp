@@ -15,8 +15,17 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
     private var placeNameString: String?
     private var genreNameString: String?
         
-    @IBOutlet private var tableView: UITableView!
     @IBOutlet private weak var navigationBar: UINavigationBar!
+    
+    @IBOutlet private var tableView: UITableView! {
+        didSet {
+            tableView.dataSource = self
+            let signupCategoryNib = UINib(nibName: Nib.signupCategoryTableViewCell, bundle: nil)
+            let signupAndCancelButtonCell = UINib(nibName: Nib.commonActionButtonTableViewCell, bundle: nil)
+            tableView.register(signupCategoryNib, forCellReuseIdentifier: CellIdentifier.signupCell)
+            tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: CellIdentifier.actionButtonCell)
+        }
+    }
     
     //UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
@@ -29,7 +38,6 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpTableView()
         navigationBar.delegate = self
     }
     
@@ -94,14 +102,6 @@ extension SignupViewController: actionButtonProtocal {
 
 // MARK: - Method
 extension SignupViewController {
-    private func setUpTableView() {
-        tableView.dataSource = self
-        let signupCategoryNib = UINib(nibName: Nib.signupCategoryTableViewCell, bundle: nil)
-        let signupAndCancelButtonCell = UINib(nibName: Nib.commonActionButtonTableViewCell, bundle: nil)
-        tableView.register(signupCategoryNib, forCellReuseIdentifier: CellIdentifier.signupCell)
-        tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: CellIdentifier.actionButtonCell)
-    }
-    
     private func showSignupAlert() {
         let alert = UIAlertController(title: AlertTitle
             .signUp_2, message: nil, preferredStyle: .alert)
