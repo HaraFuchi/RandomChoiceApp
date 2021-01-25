@@ -34,6 +34,7 @@ class CommonActionButtonTableViewCell: UITableViewCell {
     }
 }
 
+// TODO: extensionを外す
 // MARK: - Method
 extension CommonActionButtonTableViewCell {
     private func setupDetailCell() {

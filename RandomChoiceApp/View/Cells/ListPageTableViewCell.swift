@@ -58,10 +58,7 @@ class ListPageTableViewCell: UITableViewCell {
             editButton.isHidden = isHiddenEditButton
         }
     }
-}
-
-//MARK: - Method
-extension ListPageTableViewCell {
+    
     private func setupDetailCell(){
         self.selectionStyle = .none
         BGBaseView.layer.cornerRadius = 8

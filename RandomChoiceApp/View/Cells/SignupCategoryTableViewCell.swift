@@ -12,27 +12,21 @@ protocol SignupCategoryTableViewCellDelegate {
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType)
 }
 
-class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
+class SignupCategoryTableViewCell: UITableViewCell {
     
     var delegate: SignupCategoryTableViewCellDelegate?
     var cellType: CategoryListType?
     
     @IBOutlet private var categoryLabel: UILabel!
-    @IBOutlet private var categoryTextField: UITextField!
+    @IBOutlet private var categoryTextField: UITextField! {
+        didSet {
+            categoryTextField.delegate = self
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupDetailCell()
-        categoryTextField.delegate = self
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let cellType = cellType else { return }
-        delegate?.fetchCategoryNameText(textField: textField, cellType: cellType)
     }
     
     var categoryTitle: String = "" {
@@ -52,12 +46,21 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
             categoryTextField.placeholder = categoryPlaceHolder
         }
     }
-}
-
-//MARK: - Method
-extension SignupCategoryTableViewCell {
+    
     private func setupDetailCell() {
         self.selectionStyle = .none
+        //TODO: 以下のプロパティが必要か検討
         categoryTextField.backgroundColor = .white
+    }
+}
+
+extension SignupCategoryTableViewCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let cellType = cellType else { return }
+        delegate?.fetchCategoryNameText(textField: textField, cellType: cellType)
     }
 }
