@@ -10,6 +10,15 @@ import UIKit
 
 class EditViewController: UIViewController, AlertDisplayable {
     
+    //TFに入れる値を所持
+    var editStoreNameString: String?
+    var editPlaceNameString: String?
+    var editGenreNameString: String?
+    var childID: String?
+    
+    let crudModel = StoreDataCrudModel()
+    var emptyNameText: String { return "???" }
+    
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBOutlet weak var tableView: UITableView! {
@@ -21,15 +30,6 @@ class EditViewController: UIViewController, AlertDisplayable {
             tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: CellIdentifier.actionButtonCell)
         }
     }
-    
-    let crudModel = StoreDataCrudModel()
-    var emptyNameText: String { return "???" }
-    
-    //TFに入れる値を所持
-    var editStoreNameString: String?
-    var editPlaceNameString: String?
-    var editGenreNameString: String?
-    var childID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
