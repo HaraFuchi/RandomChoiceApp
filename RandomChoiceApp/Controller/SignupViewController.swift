@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
+class SignupViewController: UIViewController, AlertDisplayable {
     
     //登録する内容の値を保持
     private var storeNameString: String?
@@ -27,11 +27,6 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         }
     }
     
-    //UINavigationBarをステータスバーまで広げる
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-    
     @IBAction func touchedScreenRecognizer(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
@@ -41,6 +36,42 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
         navigationBar.delegate = self
     }
     
+    private func showSignupAlert() {
+        let alert = UIAlertController(title: AlertTitle
+            .signUp_2, message: nil, preferredStyle: .alert)
+        let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in
+            self.textConvertNil()
+            if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
+                self.showAlertAllNilTextField()
+            } else {
+                let crudModel = StoreDataCrudModel()
+                crudModel.createStoreData(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        }
+        let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
+        alert.addAction(signupAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
+    private func textConvertNil() {
+        if storeNameString == "" {
+            storeNameString = nil
+        }
+        if placeNameString == "" {
+            placeNameString = nil
+        }
+        if genreNameString == "" {
+            genreNameString = nil
+        }
+    }
+}
+
+// MARK: -Protocol
+extension SignupViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CategoryListType.allCases.count
     }
@@ -82,7 +113,13 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
     }
 }
 
-// MARK: -Protocol
+extension SignupViewController: UINavigationBarDelegate {
+    //UINavigationBarをステータスバーまで広げる
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
+}
+
 extension SignupViewController: SignupCategoryTableViewCellDelegate{
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
         switch cellType {
@@ -97,41 +134,5 @@ extension SignupViewController: SignupCategoryTableViewCellDelegate{
 extension SignupViewController: actionButtonProtocal {
     func didTapCancel() {
         dismiss(animated: true, completion: nil)
-    }
-}
-
-// MARK: - Method
-extension SignupViewController {
-    private func showSignupAlert() {
-        let alert = UIAlertController(title: AlertTitle
-            .signUp_2, message: nil, preferredStyle: .alert)
-        let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in
-            self.textConvertNil()
-            if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
-                self.showAlertAllNilTextField()
-            } else {
-                let crudModel = StoreDataCrudModel()
-                crudModel.createStoreData(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
-                self.dismiss(animated: true, completion: nil)
-            }
-            
-        }
-        let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
-        alert.addAction(signupAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
-    private func textConvertNil() {
-        if storeNameString == "" {
-            storeNameString = nil
-        }
-        if placeNameString == "" {
-            placeNameString = nil
-        }
-        if genreNameString == "" {
-            genreNameString = nil
-        }
     }
 }

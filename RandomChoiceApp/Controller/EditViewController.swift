@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
+class EditViewController: UIViewController, AlertDisplayable {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     
@@ -22,7 +22,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         }
     }
     
-    
     let crudModel = StoreDataCrudModel()
     var emptyNameText: String { return "???" }
     
@@ -32,16 +31,50 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     var editGenreNameString: String?
     var childID: String?
     
-    //UINavigationBarをステータスバーまで広げる
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.delegate = self
     }
     
+    //TFに???を反映させる必要はないため、nilを返す
+    //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
+    private func convertValueNil() {
+        if editStoreNameString == Mark.questions || editStoreNameString == "" {
+            editStoreNameString = nil
+        }
+        if editPlaceNameString == Mark.questions || editPlaceNameString == "" {
+            editPlaceNameString = nil
+        }
+        if editGenreNameString == Mark.questions || editGenreNameString == "" {
+            editGenreNameString = nil
+        }
+    }
+    
+    private func showEditAlert() {
+        let alert = UIAlertController(title: AlertTitle.edit, message: nil, preferredStyle: .alert)
+        let editAction = UIAlertAction(title: AlertButtonTitle.save, style: .default) { _ in
+            //Firebaseの更新機能追加
+            self.convertValueNil()
+            self.editAction()
+        }
+        let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
+        alert.addAction(editAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func editAction() {
+        if editStoreNameString == nil, editPlaceNameString == nil, editGenreNameString == nil {
+            showAlertAllNilTextField()
+        } else {
+            crudModel.editStoreData(store: editStoreNameString ?? emptyNameText, place: editPlaceNameString ?? emptyNameText, genre: editGenreNameString ?? emptyNameText, childID: childID)
+            dismiss(animated: true, completion: nil)
+        }
+    }
+}
+
+//MARK: - Protocol
+extension EditViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CategoryListType.allCases.count
     }
@@ -84,7 +117,13 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     }
 }
 
-//MARK: - Protocol
+extension EditViewController: UINavigationBarDelegate {
+    //UINavigationBarをステータスバーまで広げる
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
+}
+
 extension EditViewController: SignupCategoryTableViewCellDelegate {
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
         switch cellType {
@@ -99,44 +138,5 @@ extension EditViewController: SignupCategoryTableViewCellDelegate {
 extension EditViewController: actionButtonProtocal {
     func didTapCancel() {
         dismiss(animated: true, completion: nil)
-    }
-}
-
-//MARK: - Method
-extension EditViewController {
-    //TFに???を反映させる必要はないため、nilを返す
-    //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
-    private func convertValueNil() {
-        if editStoreNameString == Mark.questions || editStoreNameString == "" {
-            editStoreNameString = nil
-        }
-        if editPlaceNameString == Mark.questions || editPlaceNameString == "" {
-            editPlaceNameString = nil
-        }
-        if editGenreNameString == Mark.questions || editGenreNameString == "" {
-            editGenreNameString = nil
-        }
-    }
-    
-    private func showEditAlert() {
-        let alert = UIAlertController(title: AlertTitle.edit, message: nil, preferredStyle: .alert)
-        let editAction = UIAlertAction(title: AlertButtonTitle.save, style: .default) { _ in
-            //Firebaseの更新機能追加
-            self.convertValueNil()
-            self.editAction()
-        }
-        let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
-        alert.addAction(editAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    private func editAction() {
-        if editStoreNameString == nil, editPlaceNameString == nil, editGenreNameString == nil {
-            showAlertAllNilTextField()
-        } else {
-            crudModel.editStoreData(store: editStoreNameString ?? emptyNameText, place: editPlaceNameString ?? emptyNameText, genre: editGenreNameString ?? emptyNameText, childID: childID)
-            dismiss(animated: true, completion: nil)
-        }
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RandomChoiceViewController: UIViewController, UITableViewDataSource {
+class RandomChoiceViewController: UIViewController {
     
     private let crudModel = StoreDataCrudModel()
     
@@ -34,7 +34,10 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
         super.viewWillAppear(animated)
         crudModel.fetchStoreData()
     }
-    
+}
+
+// MARK: -Protocol
+extension RandomChoiceViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DiceScreenType.allCases.count
     }
@@ -58,8 +61,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
         }
     }
 }
-
-// MARK: -Protocol
+   
 extension RandomChoiceViewController: InvalidAlertDisplayable {
     func showAlertNoStoreData() {
         let alert = UIAlertController(title: AlertTitle.signUp_1, message: AlertMessage.signUp, preferredStyle: .alert)
