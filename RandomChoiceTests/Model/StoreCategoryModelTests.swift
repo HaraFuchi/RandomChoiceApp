@@ -14,13 +14,13 @@ class CategoryListTypeTests: XCTestCase {
         XCTAssertEqual(CategoryListType.store.title, "店名")
         XCTAssertEqual(CategoryListType.place.title, "場所")
         XCTAssertEqual(CategoryListType.genre.title, "ジャンル")
-        XCTAssertEqual(CategoryListType.signup.title, nil)
+        XCTAssertNil(CategoryListType.signup.title)
     }
     
     func test_カテゴリープレースホルダー_それぞれ対応した値を返す() {
         XCTAssertEqual(CategoryListType.store.placeHolder, "例) サイゼリヤ")
         XCTAssertEqual(CategoryListType.place.placeHolder, "例) 新宿")
         XCTAssertEqual(CategoryListType.genre.placeHolder, "例) イタリアン")
-        XCTAssertEqual(CategoryListType.signup.placeHolder, nil)
+        XCTAssertNil(CategoryListType.signup.placeHolder)
     }
 }
