@@ -13,6 +13,11 @@ target 'RandomChoiceApp' do
   pod 'SkeletonView'
   pod 'ReachabilitySwift'
 
+target  'RandomChoiceTests' do
+    inherit! :search_paths
+    pod 'Firebase'
+end
+
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
