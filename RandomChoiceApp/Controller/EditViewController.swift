@@ -10,8 +10,17 @@ import UIKit
 
 class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
     
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.dataSource = self
+            let singUpCategoryNib = UINib(nibName: Nib.signupCategoryTableViewCell, bundle: nil)
+            let signupAndCancelButtonCell = UINib(nibName: Nib.commonActionButtonTableViewCell, bundle: nil)
+            tableView.register(singUpCategoryNib, forCellReuseIdentifier: CellIdentifier.signupCell)
+            tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: CellIdentifier.actionButtonCell)
+        }
+    }
     
     let crudModel = StoreDataCrudModel()
     var emptyNameText: String { return "???" }
@@ -29,7 +38,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpTableView()
         navigationBar.delegate = self
     }
     
@@ -95,15 +103,6 @@ extension EditViewController: actionButtonProtocal {
 
 //MARK: - Method
 extension EditViewController {
-    
-    private func setUpTableView() {
-        tableView.dataSource = self
-        let singUpCategoryNib = UINib(nibName: Nib.signupCategoryTableViewCell, bundle: nil)
-        let signupAndCancelButtonCell = UINib(nibName: Nib.commonActionButtonTableViewCell, bundle: nil)
-        tableView.register(singUpCategoryNib, forCellReuseIdentifier: CellIdentifier.signupCell)
-        tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: CellIdentifier.actionButtonCell)
-    }
-    
     //TFに???を反映させる必要はないため、nilを返す
     //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
     private func convertValueNil() {

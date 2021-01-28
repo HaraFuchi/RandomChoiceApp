@@ -16,12 +16,19 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     private var indexPathNumber: Int? //CellのindexPathを保持
     
     @IBOutlet private weak var signupVCBarButtonItem: UIBarButtonItem!
-    @IBOutlet private weak var tableView: UITableView!
+    
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+            let listPageNib = UINib(nibName: Nib.listPageTableViewCell, bundle: nil)
+            tableView.register(listPageNib, forCellReuseIdentifier: CellIdentifier.listPageCell)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         crudModel.storeDataCrudModelDelegate = self
-        setUpTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,13 +114,6 @@ extension ListViewController: StoreDataCrudModelDelegate {
 
 //MARK: - Private Method
 private extension ListViewController {
-    func setUpTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        let listPageNib = UINib(nibName: Nib.listPageTableViewCell, bundle: nil)
-        tableView.register(listPageNib, forCellReuseIdentifier: CellIdentifier.listPageCell)
-    }
-    
     func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
         let showAlert = UIAlertController(title: AlertTitle.delete, message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive, handler: { _ -> Void in
