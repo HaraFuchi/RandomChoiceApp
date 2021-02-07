@@ -1,5 +1,5 @@
 //
-//  StoreDataModel.swift
+//  StoreData.swift
 //  RandomChoiceApp
 //
 //  Created by 渕一真 on 2020/08/10.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StoreDataContentsModel {
+struct StoreData {
     let childID: String
     let store: String
     let place: String

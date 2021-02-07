@@ -21,7 +21,7 @@ class StoreDataCrudModel {
     
     var invalidAlertDelegate: InvalidAlertDisplayable?
     var storeDataCrudModelDelegate: StoreDataCrudModelDelegate?
-    static var storeDataArray = [StoreDataContentsModel]()
+    static var storeDataArray = [StoreData]()
     
     private let ref = Database.database().reference()
     
@@ -40,7 +40,7 @@ class StoreDataCrudModel {
                         let storeName = postData[StoreDataType.store]
                         let placeName = postData[StoreDataType.place]
                         let genreName = postData[StoreDataType.genre]
-                        let storeDataContent = StoreDataContentsModel(childID: childID , store: storeName as! String, place: placeName as! String, genre: genreName as! String )
+                        let storeDataContent = StoreData(childID: childID , store: storeName as! String, place: placeName as! String, genre: genreName as! String )
                         StoreDataCrudModel.storeDataArray.append(storeDataContent)
                     }
                 }
