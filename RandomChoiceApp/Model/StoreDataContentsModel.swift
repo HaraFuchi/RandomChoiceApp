@@ -9,8 +9,8 @@
 import Foundation
 
 struct StoreDataContentsModel {
-    var childID: String
-    var store: String
-    var place: String
-    var genre: String
+    let childID: String
+    let store: String
+    let place: String
+    let genre: String
 }
