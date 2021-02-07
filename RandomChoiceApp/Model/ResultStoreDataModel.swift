@@ -12,7 +12,7 @@ struct ResultData {
     static var store: StoreData?
 }
 
-class ResultStoreDataModel {    
+struct ResultStoreDataModel {
     static func showResultStoreData() {
         
         guard let element = StoreDataCrudModel.storeDataArray.randomElement() else { return }
