@@ -21,8 +21,8 @@ class ResultStoreDataModel {
         
         guard let element = StoreDataCrudModel.storeDataArray.randomElement() else { return }
                 
-        ResultStoreDate.store = element.storeName ?? questions
-        ResultStoreDate.place = element.placeName ?? questions
-        ResultStoreDate.genre = element.genreName ?? questions
+        ResultStoreDate.store = element.store 
+        ResultStoreDate.place = element.place 
+        ResultStoreDate.genre = element.genre 
     }
 }

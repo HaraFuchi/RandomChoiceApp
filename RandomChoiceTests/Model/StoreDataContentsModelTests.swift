@@ -16,9 +16,9 @@ class StoreDataContentsModelTests: XCTestCase {
                                            place: "千葉",
                                            genre: "中華")
         XCTAssertEqual(model.childID, "123456789")
-        XCTAssertEqual(model.storeName, "日高屋")
-        XCTAssertEqual(model.placeName, "千葉")
-        XCTAssertEqual(model.genreName, "中華")
+        XCTAssertEqual(model.store, "日高屋")
+        XCTAssertEqual(model.place, "千葉")
+        XCTAssertEqual(model.genre, "中華")
     }
     func test_イニシャライザ時_空の値が入る() {
         let model = StoreDataContentsModel(childID: "ABCDEFGHI",
@@ -26,8 +26,8 @@ class StoreDataContentsModelTests: XCTestCase {
                                            place: "",
                                            genre: "")
         XCTAssertEqual(model.childID, "ABCDEFGHI")
-        XCTAssertEqual(model.storeName, "")
-        XCTAssertEqual(model.placeName, "")
-        XCTAssertEqual(model.genreName, "")
+        XCTAssertEqual(model.store, "")
+        XCTAssertEqual(model.place, "")
+        XCTAssertEqual(model.genre, "")
     }
 }
