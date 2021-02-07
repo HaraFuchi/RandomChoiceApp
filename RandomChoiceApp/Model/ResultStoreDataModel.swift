@@ -19,7 +19,7 @@ class ResultStoreDataModel {
     
     static func showResultStoreData() {
         
-        guard let element = StoreDataCrudModel.storeDataArray.randomElement() else { return }
+        guard let element = StoreDataContentsModel.storeDataArray.randomElement() else { return }
                 
         ResultStoreDate.store = element.store 
         ResultStoreDate.place = element.place 

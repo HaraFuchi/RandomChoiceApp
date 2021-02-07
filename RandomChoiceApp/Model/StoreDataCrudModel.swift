@@ -21,7 +21,6 @@ class StoreDataCrudModel {
     
     var invalidAlertDelegate: InvalidAlertDisplayable?
     var storeDataCrudModelDelegate: StoreDataCrudModelDelegate?
-    static var storeDataArray = [StoreDataContentsModel]()
     
     private let ref = Database.database().reference()
     
@@ -32,7 +31,7 @@ class StoreDataCrudModel {
     
     func fetchStoreData() {
         ref.child(Auth.auth().currentUser?.uid ?? "uid").observe(.value) { (snapShot) in
-            StoreDataCrudModel.storeDataArray.removeAll()
+            StoreDataContentsModel.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
                 for snap in snapShot {
                     if let postData = snap.value as? [String: Any] {
@@ -41,11 +40,11 @@ class StoreDataCrudModel {
                         let placeName = postData[StoreDataType.place]
                         let genreName = postData[StoreDataType.genre]
                         let storeDataContent = StoreDataContentsModel(childID: childID , store: storeName as! String, place: placeName as! String, genre: genreName as! String )
-                        StoreDataCrudModel.storeDataArray.append(storeDataContent)
+                        StoreDataContentsModel.storeDataArray.append(storeDataContent)
                     }
                 }
                 self.showAlertIfNoStoreData()
-                StoreDataCrudModel.storeDataArray.reverse()
+                StoreDataContentsModel.storeDataArray.reverse()
                 self.storeDataCrudModelDelegate?.reload()
             }
         }
@@ -58,7 +57,7 @@ class StoreDataCrudModel {
     }
     
     func deleteStoreData(indexPath: IndexPath) {
-        let childKey = StoreDataCrudModel.storeDataArray[indexPath.row].childID
+        let childKey = StoreDataContentsModel.storeDataArray[indexPath.row].childID
         ref.child(Auth.auth().currentUser!.uid).child(childKey).removeValue()
     }
 }
@@ -66,7 +65,7 @@ class StoreDataCrudModel {
 // MARK: - Method
 extension StoreDataCrudModel {
     private func showAlertIfNoStoreData() {
-        if StoreDataCrudModel.storeDataArray.isEmpty {
+        if StoreDataContentsModel.storeDataArray.isEmpty {
             self.invalidAlertDelegate?.showAlertNoStoreData()
         }
     }

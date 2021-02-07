@@ -9,6 +9,8 @@
 import Foundation
 
 struct StoreDataContentsModel {
+    static var storeDataArray = [StoreDataContentsModel]()
+
     let childID: String
     let store: String
     let place: String
