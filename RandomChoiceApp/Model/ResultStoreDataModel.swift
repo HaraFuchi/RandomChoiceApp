@@ -15,14 +15,12 @@ struct ResultStoreDate {
 }
 
 class ResultStoreDataModel {
-    static var questions: String { return Mark.questions }
-    
     static func showResultStoreData() {
         
         guard let element = StoreDataContentsModel.storeDataArray.randomElement() else { return }
                 
         ResultStoreDate.store = element.store 
         ResultStoreDate.place = element.place 
-        ResultStoreDate.genre = element.genre 
+        ResultStoreDate.genre = element.genre
     }
 }
