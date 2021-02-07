@@ -37,10 +37,10 @@ class ResultStoreDataModelTests: XCTestCase {
     }
     
     func test_データの数が1つ_同じ値が表示され続ける() {
-        StoreDataCrudModel.storeDataArray = [.init(childID: "childID_1",
-                                                   store: "store_1",
-                                                   place: "place_1",
-                                                   genre: "genre_1")]
+        StoreDataCrudModel.storeDataArray = [.init(childID: "childID_A",
+                                                   store: "store_A",
+                                                   place: "place_A",
+                                                   genre: "genre_A")]
         
         if StoreDataCrudModel.storeDataArray.count != 1 {
             XCTFail()
@@ -48,9 +48,9 @@ class ResultStoreDataModelTests: XCTestCase {
         
         ResultStoreDataModel.showResultStoreData()
         
-        XCTAssertEqual(ResultStoreDate.store, "store_1")
-        XCTAssertEqual(ResultStoreDate.place, "place_1")
-        XCTAssertEqual(ResultStoreDate.genre, "genre_1")
+        XCTAssertEqual(ResultStoreDate.store, "store_A")
+        XCTAssertEqual(ResultStoreDate.place, "place_A")
+        XCTAssertEqual(ResultStoreDate.genre, "genre_A")
         
         if StoreDataCrudModel.storeDataArray.count != 1 {
             XCTFail()
@@ -58,9 +58,9 @@ class ResultStoreDataModelTests: XCTestCase {
         
         ResultStoreDataModel.showResultStoreData()
         
-        XCTAssertEqual(ResultStoreDate.store, "store_1")
-        XCTAssertEqual(ResultStoreDate.place, "place_1")
-        XCTAssertEqual(ResultStoreDate.genre, "genre_1")
+        XCTAssertEqual(ResultStoreDate.store, "store_A")
+        XCTAssertEqual(ResultStoreDate.place, "place_A")
+        XCTAssertEqual(ResultStoreDate.genre, "genre_A")
     }
     
     func test_データが複数_それぞれ対応する値が返却される() {
@@ -78,21 +78,24 @@ class ResultStoreDataModelTests: XCTestCase {
         XCTAssertNotEqual(ResultStoreDate.genre, "???")
     }
     
-    //TODO コンパイルエラーが発生
-//    func test_データが大量_それぞれ対応する値が返却される() {
-//        StoreDataCrudModel.storeDataArray = (0..<1000)
-//            .map {StoreDataContentsModel(childID: $0,
-//                                         store: "store",
-//                                         place: "place",
-//                                         genre: "genre")
-//        }
-//
-//        self.measure {
-//            ResultStoreDataModel.showResultStoreData()
-//
-//            XCTAssertNotEqual(ResultStoreDate.store, "???")
-//            XCTAssertNotEqual(ResultStoreDate.place, "???")
-//            XCTAssertNotEqual(ResultStoreDate.genre, "???")
-//        }
-//    }
+    func test_データが大量_それぞれ対応する値が返却される() {
+            StoreDataCrudModel.storeDataArray = (0..<1000)
+                .map {
+                        StoreDataContentsModel(
+                            childID: String($0),
+                            store: "store",
+                            place: "place",
+                            genre: "genre")
+                }
+            
+            // measureはパフォーマンスの計測のため
+            self.measure {
+                ResultStoreDataModel.showResultStoreData()
+                
+                /// - Note: ランダムのUT実装は困難のため、初期値を異なる値が返却されたらテスト成功とする
+                XCTAssertNotEqual(ResultStoreDate.store, "???")
+                XCTAssertNotEqual(ResultStoreDate.genre, "???")
+                XCTAssertNotEqual(ResultStoreDate.place, "???")
+            }
+        }
 }
