@@ -122,8 +122,6 @@ private extension ListViewController {
             guard StoreDataCrudModel.storeDataArray.isEmpty else { return }
             
             if editingStyle == UITableViewCell.EditingStyle.delete {
-                /// Cell削除時のアニメーション
-                StoreDataCrudModel.storeDataArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
             }
         })
