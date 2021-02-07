@@ -9,7 +9,6 @@
 import UIKit
 
 class EditViewController: UIViewController, AlertDisplayable {
-    
     //TFに入れる値を所持
     var editStoreNameString: String?
     var editPlaceNameString: String?
@@ -17,7 +16,6 @@ class EditViewController: UIViewController, AlertDisplayable {
     var childID: String?
     
     let crudModel = StoreDataCrudModel()
-    var emptyNameText: String { return "???" }
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     
@@ -67,7 +65,7 @@ class EditViewController: UIViewController, AlertDisplayable {
         if editStoreNameString == nil, editPlaceNameString == nil, editGenreNameString == nil {
             showAlertAllNilTextField()
         } else {
-            crudModel.editStoreData(store: editStoreNameString ?? emptyNameText, place: editPlaceNameString ?? emptyNameText, genre: editGenreNameString ?? emptyNameText, childID: childID)
+            crudModel.editStoreData(store: editStoreNameString ?? Mark.questions, place: editPlaceNameString ?? Mark.questions, genre: editGenreNameString ?? Mark.questions, childID: childID)
             dismiss(animated: true, completion: nil)
         }
     }
