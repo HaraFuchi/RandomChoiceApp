@@ -11,15 +11,11 @@ import XCTest
 
 class ResultStoreDataModelTests: XCTestCase {
     
-    override class func setUp() {
+    override func setUp() {
         super.setUp()
-//        ResultStoreDate.store = "???"
-//        ResultStoreDate.place = "???"
-//        ResultStoreDate.genre = "???"
-//        StoreDataCrudModel.storeDataArray = []
     }
     
-    override class func tearDown() {
+    override func tearDown() {
         super.tearDown()
         ResultStoreDate.store = "???"
         ResultStoreDate.place = "???"
@@ -28,7 +24,7 @@ class ResultStoreDataModelTests: XCTestCase {
     }
     
     func test_データの数が0の場合_値は初期値から変わらない() {
-        if StoreDataCrudModel.storeDataArray.isEmpty == false {
+        if !StoreDataCrudModel.storeDataArray.isEmpty {
             XCTFail("データの数が1つ以上あるためUT実施不可")
             return
         }
