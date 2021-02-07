@@ -8,10 +8,8 @@
 
 import Foundation
 
-struct ResultStoreDate {
-    static var store = Mark.questions
-    static var place = Mark.questions
-    static var genre = Mark.questions
+struct ResultData {
+    static var store: StoreData?
 }
 
 class ResultStoreDataModel {    
@@ -19,8 +17,6 @@ class ResultStoreDataModel {
         
         guard let element = StoreDataCrudModel.storeDataArray.randomElement() else { return }
                 
-        ResultStoreDate.store = element.store
-        ResultStoreDate.place = element.place
-        ResultStoreDate.genre = element.genre
+        ResultData.store = element
     }
 }
