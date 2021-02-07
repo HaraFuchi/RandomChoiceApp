@@ -8,17 +8,9 @@
 
 import Foundation
 
-class StoreDataContentsModel {
-    
-    var childID: String?
-    var storeName: String?
-    var placeName: String?
-    var genreName: String?
-    
-    init(childID: String, store: String, place: String, genre: String) {
-        self.childID = childID
-        self.storeName = store
-        self.placeName = place
-        self.genreName = genre
-    }
+struct StoreDataContentsModel {
+    var childID: String
+    var store: String
+    var place: String
+    var genre: String
 }
