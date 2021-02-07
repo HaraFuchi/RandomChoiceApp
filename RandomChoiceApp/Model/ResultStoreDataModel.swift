@@ -8,19 +8,25 @@
 
 import Foundation
 
-struct ResultStoreDate {
-    static var store = Mark.questions
-    static var place = Mark.questions
-    static var genre = Mark.questions
-}
+//struct ResultStoreDate {
+//    static var store = Mark.questions
+//    static var place = Mark.questions
+//    static var genre = Mark.questions
+//}
 
 class ResultStoreDataModel {
     static func showResultStoreData() {
-        
         guard let element = StoreDataContentsModel.storeDataArray.randomElement() else { return }
-                
-        ResultStoreDate.store = element.store 
-        ResultStoreDate.place = element.place 
-        ResultStoreDate.genre = element.genre
+        
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(element), forKey: "storeData")
+        UserDefaults.standard.synchronize()
+        
+        
+        if let data = UserDefaults.standard.value (forKey:"storeData") as? Data {
+            let savedStoreData = try? PropertyListDecoder().decode(StoreDataContentsModel.self, from: data)
+            print(savedStoreData)
+        } else {
+            print("失敗")
+        }
     }
 }

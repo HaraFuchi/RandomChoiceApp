@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct StoreDataContentsModel {
+struct StoreDataContentsModel: Codable {
+    //配列を別の関数で管理したい
     static var storeDataArray = [StoreDataContentsModel]()
 
     let childID: String
