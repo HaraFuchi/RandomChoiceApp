@@ -15,8 +15,8 @@ struct ResultData {
 struct ResultStoreDataModel {
     static func showResultStoreData() {
         
-        guard let element = StoreDataCrudModel.storeDataArray.randomElement() else { return }
+        guard let selectedData = StoreDataCrudModel.storeDataArray.randomElement() else { return }
                 
-        ResultData.store = element
+        ResultData.store = selectedData
     }
 }
