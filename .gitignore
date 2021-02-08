@@ -8,6 +8,7 @@ xcuserdata
 Pods/*
 
 #Bundler
-vendor/bundle
 bundle/*
 .bundle/*
+vendor/bundle
+
