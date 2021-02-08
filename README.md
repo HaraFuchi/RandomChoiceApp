@@ -12,10 +12,17 @@
 タスク管理ツールTrelloを使用
 
 ## 開発情報
-- 開発環境: Xcode ( V12.3 )
-- 使用言語: Swift (V5.3)
-- 対応デバイス: iPhone, iPad (サポート対象: iOS13.0〜)
-- CocoaPods (V1.10.0)
+
+|  項目  |  バージョン  |
+| :---: | :---: |
+|  Xcode  |12.3|
+|  Swift  | 5.3|
+|  iOS  |  13.0以上  |
+|  デバイス  |  iPhone<br>iPad<br>Mac(M1チップのみ) |
+|  CocoaPods  |  1.10.0  |
+|  Carthago  |  TBD  |
+|  fastlane  |  TBD  |
+|  SwiftLint  |  TBD  |
 
 ## 使用ライブラリ
 
