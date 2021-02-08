@@ -23,6 +23,7 @@ git clone git@github.com:HaraFuchi/RandomChoiceApp.git -b ブランチ名
 - [ ] 冗長な書き方になっていないか？ 
 - [ ] 追加したfunctionやpropertyのスコープは適切か?
 - [ ] 準正常系、異常系が考慮されているか？
+- [ ] コンフリクトが起きていないか？
 - [ ] ユニットテストを実装したか? ※新規機能を実装した場合のみでOK
 - [ ] UIのレイアウトが崩れていないか？ ※UIを実装した場合のみでOK
 
