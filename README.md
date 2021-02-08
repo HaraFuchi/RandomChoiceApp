@@ -62,7 +62,7 @@ FIXME: 長期化の可能性がある修正箇所
 ## 環境構築
 1. Bundlerをインストール
     -  `sudo gem install bundler` 
-2. このリポジトリをclone
+2. リポジトリをclone
     -  `git clone https://github.com/HaraFuchi/RandomChoiceApp.git` 
 3. CocoaPodsをインストール
         -  `bundle install --path vendor/bundle` 
