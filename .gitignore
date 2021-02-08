@@ -6,3 +6,8 @@ xcuserdata
 
 #CocoaPod
 Pods/*
+
+#Bundler
+bundle/*
+.bundle/*
+vendor/bundle
