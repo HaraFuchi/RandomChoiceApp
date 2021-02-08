@@ -35,12 +35,15 @@ class StoreDataCrudModel {
             StoreDataCrudModel.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
                 for snap in snapShot {
-                    if let postData = snap.value as? [String: Any] {
+                    if let postData = snap.value as? [String: String] {
                         let childID = snap.key
                         let storeName = postData[StoreDataType.store]
                         let placeName = postData[StoreDataType.place]
                         let genreName = postData[StoreDataType.genre]
-                        let storeDataContent = StoreData(childID: childID , store: storeName as! String, place: placeName as! String, genre: genreName as! String )
+                        let storeDataContent = StoreData(childID: childID,
+                                                         store: storeName ?? Mark.questions,
+                                                         place: placeName ?? Mark.questions,
+                                                         genre: genreName ?? Mark.questions)
                         StoreDataCrudModel.storeDataArray.append(storeDataContent)
                     }
                 }
