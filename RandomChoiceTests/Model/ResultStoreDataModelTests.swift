@@ -27,7 +27,7 @@ class ResultStoreDataModelTests: XCTestCase {
             return
         }
         
-        ResultStoreDataModel.showResultStoreData()
+        ExtractResultLogic.randomSelectedStoreData()
         
         XCTAssertNil(ResultData.store)
     }
@@ -42,7 +42,7 @@ class ResultStoreDataModelTests: XCTestCase {
             XCTFail()
         }
         
-        ResultStoreDataModel.showResultStoreData()
+        ExtractResultLogic.randomSelectedStoreData()
         
         XCTAssertEqual(ResultData.store?.store, "store_A")
         XCTAssertEqual(ResultData.store?.place, "place_A")
@@ -52,7 +52,7 @@ class ResultStoreDataModelTests: XCTestCase {
             XCTFail()
         }
         
-        ResultStoreDataModel.showResultStoreData()
+        ExtractResultLogic.randomSelectedStoreData()
         
         XCTAssertEqual(ResultData.store?.store, "store_A")
         XCTAssertEqual(ResultData.store?.place, "place_A")
@@ -67,7 +67,7 @@ class ResultStoreDataModelTests: XCTestCase {
         ]
         
         /// - Note: ランダムのUT実装は困難のため、初期値を異なる値が返却されたらテスト成功とする
-        ResultStoreDataModel.showResultStoreData()
+        ExtractResultLogic.randomSelectedStoreData()
         
         XCTAssertNotEqual(ResultData.store?.store, "???")
         XCTAssertNotEqual(ResultData.store?.place, "???")
@@ -86,7 +86,7 @@ class ResultStoreDataModelTests: XCTestCase {
         
         // measureはパフォーマンスの計測のため
         self.measure {
-            ResultStoreDataModel.showResultStoreData()
+            ExtractResultLogic.randomSelectedStoreData()
             
             /// - Note: ランダムのUT実装は困難のため、初期値を異なる値が返却されたらテスト成功とする
             XCTAssertNotEqual(ResultData.store?.store, "???")

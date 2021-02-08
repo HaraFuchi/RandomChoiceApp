@@ -1,5 +1,5 @@
 //
-//  ResultStoreDataModel.swift
+//  ExtractResultLogic.swift
 //  RandomChoiceApp
 //
 //  Created by 渕一真 on 2021/01/02.
@@ -12,8 +12,8 @@ struct ResultData {
     static var store: StoreData?
 }
 
-struct ResultStoreDataModel {
-    static func showResultStoreData() {
+struct ExtractResultLogic {
+    static func randomSelectedStoreData() {
         
         guard let selectedData = StoreDataCrudModel.storeDataArray.randomElement() else { return }
                 

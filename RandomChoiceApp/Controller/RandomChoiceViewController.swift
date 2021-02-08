@@ -73,7 +73,7 @@ extension RandomChoiceViewController: InvalidAlertDisplayable {
 
 extension RandomChoiceViewController: DiceButtonViewProtocal {
     func didTapDiceButton() {
-        ResultStoreDataModel.showResultStoreData()
+        ExtractResultLogic.randomSelectedStoreData()
         tableView.reloadData()
     }
 }
