@@ -9,11 +9,11 @@
 import Foundation
 import Firebase
 
-protocol InvalidAlertDisplayable {
+protocol InvalidAlertDisplayable: AnyObject {
     func showAlertNoStoreData()
 }
 
-protocol StoreDataCrudModelDelegate {
+protocol StoreDataCrudModelDelegate: AnyObject {
     func reload()
 }
 
