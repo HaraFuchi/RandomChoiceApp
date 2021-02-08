@@ -10,5 +10,4 @@ Pods/*
 #Bundler
 bundle/*
 .bundle/*
-vendor/bundle
-
+vendor/
