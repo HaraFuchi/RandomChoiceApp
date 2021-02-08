@@ -16,11 +16,11 @@ struct ResultStoreDate {
 
 class ResultStoreDataModel {
     static var questions: String { return Mark.questions }
-    
+
     static func showResultStoreData() {
-        
+
         guard let element = StoreDataCrudModel.storeDataArray.randomElement() else { return }
-                
+
         ResultStoreDate.store = element.storeName ?? questions
         ResultStoreDate.place = element.placeName ?? questions
         ResultStoreDate.genre = element.genreName ?? questions

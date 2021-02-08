@@ -13,7 +13,7 @@ enum CategoryListType: Int, CaseIterable {
     case place
     case genre
     case signup
-    
+
     var title: String? {
         switch self {
         case .store: return StoreDataType.store
@@ -22,7 +22,7 @@ enum CategoryListType: Int, CaseIterable {
         case .signup: return nil
         }
     }
-    
+
     var placeHolder: String? {
         switch self {
         case .store: return CategoryPlaceHolder.store

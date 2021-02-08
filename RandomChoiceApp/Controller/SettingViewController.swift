@@ -11,14 +11,14 @@ import Firebase
 import MessageUI
 
 class SettingViewController: UIViewController {
-    
+
     private var settingCell = SettingTableViewCell()
     private let appVersion = Bundle.main.object(forInfoDictionaryKey: BundleIdentifier.appVersion) as! String
-    
+
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var backBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-    
+
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -28,12 +28,12 @@ class SettingViewController: UIViewController {
             tableView.isScrollEnabled = false
         }
     }
-    
+
     private enum SettingCategoryList: Int, CaseIterable {
         case contactUs
         case review
         case appVersion
-        
+
         var title: String {
             switch self {
             case .contactUs: return SettingTitle.contact
@@ -42,24 +42,24 @@ class SettingViewController: UIViewController {
             }
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.delegate = self
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         tableViewHeight.constant = CGFloat(tableView.contentSize.height)
     }
-    
+
     @IBAction private func didTapBackButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
 }
 
 extension SettingViewController: UINavigationBarDelegate {
-    //UINavigationBarをステータスバーまで広げる
+    // UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
     }
@@ -69,15 +69,15 @@ extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SettingCategoryList.allCases.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         settingCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.settingCell, for: indexPath) as! SettingTableViewCell
         settingCell.isSubTitleLabelHidden = true
-        
+
         guard let cellType = SettingCategoryList(rawValue: indexPath.row) else {
             return UITableViewCell()
         }
-        
+
         switch cellType {
         case .contactUs:
             settingCell.titleText = SettingCategoryList.contactUs.title
@@ -99,14 +99,14 @@ extension SettingViewController: UITableViewDataSource {
 extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+
         guard let cellType = SettingCategoryList(rawValue: indexPath.row) else { return }
-        
+
         switch cellType {
         case .contactUs:
             composeMail()
         case .review:
-            //外部ブラウザでURLを開く
+            // 外部ブラウザでURLを開く
             guard let url = URL(string: Url.appStoreReview),
                   UIApplication.shared.canOpenURL(url) else { return }
             UIApplication.shared.open(url)
@@ -137,7 +137,7 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         composer.setMessageBody(EmailInfo.messageBody_1 + appVersion + EmailInfo.messageBody_2 + iOSVersion + EmailInfo.messageBody_3 + user, isHTML: false)
         present(composer, animated: true, completion: nil)
     }
-    
+
     // メール送信結果をハンドリング
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         if let error = error {
@@ -157,7 +157,7 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         // メール画面を閉じる
         controller.dismiss(animated: true, completion: nil)
     }
-    
+
     private func showAlertNoEmailAddress() {
         let alert = UIAlertController(title: AlertTitle.email, message: AlertMessage.email, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: AlertButtonTitle.ok, style: .default, handler: nil)

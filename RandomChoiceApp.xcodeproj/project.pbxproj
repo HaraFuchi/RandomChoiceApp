@@ -159,8 +159,8 @@
 		C548E98724C69C68008685D7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */,
 				E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */,
+				E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */,
 				E3955A4024C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift */,
 				E3955A4124C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib */,
 				C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */,

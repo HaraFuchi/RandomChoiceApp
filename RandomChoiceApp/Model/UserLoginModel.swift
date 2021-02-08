@@ -11,7 +11,7 @@ import Firebase
 
 class UserLoginModel {
     static func anonymous() {
-        Auth.auth().signInAnonymously() { (authResult, error) in
+        Auth.auth().signInAnonymously { (authResult, error) in
             if let error = error {
                 print("Auth Error :\(error.localizedDescription)")
             }

@@ -8,10 +8,10 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
-    
+class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable {
+
     @IBOutlet weak var navigationBar: UINavigationBar!
-    
+
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -21,44 +21,44 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
             tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: CellIdentifier.actionButtonCell)
         }
     }
-    
+
     let crudModel = StoreDataCrudModel()
     var emptyNameText: String { return "???" }
-    
-    //TFに入れる値を所持
+
+    // TFに入れる値を所持
     var editStoreNameString: String?
     var editPlaceNameString: String?
     var editGenreNameString: String?
     var childID: String?
-    
-    //UINavigationBarをステータスバーまで広げる
+
+    // UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.delegate = self
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CategoryListType.allCases.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.signupCell, for: indexPath) as! SignupCategoryTableViewCell
         let actionButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
-        
+
         guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
-        
+
         convertValueNil()
-        
+
         categoryCell.delegate = self
-        
+
         actionButtonCell.signupButtonTapHandler = { [weak self] _ in
             self?.showEditAlert()
         }
-        
+
         switch cellType {
         case .store:
             categoryCell.categoryTitle = CategoryListType.store.title ?? ""
@@ -83,7 +83,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     }
 }
 
-//MARK: - Protocol
+// MARK: - Protocol
 extension EditViewController: SignupCategoryTableViewCellDelegate {
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
         switch cellType {
@@ -101,10 +101,10 @@ extension EditViewController: actionButtonProtocal {
     }
 }
 
-//MARK: - Method
+// MARK: - Method
 extension EditViewController {
-    //TFに???を反映させる必要はないため、nilを返す
-    //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
+    // TFに???を反映させる必要はないため、nilを返す
+    // TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
     private func convertValueNil() {
         if editStoreNameString == Mark.questions || editStoreNameString == "" {
             editStoreNameString = nil
@@ -116,11 +116,11 @@ extension EditViewController {
             editGenreNameString = nil
         }
     }
-    
+
     private func showEditAlert() {
         let alert = UIAlertController(title: AlertTitle.edit, message: nil, preferredStyle: .alert)
         let editAction = UIAlertAction(title: AlertButtonTitle.save, style: .default) { _ in
-            //Firebaseの更新機能追加
+            // Firebaseの更新機能追加
             self.convertValueNil()
             self.editAction()
         }
@@ -129,7 +129,7 @@ extension EditViewController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
-    
+
     private func editAction() {
         if editStoreNameString == nil, editPlaceNameString == nil, editGenreNameString == nil {
             showAlertAllNilTextField()
