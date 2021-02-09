@@ -21,7 +21,8 @@ class StoreDataCrudModel {
     
     var invalidAlertDelegate: InvalidAlertDisplayable?
     var storeDataCrudModelDelegate: StoreDataCrudModelDelegate?
-    static var storeDataArray = [StoreData]()
+
+    private(set) static var storeDataArray = [StoreData]()
     
     private let ref = Database.database().reference()
     

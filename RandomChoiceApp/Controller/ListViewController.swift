@@ -116,17 +116,15 @@ extension ListViewController: StoreDataCrudModelDelegate {
 private extension ListViewController {
     func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
         let showAlert = UIAlertController(title: AlertTitle.delete, message: nil, preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive, handler: { _ -> Void in
+        let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive) { ( _ ) in
             self.crudModel.deleteStoreData(indexPath: indexPath)
-            
+
             guard StoreDataCrudModel.storeDataArray.isEmpty else { return }
-            
+
             if editingStyle == UITableViewCell.EditingStyle.delete {
-                /// Cell削除時のアニメーション
-                StoreDataCrudModel.storeDataArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
             }
-        })
+        }
         let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
         showAlert.addAction(cancelAction)
         showAlert.addAction(deleteAction)
