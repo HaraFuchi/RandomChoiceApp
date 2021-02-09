@@ -114,7 +114,6 @@ extension EditViewController {
     private func showEditAlert() {
         let alert = UIAlertController(title: AlertTitle.edit, message: nil, preferredStyle: .alert)
         let editAction = UIAlertAction(title: AlertButtonTitle.save, style: .default) { _ in
-            //Firebaseの更新機能追加
             self.convertValueNil()
             self.editAction()
         }
@@ -128,10 +127,12 @@ extension EditViewController {
         if storeData?.store == nil, storeData?.place == nil, storeData?.genre == nil {
             showAlertAllNilTextField()
         } else {
-            crudModel.editStoreData(store: storeData?.store ?? Mark.questions,
+            guard let uniqID = storeData?.childID else { return }
+            
+            crudModel.editStoreData(uniqID: uniqID,
+                                    store: storeData?.store ?? Mark.questions,
                                     place: storeData?.place ?? Mark.questions,
-                                    genre: storeData?.genre ?? Mark.questions,
-                                    childID: storeData?.childID)
+                                    genre: storeData?.genre ?? Mark.questions)
             dismiss(animated: true, completion: nil)
         }
     }
