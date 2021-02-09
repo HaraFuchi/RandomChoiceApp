@@ -21,7 +21,7 @@ class StoreDataCrudModel {
     
     var invalidAlertDelegate: InvalidAlertDisplayable?
     var storeDataCrudModelDelegate: StoreDataCrudModelDelegate?
-    static var storeDataArray = [StoreDataContentsModel]()
+    static var storeDataArray = [StoreData]()
     
     private let ref = Database.database().reference()
     
@@ -35,12 +35,15 @@ class StoreDataCrudModel {
             StoreDataCrudModel.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
                 for snap in snapShot {
-                    if let postData = snap.value as? [String: Any] {
+                    if let postData = snap.value as? [String: String] {
                         let childID = snap.key
                         let storeName = postData[StoreDataType.store]
                         let placeName = postData[StoreDataType.place]
                         let genreName = postData[StoreDataType.genre]
-                        let storeDataContent = StoreDataContentsModel(childID: childID , store: storeName as! String, place: placeName as! String, genre: genreName as! String )
+                        let storeDataContent = StoreData(childID: childID,
+                                                         store: storeName ?? Mark.questions,
+                                                         place: placeName ?? Mark.questions,
+                                                         genre: genreName ?? Mark.questions)
                         StoreDataCrudModel.storeDataArray.append(storeDataContent)
                     }
                 }
@@ -59,7 +62,7 @@ class StoreDataCrudModel {
     
     func deleteStoreData(indexPath: IndexPath) {
         let childKey = StoreDataCrudModel.storeDataArray[indexPath.row].childID
-        ref.child(Auth.auth().currentUser!.uid).child(childKey!).removeValue()
+        ref.child(Auth.auth().currentUser!.uid).child(childKey).removeValue()
     }
 }
 

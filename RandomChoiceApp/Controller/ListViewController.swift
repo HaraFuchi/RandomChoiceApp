@@ -54,9 +54,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             setUpSkeleton(cell: cell)
         } else {
             cell.hideSkeleton()
-            cell.storeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].storeName ?? "???"
-            cell.placeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].placeName ?? "???"
-            cell.genreDataText = StoreDataCrudModel.storeDataArray[indexPath.row].genreName ?? "???"
+            cell.storeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].store
+            cell.placeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].place
+            cell.genreDataText = StoreDataCrudModel.storeDataArray[indexPath.row].genre
             cell.indexPathNumber = indexPath.row
         }
         return cell
@@ -97,9 +97,9 @@ extension ListViewController: ListPageTableViewCellDelegate {
         if segue.identifier == SegueIdentifier.goToEditVC {
             let editVC = segue.destination as! EditViewController
             if let indexPath = indexPathNumber {
-                editVC.editStoreNameString = StoreDataCrudModel.storeDataArray[indexPath].storeName
-                editVC.editPlaceNameString = StoreDataCrudModel.storeDataArray[indexPath].placeName
-                editVC.editGenreNameString = StoreDataCrudModel.storeDataArray[indexPath].genreName
+                editVC.editStoreNameString = StoreDataCrudModel.storeDataArray[indexPath].store
+                editVC.editPlaceNameString = StoreDataCrudModel.storeDataArray[indexPath].place
+                editVC.editGenreNameString = StoreDataCrudModel.storeDataArray[indexPath].genre
                 editVC.childID = StoreDataCrudModel.storeDataArray[indexPath].childID
             }
         }

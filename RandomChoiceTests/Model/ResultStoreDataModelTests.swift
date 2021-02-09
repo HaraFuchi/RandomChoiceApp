@@ -17,9 +17,7 @@ class ResultStoreDataModelTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
-        ResultStoreDate.store = "???"
-        ResultStoreDate.place = "???"
-        ResultStoreDate.genre = "???"
+        ResultData.store = nil
         StoreDataCrudModel.storeDataArray = []
     }
     
@@ -29,11 +27,9 @@ class ResultStoreDataModelTests: XCTestCase {
             return
         }
         
-        ResultStoreDataModel.showResultStoreData()
+        ExtractResultLogic.randomSelectedStoreData()
         
-        XCTAssertEqual(ResultStoreDate.store, "???")
-        XCTAssertEqual(ResultStoreDate.place, "???")
-        XCTAssertEqual(ResultStoreDate.genre, "???")
+        XCTAssertNil(ResultData.store)
     }
     
     func test_データの数が1つ_同じ値が表示され続ける() {
@@ -46,21 +42,21 @@ class ResultStoreDataModelTests: XCTestCase {
             XCTFail()
         }
         
-        ResultStoreDataModel.showResultStoreData()
+        ExtractResultLogic.randomSelectedStoreData()
         
-        XCTAssertEqual(ResultStoreDate.store, "store_A")
-        XCTAssertEqual(ResultStoreDate.place, "place_A")
-        XCTAssertEqual(ResultStoreDate.genre, "genre_A")
+        XCTAssertEqual(ResultData.store?.store, "store_A")
+        XCTAssertEqual(ResultData.store?.place, "place_A")
+        XCTAssertEqual(ResultData.store?.genre, "genre_A")
         
         if StoreDataCrudModel.storeDataArray.count != 1 {
             XCTFail()
         }
         
-        ResultStoreDataModel.showResultStoreData()
+        ExtractResultLogic.randomSelectedStoreData()
         
-        XCTAssertEqual(ResultStoreDate.store, "store_A")
-        XCTAssertEqual(ResultStoreDate.place, "place_A")
-        XCTAssertEqual(ResultStoreDate.genre, "genre_A")
+        XCTAssertEqual(ResultData.store?.store, "store_A")
+        XCTAssertEqual(ResultData.store?.place, "place_A")
+        XCTAssertEqual(ResultData.store?.genre, "genre_A")
     }
     
     func test_データが複数_それぞれ対応する値が返却される() {
@@ -71,31 +67,31 @@ class ResultStoreDataModelTests: XCTestCase {
         ]
         
         /// - Note: ランダムのUT実装は困難のため、初期値を異なる値が返却されたらテスト成功とする
-        ResultStoreDataModel.showResultStoreData()
+        ExtractResultLogic.randomSelectedStoreData()
         
-        XCTAssertNotEqual(ResultStoreDate.store, "???")
-        XCTAssertNotEqual(ResultStoreDate.place, "???")
-        XCTAssertNotEqual(ResultStoreDate.genre, "???")
+        XCTAssertNotEqual(ResultData.store?.store, "???")
+        XCTAssertNotEqual(ResultData.store?.place, "???")
+        XCTAssertNotEqual(ResultData.store?.genre, "???")
     }
     
     func test_データが大量_それぞれ対応する値が返却される() {
-            StoreDataCrudModel.storeDataArray = (0..<1000)
-                .map {
-                        StoreDataContentsModel(
-                            childID: String($0),
-                            store: "store",
-                            place: "place",
-                            genre: "genre")
-                }
-            
-            // measureはパフォーマンスの計測のため
-            self.measure {
-                ResultStoreDataModel.showResultStoreData()
-                
-                /// - Note: ランダムのUT実装は困難のため、初期値を異なる値が返却されたらテスト成功とする
-                XCTAssertNotEqual(ResultStoreDate.store, "???")
-                XCTAssertNotEqual(ResultStoreDate.genre, "???")
-                XCTAssertNotEqual(ResultStoreDate.place, "???")
+        StoreDataCrudModel.storeDataArray = (0..<1000)
+            .map {
+                StoreData(
+                    childID: String($0),
+                    store: "store",
+                    place: "place",
+                    genre: "genre")
             }
+        
+        // measureはパフォーマンスの計測のため
+        self.measure {
+            ExtractResultLogic.randomSelectedStoreData()
+            
+            /// - Note: ランダムのUT実装は困難のため、初期値を異なる値が返却されたらテスト成功とする
+            XCTAssertNotEqual(ResultData.store?.store, "???")
+            XCTAssertNotEqual(ResultData.store?.place, "???")
+            XCTAssertNotEqual(ResultData.store?.genre, "???")
         }
+    }
 }
