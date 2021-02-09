@@ -10,7 +10,11 @@ import UIKit
 
 class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
     
-    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var navigationBar: UINavigationBar! {
+        didSet {
+            navigationBar.delegate = self
+        }
+    }
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -32,7 +36,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.delegate = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
