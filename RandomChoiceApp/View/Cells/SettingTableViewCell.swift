@@ -23,13 +23,13 @@ class SettingTableViewCell: UITableViewCell {
         }
     }
     
-    var titleText: String = "" {
+    var titleText: String? {
         didSet {
             settingTitleLabel?.text = titleText
         }
     }
     
-    var subTitleText: String = "" {
+    var subTitleText: String? {
         didSet {
             subTitleLabel?.text = subTitleText
         }

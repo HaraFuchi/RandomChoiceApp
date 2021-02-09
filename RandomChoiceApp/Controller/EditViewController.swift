@@ -55,18 +55,18 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         
         switch cellType {
         case .store:
-            categoryCell.categoryTitle = CategoryListType.store.title ?? ""
-            categoryCell.categoryText = storeData?.store ?? ""
+            categoryCell.categoryTitle = CategoryListType.store.title
+            categoryCell.categoryText = storeData?.store
             categoryCell.cellType = .store
             return categoryCell
         case .place:
-            categoryCell.categoryTitle = CategoryListType.place.title ?? ""
-            categoryCell.categoryText = storeData?.place ?? ""
+            categoryCell.categoryTitle = CategoryListType.place.title
+            categoryCell.categoryText = storeData?.place
             categoryCell.cellType = .place
             return categoryCell
         case .genre:
-            categoryCell.categoryTitle = CategoryListType.genre.title ?? ""
-            categoryCell.categoryText = storeData?.genre ?? ""
+            categoryCell.categoryTitle = CategoryListType.genre.title
+            categoryCell.categoryText = storeData?.genre 
             categoryCell.cellType = .genre
             return categoryCell
         case .signup:
@@ -81,9 +81,9 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
 extension EditViewController: SignupCategoryTableViewCellDelegate {
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
         switch cellType {
-        case .store: storeData?.store = textField.text ?? ""
-        case .place: storeData?.place = textField.text ?? ""
-        case .genre: storeData?.genre = textField.text ?? ""
+        case .store: storeData?.store = textField.text
+        case .place: storeData?.place = textField.text
+        case .genre: storeData?.genre = textField.text
         case .signup: break
         }
     }

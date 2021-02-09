@@ -54,9 +54,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             setUpSkeleton(cell: cell)
         } else {
             cell.hideSkeleton()
-            cell.storeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].store ?? ""
-            cell.placeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].place ?? ""
-            cell.genreDataText = StoreDataCrudModel.storeDataArray[indexPath.row].genre ?? ""
+            cell.storeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].store
+            cell.placeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].place
+            cell.genreDataText = StoreDataCrudModel.storeDataArray[indexPath.row].genre 
             cell.indexPathNumber = indexPath.row
         }
         return cell
