@@ -47,9 +47,9 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
         
         switch cellType {
         case .result:
-            storeDataCell.storeDataText = ResultStoreDate.store
-            storeDataCell.placeDataText = ResultStoreDate.place
-            storeDataCell.genreDataText = ResultStoreDate.genre
+            storeDataCell.storeDataText = ResultData.store?.store ?? Mark.questions
+            storeDataCell.placeDataText = ResultData.store?.place ?? Mark.questions
+            storeDataCell.genreDataText = ResultData.store?.genre ?? Mark.questions
             storeDataCell.isHiddenEditButton = true
             return storeDataCell
         case .dice:
@@ -73,7 +73,7 @@ extension RandomChoiceViewController: InvalidAlertDisplayable {
 
 extension RandomChoiceViewController: DiceButtonViewProtocal {
     func didTapDiceButton() {
-        ResultStoreDataModel.showResultStoreData()
+        ExtractResultLogic.randomSelectedStoreData()
         tableView.reloadData()
     }
 }
