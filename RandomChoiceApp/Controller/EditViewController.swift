@@ -115,6 +115,10 @@ extension EditViewController {
         let alert = UIAlertController(title: AlertTitle.edit, message: nil, preferredStyle: .alert)
         let editAction = UIAlertAction(title: AlertButtonTitle.save, style: .default) { _ in
             self.convertValueNil()
+            if self.storeData?.store == nil, self.storeData?.place == nil, self.storeData?.genre == nil {
+                self.showAlertAllNilTextField()
+            }
+            
             self.editAction()
         }
         let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
@@ -124,16 +128,12 @@ extension EditViewController {
     }
     
     private func editAction() {
-        if storeData?.store == nil, storeData?.place == nil, storeData?.genre == nil {
-            showAlertAllNilTextField()
-        } else {
-            guard let uniqID = storeData?.childID else { return }
-            
-            crudModel.editStoreData(uniqID: uniqID,
-                                    store: storeData?.store ?? Mark.questions,
-                                    place: storeData?.place ?? Mark.questions,
-                                    genre: storeData?.genre ?? Mark.questions)
-            dismiss(animated: true, completion: nil)
-        }
+        guard let uniqID = storeData?.childID else { return }
+        
+        crudModel.editStoreData(uniqID: uniqID,
+                                store: storeData?.store ?? Mark.questions,
+                                place: storeData?.place ?? Mark.questions,
+                                genre: storeData?.genre ?? Mark.questions)
+        dismiss(animated: true, completion: nil)
     }
 }
