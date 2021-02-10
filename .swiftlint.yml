@@ -2,8 +2,6 @@
 disabled_rules:
 - force_cast
 - force_try
-- unused_optional_binding
-- identifier_name
 - todo
 
 # デフォルトルール以外でopt-inから適用させるルールの設定

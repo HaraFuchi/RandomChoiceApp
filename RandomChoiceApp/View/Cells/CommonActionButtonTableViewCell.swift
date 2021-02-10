@@ -37,7 +37,7 @@ class CommonActionButtonTableViewCell: UITableViewCell {
         self.selectionStyle = .none
     }
 
-    func setupButton(_ vc: UIViewController) {
+    func setupButton(_ vc: UIViewController) { // swiftlint:disable:this identifier_name
         if vc is SignupViewController {
             signupButtonDetailInSignupScreen()
             cancelButtonDetailInSignupScreen()

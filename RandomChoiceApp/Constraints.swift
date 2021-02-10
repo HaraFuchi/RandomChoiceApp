@@ -19,7 +19,7 @@ struct StoreDataType {
 }
 
 struct CategoryPlaceHolder {
-    static private let ex = "例) "
+    static private let ex = "例) " // swiftlint:disable:this identifier_name
     static let store = ex + "サイゼリヤ"
     static let place = ex + "新宿"
     static let genre = ex + "イタリアン"
@@ -48,7 +48,7 @@ struct AlertMessage {
 
 struct AlertButtonTitle {
     static let signUp = "登録する"
-    static let ok = "OK"
+    static let ok = "OK" // swiftlint:disable:this identifier_name
     static let cancel = "キャンセル"
     static let delete = "削除"
     static let save = "保存する"
