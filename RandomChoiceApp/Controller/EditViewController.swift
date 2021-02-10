@@ -26,7 +26,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         }
     }
     
-    let crudModel = StoreDataCrudModel()
+    let crudModel = StoreDataCRUD()
     var storeData: StoreData?
     
     //UINavigationBarをステータスバーまで広げる
