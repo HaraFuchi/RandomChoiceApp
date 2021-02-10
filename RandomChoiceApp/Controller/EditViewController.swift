@@ -10,7 +10,11 @@ import UIKit
 
 class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
     
-    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var navigationBar: UINavigationBar! {
+        didSet {
+            navigationBar.delegate = self
+        }
+    }
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -23,13 +27,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     }
     
     let crudModel = StoreDataCrudModel()
-    var emptyNameText: String { return "???" }
-    
-    //TFに入れる値を所持
-    var editStoreNameString: String?
-    var editPlaceNameString: String?
-    var editGenreNameString: String?
-    var childID: String?
+    var storeData: StoreData?
     
     //UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
@@ -38,7 +36,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.delegate = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,9 +48,9 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         
         guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
         
-        convertValueNil()
-        
         categoryCell.delegate = self
+        
+        convertValueNil()
         
         actionButtonCell.signupButtonTapHandler = { [weak self] _ in
             self?.showEditAlert()
@@ -61,18 +58,18 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         
         switch cellType {
         case .store:
-            categoryCell.categoryTitle = CategoryListType.store.title ?? ""
-            categoryCell.categoryText = editStoreNameString ?? ""
+            categoryCell.categoryTitle = CategoryListType.store.title
+            categoryCell.categoryText = storeData?.store
             categoryCell.cellType = .store
             return categoryCell
         case .place:
-            categoryCell.categoryTitle = CategoryListType.place.title ?? ""
-            categoryCell.categoryText = editPlaceNameString ?? ""
+            categoryCell.categoryTitle = CategoryListType.place.title
+            categoryCell.categoryText = storeData?.place
             categoryCell.cellType = .place
             return categoryCell
         case .genre:
-            categoryCell.categoryTitle = CategoryListType.genre.title ?? ""
-            categoryCell.categoryText = editGenreNameString ?? ""
+            categoryCell.categoryTitle = CategoryListType.genre.title
+            categoryCell.categoryText = storeData?.genre 
             categoryCell.cellType = .genre
             return categoryCell
         case .signup:
@@ -87,9 +84,9 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
 extension EditViewController: SignupCategoryTableViewCellDelegate {
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
         switch cellType {
-        case .store: editStoreNameString = textField.text
-        case .place: editPlaceNameString = textField.text
-        case .genre: editGenreNameString = textField.text
+        case .store: storeData?.store = textField.text
+        case .place: storeData?.place = textField.text
+        case .genre: storeData?.genre = textField.text
         case .signup: break
         }
     }
@@ -103,25 +100,29 @@ extension EditViewController: actionButtonProtocal {
 
 //MARK: - Method
 extension EditViewController {
-    //TFに???を反映させる必要はないため、nilを返す
-    //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
+    // TODO: converterクラスを作成してModel化
+    // TFに???を反映させる必要はないため、nilを返す
+    // TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
     private func convertValueNil() {
-        if editStoreNameString == Mark.questions || editStoreNameString == "" {
-            editStoreNameString = nil
+        if storeData?.store == Mark.questions || storeData?.store == "" {
+            storeData?.store = nil
         }
-        if editPlaceNameString == Mark.questions || editPlaceNameString == "" {
-            editPlaceNameString = nil
+        if storeData?.place == Mark.questions || storeData?.place == "" {
+            storeData?.place = nil
         }
-        if editGenreNameString == Mark.questions || editGenreNameString == "" {
-            editGenreNameString = nil
+        if storeData?.genre == Mark.questions || storeData?.genre == "" {
+            storeData?.genre = nil
         }
     }
     
     private func showEditAlert() {
         let alert = UIAlertController(title: AlertTitle.edit, message: nil, preferredStyle: .alert)
         let editAction = UIAlertAction(title: AlertButtonTitle.save, style: .default) { _ in
-            //Firebaseの更新機能追加
             self.convertValueNil()
+            if self.storeData?.store == nil, self.storeData?.place == nil, self.storeData?.genre == nil {
+                self.showAlertAllNilTextField()
+            }
+            
             self.editAction()
         }
         let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
@@ -131,11 +132,12 @@ extension EditViewController {
     }
     
     private func editAction() {
-        if editStoreNameString == nil, editPlaceNameString == nil, editGenreNameString == nil {
-            showAlertAllNilTextField()
-        } else {
-            crudModel.editStoreData(store: editStoreNameString ?? emptyNameText, place: editPlaceNameString ?? emptyNameText, genre: editGenreNameString ?? emptyNameText, childID: childID)
-            dismiss(animated: true, completion: nil)
-        }
+        guard let uniqID = storeData?.childID else { return }
+        
+        crudModel.editStoreData(uniqID: uniqID,
+                                store: storeData?.store ?? Mark.questions,
+                                place: storeData?.place ?? Mark.questions,
+                                genre: storeData?.genre ?? Mark.questions)
+        dismiss(animated: true, completion: nil)
     }
 }

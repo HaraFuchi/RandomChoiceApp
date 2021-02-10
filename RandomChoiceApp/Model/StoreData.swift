@@ -10,7 +10,7 @@ import Foundation
 
 struct StoreData {
     let childID: String
-    let store: String
-    let place: String
-    let genre: String
+    var store: String?
+    var place: String?
+    var genre: String?
 }

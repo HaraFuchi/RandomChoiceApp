@@ -35,25 +35,25 @@ class ListPageTableViewCell: UITableViewCell {
         setupDetailCell()
     }
     
-    var storeDataText: String = "" {
+    var storeDataText: String? {
         didSet {
             storeNameLabel.text = storeDataText
         }
     }
     
-    var placeDataText: String = "" {
+    var placeDataText: String? {
         didSet {
             placeLabel.text = placeDataText
         }
     }
     
-    var genreDataText: String = "" {
+    var genreDataText: String? {
         didSet {
             genreLabel.text = genreDataText
         }
     }
     
-    var isHiddenEditButton: Bool = false {
+    var isHiddenEditButton = false {
         didSet {
             editButton.isHidden = isHiddenEditButton
         }

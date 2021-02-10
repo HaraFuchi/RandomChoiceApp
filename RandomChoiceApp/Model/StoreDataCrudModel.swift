@@ -55,10 +55,9 @@ class StoreDataCrudModel {
         }
     }
     
-    func editStoreData(store: String, place: String, genre: String, childID: String?) {
+    func editStoreData(uniqID: String, store: String, place: String, genre: String) {
         let newEditData = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
-        guard let childKey = childID else { return }
-        ref.child(Auth.auth().currentUser!.uid).child(childKey).updateChildValues(newEditData)
+        ref.child(Auth.auth().currentUser!.uid).child(uniqID).updateChildValues(newEditData)
     }
     
     func deleteStoreData(indexPath: IndexPath) {

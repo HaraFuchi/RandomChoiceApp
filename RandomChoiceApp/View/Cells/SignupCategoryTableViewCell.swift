@@ -35,19 +35,19 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
         delegate?.fetchCategoryNameText(textField: textField, cellType: cellType)
     }
     
-    var categoryTitle: String = "" {
+    var categoryTitle: String? {
         didSet {
             categoryLabel.text = categoryTitle
         }
     }
     
-    var categoryText: String = "" {
+    var categoryText: String? {
         didSet {
             categoryTextField.text = categoryText
         }
     }
     
-    var categoryPlaceHolder: String = "" {
+    var categoryPlaceHolder: String? {
         didSet {
             categoryTextField.placeholder = categoryPlaceHolder
         }
