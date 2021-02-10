@@ -10,10 +10,7 @@ import UIKit
 
 class SignupViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
     
-    //登録する内容の値を保持
-    private var storeNameString: String?
-    private var placeNameString: String?
-    private var genreNameString: String?
+    private var storeData = StoreData(childID: "")
         
     @IBOutlet private weak var navigationBar: UINavigationBar!
     
@@ -86,9 +83,9 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
 extension SignupViewController: SignupCategoryTableViewCellDelegate{
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
         switch cellType {
-        case .store: storeNameString = textField.text
-        case .place: placeNameString = textField.text
-        case .genre: genreNameString = textField.text
+        case .store: storeData.store = textField.text
+        case .place: storeData.place = textField.text
+        case .genre: storeData.genre = textField.text
         case .signup: break
         }
     }
@@ -103,18 +100,18 @@ extension SignupViewController: actionButtonProtocal {
 // MARK: - Method
 extension SignupViewController {
     private func showSignupAlert() {
-        let alert = UIAlertController(title: AlertTitle
-            .signUp_2, message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: AlertTitle.signUp_2, message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in
             self.textConvertNil()
-            if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
+            if self.storeData.store == nil, self.storeData.place == nil, self.storeData.genre == nil {
                 self.showAlertAllNilTextField()
             } else {
                 let crudModel = StoreDataCrudModel()
-                crudModel.createStoreData(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
+                crudModel.createStoreData(store: self.storeData.store ?? Mark.questions,
+                                          place: self.storeData.place ?? Mark.questions,
+                                          genre: self.storeData.genre ?? Mark.questions)
                 self.dismiss(animated: true, completion: nil)
             }
-            
         }
         let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
         alert.addAction(signupAction)
@@ -123,15 +120,16 @@ extension SignupViewController {
     }
     
     //TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
+    //TODO: Model化する
     private func textConvertNil() {
-        if storeNameString == "" {
-            storeNameString = nil
+        if storeData.store == "" {
+            storeData.store = nil
         }
-        if placeNameString == "" {
-            placeNameString = nil
+        if storeData.place == "" {
+            storeData.place = nil
         }
-        if genreNameString == "" {
-            genreNameString = nil
+        if storeData.genre == "" {
+            storeData.genre = nil
         }
     }
 }
