@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SignupCategoryTableViewCellDelegate {
+protocol SignupCategoryTableViewCellDelegate: AnyObject {
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType)
 }
 

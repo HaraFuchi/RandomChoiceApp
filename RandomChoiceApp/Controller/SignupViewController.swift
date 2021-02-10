@@ -47,8 +47,7 @@ class SignupViewController: UIViewController, UITableViewDataSource, UINavigatio
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.signupCell, for: indexPath) as! SignupCategoryTableViewCell
-        let actionButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier
-            .actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
+        let actionButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
 
         guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
 
@@ -103,8 +102,7 @@ extension SignupViewController: actionButtonProtocal {
 // MARK: - Method
 extension SignupViewController {
     private func showSignupAlert() {
-        let alert = UIAlertController(title: AlertTitle
-            .signUp_2, message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: AlertTitle.signUp_2, message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in
             self.textConvertNil()
             if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
