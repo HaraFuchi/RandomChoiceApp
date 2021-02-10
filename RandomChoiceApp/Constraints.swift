@@ -131,6 +131,6 @@ struct BundleIdentifier {
 }
 
 struct Url {
-    //「さいころdeごはん」AppStoreページのリンク
+    // 「さいころdeごはん」AppStoreページのリンク
     static let appStoreReview = "https://apps.apple.com/jp/app/%E3%81%95%E3%81%84%E3%81%93%E3%82%8Dde%E3%81%94%E3%81%AF%E3%82%93/id1528912786?mt=8&action=write-review"
 }

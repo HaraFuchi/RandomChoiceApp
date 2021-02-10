@@ -9,14 +9,14 @@
 import UIKit
 
 class RandomChoiceViewController: UIViewController, UITableViewDataSource {
-    
+
     private let crudModel = StoreDataCrudModel()
-    
+
     private enum DiceScreenType: Int, CaseIterable {
         case result
         case dice
     }
-    
+
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -24,27 +24,27 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
             tableView.register(UINib(nibName: Nib.randomChoiceButtonTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.randomChoiceButtonCell)
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         crudModel.invalidAlertDelegate = self
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         crudModel.fetchStoreData()
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DiceScreenType.allCases.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let storeDataCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listPageCell) as! ListPageTableViewCell
         let buttonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.randomChoiceButtonCell) as! RandomChoiceButtonTableViewCell
-        
+
         guard let cellType = DiceScreenType(rawValue: indexPath.row) else { return UITableViewCell() }
-        
+
         switch cellType {
         case .result:
             storeDataCell.storeDataText = ResultData.store?.store ?? Mark.questions
@@ -59,7 +59,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     }
 }
 
-// MARK: -Protocol
+// MARK: - Protocol
 extension RandomChoiceViewController: InvalidAlertDisplayable {
     func showAlertNoStoreData() {
         let alert = UIAlertController(title: AlertTitle.signUp_1, message: AlertMessage.signUp, preferredStyle: .alert)

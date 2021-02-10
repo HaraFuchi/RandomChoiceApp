@@ -10,27 +10,27 @@ import Foundation
 import Firebase
 
 protocol InvalidAlertDisplayable {
-    func showAlertNoStoreData() -> Void
+    func showAlertNoStoreData()
 }
 
 protocol StoreDataCrudModelDelegate {
-    func reload() -> Void
+    func reload()
 }
 
 class StoreDataCrudModel {
-    
-    var invalidAlertDelegate: InvalidAlertDisplayable?
-    var storeDataCrudModelDelegate: StoreDataCrudModelDelegate?
+
+    weak var invalidAlertDelegate: InvalidAlertDisplayable?
+    weak var storeDataCrudModelDelegate: StoreDataCrudModelDelegate?
 
     private(set) static var storeDataArray = [StoreData]()
-    
+
     private let ref = Database.database().reference()
-    
+
     func createStoreData(store: String, place: String, genre: String) {
         let createDataDict = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
         ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createDataDict)
     }
-    
+
     func fetchStoreData() {
         ref.child(Auth.auth().currentUser?.uid ?? "uid").observe(.value) { (snapShot) in
             StoreDataCrudModel.storeDataArray.removeAll()
@@ -54,12 +54,12 @@ class StoreDataCrudModel {
             }
         }
     }
-    
+
     func editStoreData(uniqID: String, store: String, place: String, genre: String) {
         let newEditData = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
         ref.child(Auth.auth().currentUser!.uid).child(uniqID).updateChildValues(newEditData)
     }
-    
+
     func deleteStoreData(indexPath: IndexPath) {
         let childKey = StoreDataCrudModel.storeDataArray[indexPath.row].childID
         ref.child(Auth.auth().currentUser!.uid).child(childKey).removeValue()
