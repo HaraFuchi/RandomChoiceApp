@@ -2,6 +2,9 @@
 disabled_rules:
 - force_cast
 - force_try
+- unused_optional_binding
+- identifier_name
+- todo
 
 # デフォルトルール以外でopt-inから適用させるルールの設定
 opt_in_rules:
@@ -9,8 +12,10 @@ opt_in_rules:
 # SwiftLintの適用から外すディレクトリ
 excluded:
 - Pods/
+- Libraries
 - Carthage/
 - RandomChoiceTests/
+- vendor
 
 # 1行あたりの文字数制限を300に変更
 line_length: 300
