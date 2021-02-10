@@ -69,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1822" y="-667"/>
+            <point key="canvasLocation" x="1822" y="-287"/>
         </scene>
         <!--お店を登録-->
         <scene sceneID="tzO-Rg-ghT">
@@ -133,7 +133,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2729" y="-667"/>
+            <point key="canvasLocation" x="2550" y="-610"/>
         </scene>
         <!--お店一覧-->
         <scene sceneID="CZ2-es-7US">
@@ -261,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWU-lD-dMX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2729" y="761"/>
+            <point key="canvasLocation" x="2550" y="755"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="Tbp-wr-bUq">
@@ -327,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2RO-5R-PHU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2728.8000000000002" y="62.807881773399018"/>
+            <point key="canvasLocation" x="2551" y="63"/>
         </scene>
         <!--さいころdeごはん-->
         <scene sceneID="Rra-lW-lbQ">
@@ -350,7 +350,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgl-2a-a9X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1105" y="-666"/>
+            <point key="canvasLocation" x="1105" y="-287"/>
         </scene>
         <!--お店一覧-->
         <scene sceneID="ccN-Gv-41j">
@@ -398,8 +398,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9MS-bR-yVb"/>
-        <segue reference="oRq-p8-Jtt"/>
+        <segue reference="460-mf-GtH"/>
+        <segue reference="aci-31-F6H"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
