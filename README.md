@@ -22,7 +22,7 @@
 |  CocoaPods  |  1.10.0  |
 |  Carthago  |  TBD  |
 |  fastlane  |  TBD  |
-|  SwiftLint  |  TBD  |
+|  SwiftLint  |  0.42.0  |
 
 ## 使用ライブラリ
 
@@ -47,8 +47,8 @@ MVCモデルを使用
 |  master  |完成版のブランチ<br>基本的にここにコミットはしない<br>リリース単位のマージコミットが並ぶ|
 |  release |リリースビルド作成用<br>もしバグが発生した場合は hotfixブランチを切って修正する|
 |  hotfix/xxx  |  リリースビルド作成用後の修正ブランチ |
-|  develop  |  開発用のメインブランチ<br>デフォルトブランチ |
-|  feature/xxx  |  機能開発用のブランチ |
+|  develop  |  開発用メインブランチ<br>デフォルトブランチ |
+|  feature/xxx  |  機能開発用ブランチ |
 |  fix/xxx  |  バグ修正用ブランチ  |
 |  refactor/xxx  |  リファクタリング用ブランチ  |
 
