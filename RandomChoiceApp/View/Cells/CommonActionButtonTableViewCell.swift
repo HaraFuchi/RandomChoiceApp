@@ -37,11 +37,11 @@ class CommonActionButtonTableViewCell: UITableViewCell {
         self.selectionStyle = .none
     }
 
-    func setupButton(_ VC: UIViewController) {
-        if VC is SignupViewController {
+    func setupButton(_ vc: UIViewController) {
+        if vc is SignupViewController {
             signupButtonDetailInSignupScreen()
             cancelButtonDetailInSignupScreen()
-        } else if VC is EditViewController {
+        } else if vc is EditViewController {
             signupButtonDetailInEditScreen()
             cancelButtonDetailInEditScreen()
         }
