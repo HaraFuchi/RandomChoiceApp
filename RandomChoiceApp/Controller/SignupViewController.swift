@@ -102,7 +102,7 @@ extension SignupViewController: actionButtonProtocal {
 // MARK: - Method
 extension SignupViewController {
     private func showSignupAlert() {
-        let alert = UIAlertController(title: AlertTitle.signUp_2, message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: AlertTitle.signup2, message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in
             self.textConvertNil()
             if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {

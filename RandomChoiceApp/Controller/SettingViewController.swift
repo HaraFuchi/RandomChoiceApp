@@ -134,7 +134,7 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         // 件名
         composer.setSubject(EmailInfo.subject)
         // 本文
-        composer.setMessageBody(EmailInfo.messageBody_1 + appVersion + EmailInfo.messageBody_2 + iOSVersion + EmailInfo.messageBody_3 + user, isHTML: false)
+        composer.setMessageBody(EmailInfo.messageBody1 + appVersion + EmailInfo.messageBody2 + iOSVersion + EmailInfo.messageBody3 + user, isHTML: false)
         present(composer, animated: true, completion: nil)
     }
 

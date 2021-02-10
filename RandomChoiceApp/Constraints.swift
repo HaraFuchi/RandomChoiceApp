@@ -30,8 +30,8 @@ struct Mark {
 }
 
 struct AlertTitle {
-    static let signUp_1 = "よく行くお店を登録しよう"
-    static let signUp_2 = "お店を登録しますか？"
+    static let signup1 = "よく行くお店を登録しよう"
+    static let signup2 = "お店を登録しますか？"
     static let delete = "お店一覧から削除しますか？"
     static let allTextEmpty = "全て空欄です"
     static let edit = "編集した内容を保存しますか？"
@@ -69,9 +69,9 @@ struct SettingTitle {
 struct EmailInfo {
     static let address = "harafuchi0324@gmail.com"
     static let subject = "【さいころdeごはん】お問い合わせ"
-    static let messageBody_1 = "下記にお問い合わせ内容をお書きください。\n\n\n\n\nAppVersion: "
-    static let messageBody_2 = "\nPlatformVersion: "
-    static let messageBody_3 = "\nUserID: "
+    static let messageBody1 = "下記にお問い合わせ内容をお書きください。\n\n\n\n\nAppVersion: "
+    static let messageBody2 = "\nPlatformVersion: "
+    static let messageBody3 = "\nUserID: "
 }
 
 struct EmailStatus {

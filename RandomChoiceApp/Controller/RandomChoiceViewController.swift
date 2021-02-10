@@ -62,7 +62,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
 // MARK: - Protocol
 extension RandomChoiceViewController: InvalidAlertDisplayable {
     func showAlertNoStoreData() {
-        let alert = UIAlertController(title: AlertTitle.signUp_1, message: AlertMessage.signUp, preferredStyle: .alert)
+        let alert = UIAlertController(title: AlertTitle.signup1, message: AlertMessage.signUp, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in
             self.performSegue(withIdentifier: SegueIdentifier.goToSignUpVC, sender: nil)
         }
