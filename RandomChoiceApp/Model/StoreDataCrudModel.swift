@@ -27,12 +27,14 @@ class StoreDataCrudModel {
     private let ref = Database.database().reference()
     
     func createStoreData(store: String, place: String, genre: String) {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
         let createDataDict = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
-        ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createDataDict)
+        ref.child(userID).childByAutoId().setValue(createDataDict)
     }
     
     func fetchStoreData() {
-        ref.child(Auth.auth().currentUser?.uid ?? "uid").observe(.value) { (snapShot) in
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        ref.child(userID).observe(.value) { (snapShot) in
             StoreDataCrudModel.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
                 for snap in snapShot {
@@ -56,13 +58,15 @@ class StoreDataCrudModel {
     }
     
     func editStoreData(uniqID: String, store: String, place: String, genre: String) {
-        let newEditData = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
-        ref.child(Auth.auth().currentUser!.uid).child(uniqID).updateChildValues(newEditData)
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        let editData = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
+        ref.child(userID).child(uniqID).updateChildValues(editData)
     }
     
     func deleteStoreData(indexPath: IndexPath) {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
         let childKey = StoreDataCrudModel.storeDataArray[indexPath.row].childID
-        ref.child(Auth.auth().currentUser!.uid).child(childKey).removeValue()
+        ref.child(userID).child(childKey).removeValue()
     }
 }
 
