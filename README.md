@@ -12,10 +12,17 @@
 タスク管理ツールTrelloを使用
 
 ## 開発情報
-- 開発環境: Xcode ( V12.0.1 )
-- 使用言語: Swift (V5.3)
-- 対応デバイス: iPhone, iPad (サポート対象: iOS13.0〜)
-- CocoaPods (V1.9.1)
+
+|  項目  |  バージョン  |
+| :---: | :---: |
+|  Xcode  |12.3|
+|  Swift  | 5.3|
+|  iOS  |  13.0以上  |
+|  デバイス  |  iPhone<br>iPad<br>Mac(M1チップのみ) |
+|  CocoaPods  |  1.10.0  |
+|  Carthago  |  TBD  |
+|  fastlane  |  TBD  |
+|  SwiftLint  |  0.42.0  |
 
 ## 使用ライブラリ
 
@@ -33,35 +40,36 @@ GitHubを使用
 MVCモデルを使用
 
 ## ルール
-**ブランチルール**  
-- **master**: リリースブランチ  
-基本的にここにコミットはしない  
-リリース単位のマージコミットが並ぶ
+### ブランチルール
 
-- **release**: リリースブランチ  
-リリース作業の場合に使用  
-もしバグが発生した場合は hotfixブランチを切って修正する
+|  ブランチ  | 役割  |
+| :---: | --- |
+|  master  |完成版のブランチ<br>基本的にここにコミットはしない<br>リリース単位のマージコミットが並ぶ|
+|  release |リリースビルド作成用<br>もしバグが発生した場合は hotfixブランチを切って修正する|
+|  hotfix/xxx  |  リリースビルド作成用後の修正ブランチ |
+|  develop  |  開発用メインブランチ<br>デフォルトブランチ |
+|  feature/xxx  |  機能開発用ブランチ |
+|  fix/xxx  |  バグ修正用ブランチ  |
+|  refactor/xxx  |  リファクタリング用ブランチ  |
 
-- **develop**: 開発ブランチ  
-トピックブランチのマージコミットが並ぶ
+### extensionルール  
+- プロトコルを準拠するタイミング
 
-- トピックブランチ  
-**feature/xxxxx**: 機能追加  
-**refactor/xxxxx**: リファクタリング  
-**fix/xxxxx**: バグ修正時  
-**hotfix/xxxxx**: 緊急度の高い不具合時に使用して優先度高めでレビューを実行  
-
-**extensionルール**  
-- privateメソッド使用時
-- 自作プロトコル使用時
-
-**コメントルール**  
+### コメントルール
 TODO: リリースまでに完了させたい修正箇所  
 FIXME: 長期化の可能性がある修正箇所  
 
 ## 環境構築
-`$ git clone https://github.com/HaraFuchi/RandomChoiceApp.git`  
-`$ pod install`  
+1. Bundlerをインストール
+    -  `sudo gem install bundler` 
+2. リポジトリをclone
+    -  `git clone https://github.com/HaraFuchi/RandomChoiceApp.git` 
+3. CocoaPodsをインストール
+    -  `bundle install --path vendor/bundle` 
+4. CocoaPodsを実行
+    -  `bundle exec pod install`  
+5. RandomChoiceApp.xcworkspace を開く  
+6. Schemeを`Debugさいころdeごはん`に変更 ※RandomChoiceAppではありません
 
 ## インストール
 [さいころdeごはん(App Store)](https://apps.apple.com/jp/app/%E3%81%95%E3%81%84%E3%81%93%E3%82%8Dde%E3%81%94%E3%81%AF%E3%82%93/id1528912786)
