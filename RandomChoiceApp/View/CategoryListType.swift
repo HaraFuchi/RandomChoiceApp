@@ -1,5 +1,5 @@
 //
-//  StoreCategoryModel.swift
+//  CategoryListType.swift
 //  RandomChoiceApp
 //
 //  Created by Kazuma Fuchi on 2020/12/17.
