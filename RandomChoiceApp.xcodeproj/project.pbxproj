@@ -195,6 +195,7 @@
 				E354B6B424C42E8E00759289 /* Main.storyboard */,
 				E354B6B724C42E9400759289 /* Assets.xcassets */,
 				C548E98724C69C68008685D7 /* Cells */,
+				C5C4B89F258A5C4800FD2BFE /* StoreCategoryModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,7 +249,6 @@
 				C5194F9824E085A40050DE18 /* StoreDataCrudModel.swift */,
 				C5194F9A24E174D60050DE18 /* StoreData.swift */,
 				C59B1DDE24E9FD5E0060C622 /* UserLoginModel.swift */,
-				C5C4B89F258A5C4800FD2BFE /* StoreCategoryModel.swift */,
 				C5F76771259F93E600EF11A0 /* ExtractResultLogic.swift */,
 			);
 			path = Model;
