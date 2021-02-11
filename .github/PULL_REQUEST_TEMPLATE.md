@@ -9,7 +9,6 @@ git clone git@github.com:HaraFuchi/RandomChoiceApp.git -b ブランチ名
 
 ## レビューで見て欲しいポイント
 
-
 ## 参考URL
 
 ## TODO
@@ -18,7 +17,7 @@ git clone git@github.com:HaraFuchi/RandomChoiceApp.git -b ブランチ名
 - [ ] 期待通りの挙動をするか?
 - [ ] ユニットテストが全て成功するか?
 - [ ] タイポしていないか？
-- [ ] warningが新たに増えていないか？ ※近いうちにSwiftLint導入予定
+- [ ] warningが新たに増えていないか？
 - [ ] リファクタリングできる余地がないか?
 - [ ] 冗長な書き方になっていないか？ 
 - [ ] 追加したfunctionやpropertyのスコープは適切か?
