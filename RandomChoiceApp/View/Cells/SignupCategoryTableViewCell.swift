@@ -8,45 +8,45 @@
 
 import UIKit
 
-protocol SignupCategoryTableViewCellDelegate {
+protocol SignupCategoryTableViewCellDelegate: AnyObject {
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType)
 }
 
 class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
-    
-    var delegate: SignupCategoryTableViewCellDelegate?
+
+    weak var delegate: SignupCategoryTableViewCellDelegate?
     var cellType: CategoryListType?
-    
+
     @IBOutlet private var categoryLabel: UILabel!
     @IBOutlet private var categoryTextField: UITextField!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setupDetailCell()
         categoryTextField.delegate = self
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let cellType = cellType else { return }
         delegate?.fetchCategoryNameText(textField: textField, cellType: cellType)
     }
-    
+
     var categoryTitle: String? {
         didSet {
             categoryLabel.text = categoryTitle
         }
     }
-    
+
     var categoryText: String? {
         didSet {
             categoryTextField.text = categoryText
         }
     }
-    
+
     var categoryPlaceHolder: String? {
         didSet {
             categoryTextField.placeholder = categoryPlaceHolder
@@ -54,7 +54,7 @@ class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 }
 
-//MARK: - Method
+// MARK: - Method
 extension SignupCategoryTableViewCell {
     private func setupDetailCell() {
         self.selectionStyle = .none

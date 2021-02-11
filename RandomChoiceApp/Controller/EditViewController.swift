@@ -8,14 +8,14 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable{
-    
+class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable {
+
     @IBOutlet weak var navigationBar: UINavigationBar! {
         didSet {
             navigationBar.delegate = self
         }
     }
-    
+
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -25,37 +25,37 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
             tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: CellIdentifier.actionButtonCell)
         }
     }
-    
+
     let crudModel = StoreDataCrudModel()
     var storeData: StoreData?
-    
-    //UINavigationBarをステータスバーまで広げる
+
+    // UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CategoryListType.allCases.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.signupCell, for: indexPath) as! SignupCategoryTableViewCell
         let actionButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
-        
+
         guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
-        
+
         categoryCell.delegate = self
-        
+
         convertValueNil()
-        
+
         actionButtonCell.signupButtonTapHandler = { [weak self] _ in
             self?.showEditAlert()
         }
-        
+
         switch cellType {
         case .store:
             categoryCell.categoryTitle = CategoryListType.store.title
@@ -69,7 +69,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
             return categoryCell
         case .genre:
             categoryCell.categoryTitle = CategoryListType.genre.title
-            categoryCell.categoryText = storeData?.genre 
+            categoryCell.categoryText = storeData?.genre
             categoryCell.cellType = .genre
             return categoryCell
         case .signup:
@@ -80,7 +80,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
     }
 }
 
-//MARK: - Protocol
+// MARK: - Protocol
 extension EditViewController: SignupCategoryTableViewCellDelegate {
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
         switch cellType {
@@ -98,7 +98,7 @@ extension EditViewController: actionButtonProtocal {
     }
 }
 
-//MARK: - Method
+// MARK: - Method
 extension EditViewController {
     // TODO: converterクラスを作成してModel化
     // TFに???を反映させる必要はないため、nilを返す
@@ -114,7 +114,7 @@ extension EditViewController {
             storeData?.genre = nil
         }
     }
-    
+
     private func showEditAlert() {
         let alert = UIAlertController(title: AlertTitle.edit, message: nil, preferredStyle: .alert)
         let editAction = UIAlertAction(title: AlertButtonTitle.save, style: .default) { _ in
@@ -122,7 +122,7 @@ extension EditViewController {
             if self.storeData?.store == nil, self.storeData?.place == nil, self.storeData?.genre == nil {
                 self.showAlertAllNilTextField()
             }
-            
+
             self.editAction()
         }
         let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
@@ -130,10 +130,10 @@ extension EditViewController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
-    
+
     private func editAction() {
         guard let uniqID = storeData?.childID else { return }
-        
+
         crudModel.editStoreData(uniqID: uniqID,
                                 store: storeData?.store ?? Mark.questions,
                                 place: storeData?.place ?? Mark.questions,

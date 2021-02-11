@@ -7,6 +7,7 @@ target 'RandomChoiceApp' do
 
   # Pods for RandomChoiceApp
   
+  pod 'SwiftLint' , '0.42.0'  
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'

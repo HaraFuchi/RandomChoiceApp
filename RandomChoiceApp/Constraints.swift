@@ -19,7 +19,7 @@ struct StoreDataType {
 }
 
 struct CategoryPlaceHolder {
-    static private let ex = "例) "
+    static private let ex = "例) " // swiftlint:disable:this identifier_name
     static let store = ex + "サイゼリヤ"
     static let place = ex + "新宿"
     static let genre = ex + "イタリアン"
@@ -30,8 +30,8 @@ struct Mark {
 }
 
 struct AlertTitle {
-    static let signUp_1 = "よく行くお店を登録しよう"
-    static let signUp_2 = "お店を登録しますか？"
+    static let signup1 = "よく行くお店を登録しよう"
+    static let signup2 = "お店を登録しますか？"
     static let delete = "お店一覧から削除しますか？"
     static let allTextEmpty = "全て空欄です"
     static let edit = "編集した内容を保存しますか？"
@@ -48,7 +48,7 @@ struct AlertMessage {
 
 struct AlertButtonTitle {
     static let signUp = "登録する"
-    static let ok = "OK"
+    static let ok = "OK" // swiftlint:disable:this identifier_name
     static let cancel = "キャンセル"
     static let delete = "削除"
     static let save = "保存する"
@@ -69,9 +69,9 @@ struct SettingTitle {
 struct EmailInfo {
     static let address = "harafuchi0324@gmail.com"
     static let subject = "【さいころdeごはん】お問い合わせ"
-    static let messageBody_1 = "下記にお問い合わせ内容をお書きください。\n\n\n\n\nAppVersion: "
-    static let messageBody_2 = "\nPlatformVersion: "
-    static let messageBody_3 = "\nUserID: "
+    static let messageBody1 = "下記にお問い合わせ内容をお書きください。\n\n\n\n\nAppVersion: "
+    static let messageBody2 = "\nPlatformVersion: "
+    static let messageBody3 = "\nUserID: "
 }
 
 struct EmailStatus {
@@ -131,6 +131,6 @@ struct BundleIdentifier {
 }
 
 struct Url {
-    //「さいころdeごはん」AppStoreページのリンク
+    // 「さいころdeごはん」AppStoreページのリンク
     static let appStoreReview = "https://apps.apple.com/jp/app/%E3%81%95%E3%81%84%E3%81%93%E3%82%8Dde%E3%81%94%E3%81%AF%E3%82%93/id1528912786?mt=8&action=write-review"
 }

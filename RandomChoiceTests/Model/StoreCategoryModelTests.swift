@@ -16,7 +16,7 @@ class CategoryListTypeTests: XCTestCase {
         XCTAssertEqual(CategoryListType.genre.title, "ジャンル")
         XCTAssertNil(CategoryListType.signup.title)
     }
-    
+
     func test_カテゴリープレースホルダー_それぞれ対応した値を返す() {
         XCTAssertEqual(CategoryListType.store.placeHolder, "例) サイゼリヤ")
         XCTAssertEqual(CategoryListType.place.placeHolder, "例) 新宿")

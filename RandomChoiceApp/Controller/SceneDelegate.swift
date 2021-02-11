@@ -12,9 +12,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let _ = (scene as? UIWindowScene) else { return } // swiftlint:disable:this unused_optional_binding
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -22,21 +21,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-     
+
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-      
+
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-       
+
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        
+
     }
 
-
 }
-
