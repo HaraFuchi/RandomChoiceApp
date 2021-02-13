@@ -1,5 +1,5 @@
 //
-//  StoreDataCRUD.swift
+//  StoreDataManager.swift
 //  RandomChoiceApp
 //
 //  Created by 渕一真 on 2020/08/10.
@@ -17,7 +17,7 @@ protocol StoreDataCrudModelDelegate {
     func reload() -> Void
 }
 
-class StoreDataCRUD {
+class StoreDataManager {
     
     var invalidAlertDelegate: InvalidAlertDisplayable?
     var storeDataCrudModelDelegate: StoreDataCrudModelDelegate?
@@ -35,7 +35,7 @@ class StoreDataCRUD {
     func fetchStoreData() {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         ref.child(userID).observe(.value) { (snapShot) in
-            StoreDataCRUD.storeDataArray.removeAll()
+            StoreDataManager.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
                 for snap in snapShot {
                     if let postData = snap.value as? [String: String] {
@@ -47,11 +47,11 @@ class StoreDataCRUD {
                                                          store: storeName ?? Mark.questions,
                                                          place: placeName ?? Mark.questions,
                                                          genre: genreName ?? Mark.questions)
-                        StoreDataCRUD.storeDataArray.append(storeDataContent)
+                        StoreDataManager.storeDataArray.append(storeDataContent)
                     }
                 }
                 self.showAlertIfNoStoreData()
-                StoreDataCRUD.storeDataArray.reverse()
+                StoreDataManager.storeDataArray.reverse()
                 self.storeDataCrudModelDelegate?.reload()
             }
         }
@@ -65,15 +65,15 @@ class StoreDataCRUD {
     
     func deleteStoreData(indexPath: IndexPath) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
-        let childKey = StoreDataCRUD.storeDataArray[indexPath.row].childID
+        let childKey = StoreDataManager.storeDataArray[indexPath.row].childID
         ref.child(userID).child(childKey).removeValue()
     }
 }
 
 // MARK: - Method
-extension StoreDataCRUD {
+extension StoreDataManager {
     private func showAlertIfNoStoreData() {
-        if StoreDataCRUD.storeDataArray.isEmpty {
+        if StoreDataManager.storeDataArray.isEmpty {
             self.invalidAlertDelegate?.showAlertNoStoreData()
         }
     }

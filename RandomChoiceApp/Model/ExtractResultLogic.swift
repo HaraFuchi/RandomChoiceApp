@@ -14,6 +14,6 @@ struct ResultData {
 
 struct ExtractResultLogic {
     static func randomSelectedStoreData() {
-        ResultData.store = StoreDataCRUD.storeDataArray.randomElement()
+        ResultData.store = StoreDataManager.storeDataArray.randomElement()
     }
 }
