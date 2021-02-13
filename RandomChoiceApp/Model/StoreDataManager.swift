@@ -13,14 +13,14 @@ protocol InvalidAlertDisplayable {
     func showAlertNoStoreData() -> Void
 }
 
-protocol StoreDataCrudModelDelegate {
+protocol StoreDataManagerDelegate {
     func reload() -> Void
 }
 
 class StoreDataManager {
     
     var invalidAlertDelegate: InvalidAlertDisplayable?
-    var storeDataCrudModelDelegate: StoreDataCrudModelDelegate?
+    var storeDataManagerDelegate: StoreDataManagerDelegate?
 
     private(set) static var storeDataArray = [StoreData]()
     
@@ -52,7 +52,7 @@ class StoreDataManager {
                 }
                 self.showAlertIfNoStoreData()
                 StoreDataManager.storeDataArray.reverse()
-                self.storeDataCrudModelDelegate?.reload()
+                self.storeDataManagerDelegate?.reload()
             }
         }
     }

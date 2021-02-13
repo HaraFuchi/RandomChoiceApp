@@ -28,7 +28,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        crudModel.storeDataCrudModelDelegate = self
+        crudModel.storeDataManagerDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,7 +103,7 @@ extension ListViewController: ListPageTableViewCellDelegate {
     }
 }
 
-extension ListViewController: StoreDataCrudModelDelegate {
+extension ListViewController: StoreDataManagerDelegate {
     func reload() {
         tableView.reloadData()
     }
