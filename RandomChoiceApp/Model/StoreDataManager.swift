@@ -17,7 +17,7 @@ protocol StoreDataManagerDelegate: AnyObject {
     func reload()
 }
 
-class StoreDataManager {
+struct StoreDataManager {
 
     static weak var invalidAlertDelegate: InvalidAlertDisplayable?
     static weak var storeDataManagerDelegate: StoreDataManagerDelegate?
