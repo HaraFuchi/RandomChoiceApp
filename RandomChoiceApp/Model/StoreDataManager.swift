@@ -6,7 +6,6 @@
 //  Copyright © 2020 AYANO HARA. All rights reserved.
 //
 
-import Foundation
 import Firebase
 
 protocol InvalidAlertDisplayable: AnyObject {
@@ -18,7 +17,6 @@ protocol StoreDataManagerDelegate: AnyObject {
 }
 
 struct StoreDataManager {
-
     static weak var invalidAlertDelegate: InvalidAlertDisplayable?
     static weak var storeDataManagerDelegate: StoreDataManagerDelegate?
 
@@ -27,12 +25,14 @@ struct StoreDataManager {
     static private let ref = Database.database().reference()
 
     static func createStoreData(store: String, place: String, genre: String) {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
         let createDataDict = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
-        ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createDataDict)
+        ref.child(userID).childByAutoId().setValue(createDataDict)
     }
 
     static func fetchStoreData() {
-        ref.child(Auth.auth().currentUser?.uid ?? "uid").observe(.value) { (snapShot) in
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        ref.child(userID).observe(.value) { (snapShot) in
             StoreDataManager.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
                 for snap in snapShot {
@@ -56,13 +56,15 @@ struct StoreDataManager {
     }
 
     static func editStoreData(uniqID: String, store: String, place: String, genre: String) {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
         let newEditData = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
-        ref.child(Auth.auth().currentUser!.uid).child(uniqID).updateChildValues(newEditData)
+        ref.child(userID).child(uniqID).updateChildValues(newEditData)
     }
 
     static func deleteStoreData(indexPath: IndexPath) {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
         let childKey = StoreDataManager.storeDataArray[indexPath.row].childID
-        ref.child(Auth.auth().currentUser!.uid).child(childKey).removeValue()
+        ref.child(userID).child(childKey).removeValue()
     }
 
     /**********************************************************************/
