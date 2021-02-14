@@ -13,8 +13,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
     private let crudModel = StoreDataCrudModel()
 
     private enum DiceScreenType: Int, CaseIterable {
-        case result
-        case dice
+        case result, dice
     }
 
     @IBOutlet private weak var tableView: UITableView! {

@@ -9,10 +9,7 @@
 import Foundation
 
 enum CategoryListType: Int, CaseIterable {
-    case store
-    case place
-    case genre
-    case signup
+    case store, place, genre, signup
 
     var title: String? {
         switch self {
