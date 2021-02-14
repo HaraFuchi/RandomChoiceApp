@@ -1,5 +1,5 @@
 //
-//  FirebaseCrudModel.swift
+//  StoreDataManager.swift
 //  RandomChoiceApp
 //
 //  Created by 渕一真 on 2020/08/10.
@@ -13,14 +13,14 @@ protocol InvalidAlertDisplayable: AnyObject {
     func showAlertNoStoreData()
 }
 
-protocol StoreDataCrudModelDelegate: AnyObject {
+protocol StoreDataManagerDelegate: AnyObject {
     func reload()
 }
 
-class StoreDataCrudModel {
+class StoreDataManager {
 
     weak var invalidAlertDelegate: InvalidAlertDisplayable?
-    weak var storeDataCrudModelDelegate: StoreDataCrudModelDelegate?
+    weak var storeDataManagerDelegate: StoreDataManagerDelegate?
 
     private(set) static var storeDataArray = [StoreData]()
 
@@ -33,7 +33,7 @@ class StoreDataCrudModel {
 
     func fetchStoreData() {
         ref.child(Auth.auth().currentUser?.uid ?? "uid").observe(.value) { (snapShot) in
-            StoreDataCrudModel.storeDataArray.removeAll()
+            StoreDataManager.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
                 for snap in snapShot {
                     if let postData = snap.value as? [String: String] {
@@ -45,12 +45,12 @@ class StoreDataCrudModel {
                                                          store: storeName ?? Mark.questions,
                                                          place: placeName ?? Mark.questions,
                                                          genre: genreName ?? Mark.questions)
-                        StoreDataCrudModel.storeDataArray.append(storeDataContent)
+                        StoreDataManager.storeDataArray.append(storeDataContent)
                     }
                 }
                 self.showAlertIfNoStoreData()
-                StoreDataCrudModel.storeDataArray.reverse()
-                self.storeDataCrudModelDelegate?.reload()
+                StoreDataManager.storeDataArray.reverse()
+                self.storeDataManagerDelegate?.reload()
             }
         }
     }
@@ -61,15 +61,15 @@ class StoreDataCrudModel {
     }
 
     func deleteStoreData(indexPath: IndexPath) {
-        let childKey = StoreDataCrudModel.storeDataArray[indexPath.row].childID
+        let childKey = StoreDataManager.storeDataArray[indexPath.row].childID
         ref.child(Auth.auth().currentUser!.uid).child(childKey).removeValue()
     }
 }
 
 // MARK: - Method
-extension StoreDataCrudModel {
+extension StoreDataManager {
     private func showAlertIfNoStoreData() {
-        if StoreDataCrudModel.storeDataArray.isEmpty {
+        if StoreDataManager.storeDataArray.isEmpty {
             self.invalidAlertDelegate?.showAlertNoStoreData()
         }
     }
