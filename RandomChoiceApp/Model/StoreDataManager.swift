@@ -19,19 +19,19 @@ protocol StoreDataManagerDelegate: AnyObject {
 
 class StoreDataManager {
 
-    weak var invalidAlertDelegate: InvalidAlertDisplayable?
-    weak var storeDataManagerDelegate: StoreDataManagerDelegate?
+    static weak var invalidAlertDelegate: InvalidAlertDisplayable?
+    static weak var storeDataManagerDelegate: StoreDataManagerDelegate?
 
     private(set) static var storeDataArray = [StoreData]()
 
-    private let ref = Database.database().reference()
+    static private let ref = Database.database().reference()
 
-    func createStoreData(store: String, place: String, genre: String) {
+    static func createStoreData(store: String, place: String, genre: String) {
         let createDataDict = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
         ref.child(Auth.auth().currentUser!.uid).childByAutoId().setValue(createDataDict)
     }
 
-    func fetchStoreData() {
+    static func fetchStoreData() {
         ref.child(Auth.auth().currentUser?.uid ?? "uid").observe(.value) { (snapShot) in
             StoreDataManager.storeDataArray.removeAll()
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
@@ -48,29 +48,29 @@ class StoreDataManager {
                         StoreDataManager.storeDataArray.append(storeDataContent)
                     }
                 }
-                self.showAlertIfNoStoreData()
+                showAlertIfNoStoreData()
                 StoreDataManager.storeDataArray.reverse()
-                self.storeDataManagerDelegate?.reload()
+                storeDataManagerDelegate?.reload()
             }
         }
     }
 
-    func editStoreData(uniqID: String, store: String, place: String, genre: String) {
+    static func editStoreData(uniqID: String, store: String, place: String, genre: String) {
         let newEditData = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
         ref.child(Auth.auth().currentUser!.uid).child(uniqID).updateChildValues(newEditData)
     }
 
-    func deleteStoreData(indexPath: IndexPath) {
+    static func deleteStoreData(indexPath: IndexPath) {
         let childKey = StoreDataManager.storeDataArray[indexPath.row].childID
         ref.child(Auth.auth().currentUser!.uid).child(childKey).removeValue()
     }
-}
 
-// MARK: - Method
-extension StoreDataManager {
-    private func showAlertIfNoStoreData() {
+    /**********************************************************************/
+    // MARK: - Private Method
+    /**********************************************************************/
+    static private func showAlertIfNoStoreData() {
         if StoreDataManager.storeDataArray.isEmpty {
-            self.invalidAlertDelegate?.showAlertNoStoreData()
+            StoreDataManager.invalidAlertDelegate?.showAlertNoStoreData()
         }
     }
 }

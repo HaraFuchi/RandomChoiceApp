@@ -11,8 +11,6 @@ import SkeletonView
 import Reachability
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SkeletonTableViewDataSource {
-
-    private let crudModel = StoreDataManager()
     private var indexPathNumber: Int? // CellのindexPathを保持
 
     @IBOutlet private weak var signupVCBarButtonItem: UIBarButtonItem!
@@ -28,12 +26,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        crudModel.storeDataManagerDelegate = self
+        StoreDataManager.storeDataManagerDelegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        crudModel.fetchStoreData()
+        StoreDataManager.fetchStoreData()
         checkNetworkStatus()
     }
 
@@ -114,7 +112,7 @@ private extension ListViewController {
     func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
         let showAlert = UIAlertController(title: AlertTitle.delete, message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive) { ( _ ) in
-            self.crudModel.deleteStoreData(indexPath: indexPath)
+            StoreDataManager.deleteStoreData(indexPath: indexPath)
 
             guard StoreDataManager.storeDataArray.isEmpty else { return }
 
