@@ -14,8 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private let launchTime: UInt32 = 1
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
 
@@ -27,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("デバック環境")
         #endif
 
-        sleep(launchTime)
         return true
     }
 
