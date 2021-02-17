@@ -34,35 +34,25 @@ struct StoreDataManager {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         ref.child(userID).observe(.value) { (snapShot) in
             StoreDataManager.storeDataArray.removeAll()
+
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
-                for snap in snapShot {
-                    if let postData = snap.value as? [String: String] {
-                        let childID = snap.key
-                        let storeName = postData[StoreDataType.store]
-                        let placeName = postData[StoreDataType.place]
-                        let genreName = postData[StoreDataType.genre]
-                        let storeDataContent = StoreData(childID: childID,
-                                                         store: storeName ?? Mark.questions,
-                                                         place: placeName ?? Mark.questions,
-                                                         genre: genreName ?? Mark.questions)
-                        StoreDataManager.storeDataArray.append(storeDataContent)
-                    }
-                }
-                showAlertIfNoStoreData()
-                StoreDataManager.storeDataArray.reverse()
-                storeDataManagerDelegate?.reload()
+                fetchingStoreDatas(snapShot: snapShot)
             }
+
+            showAlertIfNoStoreData()
+            StoreDataManager.storeDataArray.reverse()
+            storeDataManagerDelegate?.reload()
         }
     }
 
-    //TODO: 引数をStoreDataクラスにした方がオブジェクト指向っぽいかつシンプル
+    // TODO: 引数をStoreDataクラスにした方がオブジェクト指向っぽいかつシンプル
     static func update(uniqID: String, store: String, place: String, genre: String) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         let newEditData = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
         ref.child(userID).child(uniqID).updateChildValues(newEditData)
     }
 
-    //TODO: 引数をStoreDataクラスにした方がオブジェクト指向っぽいかつシンプル
+    // TODO: 引数をStoreDataクラスにした方がオブジェクト指向っぽいかつシンプル
     static func delete(indexPath: IndexPath) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         let childKey = StoreDataManager.storeDataArray[indexPath.row].childID
@@ -72,6 +62,22 @@ struct StoreDataManager {
     /**********************************************************************/
     // MARK: - Private Method
     /**********************************************************************/
+    static private func fetchingStoreDatas(snapShot: [DataSnapshot]) {
+        for snap in snapShot {
+            if let postData = snap.value as? [String: String] {
+                let childID = snap.key
+                let storeName = postData[StoreDataType.store]
+                let placeName = postData[StoreDataType.place]
+                let genreName = postData[StoreDataType.genre]
+                let storeDataContent = StoreData(childID: childID,
+                                                 store: storeName ?? Mark.questions,
+                                                 place: placeName ?? Mark.questions,
+                                                 genre: genreName ?? Mark.questions)
+                StoreDataManager.storeDataArray.append(storeDataContent)
+            }
+        }
+    }
+
     static private func showAlertIfNoStoreData() {
         if StoreDataManager.storeDataArray.isEmpty {
             StoreDataManager.invalidAlertDelegate?.showAlertNoStoreData()
