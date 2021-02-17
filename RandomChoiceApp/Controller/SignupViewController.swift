@@ -10,7 +10,7 @@ import UIKit
 
 class SignupViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable {
 
-    private var storeData = StoreData(childID: "")
+    private var storeData = StoreData(childID: nil)
 
     @IBOutlet private weak var navigationBar: UINavigationBar! {
         didSet {
