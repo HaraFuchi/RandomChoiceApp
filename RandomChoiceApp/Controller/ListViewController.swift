@@ -31,7 +31,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        StoreDataManager.fetchStoreData()
+        StoreDataManager.fetchAll()
         checkNetworkStatus()
     }
 
@@ -112,7 +112,7 @@ private extension ListViewController {
     func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
         let showAlert = UIAlertController(title: AlertTitle.delete, message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive) { ( _ ) in
-            StoreDataManager.deleteStoreData(indexPath: indexPath)
+            StoreDataManager.delete(indexPath: indexPath)
 
             guard StoreDataManager.storeDataArray.isEmpty else { return }
 

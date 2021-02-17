@@ -30,7 +30,7 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        StoreDataManager.fetchStoreData()
+        StoreDataManager.fetchAll()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

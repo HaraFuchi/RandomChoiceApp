@@ -108,7 +108,7 @@ extension SignupViewController {
             if self.storeNameString == nil, self.placeNameString == nil, self.genreNameString == nil {
                 self.showAlertAllNilTextField()
             } else {
-                StoreDataManager.createStoreData(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
+                StoreDataManager.create(store: self.storeNameString ?? "???", place: self.placeNameString ?? "???", genre: self.genreNameString ?? "???")
                 self.dismiss(animated: true, completion: nil)
             }
 

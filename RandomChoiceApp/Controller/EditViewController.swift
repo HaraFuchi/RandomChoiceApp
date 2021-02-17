@@ -133,10 +133,10 @@ extension EditViewController {
     private func editAction() {
         guard let uniqID = storeData?.childID else { return }
 
-        StoreDataManager.editStoreData(uniqID: uniqID,
-                                       store: storeData?.store ?? Mark.questions,
-                                       place: storeData?.place ?? Mark.questions,
-                                       genre: storeData?.genre ?? Mark.questions)
+        StoreDataManager.update(uniqID: uniqID,
+                                store: storeData?.store ?? Mark.questions,
+                                place: storeData?.place ?? Mark.questions,
+                                genre: storeData?.genre ?? Mark.questions)
         dismiss(animated: true, completion: nil)
     }
 }

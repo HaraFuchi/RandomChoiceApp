@@ -24,13 +24,13 @@ struct StoreDataManager {
 
     static private let ref = Database.database().reference()
 
-    static func createStoreData(store: String, place: String, genre: String) {
+    static func create(store: String, place: String, genre: String) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         let createDataDict = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
         ref.child(userID).childByAutoId().setValue(createDataDict)
     }
 
-    static func fetchStoreData() {
+    static func fetchAll() {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         ref.child(userID).observe(.value) { (snapShot) in
             StoreDataManager.storeDataArray.removeAll()
@@ -55,13 +55,13 @@ struct StoreDataManager {
         }
     }
 
-    static func editStoreData(uniqID: String, store: String, place: String, genre: String) {
+    static func update(uniqID: String, store: String, place: String, genre: String) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         let newEditData = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
         ref.child(userID).child(uniqID).updateChildValues(newEditData)
     }
 
-    static func deleteStoreData(indexPath: IndexPath) {
+    static func delete(indexPath: IndexPath) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         let childKey = StoreDataManager.storeDataArray[indexPath.row].childID
         ref.child(userID).child(childKey).removeValue()
