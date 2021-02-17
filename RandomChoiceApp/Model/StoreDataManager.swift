@@ -20,7 +20,7 @@ struct StoreDataManager {
     static weak var invalidAlertDelegate: InvalidAlertDisplayable?
     static weak var storeDataManagerDelegate: StoreDataManagerDelegate?
 
-    private(set) static var storeDataArray = [StoreData]()
+    private(set) static var storeDataList = [StoreData]()
 
     static private let ref = Database.database().reference()
 
@@ -33,14 +33,14 @@ struct StoreDataManager {
     static func fetchAll() {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         ref.child(userID).observe(.value) { (snapShot) in
-            StoreDataManager.storeDataArray.removeAll()
+            StoreDataManager.storeDataList.removeAll()
 
             if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
                 fetchingStoreDatas(snapShot: snapShot)
             }
 
             showAlertIfNoStoreData()
-            StoreDataManager.storeDataArray.reverse()
+            StoreDataManager.storeDataList.reverse()
             storeDataManagerDelegate?.reload()
         }
     }
@@ -55,7 +55,7 @@ struct StoreDataManager {
     // TODO: 引数をStoreDataクラスにした方がオブジェクト指向っぽいかつシンプル
     static func delete(indexPath: IndexPath) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
-        let childKey = StoreDataManager.storeDataArray[indexPath.row].childID
+        let childKey = StoreDataManager.storeDataList[indexPath.row].childID
         ref.child(userID).child(childKey).removeValue()
     }
 
@@ -66,20 +66,20 @@ struct StoreDataManager {
         for snap in snapShot {
             if let postData = snap.value as? [String: String] {
                 let childID = snap.key
-                let storeName = postData[StoreDataType.store]
-                let placeName = postData[StoreDataType.place]
-                let genreName = postData[StoreDataType.genre]
+                let store = postData[StoreDataType.store]
+                let place = postData[StoreDataType.place]
+                let genre = postData[StoreDataType.genre]
                 let storeDataContent = StoreData(childID: childID,
-                                                 store: storeName ?? Mark.questions,
-                                                 place: placeName ?? Mark.questions,
-                                                 genre: genreName ?? Mark.questions)
-                StoreDataManager.storeDataArray.append(storeDataContent)
+                                                 store: store ?? Mark.questions,
+                                                 place: place ?? Mark.questions,
+                                                 genre: genre ?? Mark.questions)
+                StoreDataManager.storeDataList.append(storeDataContent)
             }
         }
     }
 
     static private func showAlertIfNoStoreData() {
-        if StoreDataManager.storeDataArray.isEmpty {
+        if StoreDataManager.storeDataList.isEmpty {
             StoreDataManager.invalidAlertDelegate?.showAlertNoStoreData()
         }
     }
