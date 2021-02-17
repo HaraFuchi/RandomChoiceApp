@@ -7,6 +7,11 @@ xcuserdata
 #CocoaPod
 Pods/*
 
+#Carthage
+Carthage/Build/
+Carthage/Checkouts
+!Carthage/Build
+
 #Bundler
 bundle/*
 .bundle/*
