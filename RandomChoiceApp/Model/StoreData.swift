@@ -9,7 +9,7 @@
 import Foundation
 
 struct StoreData {
-    let childID: String
+    let childID: String?
     var store: String?
     var place: String?
     var genre: String?
