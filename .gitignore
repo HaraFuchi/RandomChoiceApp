@@ -8,9 +8,8 @@ xcuserdata
 Pods/*
 
 #Carthage
-Carthage/Build/
-Carthage/Checkouts
-!Carthage/Build
+Carthage/Build/*
+Carthage/Checkouts/*
 
 #Bundler
 bundle/*
