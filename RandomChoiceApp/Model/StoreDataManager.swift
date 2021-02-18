@@ -35,9 +35,9 @@ struct StoreDataManager {
         ref.child(userID).observe(.value) { (snapShot) in
             StoreDataManager.storeDataList.removeAll()
 
-            if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
-                fetchingStoreDatas(snapShot: snapShot)
-            }
+            guard let snapShot = snapShot.children.allObjects as? [DataSnapshot] else { return }
+
+            StoreDataManager.storeDataList.append(contentsOf: fetchingStoreDatas(snapShot: snapShot))
 
             showAlertIfNoStoreData()
             StoreDataManager.storeDataList.reverse()
@@ -62,20 +62,22 @@ struct StoreDataManager {
     /**********************************************************************/
     // MARK: - Private Method
     /**********************************************************************/
-    static private func fetchingStoreDatas(snapShot: [DataSnapshot]) {
+    static private func fetchingStoreDatas(snapShot: [DataSnapshot]) -> [StoreData] {
+        var storeDataArray = [StoreData]()
         for snap in snapShot {
             if let postData = snap.value as? [String: String] {
                 let childID = snap.key
                 let store = postData[StoreDataType.store]
                 let place = postData[StoreDataType.place]
                 let genre = postData[StoreDataType.genre]
-                let storeDataContent = StoreData(childID: childID,
-                                                 store: store ?? Mark.questions,
-                                                 place: place ?? Mark.questions,
-                                                 genre: genre ?? Mark.questions)
-                StoreDataManager.storeDataList.append(storeDataContent)
+                let storeData = StoreData(childID: childID,
+                                          store: store ?? Mark.questions,
+                                          place: place ?? Mark.questions,
+                                          genre: genre ?? Mark.questions)
+                storeDataArray.append(storeData)
             }
         }
+        return storeDataArray
     }
 
     static private func showAlertIfNoStoreData() {
