@@ -55,7 +55,7 @@ struct StoreDataManager {
     // TODO: 引数をStoreDataクラスにした方がオブジェクト指向っぽいかつシンプル
     static func delete(indexPath: IndexPath) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
-        let childKey = StoreDataManager.storeDataList[indexPath.row].childID
+        guard let childKey = StoreDataManager.storeDataList[indexPath.row].childID else { return }
         ref.child(userID).child(childKey).removeValue()
     }
 
