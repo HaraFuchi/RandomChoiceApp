@@ -66,14 +66,10 @@ struct StoreDataManager {
         var storeDataArray = [StoreData]()
         for snap in snapShot {
             if let postData = snap.value as? [String: String] {
-                let childID = snap.key
-                let store = postData[StoreDataType.store]
-                let place = postData[StoreDataType.place]
-                let genre = postData[StoreDataType.genre]
-                let storeData = StoreData(childID: childID,
-                                          store: store,
-                                          place: place,
-                                          genre: genre)
+                let storeData = StoreData(childID: snap.key,
+                                          store: postData[StoreDataType.store],
+                                          place: postData[StoreDataType.place],
+                                          genre: postData[StoreDataType.genre])
                 storeDataArray.append(storeData)
             }
         }
