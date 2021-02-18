@@ -71,9 +71,9 @@ struct StoreDataManager {
                 let place = postData[StoreDataType.place]
                 let genre = postData[StoreDataType.genre]
                 let storeData = StoreData(childID: childID,
-                                          store: store ?? Mark.questions,
-                                          place: place ?? Mark.questions,
-                                          genre: genre ?? Mark.questions)
+                                          store: store,
+                                          place: place,
+                                          genre: genre)
                 storeDataArray.append(storeData)
             }
         }
