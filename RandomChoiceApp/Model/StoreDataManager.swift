@@ -63,13 +63,13 @@ struct StoreDataManager {
     // MARK: - Private Method
     /**********************************************************************/
     static private func fetchingStoreDatas(snapShot: [DataSnapshot]) -> [StoreData] {
-        return snapShot.map({ snap in
-            guard let postData = snap.value as? [String: String] else { return nil }
-            return StoreData(childID: snap.key,
+        return snapShot.map {
+            guard let postData = $0.value as? [String: String] else { return nil }
+            return StoreData(childID: $0.key,
                              store: postData[StoreDataType.store],
                              place: postData[StoreDataType.place],
                              genre: postData[StoreDataType.genre])
-        }).compactMap({$0})
+        }.compactMap({$0})
     }
 
     static private func showAlertIfNoStoreData() {
