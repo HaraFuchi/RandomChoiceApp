@@ -68,8 +68,13 @@ FIXME: 長期化の可能性がある修正箇所
     -  `bundle install --path vendor/bundle` 
 4. CocoaPodsを実行
     -  `bundle exec pod install`  
-5. RandomChoiceApp.xcworkspace を開く  
-6. Schemeを`Debugさいころdeごはん`に変更 ※RandomChoiceAppではありません
+5. Carthagoをインストール
+    -  `brew install carthage`  
+6. Carthagoを実行
+    -  `XCODE_XCCONFIG_FILE=$PWD/Carthago.xcconfig
+    carthage bootstrap --platform iOS --no-use-binaries --cache-builds`  
+7. RandomChoiceApp.xcworkspace を開く  
+8. Schemeを`Debugさいころdeごはん`に変更 ※RandomChoiceAppではありません
 
 ## インストール
 [さいころdeごはん(App Store)](https://apps.apple.com/jp/app/%E3%81%95%E3%81%84%E3%81%93%E3%82%8Dde%E3%81%94%E3%81%AF%E3%82%93/id1528912786)
