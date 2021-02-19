@@ -10,8 +10,6 @@ import UIKit
 
 class RandomChoiceViewController: UIViewController, UITableViewDataSource {
 
-    private let crudModel = StoreDataCrudModel()
-
     private enum DiceScreenType: Int, CaseIterable {
         case result
         case dice
@@ -27,12 +25,12 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        crudModel.invalidAlertDelegate = self
+        StoreDataManager.invalidAlertDelegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        crudModel.fetchStoreData()
+        StoreDataManager.fetchAll()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

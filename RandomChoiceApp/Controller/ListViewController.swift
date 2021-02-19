@@ -11,8 +11,6 @@ import SkeletonView
 import Reachability
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SkeletonTableViewDataSource {
-
-    private let crudModel = StoreDataCrudModel()
     private var indexPathNumber: Int? // CellのindexPathを保持
 
     @IBOutlet private weak var signupVCBarButtonItem: UIBarButtonItem!
@@ -28,21 +26,21 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        crudModel.storeDataCrudModelDelegate = self
+        StoreDataManager.storeDataManagerDelegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        crudModel.fetchStoreData()
+        StoreDataManager.fetchAll()
         checkNetworkStatus()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if StoreDataCrudModel.storeDataArray.isEmpty {
+        if StoreDataManager.storeDataList.isEmpty {
             let skeletonCellNum = 10
             return skeletonCellNum
         } else {
-            return StoreDataCrudModel.storeDataArray.count
+            return StoreDataManager.storeDataList.count
         }
     }
 
@@ -50,13 +48,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listPageCell, for: indexPath) as! ListPageTableViewCell
         cell.delegate = self
 
-        if StoreDataCrudModel.storeDataArray.isEmpty {
+        if StoreDataManager.storeDataList.isEmpty {
             setUpSkeleton(cell: cell)
         } else {
             cell.hideSkeleton()
-            cell.storeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].store
-            cell.placeDataText = StoreDataCrudModel.storeDataArray[indexPath.row].place
-            cell.genreDataText = StoreDataCrudModel.storeDataArray[indexPath.row].genre
+            cell.storeDataText = StoreDataManager.storeDataList[indexPath.row].store
+            cell.placeDataText = StoreDataManager.storeDataList[indexPath.row].place
+            cell.genreDataText = StoreDataManager.storeDataList[indexPath.row].genre
             cell.indexPathNumber = indexPath.row
         }
         return cell
@@ -68,7 +66,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         // スケルトンビュー表示時はセルをスワイプ不可にする
-        if StoreDataCrudModel.storeDataArray.isEmpty {
+        if StoreDataManager.storeDataList.isEmpty {
             return UITableViewCell.EditingStyle.none
         } else {
             return UITableViewCell.EditingStyle.delete
@@ -97,13 +95,13 @@ extension ListViewController: ListPageTableViewCellDelegate {
         if segue.identifier == SegueIdentifier.goToEditVC {
             let editVC = segue.destination as! EditViewController
             if let indexPath = indexPathNumber {
-                editVC.storeData = StoreDataCrudModel.storeDataArray[indexPath]
+                editVC.storeData = StoreDataManager.storeDataList[indexPath]
             }
         }
     }
 }
 
-extension ListViewController: StoreDataCrudModelDelegate {
+extension ListViewController: StoreDataManagerDelegate {
     func reload() {
         tableView.reloadData()
     }
@@ -114,9 +112,9 @@ private extension ListViewController {
     func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
         let showAlert = UIAlertController(title: AlertTitle.delete, message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive) { ( _ ) in
-            self.crudModel.deleteStoreData(indexPath: indexPath)
+            StoreDataManager.delete(indexPath: indexPath)
 
-            guard StoreDataCrudModel.storeDataArray.isEmpty else { return }
+            guard StoreDataManager.storeDataList.isEmpty else { return }
 
             if editingStyle == UITableViewCell.EditingStyle.delete {
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)

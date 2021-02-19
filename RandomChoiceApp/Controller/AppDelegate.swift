@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 
         if Auth.auth().currentUser == nil {
-            UserLoginModel.anonymous()
+            LoginManager.anonymous()
         }
 
         #if DEBUG

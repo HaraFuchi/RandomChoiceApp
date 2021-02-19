@@ -26,7 +26,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UINavigationB
         }
     }
 
-    let crudModel = StoreDataCrudModel()
     var storeData: StoreData?
 
     // UINavigationBarをステータスバーまで広げる
@@ -134,7 +133,7 @@ extension EditViewController {
     private func editAction() {
         guard let uniqID = storeData?.childID else { return }
 
-        crudModel.editStoreData(uniqID: uniqID,
+        StoreDataManager.update(uniqID: uniqID,
                                 store: storeData?.store ?? Mark.questions,
                                 place: storeData?.place ?? Mark.questions,
                                 genre: storeData?.genre ?? Mark.questions)
