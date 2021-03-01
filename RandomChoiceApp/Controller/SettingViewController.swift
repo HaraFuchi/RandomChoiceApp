@@ -30,9 +30,7 @@ class SettingViewController: UIViewController {
     }
 
     private enum SettingCategoryList: Int, CaseIterable {
-        case contactUs
-        case review
-        case appVersion
+        case contactUs, review, appVersion
 
         var title: String {
             switch self {

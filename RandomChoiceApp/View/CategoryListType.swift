@@ -9,10 +9,8 @@
 import Foundation
 
 enum CategoryListType: Int, CaseIterable {
-    case store
-    case place
-    case genre
-    case signup
+    case store, place, genre // データ入力カテゴリー
+    case signup // 登録ボタン
 
     var title: String? {
         switch self {

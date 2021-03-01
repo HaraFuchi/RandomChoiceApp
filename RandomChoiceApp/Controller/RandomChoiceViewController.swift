@@ -11,8 +11,7 @@ import UIKit
 class RandomChoiceViewController: UIViewController, UITableViewDataSource {
 
     private enum DiceScreenType: Int, CaseIterable {
-        case result
-        case dice
+        case result, dice
     }
 
     @IBOutlet private weak var tableView: UITableView! {
