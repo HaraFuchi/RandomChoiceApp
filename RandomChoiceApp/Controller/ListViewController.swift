@@ -26,12 +26,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        StoreDataManager.storeDataManagerDelegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        StoreDataManager.fetchAll()
+        StoreDataManager.fetchAll {
+            self.tableView.reloadData()
+        }
         checkNetworkStatus()
     }
 
@@ -98,12 +99,6 @@ extension ListViewController: ListPageTableViewCellDelegate {
                 editVC.storeData = StoreDataManager.storeDataList[indexPath]
             }
         }
-    }
-}
-
-extension ListViewController: StoreDataManagerDelegate {
-    func reload() {
-        tableView.reloadData()
     }
 }
 

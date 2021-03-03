@@ -12,13 +12,8 @@ protocol InvalidAlertDisplayable: AnyObject {
     func showAlertNoStoreData()
 }
 
-protocol StoreDataManagerDelegate: AnyObject {
-    func reload()
-}
-
 struct StoreDataManager {
     static weak var invalidAlertDelegate: InvalidAlertDisplayable?
-    static weak var storeDataManagerDelegate: StoreDataManagerDelegate?
 
     private(set) static var storeDataList = [StoreData]()
 
@@ -30,7 +25,7 @@ struct StoreDataManager {
         ref.child(userID).childByAutoId().setValue(createDataDict)
     }
 
-    static func fetchAll() {
+    static func fetchAll(completionHandler: (() -> Void)? = nil) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         ref.child(userID).observe(.value) { (snapShot) in
             StoreDataManager.storeDataList.removeAll()
@@ -41,7 +36,6 @@ struct StoreDataManager {
 
             showAlertIfNoStoreData()
             StoreDataManager.storeDataList.reverse()
-            storeDataManagerDelegate?.reload()
         }
     }
 
