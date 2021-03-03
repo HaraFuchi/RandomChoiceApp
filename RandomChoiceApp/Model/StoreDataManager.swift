@@ -36,6 +36,7 @@ struct StoreDataManager {
 
             showAlertIfNoStoreData()
             StoreDataManager.storeDataList.reverse()
+            completionHandler?()
         }
     }
 
