@@ -12,7 +12,6 @@
 		C5194F9924E085A40050DE18 /* StoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5194F9824E085A40050DE18 /* StoreDataManager.swift */; };
 		C5194F9B24E174D60050DE18 /* StoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5194F9A24E174D60050DE18 /* StoreData.swift */; };
 		C5202BC024FAEAD300656F6D /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5202BBF24FAEAD300656F6D /* Constraints.swift */; };
-		C5202C0424FAFD9500656F6D /* RandomChoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5202C0324FAFD9500656F6D /* RandomChoiceTests.swift */; };
 		C53EB1F7256D898D00C98935 /* AlertDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53EB1F6256D898D00C98935 /* AlertDisplayable.swift */; };
 		C548E98524C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */; };
 		C548E98624C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */; };
@@ -66,7 +65,6 @@
 		C5194F9A24E174D60050DE18 /* StoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreData.swift; sourceTree = "<group>"; };
 		C5202BBF24FAEAD300656F6D /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		C5202C0124FAFD9500656F6D /* RandomChoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomChoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5202C0324FAFD9500656F6D /* RandomChoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomChoiceTests.swift; sourceTree = "<group>"; };
 		C5202C0524FAFD9500656F6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C53EB1F6256D898D00C98935 /* AlertDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplayable.swift; sourceTree = "<group>"; };
 		C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonActionButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				C5F7780925BDC62F00BB0F98 /* Model */,
-				C5202C0324FAFD9500656F6D /* RandomChoiceTests.swift */,
 				C5202C0524FAFD9500656F6D /* Info.plist */,
 			);
 			path = RandomChoiceTests;
@@ -495,7 +492,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C517BD2625CFACC600520D0A /* ResultStoreDataModelTests.swift in Sources */,
-				C5202C0424FAFD9500656F6D /* RandomChoiceTests.swift in Sources */,
 				C5F7785225BDCA1900BB0F98 /* StoreCategoryModelTests.swift in Sources */,
 				C5F7780B25BDC64200BB0F98 /* StoreDataContentsModelTests.swift in Sources */,
 			);
