@@ -52,7 +52,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if StoreDataManager.storeDataList.isEmpty {
             setUpSkeleton(cell: cell)
         } else {
-            cell.hideSkeleton() 
+            cell.hideSkeleton()
             let item = StoreDataManager.storeDataList[indexPath.row]
             cell.storeDataText = item.store
             cell.placeDataText = item.place
