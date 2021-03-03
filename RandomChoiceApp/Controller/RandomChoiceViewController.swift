@@ -44,9 +44,10 @@ class RandomChoiceViewController: UIViewController, UITableViewDataSource {
 
         switch cellType {
         case .result:
-            storeDataCell.storeDataText = ResultData.store?.store ?? Mark.questions
-            storeDataCell.placeDataText = ResultData.store?.place ?? Mark.questions
-            storeDataCell.genreDataText = ResultData.store?.genre ?? Mark.questions
+            let item = ResultData.store
+            storeDataCell.storeDataText = item?.store ?? Mark.questions
+            storeDataCell.placeDataText = item?.place ?? Mark.questions
+            storeDataCell.genreDataText = item?.genre ?? Mark.questions
             storeDataCell.isHiddenEditButton = true
             return storeDataCell
         case .dice:

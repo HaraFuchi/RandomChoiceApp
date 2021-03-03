@@ -52,10 +52,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if StoreDataManager.storeDataList.isEmpty {
             setUpSkeleton(cell: cell)
         } else {
-            cell.hideSkeleton()
-            cell.storeDataText = StoreDataManager.storeDataList[indexPath.row].store
-            cell.placeDataText = StoreDataManager.storeDataList[indexPath.row].place
-            cell.genreDataText = StoreDataManager.storeDataList[indexPath.row].genre
+            cell.hideSkeleton() 
+            let item = StoreDataManager.storeDataList[indexPath.row]
+            cell.storeDataText = item.store
+            cell.placeDataText = item.place
+            cell.genreDataText = item.genre
             cell.indexPathNumber = indexPath.row
         }
         return cell
