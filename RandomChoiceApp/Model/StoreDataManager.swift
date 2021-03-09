@@ -64,7 +64,7 @@ struct StoreDataManager {
                              store: postData[StoreDataType.store],
                              place: postData[StoreDataType.place],
                              genre: postData[StoreDataType.genre])
-        }.compactMap({$0})
+        }.compactMap { $0 }
     }
 
     static private func showAlertIfNoStoreData() {
