@@ -12,7 +12,7 @@ protocol actionButtonProtocal: AnyObject {
     func didTapCancel()
 }
 
-class CommonActionButtonTableViewCell: UITableViewCell {
+final class CommonActionButtonTableViewCell: UITableViewCell {
 
     weak var delegate: actionButtonProtocal?
     var signupButtonTapHandler: ((_ sender: UIButton) -> Void)?

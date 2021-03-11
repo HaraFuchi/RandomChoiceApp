@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingTableViewCell: UITableViewCell {
+final class SettingTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var settingTitleLabel: UILabel!
     @IBOutlet private weak var subTitleLabel: UILabel!

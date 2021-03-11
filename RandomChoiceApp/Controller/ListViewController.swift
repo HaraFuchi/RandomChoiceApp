@@ -10,7 +10,7 @@ import UIKit
 import SkeletonView
 import Reachability
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SkeletonTableViewDataSource {
+final class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SkeletonTableViewDataSource {
     private var indexPathNumber: Int? // CellのindexPathを保持
 
     @IBOutlet private weak var signupVCBarButtonItem: UIBarButtonItem!

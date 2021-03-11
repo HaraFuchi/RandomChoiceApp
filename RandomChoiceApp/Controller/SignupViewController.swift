@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable {
+final class SignupViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable {
 
     private var storeData = StoreData(childID: nil)
 

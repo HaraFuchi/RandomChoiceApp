@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable {
+final class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable {
 
     @IBOutlet weak var navigationBar: UINavigationBar! {
         didSet {

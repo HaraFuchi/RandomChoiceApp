@@ -12,7 +12,7 @@ protocol DiceButtonViewProtocal: AnyObject {
     func didTapDiceButton()
 }
 
-class RandomChoiceButtonTableViewCell: UITableViewCell {
+final class RandomChoiceButtonTableViewCell: UITableViewCell {
 
     weak var delegate: DiceButtonViewProtocal?
 
