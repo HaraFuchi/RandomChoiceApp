@@ -12,7 +12,7 @@ protocol ListPageTableViewCellDelegate: AnyObject {
     func didTapEditButton(indexPath: Int)
 }
 
-class ListPageTableViewCell: UITableViewCell {
+final class ListPageTableViewCell: UITableViewCell {
 
     weak var delegate: ListPageTableViewCellDelegate?
 

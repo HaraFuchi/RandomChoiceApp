@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import MessageUI
 
-class SettingViewController: UIViewController {
+final class SettingViewController: UIViewController {
 
     private var settingCell = SettingTableViewCell()
     private let appVersion = Bundle.main.object(forInfoDictionaryKey: BundleIdentifier.appVersion) as! String

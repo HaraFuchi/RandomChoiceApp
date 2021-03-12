@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RandomChoiceViewController: UIViewController, UITableViewDataSource {
+final class RandomChoiceViewController: UIViewController, UITableViewDataSource {
 
     private enum DiceScreenType: Int, CaseIterable {
         case result, dice

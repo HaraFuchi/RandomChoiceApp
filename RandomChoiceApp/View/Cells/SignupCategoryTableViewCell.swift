@@ -12,7 +12,7 @@ protocol SignupCategoryTableViewCellDelegate: AnyObject {
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType)
 }
 
-class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
+final class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     weak var delegate: SignupCategoryTableViewCellDelegate?
     var cellType: CategoryListType?
