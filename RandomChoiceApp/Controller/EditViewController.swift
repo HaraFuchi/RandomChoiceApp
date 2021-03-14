@@ -75,6 +75,13 @@ final class EditViewController: UIViewController, AlertDisplayable {
 }
 
 // MARK: - Protocol
+extension EditViewController: UINavigationBarDelegate {
+    // UINavigationBarをステータスバーまで広げる
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
+}
+
 extension EditViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CategoryListType.allCases.count
@@ -115,13 +122,6 @@ extension EditViewController: UITableViewDataSource {
             actionButtonCell.delegate = self
             return actionButtonCell
         }
-    }
-}
-
-extension EditViewController: UINavigationBarDelegate {
-    // UINavigationBarをステータスバーまで広げる
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
     }
 }
 

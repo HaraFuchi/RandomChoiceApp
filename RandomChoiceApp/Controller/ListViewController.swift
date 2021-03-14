@@ -131,7 +131,6 @@ extension ListViewController: UITableViewDelegate {
 }
 
 extension ListViewController: ListPageTableViewCellDelegate {
-
     func didTapEditButton(indexPath: Int) {
         indexPathNumber = indexPath
         performSegue(withIdentifier: SegueIdentifier.goToEditVC, sender: nil)
