@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Debugさいころdeごはん
+@testable import RandomChoiceApp
 
 class CategoryListTypeTests: XCTestCase {
     func test_カテゴリータイトル_それぞれ対応した値を返す() {

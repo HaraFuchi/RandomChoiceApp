@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E354B6AA24C42E8E00759289"
-               BuildableName = "&#x3055;&#x3044;&#x3053;&#x308d;de&#x3053;&#x3099;&#x306f;&#x3093;.app"
+               BuildableName = "RandomChoiceApp.app"
                BlueprintName = "RandomChoiceApp"
                ReferencedContainer = "container:RandomChoiceApp.xcodeproj">
             </BuildableReference>
@@ -23,7 +23,7 @@
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E354B6AA24C42E8E00759289"
-            BuildableName = "&#x3055;&#x3044;&#x3053;&#x308d;de&#x3053;&#x3099;&#x306f;&#x3093;.app"
+            BuildableName = "RandomChoiceApp.app"
             BlueprintName = "RandomChoiceApp"
             ReferencedContainer = "container:RandomChoiceApp.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E354B6AA24C42E8E00759289"
-            BuildableName = "&#x3055;&#x3044;&#x3053;&#x308d;de&#x3053;&#x3099;&#x306f;&#x3093;.app"
+            BuildableName = "RandomChoiceApp.app"
             BlueprintName = "RandomChoiceApp"
             ReferencedContainer = "container:RandomChoiceApp.xcodeproj">
          </BuildableReference>

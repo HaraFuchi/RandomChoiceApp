@@ -7,14 +7,15 @@ target 'RandomChoiceApp' do
 
   # Pods for RandomChoiceApp
   
-  pod 'SwiftLint' , '0.42.0'  
-  pod 'Firebase/Analytics' , '7.6.0'
-  pod 'Firebase/Auth' , '7.6.0'
-  pod 'Firebase/Database' , '7.6.0'
+  pod 'SwiftLint' , '0.42.0'
+  pod "Firebase" , '7.7.0'
+  pod 'Firebase/Analytics' , '7.7.0'
+  pod 'Firebase/Auth' , '7.7.0'
+  pod 'Firebase/Database' , '7.7.0'
 
 target  'RandomChoiceTests' do
     inherit! :search_paths
-    pod 'Firebase' , '7.6.0'
+    pod 'Firebase' , '7.7.0'
 end
 
 post_install do |installer|
