@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ListPageTableViewCellDelegate: AnyObject {
-    func didTapEditButton(indexPath: Int)
+    func button(_ button: UIButton, didTapButtonRowAt indexPath: Int)
 }
 
 final class ListPageTableViewCell: UITableViewCell {
@@ -26,7 +26,7 @@ final class ListPageTableViewCell: UITableViewCell {
 
     @IBAction func touchedEditButton(_ sender: UIButton) {
         if let indexPath = indexPathNumber {
-            delegate?.didTapEditButton(indexPath: indexPath)
+            delegate?.button(sender, didTapButtonRowAt: indexPath)
         }
     }
 
