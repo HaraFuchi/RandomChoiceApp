@@ -8,7 +8,8 @@
 
 import UIKit
 
-final class EditViewController: UIViewController, UITableViewDataSource, UINavigationBarDelegate, AlertDisplayable {
+final class EditViewController: UIViewController, AlertDisplayable {
+    var storeData: StoreData?
 
     @IBOutlet weak var navigationBar: UINavigationBar! {
         didSet {
@@ -26,17 +27,62 @@ final class EditViewController: UIViewController, UITableViewDataSource, UINavig
         }
     }
 
-    var storeData: StoreData?
-
-    // UINavigationBarをステータスバーまで広げる
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    // MARK: - Private Method
+    // TODO: converterクラスを作成してModel化
+    // TFに???を反映させる必要はないため、nilを返す
+    // TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
+    private func convertValueNil() {
+        if storeData?.store == Mark.questions || storeData?.store == "" {
+            storeData?.store = nil
+        }
+        if storeData?.place == Mark.questions || storeData?.place == "" {
+            storeData?.place = nil
+        }
+        if storeData?.genre == Mark.questions || storeData?.genre == "" {
+            storeData?.genre = nil
+        }
+    }
+
+    private func showEditAlert() {
+        let alert = UIAlertController(title: AlertTitle.edit, message: nil, preferredStyle: .alert)
+        let editAction = UIAlertAction(title: AlertButtonTitle.save, style: .default) { _ in
+            self.convertValueNil()
+            if self.storeData?.store == nil, self.storeData?.place == nil, self.storeData?.genre == nil {
+                self.showAlertAllNilTextField()
+            }
+
+            self.editAction()
+        }
+        let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
+        alert.addAction(editAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+
+    private func editAction() {
+        guard let uniqID = storeData?.childID else { return }
+
+        StoreDataManager.update(uniqID: uniqID,
+                                store: storeData?.store ?? Mark.questions,
+                                place: storeData?.place ?? Mark.questions,
+                                genre: storeData?.genre ?? Mark.questions)
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - Protocol
+extension EditViewController: UINavigationBarDelegate {
+    // UINavigationBarをステータスバーまで広げる
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
+}
+
+extension EditViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CategoryListType.allCases.count
     }
@@ -79,7 +125,6 @@ final class EditViewController: UIViewController, UITableViewDataSource, UINavig
     }
 }
 
-// MARK: - Protocol
 extension EditViewController: SignupCategoryTableViewCellDelegate {
     func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
         switch cellType {
@@ -93,50 +138,6 @@ extension EditViewController: SignupCategoryTableViewCellDelegate {
 
 extension EditViewController: actionButtonProtocal {
     func didTapCancel() {
-        dismiss(animated: true, completion: nil)
-    }
-}
-
-// MARK: - Method
-extension EditViewController {
-    // TODO: converterクラスを作成してModel化
-    // TFに???を反映させる必要はないため、nilを返す
-    // TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
-    private func convertValueNil() {
-        if storeData?.store == Mark.questions || storeData?.store == "" {
-            storeData?.store = nil
-        }
-        if storeData?.place == Mark.questions || storeData?.place == "" {
-            storeData?.place = nil
-        }
-        if storeData?.genre == Mark.questions || storeData?.genre == "" {
-            storeData?.genre = nil
-        }
-    }
-
-    private func showEditAlert() {
-        let alert = UIAlertController(title: AlertTitle.edit, message: nil, preferredStyle: .alert)
-        let editAction = UIAlertAction(title: AlertButtonTitle.save, style: .default) { _ in
-            self.convertValueNil()
-            if self.storeData?.store == nil, self.storeData?.place == nil, self.storeData?.genre == nil {
-                self.showAlertAllNilTextField()
-            }
-
-            self.editAction()
-        }
-        let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
-        alert.addAction(editAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
-
-    private func editAction() {
-        guard let uniqID = storeData?.childID else { return }
-
-        StoreDataManager.update(uniqID: uniqID,
-                                store: storeData?.store ?? Mark.questions,
-                                place: storeData?.place ?? Mark.questions,
-                                genre: storeData?.genre ?? Mark.questions)
         dismiss(animated: true, completion: nil)
     }
 }

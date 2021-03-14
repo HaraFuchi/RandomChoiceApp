@@ -52,10 +52,8 @@ final class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
             categoryTextField.placeholder = categoryPlaceHolder
         }
     }
-}
 
-// MARK: - Method
-extension SignupCategoryTableViewCell {
+    // MARK: - Private Method
     private func setupDetailCell() {
         self.selectionStyle = .none
         categoryTextField.backgroundColor = .white

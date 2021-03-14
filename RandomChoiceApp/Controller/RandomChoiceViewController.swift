@@ -8,8 +8,7 @@
 
 import UIKit
 
-final class RandomChoiceViewController: UIViewController, UITableViewDataSource {
-
+final class RandomChoiceViewController: UIViewController {
     private enum DiceScreenType: Int, CaseIterable {
         case result, dice
     }
@@ -31,7 +30,10 @@ final class RandomChoiceViewController: UIViewController, UITableViewDataSource 
         super.viewWillAppear(animated)
         StoreDataManager.fetchAll()
     }
+}
 
+// MARK: - Protocol
+extension RandomChoiceViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DiceScreenType.allCases.count
     }
@@ -57,7 +59,13 @@ final class RandomChoiceViewController: UIViewController, UITableViewDataSource 
     }
 }
 
-// MARK: - Protocol
+extension RandomChoiceViewController: DiceButtonViewProtocal {
+    func didTapDiceButton() {
+        ExtractResultLogic.randomSelectedStoreData()
+        tableView.reloadData()
+    }
+}
+
 extension RandomChoiceViewController: InvalidAlertDisplayable {
     func showAlertNoStoreData() {
         let alert = UIAlertController(title: AlertTitle.signup1, message: AlertMessage.signUp, preferredStyle: .alert)
@@ -66,12 +74,5 @@ extension RandomChoiceViewController: InvalidAlertDisplayable {
         }
         alert.addAction(signupAction)
         present(alert, animated: true, completion: nil)
-    }
-}
-
-extension RandomChoiceViewController: DiceButtonViewProtocal {
-    func didTapDiceButton() {
-        ExtractResultLogic.randomSelectedStoreData()
-        tableView.reloadData()
     }
 }

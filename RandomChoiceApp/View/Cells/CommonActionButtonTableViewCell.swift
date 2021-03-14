@@ -47,6 +47,7 @@ final class CommonActionButtonTableViewCell: UITableViewCell {
         }
     }
 
+    // MARK: - Private Method
     private func signupButtonDetailInSignupScreen() {
         signUpButton.setTitle(ButtonTitle.signUp, for: .normal)
         signUpButton.backgroundColor = RandomChoiceAppColor.red

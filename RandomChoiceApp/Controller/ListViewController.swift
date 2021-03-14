@@ -10,8 +10,8 @@ import UIKit
 import SkeletonView
 import Reachability
 
-final class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SkeletonTableViewDataSource {
-    private var indexPathNumber: Int? // CellのindexPathを保持
+final class ListViewController: UIViewController, SkeletonTableViewDataSource {
+    var indexPathNumber: Int? // CellのindexPathを保持
 
     @IBOutlet private weak var signupVCBarButtonItem: UIBarButtonItem!
 
@@ -36,6 +36,54 @@ final class ListViewController: UIViewController, UITableViewDataSource, UITable
         checkNetworkStatus()
     }
 
+    // スケルトンビュー対象セルのReusableCellIdentifierを登録
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return CellIdentifier.listPageCell
+    }
+
+    // MARK: - Private Method
+    private func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
+        let showAlert = UIAlertController(title: AlertTitle.delete, message: nil, preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive) { ( _ ) in
+            StoreDataManager.delete(indexPath: indexPath)
+
+            guard StoreDataManager.storeDataList.isEmpty else { return }
+
+            if editingStyle == UITableViewCell.EditingStyle.delete {
+                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+            }
+        }
+        let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
+        showAlert.addAction(cancelAction)
+        showAlert.addAction(deleteAction)
+        present(showAlert, animated: true, completion: nil)
+    }
+
+    // オフラインの際に出すアラート
+    private func showAlertOffline() {
+        let alert = UIAlertController(title: AlertTitle.error, message: AlertMessage.offline, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: AlertButtonTitle.ok, style: .default, handler: nil)
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
+    }
+
+    private func checkNetworkStatus() {
+        let reachability = try! Reachability()
+        if reachability.connection == .unavailable {
+            // インターネット接続なし
+            showAlertOffline()
+        }
+    }
+
+    private func setUpSkeleton(cell: ListPageTableViewCell) {
+        // スケルトンの色を設定
+        let gradient = SkeletonGradient(baseColor: .clouds)
+        cell.showAnimatedGradientSkeleton(usingGradient: gradient, transition: .crossDissolve(0.25))
+    }
+}
+
+// MARK: - protocol
+extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if StoreDataManager.storeDataList.isEmpty {
             let skeletonCellNum = 10
@@ -65,7 +113,9 @@ final class ListViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         showDeleteAlert(tableView: tableView, editingStyle: editingStyle, indexPath: indexPath)
     }
+}
 
+extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         // スケルトンビュー表示時はセルをスワイプ不可にする
         if StoreDataManager.storeDataList.isEmpty {
@@ -78,16 +128,9 @@ final class ListViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return AlertButtonTitle.delete
     }
-
-    // スケルトンビュー対象セルのReusableCellIdentifierを登録
-    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return CellIdentifier.listPageCell
-    }
 }
 
-// MARK: - protocol
 extension ListViewController: ListPageTableViewCellDelegate {
-
     func didTapEditButton(indexPath: Int) {
         indexPathNumber = indexPath
         performSegue(withIdentifier: SegueIdentifier.goToEditVC, sender: nil)
@@ -100,47 +143,5 @@ extension ListViewController: ListPageTableViewCellDelegate {
                 editVC.storeData = StoreDataManager.storeDataList[indexPath]
             }
         }
-    }
-}
-
-// MARK: - Private Method
-private extension ListViewController {
-    func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
-        let showAlert = UIAlertController(title: AlertTitle.delete, message: nil, preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive) { ( _ ) in
-            StoreDataManager.delete(indexPath: indexPath)
-
-            guard StoreDataManager.storeDataList.isEmpty else { return }
-
-            if editingStyle == UITableViewCell.EditingStyle.delete {
-                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
-            }
-        }
-        let cancelAction = UIAlertAction(title: AlertButtonTitle.cancel, style: .cancel, handler: nil)
-        showAlert.addAction(cancelAction)
-        showAlert.addAction(deleteAction)
-        present(showAlert, animated: true, completion: nil)
-    }
-
-    // オフラインの際に出すアラート
-    func showAlertOffline() {
-        let alert = UIAlertController(title: AlertTitle.error, message: AlertMessage.offline, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: AlertButtonTitle.ok, style: .default, handler: nil)
-        alert.addAction(defaultAction)
-        present(alert, animated: true, completion: nil)
-    }
-
-    func checkNetworkStatus() {
-        let reachability = try! Reachability()
-        if reachability.connection == .unavailable {
-            // インターネット接続なし
-            showAlertOffline()
-        }
-    }
-
-    func setUpSkeleton(cell: ListPageTableViewCell) {
-        // スケルトンの色を設定
-        let gradient = SkeletonGradient(baseColor: .clouds)
-        cell.showAnimatedGradientSkeleton(usingGradient: gradient, transition: .crossDissolve(0.25))
     }
 }
