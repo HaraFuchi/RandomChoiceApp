@@ -21,7 +21,7 @@ final class EditViewController: UIViewController, AlertDisplayable {
         didSet {
             tableView.dataSource = self
             let singUpCategoryNib = UINib(nibName: Nib.signupCategoryTableViewCell, bundle: nil)
-            let signupAndCancelButtonCell = UINib(nibName: Nib.commonActionButtonTableViewCell, bundle: nil)
+            let signupAndCancelButtonCell = UINib(nibName: Nib.signupButtonTableViewCell, bundle: nil)
             tableView.register(singUpCategoryNib, forCellReuseIdentifier: CellIdentifier.signupCell)
             tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: CellIdentifier.actionButtonCell)
         }
@@ -89,7 +89,7 @@ extension EditViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.signupCell, for: indexPath) as! SignupCategoryTableViewCell
-        let actionCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
+        let actionCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionButtonCell, for: indexPath) as! SignupButtonTableViewCell
 
         categoryCell.delegate = self
 

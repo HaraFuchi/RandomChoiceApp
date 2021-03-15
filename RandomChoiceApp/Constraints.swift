@@ -114,10 +114,10 @@ struct CellIdentifier {
 }
 
 struct Nib {
-    static let randomChoiceButtonTableViewCell = "RandomChoiceButtonTableViewCell"
+    static let diceButtonTableViewCell = "DiceButtonTableViewCell"
     static let listPageTableViewCell = "ListPageTableViewCell"
     static let signupCategoryTableViewCell = "SignupCategoryTableViewCell"
-    static let commonActionButtonTableViewCell = "CommonActionButtonTableViewCell"
+    static let signupButtonTableViewCell = "SignupButtonTableViewCell"
     static let settingTableViewCell = "SettingTableViewCell"
 }
 
