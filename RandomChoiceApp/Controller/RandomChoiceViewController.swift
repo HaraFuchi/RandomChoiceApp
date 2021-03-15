@@ -44,6 +44,11 @@ extension RandomChoiceViewController: UITableViewDataSource {
 
         guard let cellType = DiceScreenType(rawValue: indexPath.row) else { return UITableViewCell() }
 
+        buttonCell.diceButtonTapHandler = { _ in
+            ExtractResultLogic.randomSelectedStoreData()
+            tableView.reloadData()
+        }
+
         switch cellType {
         case .result:
             let item = ResultData.store
@@ -53,16 +58,8 @@ extension RandomChoiceViewController: UITableViewDataSource {
             storeDataCell.isHiddenEditButton = true
             return storeDataCell
         case .dice:
-            buttonCell.delegate = self
             return buttonCell
         }
-    }
-}
-
-extension RandomChoiceViewController: DiceButtonViewProtocal {
-    func didTapDiceButton() {
-        ExtractResultLogic.randomSelectedStoreData()
-        tableView.reloadData()
     }
 }
 
