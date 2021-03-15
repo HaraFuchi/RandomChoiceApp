@@ -18,11 +18,11 @@ class ResultStoreDataModelTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
         ResultData.store = nil
-        StoreDataCrudModel.storeDataArray = []
+        StoreDataManager.storeDataList = []
     }
 
     func test_データの数が0の場合_値は初期値から変わらない() {
-        if !StoreDataCrudModel.storeDataArray.isEmpty {
+        if !StoreDataManager.storeDataList.isEmpty {
             XCTFail("データの数が1つ以上あるためUT実施不可")
             return
         }
@@ -33,12 +33,12 @@ class ResultStoreDataModelTests: XCTestCase {
     }
 
     func test_データの数が1つ_同じ値が表示され続ける() {
-        StoreDataCrudModel.storeDataArray = [.init(childID: "childID_A",
+        StoreDataManager.storeDataList = [.init(childID: "childID_A",
                                                    store: "store_A",
                                                    place: "place_A",
                                                    genre: "genre_A")]
 
-        if StoreDataCrudModel.storeDataArray.count != 1 {
+        if StoreDataManager.storeDataList.count != 1 {
             XCTFail()
         }
 
@@ -48,7 +48,7 @@ class ResultStoreDataModelTests: XCTestCase {
         XCTAssertEqual(ResultData.store?.place, "place_A")
         XCTAssertEqual(ResultData.store?.genre, "genre_A")
 
-        if StoreDataCrudModel.storeDataArray.count != 1 {
+        if StoreDataManager.storeDataList.count != 1 {
             XCTFail()
         }
 
@@ -60,7 +60,7 @@ class ResultStoreDataModelTests: XCTestCase {
     }
 
     func test_データが複数_それぞれ対応する値が返却される() {
-        StoreDataCrudModel.storeDataArray = [
+        StoreDataManager.storeDataList = [
             .init(childID: "childID_1", store: "store_1", place: "place_1", genre: "genre_1"),
             .init(childID: "childID_2", store: "store_2", place: "place_2", genre: "genre_2"),
             .init(childID: "childID_3", store: "store_3", place: "place_3", genre: "genre_3")
@@ -75,7 +75,7 @@ class ResultStoreDataModelTests: XCTestCase {
     }
 
     func test_データが大量_それぞれ対応する値が返却される() {
-        StoreDataCrudModel.storeDataArray = (0..<1000)
+        StoreDataManager.storeDataList = (0..<1000)
             .map {
                 StoreData(
                     childID: String($0),
