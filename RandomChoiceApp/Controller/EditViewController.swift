@@ -101,6 +101,10 @@ extension EditViewController: UITableViewDataSource {
             self?.showEditAlert()
         }
 
+        actionButtonCell.cancelButtonTapHandler = { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+
         switch cellType {
         case .store:
             categoryCell.categoryTitle = CategoryListType.store.title
@@ -119,7 +123,6 @@ extension EditViewController: UITableViewDataSource {
             return categoryCell
         case .signup:
             actionButtonCell.setupButton(self)
-            actionButtonCell.delegate = self
             return actionButtonCell
         }
     }
@@ -133,11 +136,5 @@ extension EditViewController: SignupCategoryViewDelegate {
         case .genre: storeData?.genre = textField.text
         case .signup: break
         }
-    }
-}
-
-extension EditViewController: actionButtonProtocal {
-    func didTapCancel() {
-        dismiss(animated: true, completion: nil)
     }
 }

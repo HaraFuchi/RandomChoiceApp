@@ -94,6 +94,10 @@ extension SignupViewController: UITableViewDataSource {
             self?.showSignupAlert()
         }
 
+        actionButtonCell.cancelButtonTapHandler = { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+
         switch cellType {
         case .store:
             categoryCell.categoryTitle = CategoryListType.store.title
@@ -112,7 +116,6 @@ extension SignupViewController: UITableViewDataSource {
             return categoryCell
         case .signup:
             actionButtonCell.setupButton(self)
-            actionButtonCell.delegate = self
             return actionButtonCell
         }
     }
@@ -126,11 +129,5 @@ extension SignupViewController: SignupCategoryViewDelegate {
         case .genre: storeData.genre = textField.text
         case .signup: break
         }
-    }
-}
-
-extension SignupViewController: actionButtonProtocal {
-    func didTapCancel() {
-        dismiss(animated: true, completion: nil)
     }
 }
