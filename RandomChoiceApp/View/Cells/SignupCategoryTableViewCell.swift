@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol SignupCategoryTableViewCellDelegate: AnyObject {
-    func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType)
+protocol SignupCategoryViewDelegate: AnyObject {
+    func textField(_ textField: UITextField, cellType categoryListType: CategoryListType)
 }
 
 final class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
 
-    weak var delegate: SignupCategoryTableViewCellDelegate?
+    weak var delegate: SignupCategoryViewDelegate?
     var cellType: CategoryListType?
 
     @IBOutlet private var categoryLabel: UILabel!
@@ -32,7 +32,7 @@ final class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let cellType = cellType else { return }
-        delegate?.fetchCategoryNameText(textField: textField, cellType: cellType)
+        delegate?.textField(textField, cellType: cellType)
     }
 
     var categoryTitle: String? {
