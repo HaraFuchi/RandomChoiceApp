@@ -91,8 +91,6 @@ extension EditViewController: UITableViewDataSource {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.signupCell, for: indexPath) as! SignupCategoryTableViewCell
         let actionButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
 
-        guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
-
         categoryCell.delegate = self
 
         convertValueNil()
@@ -104,6 +102,8 @@ extension EditViewController: UITableViewDataSource {
         actionButtonCell.cancelButtonTapHandler = { _ in
             self.dismiss(animated: true, completion: nil)
         }
+
+        guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
 
         switch cellType {
         case .store:

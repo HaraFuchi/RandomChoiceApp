@@ -42,12 +42,12 @@ extension RandomChoiceViewController: UITableViewDataSource {
         let storeDataCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listPageCell) as! ListPageTableViewCell
         let buttonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.randomChoiceButtonCell) as! RandomChoiceButtonTableViewCell
 
-        guard let cellType = DiceScreenType(rawValue: indexPath.row) else { return UITableViewCell() }
-
         buttonCell.diceButtonTapHandler = { _ in
             ExtractResultLogic.randomSelectedStoreData()
             tableView.reloadData()
         }
+
+        guard let cellType = DiceScreenType(rawValue: indexPath.row) else { return UITableViewCell() }
 
         switch cellType {
         case .result:
