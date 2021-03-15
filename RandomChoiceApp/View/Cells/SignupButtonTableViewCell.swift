@@ -1,5 +1,5 @@
 //
-//  CommonActionButtonTableViewCell.swift
+//  SignupButtonTableViewCell.swift
 //  RandomChoiceApp
 //
 //  Created by 渕一真 on 2020/07/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class CommonActionButtonTableViewCell: UITableViewCell {
+final class SignupButtonTableViewCell: UITableViewCell {
 
     var signupButtonTapHandler: ((_ sender: UIButton) -> Void)?
     var cancelButtonTapHandler: ((_ sender: UIButton) -> Void)?

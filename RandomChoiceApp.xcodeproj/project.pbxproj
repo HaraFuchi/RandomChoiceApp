@@ -13,8 +13,8 @@
 		C5194F9B24E174D60050DE18 /* StoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5194F9A24E174D60050DE18 /* StoreData.swift */; };
 		C5202BC024FAEAD300656F6D /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5202BBF24FAEAD300656F6D /* Constraints.swift */; };
 		C53EB1F7256D898D00C98935 /* AlertDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53EB1F6256D898D00C98935 /* AlertDisplayable.swift */; };
-		C548E98524C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */; };
-		C548E98624C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */; };
+		C548E98524C5EFE5008685D7 /* SignupButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C548E98324C5EFE5008685D7 /* SignupButtonTableViewCell.swift */; };
+		C548E98624C5EFE5008685D7 /* SignupButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C548E98424C5EFE5008685D7 /* SignupButtonTableViewCell.xib */; };
 		C5780BB124C4997A0007972D /* SignupCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */; };
 		C5780BB224C4997A0007972D /* SignupCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */; };
 		C59B1DDF24E9FD5E0060C622 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B1DDE24E9FD5E0060C622 /* LoginManager.swift */; };
@@ -31,7 +31,7 @@
 		E3549030256BF2C40038305A /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E354902E256BF2C40038305A /* SettingTableViewCell.xib */; };
 		E354B6AF24C42E8E00759289 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354B6AE24C42E8E00759289 /* AppDelegate.swift */; };
 		E354B6B124C42E8E00759289 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354B6B024C42E8E00759289 /* SceneDelegate.swift */; };
-		E354B6B324C42E8E00759289 /* RandomChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354B6B224C42E8E00759289 /* RandomChoiceViewController.swift */; };
+		E354B6B324C42E8E00759289 /* DiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E354B6B224C42E8E00759289 /* DiceViewController.swift */; };
 		E354B6B624C42E8E00759289 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E354B6B424C42E8E00759289 /* Main.storyboard */; };
 		E354B6B824C42E9400759289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E354B6B724C42E9400759289 /* Assets.xcassets */; };
 		E354B6BB24C42E9400759289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E354B6B924C42E9400759289 /* LaunchScreen.storyboard */; };
@@ -39,8 +39,8 @@
 		E3955A3724C468590028FD67 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A3624C468590028FD67 /* SignupViewController.swift */; };
 		E3955A3A24C5635C0028FD67 /* ListPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */; };
 		E3955A3B24C5635C0028FD67 /* ListPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */; };
-		E3955A4224C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A4024C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift */; };
-		E3955A4324C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3955A4124C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib */; };
+		E3955A4224C6D1E60028FD67 /* DiceButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3955A4024C6D1E60028FD67 /* DiceButtonTableViewCell.swift */; };
+		E3955A4324C6D1E60028FD67 /* DiceButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3955A4124C6D1E60028FD67 /* DiceButtonTableViewCell.xib */; };
 		E3D7A6BD24CDF0CB005B3249 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3D7A6BC24CDF0CB005B3249 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -67,8 +67,8 @@
 		C5202C0124FAFD9500656F6D /* RandomChoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomChoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5202C0524FAFD9500656F6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C53EB1F6256D898D00C98935 /* AlertDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplayable.swift; sourceTree = "<group>"; };
-		C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonActionButtonTableViewCell.swift; sourceTree = "<group>"; };
-		C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonActionButtonTableViewCell.xib; sourceTree = "<group>"; };
+		C548E98324C5EFE5008685D7 /* SignupButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupButtonTableViewCell.swift; sourceTree = "<group>"; };
+		C548E98424C5EFE5008685D7 /* SignupButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupButtonTableViewCell.xib; sourceTree = "<group>"; };
 		C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		C59B1DDE24E9FD5E0060C622 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		E354B6AB24C42E8E00759289 /* Debugさいころdeごはん.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Debugさいころdeごはん.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E354B6AE24C42E8E00759289 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E354B6B024C42E8E00759289 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E354B6B224C42E8E00759289 /* RandomChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomChoiceViewController.swift; sourceTree = "<group>"; };
+		E354B6B224C42E8E00759289 /* DiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceViewController.swift; sourceTree = "<group>"; };
 		E354B6B524C42E8E00759289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E354B6B724C42E9400759289 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E354B6BA24C42E9400759289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 		E3955A3624C468590028FD67 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPageTableViewCell.swift; sourceTree = "<group>"; };
 		E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListPageTableViewCell.xib; sourceTree = "<group>"; };
-		E3955A4024C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomChoiceButtonTableViewCell.swift; sourceTree = "<group>"; };
-		E3955A4124C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RandomChoiceButtonTableViewCell.xib; sourceTree = "<group>"; };
+		E3955A4024C6D1E60028FD67 /* DiceButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceButtonTableViewCell.swift; sourceTree = "<group>"; };
+		E3955A4124C6D1E60028FD67 /* DiceButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiceButtonTableViewCell.xib; sourceTree = "<group>"; };
 		E3D7A6BC24CDF0CB005B3249 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,12 +166,12 @@
 			children = (
 				E3955A3824C5635C0028FD67 /* ListPageTableViewCell.swift */,
 				E3955A3924C5635C0028FD67 /* ListPageTableViewCell.xib */,
-				E3955A4024C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift */,
-				E3955A4124C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib */,
+				E3955A4024C6D1E60028FD67 /* DiceButtonTableViewCell.swift */,
+				E3955A4124C6D1E60028FD67 /* DiceButtonTableViewCell.xib */,
 				C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */,
 				C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */,
-				C548E98324C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift */,
-				C548E98424C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib */,
+				C548E98324C5EFE5008685D7 /* SignupButtonTableViewCell.swift */,
+				C548E98424C5EFE5008685D7 /* SignupButtonTableViewCell.xib */,
 				E354902D256BF2C40038305A /* SettingTableViewCell.swift */,
 				E354902E256BF2C40038305A /* SettingTableViewCell.xib */,
 			);
@@ -184,7 +184,7 @@
 				C53EB1FB256D8DC900C98935 /* Extension */,
 				E354B6AE24C42E8E00759289 /* AppDelegate.swift */,
 				E354B6B024C42E8E00759289 /* SceneDelegate.swift */,
-				E354B6B224C42E8E00759289 /* RandomChoiceViewController.swift */,
+				E354B6B224C42E8E00759289 /* DiceViewController.swift */,
 				E3955A3424C4682F0028FD67 /* ListViewController.swift */,
 				E3955A3624C468590028FD67 /* SignupViewController.swift */,
 				E3396A4624F90AE10020AF8E /* EditViewController.swift */,
@@ -356,12 +356,12 @@
 				E3D7A6BD24CDF0CB005B3249 /* GoogleService-Info.plist in Resources */,
 				E354B6BB24C42E9400759289 /* LaunchScreen.storyboard in Resources */,
 				E354B6B824C42E9400759289 /* Assets.xcassets in Resources */,
-				C548E98624C5EFE5008685D7 /* CommonActionButtonTableViewCell.xib in Resources */,
+				C548E98624C5EFE5008685D7 /* SignupButtonTableViewCell.xib in Resources */,
 				E3955A3B24C5635C0028FD67 /* ListPageTableViewCell.xib in Resources */,
 				E3549030256BF2C40038305A /* SettingTableViewCell.xib in Resources */,
 				E354B6B624C42E8E00759289 /* Main.storyboard in Resources */,
 				C5780BB224C4997A0007972D /* SignupCategoryTableViewCell.xib in Resources */,
-				E3955A4324C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.xib in Resources */,
+				E3955A4324C6D1E60028FD67 /* DiceButtonTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,7 +505,7 @@
 				E3396A4724F90AE10020AF8E /* EditViewController.swift in Sources */,
 				C5194F9924E085A40050DE18 /* StoreDataManager.swift in Sources */,
 				C5C4B8A0258A5C4800FD2BFE /* CategoryListType.swift in Sources */,
-				E354B6B324C42E8E00759289 /* RandomChoiceViewController.swift in Sources */,
+				E354B6B324C42E8E00759289 /* DiceViewController.swift in Sources */,
 				E354B6AF24C42E8E00759289 /* AppDelegate.swift in Sources */,
 				E3955A3724C468590028FD67 /* SignupViewController.swift in Sources */,
 				E3549029256B92E20038305A /* SettingViewController.swift in Sources */,
@@ -514,10 +514,10 @@
 				E3955A3524C4682F0028FD67 /* ListViewController.swift in Sources */,
 				C5F76772259F93E600EF11A0 /* ExtractResultLogic.swift in Sources */,
 				E354B6B124C42E8E00759289 /* SceneDelegate.swift in Sources */,
-				E3955A4224C6D1E60028FD67 /* RandomChoiceButtonTableViewCell.swift in Sources */,
+				E3955A4224C6D1E60028FD67 /* DiceButtonTableViewCell.swift in Sources */,
 				C5202BC024FAEAD300656F6D /* Constraints.swift in Sources */,
 				C5780BB124C4997A0007972D /* SignupCategoryTableViewCell.swift in Sources */,
-				C548E98524C5EFE5008685D7 /* CommonActionButtonTableViewCell.swift in Sources */,
+				C548E98524C5EFE5008685D7 /* SignupButtonTableViewCell.swift in Sources */,
 				E3955A3A24C5635C0028FD67 /* ListPageTableViewCell.swift in Sources */,
 				C59B1DDF24E9FD5E0060C622 /* LoginManager.swift in Sources */,
 			);

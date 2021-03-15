@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DiceViewController.swift
 //  RandomChoiceApp
 //
 //  Created by AYANO HARA on 2020/07/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RandomChoiceViewController: UIViewController {
+final class DiceViewController: UIViewController {
     private enum DiceScreenType: Int, CaseIterable {
         case result, dice
     }
@@ -17,7 +17,7 @@ final class RandomChoiceViewController: UIViewController {
         didSet {
             tableView.dataSource = self
             tableView.register(UINib(nibName: Nib.listPageTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.listPageCell)
-            tableView.register(UINib(nibName: Nib.randomChoiceButtonTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.randomChoiceButtonCell)
+            tableView.register(UINib(nibName: Nib.diceButtonTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.randomChoiceButtonCell)
         }
     }
 
@@ -33,14 +33,14 @@ final class RandomChoiceViewController: UIViewController {
 }
 
 // MARK: - Protocol
-extension RandomChoiceViewController: UITableViewDataSource {
+extension DiceViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DiceScreenType.allCases.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let storeDataCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listPageCell) as! ListPageTableViewCell
-        let diceCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.randomChoiceButtonCell) as! RandomChoiceButtonTableViewCell
+        let diceCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.randomChoiceButtonCell) as! DiceButtonTableViewCell
 
         diceCell.buttonTapHandler = { _ in
             ExtractResultLogic.randomSelectedStoreData()
@@ -63,7 +63,7 @@ extension RandomChoiceViewController: UITableViewDataSource {
     }
 }
 
-extension RandomChoiceViewController: InvalidAlertDisplayable {
+extension DiceViewController: InvalidAlertDisplayable {
     func showAlertNoStoreData() {
         let alert = UIAlertController(title: AlertTitle.signup1, message: AlertMessage.signUp, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in

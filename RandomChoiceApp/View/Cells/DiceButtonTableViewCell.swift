@@ -1,5 +1,5 @@
 //
-//  RandomChoiceButtonTableViewCell.swift
+//  DiceButtonTableViewCell.swift
 //  RandomChoiceApp
 //
 //  Created by AYANO HARA on 2020/07/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RandomChoiceButtonTableViewCell: UITableViewCell {
+final class DiceButtonTableViewCell: UITableViewCell {
 
     var buttonTapHandler: ((_ sender: UIButton) -> Void)?
 
