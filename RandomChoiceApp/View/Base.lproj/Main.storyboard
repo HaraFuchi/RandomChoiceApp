@@ -12,7 +12,7 @@
         <!--さいころdeごはん-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RandomChoiceViewController" customModule="Debugさいころdeごはん" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RandomChoiceViewController" customModule="Debug" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,7 +74,7 @@
         <!--お店を登録-->
         <scene sceneID="tzO-Rg-ghT">
             <objects>
-                <viewController id="Ko3-W4-qBb" customClass="SignupViewController" customModule="Debugさいころdeごはん" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ko3-W4-qBb" customClass="SignupViewController" customModule="Debug" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S4O-Te-s8D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,7 +83,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Celll" rowHeight="100" id="4px-Dz-mLs" customClass="SignupCategoryTableViewCell" customModule="Debugさいころdeごはん" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Celll" rowHeight="100" id="4px-Dz-mLs" customClass="SignupCategoryTableViewCell" customModule="Debug" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4px-Dz-mLs" id="9qt-dr-WoP">
@@ -138,7 +138,7 @@
         <!--お店一覧-->
         <scene sceneID="CZ2-es-7US">
             <objects>
-                <viewController id="2Gj-wH-W6X" customClass="ListViewController" customModule="Debugさいころdeごはん" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Gj-wH-W6X" customClass="ListViewController" customModule="Debug" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Pa-Yu-LDY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,7 +211,7 @@
         <!--お店を編集-->
         <scene sceneID="jS1-F0-SYh">
             <objects>
-                <viewController id="J2i-Mb-V9B" customClass="EditViewController" customModule="Debugさいころdeごはん" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="J2i-Mb-V9B" customClass="EditViewController" customModule="Debug" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="chQ-hi-mXp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -266,7 +266,7 @@
         <!--Setting View Controller-->
         <scene sceneID="Tbp-wr-bUq">
             <objects>
-                <viewController id="pUA-zi-x52" customClass="SettingViewController" customModule="Debugさいころdeごはん" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pUA-zi-x52" customClass="SettingViewController" customModule="Debug" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OXE-8E-Ik6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -336,7 +336,6 @@
                     <tabBarItem key="tabBarItem" title="さいころdeごはん" image="house.fill" catalog="system" id="lcE-XT-qGa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1qS-aQ-hCW">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.99215686270000003" green="0.6393200201" blue="0.218539124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -359,7 +358,6 @@
                     <tabBarItem key="tabBarItem" title="お店一覧" image="list.dash" catalog="system" id="OJa-gL-W2z"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xPv-We-ZHC">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.99215686270000003" green="0.6393200201" blue="0.218539124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -394,7 +392,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbW-v7-A8h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="354" y="-10"/>
+            <point key="canvasLocation" x="148" y="-200"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -402,10 +400,10 @@
         <segue reference="aci-31-F6H"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="chevron.backward" catalog="system" width="32" height="32"/>
+        <image name="gearshape" catalog="system" width="32" height="32"/>
+        <image name="house.fill" catalog="system" width="32" height="32"/>
+        <image name="list.dash" catalog="system" width="32" height="32"/>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

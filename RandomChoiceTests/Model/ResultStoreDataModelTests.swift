@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Debugさいころdeごはん
+@testable import RandomChoiceApp
 
 class ResultStoreDataModelTests: XCTestCase {
 

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Debugさいころdeごはん
+@testable import RandomChoiceApp
 
 class StoreDataContentsModelTests: XCTestCase {
     func test_イニシャライザ時_正しく値が入る() {
