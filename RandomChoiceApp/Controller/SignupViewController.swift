@@ -84,15 +84,15 @@ extension SignupViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.signupCell, for: indexPath) as! SignupCategoryTableViewCell
-        let actionButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
+        let actionCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
 
         categoryCell.delegate = self
 
-        actionButtonCell.signupButtonTapHandler = { [weak self] _ in
+        actionCell.signupButtonTapHandler = { [weak self] _ in
             self?.showSignupAlert()
         }
 
-        actionButtonCell.cancelButtonTapHandler = { _ in
+        actionCell.cancelButtonTapHandler = { _ in
             self.dismiss(animated: true, completion: nil)
         }
 
@@ -115,8 +115,8 @@ extension SignupViewController: UITableViewDataSource {
             categoryCell.cellType = .genre
             return categoryCell
         case .signup:
-            actionButtonCell.setupButton(self)
-            return actionButtonCell
+            actionCell.setupButton(self)
+            return actionCell
         }
     }
 }
