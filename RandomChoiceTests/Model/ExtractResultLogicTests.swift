@@ -1,5 +1,5 @@
 //
-//  ResultStoreDataModelTests.swift
+//  ExtractResultLogicTests.swift
 //  RandomChoiceTests
 //
 //  Created by 渕一真 on 2021/02/07.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Debugさいころdeごはん
 
-class ResultStoreDataModelTests: XCTestCase {
+class ExtractResultLogicTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
