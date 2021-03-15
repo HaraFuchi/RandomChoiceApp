@@ -59,3 +59,8 @@ final class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
         categoryTextField.backgroundColor = .white
     }
 }
+
+// MARK: - Protocol
+extension SignupCategoryTableViewCell {
+
+}
