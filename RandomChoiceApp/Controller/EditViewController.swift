@@ -89,17 +89,21 @@ extension EditViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.signupCell, for: indexPath) as! SignupCategoryTableViewCell
-        let actionButtonCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
-
-        guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
+        let actionCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionButtonCell, for: indexPath) as! CommonActionButtonTableViewCell
 
         categoryCell.delegate = self
 
         convertValueNil()
 
-        actionButtonCell.signupButtonTapHandler = { [weak self] _ in
+        actionCell.signupButtonTapHandler = { [weak self] _ in
             self?.showEditAlert()
         }
+
+        actionCell.cancelButtonTapHandler = { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+
+        guard let cellType = CategoryListType(rawValue: indexPath.row) else { return UITableViewCell() }
 
         switch cellType {
         case .store:
@@ -118,9 +122,8 @@ extension EditViewController: UITableViewDataSource {
             categoryCell.cellType = .genre
             return categoryCell
         case .signup:
-            actionButtonCell.setupButton(self)
-            actionButtonCell.delegate = self
-            return actionButtonCell
+            actionCell.setupButton(self)
+            return actionCell
         }
     }
 }
@@ -133,11 +136,5 @@ extension EditViewController: SignupCategoryViewDelegate {
         case .genre: storeData?.genre = textField.text
         case .signup: break
         }
-    }
-}
-
-extension EditViewController: actionButtonProtocal {
-    func didTapCancel() {
-        dismiss(animated: true, completion: nil)
     }
 }
