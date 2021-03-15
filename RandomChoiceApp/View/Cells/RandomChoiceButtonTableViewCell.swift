@@ -10,12 +10,12 @@ import UIKit
 
 final class RandomChoiceButtonTableViewCell: UITableViewCell {
 
-    var diceButtonTapHandler: ((_ sender: UIButton) -> Void)?
+    var buttonTapHandler: ((_ sender: UIButton) -> Void)?
 
     @IBOutlet private weak var diceButton: UIButton!
 
     @IBAction func didTapDiceButton(_ sender: UIButton) {
-        diceButtonTapHandler?(sender)
+        buttonTapHandler?(sender)
     }
 
     override func awakeFromNib() {
