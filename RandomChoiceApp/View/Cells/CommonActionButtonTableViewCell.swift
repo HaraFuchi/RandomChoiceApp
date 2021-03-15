@@ -29,10 +29,6 @@ final class CommonActionButtonTableViewCell: UITableViewCell {
         setupDetailCell()
     }
 
-    private func setupDetailCell() {
-        self.selectionStyle = .none
-    }
-
     func setupButton(_ vc: UIViewController) { // swiftlint:disable:this identifier_name
         if vc is SignupViewController {
             signupButtonDetailInSignupScreen()
@@ -44,6 +40,10 @@ final class CommonActionButtonTableViewCell: UITableViewCell {
     }
 
     // MARK: - Private Method
+    private func setupDetailCell() {
+        self.selectionStyle = .none
+    }
+
     private func signupButtonDetailInSignupScreen() {
         signUpButton.setTitle(ButtonTitle.signUp, for: .normal)
         signUpButton.backgroundColor = RandomChoiceAppColor.red

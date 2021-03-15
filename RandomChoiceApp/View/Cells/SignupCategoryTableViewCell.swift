@@ -12,27 +12,21 @@ protocol SignupCategoryViewDelegate: AnyObject {
     func textField(_ textField: UITextField, cellType categoryListType: CategoryListType)
 }
 
-final class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
+final class SignupCategoryTableViewCell: UITableViewCell {
 
     weak var delegate: SignupCategoryViewDelegate?
     var cellType: CategoryListType?
 
     @IBOutlet private var categoryLabel: UILabel!
-    @IBOutlet private var categoryTextField: UITextField!
+    @IBOutlet private var categoryTextField: UITextField! {
+        didSet {
+            categoryTextField.delegate = self
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setupDetailCell()
-        categoryTextField.delegate = self
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let cellType = cellType else { return }
-        delegate?.textField(textField, cellType: cellType)
     }
 
     var categoryTitle: String? {
@@ -57,5 +51,17 @@ final class SignupCategoryTableViewCell: UITableViewCell, UITextFieldDelegate {
     private func setupDetailCell() {
         self.selectionStyle = .none
         categoryTextField.backgroundColor = .white
+    }
+}
+
+// MARK: - Protocol
+extension SignupCategoryTableViewCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let cellType = cellType else { return }
+        delegate?.textField(textField, cellType: cellType)
     }
 }
