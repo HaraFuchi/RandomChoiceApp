@@ -125,9 +125,9 @@ extension EditViewController: UITableViewDataSource {
     }
 }
 
-extension EditViewController: SignupCategoryTableViewCellDelegate {
-    func fetchCategoryNameText(textField: UITextField, cellType: CategoryListType) {
-        switch cellType {
+extension EditViewController: SignupCategoryViewDelegate {
+    func textField(_ textField: UITextField, cellType categoryListType: CategoryListType) {
+        switch categoryListType {
         case .store: storeData?.store = textField.text
         case .place: storeData?.place = textField.text
         case .genre: storeData?.genre = textField.text
