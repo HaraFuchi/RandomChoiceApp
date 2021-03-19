@@ -102,9 +102,6 @@ extension ListViewController: UITableViewDataSource {
         } else {
             cell.hideSkeleton()
             let item = StoreDataManager.storeDataList[indexPath.row]
-            cell.storeDataText = item.store
-            cell.placeDataText = item.place
-            cell.genreDataText = item.genre
             cell.storeData = item
         }
         return cell

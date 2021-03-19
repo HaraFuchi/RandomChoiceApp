@@ -16,7 +16,13 @@ final class ListPageTableViewCell: UITableViewCell {
 
     weak var delegate: ListPageTableViewCellDelegate?
 
-    var storeData: StoreData?
+    var storeData: StoreData? {
+        didSet {
+            storeNameLabel.text = storeData?.store
+            placeLabel.text = storeData?.place
+            genreLabel.text = storeData?.genre
+        }
+    }
 
     @IBOutlet private weak var BGBaseView: UIView!
     @IBOutlet private weak var storeNameLabel: UILabel!
