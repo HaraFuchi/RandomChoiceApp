@@ -101,8 +101,7 @@ extension ListViewController: UITableViewDataSource {
             setUpSkeleton(cell: cell)
         } else {
             cell.hideSkeleton()
-            let item = StoreDataManager.storeDataList[indexPath.row]
-            cell.storeData = item
+            cell.storeData = StoreDataManager.storeDataList[indexPath.row]
         }
         return cell
     }
