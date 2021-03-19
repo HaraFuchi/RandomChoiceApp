@@ -11,7 +11,7 @@ import SkeletonView
 import Reachability
 
 final class ListViewController: UIViewController, SkeletonTableViewDataSource {
-    var indexPathNumber: Int? // CellのindexPathを保持
+    var indexPathNumber: StoreData? // CellのindexPathを保持
 
     @IBOutlet private weak var signupVCBarButtonItem: UIBarButtonItem!
 
@@ -105,7 +105,8 @@ extension ListViewController: UITableViewDataSource {
             cell.storeDataText = item.store
             cell.placeDataText = item.place
             cell.genreDataText = item.genre
-            cell.indexPathNumber = indexPath.row
+            cell.indexPathNumber = item
+            //            cell.indexPathNumber = indexPath.row
         }
         return cell
     }
@@ -131,7 +132,7 @@ extension ListViewController: UITableViewDelegate {
 }
 
 extension ListViewController: ListPageTableViewCellDelegate {
-    func button(_ button: UIButton, didTapButtonAt index: Int) {
+    func button(_ button: UIButton, didTapButtonAt index: StoreData) {
         indexPathNumber = index
         performSegue(withIdentifier: SegueIdentifier.goToEditVC, sender: nil)
     }
@@ -140,7 +141,7 @@ extension ListViewController: ListPageTableViewCellDelegate {
         if segue.identifier == SegueIdentifier.goToEditVC {
             let editVC = segue.destination as! EditViewController
             if let indexPath = indexPathNumber {
-                editVC.storeData = StoreDataManager.storeDataList[indexPath]
+                editVC.storeData = indexPath
             }
         }
     }

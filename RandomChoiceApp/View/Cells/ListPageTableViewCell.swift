@@ -9,14 +9,14 @@
 import UIKit
 
 protocol ListPageTableViewCellDelegate: AnyObject {
-    func button(_ button: UIButton, didTapButtonAt index: Int)
+    func button(_ button: UIButton, didTapButtonAt index: StoreData)
 }
 
 final class ListPageTableViewCell: UITableViewCell {
 
     weak var delegate: ListPageTableViewCellDelegate?
 
-    var indexPathNumber: Int? // Cellに分別する変数
+    var indexPathNumber: StoreData? // Cellに分別する変数
 
     @IBOutlet private weak var BGBaseView: UIView!
     @IBOutlet private weak var storeNameLabel: UILabel!
