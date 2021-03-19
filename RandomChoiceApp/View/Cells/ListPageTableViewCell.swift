@@ -16,7 +16,7 @@ final class ListPageTableViewCell: UITableViewCell {
 
     weak var delegate: ListPageTableViewCellDelegate?
 
-    var indexPathNumber: StoreData? // Cellに分別する変数
+    var storeData: StoreData?
 
     @IBOutlet private weak var BGBaseView: UIView!
     @IBOutlet private weak var storeNameLabel: UILabel!
@@ -25,7 +25,7 @@ final class ListPageTableViewCell: UITableViewCell {
     @IBOutlet private weak var editButton: UIButton!
 
     @IBAction func touchedEditButton(_ sender: UIButton) {
-        if let indexPath = indexPathNumber {
+        if let indexPath = storeData {
             delegate?.button(sender, didTapButtonAt: indexPath)
         }
     }
