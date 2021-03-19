@@ -128,8 +128,8 @@ extension ListViewController: UITableViewDelegate {
 }
 
 extension ListViewController: ListPageTableViewCellDelegate {
-    func button(_ button: UIButton, didTapButtonAt index: StoreData) {
-        storeData = index
+    func button(_ button: UIButton, didTapButtonAt data: StoreData) {
+        storeData = data
         performSegue(withIdentifier: SegueIdentifier.goToEditVC, sender: nil)
     }
 

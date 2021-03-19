@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ListPageTableViewCellDelegate: AnyObject {
-    func button(_ button: UIButton, didTapButtonAt index: StoreData)
+    func button(_ button: UIButton, didTapButtonAt data: StoreData)
 }
 
 final class ListPageTableViewCell: UITableViewCell {
