@@ -139,9 +139,8 @@ extension ListViewController: ListPageTableViewCellDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.goToEditVC {
             let editVC = segue.destination as! EditViewController
-            if let indexPath = storeData {
-                editVC.storeData = indexPath
-            }
+            guard let storeData = storeData else { return }
+            editVC.storeData = storeData
         }
     }
 }

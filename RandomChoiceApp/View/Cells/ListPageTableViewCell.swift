@@ -25,9 +25,8 @@ final class ListPageTableViewCell: UITableViewCell {
     @IBOutlet private weak var editButton: UIButton!
 
     @IBAction func touchedEditButton(_ sender: UIButton) {
-        if let indexPath = storeData {
-            delegate?.button(sender, didTapButtonAt: indexPath)
-        }
+        guard let storeData = storeData else { return }
+        delegate?.button(sender, didTapButtonAt: storeData)
     }
 
     override func awakeFromNib() {
