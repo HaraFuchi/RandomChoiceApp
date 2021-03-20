@@ -9,14 +9,20 @@
 import UIKit
 
 protocol ListPageTableViewCellDelegate: AnyObject {
-    func button(_ button: UIButton, didTapButtonAt index: Int)
+    func button(_ button: UIButton, didTapButtonAt data: StoreData)
 }
 
 final class ListPageTableViewCell: UITableViewCell {
 
     weak var delegate: ListPageTableViewCellDelegate?
 
-    var indexPathNumber: Int? // Cellに分別する変数
+    var storeData: StoreData? {
+        didSet {
+            storeNameLabel.text = storeData?.store
+            placeLabel.text = storeData?.place
+            genreLabel.text = storeData?.genre
+        }
+    }
 
     @IBOutlet private weak var BGBaseView: UIView!
     @IBOutlet private weak var storeNameLabel: UILabel!
@@ -25,9 +31,8 @@ final class ListPageTableViewCell: UITableViewCell {
     @IBOutlet private weak var editButton: UIButton!
 
     @IBAction func touchedEditButton(_ sender: UIButton) {
-        if let indexPath = indexPathNumber {
-            delegate?.button(sender, didTapButtonAt: indexPath)
-        }
+        guard let storeData = storeData else { return }
+        delegate?.button(sender, didTapButtonAt: storeData)
     }
 
     override func awakeFromNib() {
