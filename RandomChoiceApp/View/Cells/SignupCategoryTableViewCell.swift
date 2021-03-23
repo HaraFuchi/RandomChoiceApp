@@ -47,14 +47,18 @@ final class SignupCategoryTableViewCell: UITableViewCell {
         }
     }
 
+    /**********************************************************************/
     // MARK: - Private Method
+    /**********************************************************************/
     private func setupDetailCell() {
         self.selectionStyle = .none
         categoryTextField.backgroundColor = .white
     }
 }
 
+/**********************************************************************/
 // MARK: - Protocol
+/**********************************************************************/
 extension SignupCategoryTableViewCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

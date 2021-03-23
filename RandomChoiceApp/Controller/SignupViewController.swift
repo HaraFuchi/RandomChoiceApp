@@ -32,7 +32,9 @@ final class SignupViewController: UIViewController, AlertDisplayable {
         self.view.endEditing(true)
     }
 
+    /**********************************************************************/
     // MARK: - Private Method
+    /**********************************************************************/
     private func showSignupAlert() {
         let alert = UIAlertController(title: AlertTitle.signup2, message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in
@@ -69,7 +71,9 @@ final class SignupViewController: UIViewController, AlertDisplayable {
     }
 }
 
+/**********************************************************************/
 // MARK: - Protocol
+/**********************************************************************/
 extension SignupViewController: UINavigationBarDelegate {
     // UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {

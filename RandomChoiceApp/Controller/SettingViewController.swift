@@ -56,7 +56,9 @@ final class SettingViewController: UIViewController {
     }
 }
 
+/**********************************************************************/
 // MARK: - Protocol
+/**********************************************************************/
 extension SettingViewController: UINavigationBarDelegate {
     // UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {

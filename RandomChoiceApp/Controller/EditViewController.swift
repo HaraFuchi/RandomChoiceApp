@@ -31,7 +31,9 @@ final class EditViewController: UIViewController, AlertDisplayable {
         super.viewDidLoad()
     }
 
+    // **********************************************************************/
     // MARK: - Private Method
+    // **********************************************************************/
     // TODO: converterクラスを作成してModel化
     // TFに???を反映させる必要はないため、nilを返す
     // TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す

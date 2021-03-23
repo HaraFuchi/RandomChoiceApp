@@ -41,7 +41,9 @@ final class ListViewController: UIViewController, SkeletonTableViewDataSource {
         return CellIdentifier.listPageCell
     }
 
+    /**********************************************************************/
     // MARK: - Private Method
+    /**********************************************************************/
     private func showDeleteAlert(tableView: UITableView, editingStyle: UITableViewCell.EditingStyle, indexPath: IndexPath) {
         let showAlert = UIAlertController(title: AlertTitle.delete, message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive) { ( _ ) in
@@ -82,7 +84,9 @@ final class ListViewController: UIViewController, SkeletonTableViewDataSource {
     }
 }
 
-// MARK: - protocol
+/**********************************************************************/
+// MARK: - Protocol
+/**********************************************************************/
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if StoreDataManager.storeDataList.isEmpty {
