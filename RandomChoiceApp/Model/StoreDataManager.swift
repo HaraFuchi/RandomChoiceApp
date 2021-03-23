@@ -47,7 +47,7 @@ struct StoreDataManager {
         ref.child(userID).child(uniqID).updateChildValues(newEditData)
     }
 
-    static func delete(storeData: StoreData) {
+    static func delete(at storeData: StoreData) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         guard let childKey = storeData.childID else { return }
         ref.child(userID).child(childKey).removeValue()
