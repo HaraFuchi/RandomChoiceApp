@@ -47,11 +47,10 @@ struct StoreDataManager {
         ref.child(userID).child(uniqID).updateChildValues(newEditData)
     }
 
-    // TODO: 引数をStoreDataクラスにした方がオブジェクト指向っぽいかつシンプル
-    static func delete(indexPath: IndexPath) {
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        guard let childKey = StoreDataManager.storeDataList[indexPath.row].childID else { return }
-        ref.child(userID).child(childKey).removeValue()
+    static func delete(at storeData: StoreData) {
+        guard let userID = Auth.auth().currentUser?.uid,
+              let uniqID = storeData.childID else { return }
+        ref.child(userID).child(uniqID).removeValue()
     }
 
     /**********************************************************************/
