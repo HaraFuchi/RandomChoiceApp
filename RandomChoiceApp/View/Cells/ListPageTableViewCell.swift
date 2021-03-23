@@ -64,7 +64,9 @@ final class ListPageTableViewCell: UITableViewCell {
         }
     }
 
+    /**********************************************************************/
     // MARK: - Private Method
+    /**********************************************************************/
     private func setupDetailCell() {
         self.selectionStyle = .none
         BGBaseView.layer.cornerRadius = 8

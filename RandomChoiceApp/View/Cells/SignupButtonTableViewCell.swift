@@ -39,7 +39,9 @@ final class SignupButtonTableViewCell: UITableViewCell {
         }
     }
 
+    /**********************************************************************/
     // MARK: - Private Method
+    /**********************************************************************/
     private func setupDetailCell() {
         self.selectionStyle = .none
     }

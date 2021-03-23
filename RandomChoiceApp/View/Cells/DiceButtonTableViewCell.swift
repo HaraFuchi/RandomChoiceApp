@@ -23,7 +23,9 @@ final class DiceButtonTableViewCell: UITableViewCell {
         setupDetailCell()
     }
 
+    /**********************************************************************/
     // MARK: - Private Method
+    /**********************************************************************/
     private func setupDetailCell() {
         self.selectionStyle = .none
         diceButton.layer.shadowOpacity = 0.5

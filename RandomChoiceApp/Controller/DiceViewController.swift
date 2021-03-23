@@ -32,7 +32,9 @@ final class DiceViewController: UIViewController {
     }
 }
 
+/**********************************************************************/
 // MARK: - Protocol
+/**********************************************************************/
 extension DiceViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DiceScreenType.allCases.count
