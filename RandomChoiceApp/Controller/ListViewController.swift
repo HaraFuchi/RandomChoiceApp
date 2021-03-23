@@ -46,7 +46,7 @@ final class ListViewController: UIViewController, SkeletonTableViewDataSource {
         let showAlert = UIAlertController(title: AlertTitle.delete, message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: AlertButtonTitle.delete, style: .destructive) { ( _ ) in
             let storeData = StoreDataManager.storeDataList[indexPath.row]
-            StoreDataManager.delete(indexPath: storeData)
+            StoreDataManager.delete(storeData: storeData)
 
             guard StoreDataManager.storeDataList.isEmpty else { return }
 
