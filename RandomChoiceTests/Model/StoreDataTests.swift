@@ -1,5 +1,5 @@
 //
-//  StoreDataContentsModelTests.swift
+//  StoreDataTests.swift
 //  RandomChoiceTests
 //
 //  Created by 渕一真 on 2021/01/25.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Debugさいころdeごはん
 
-class StoreDataContentsModelTests: XCTestCase {
+class StoreDataTests: XCTestCase {
     func test_イニシャライザ時_正しく値が入る() {
         let model = StoreData(childID: "123456789",
                               store: "日高屋",

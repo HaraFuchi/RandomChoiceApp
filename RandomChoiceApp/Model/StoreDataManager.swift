@@ -15,7 +15,8 @@ protocol InvalidAlertDisplayable: AnyObject {
 struct StoreDataManager {
     static weak var invalidAlertDelegate: InvalidAlertDisplayable?
 
-    private(set) static var storeDataList = [StoreData]()
+    static var storeDataList = [StoreData]()
+    //    private(set) static var storeDataList = [StoreData]()
 
     static private let ref = Database.database().reference()
 
