@@ -8,8 +8,25 @@
 - チーム開発
 - アジャイル開発
 
+## 環境構築
+1. リポジトリをclone
+    -  `git clone https://github.com/HaraFuchi/RandomChoiceApp.git`
+2. Bundlerをインストール
+    -  `sudo gem install bundler`  
+3. CocoaPodsをインストール
+    -  `bundle install` 
+4. CocoaPodsを実行
+    -  `bundle exec pod install`  
+5. Carthagoをインストール
+    -  `brew install carthage`  
+6. Carthagoを実行
+    -  `XCODE_XCCONFIG_FILE=$PWD/Carthago.xcconfig
+    carthage bootstrap --platform iOS --no-use-binaries --cache-builds`  
+7. RandomChoiceApp.xcworkspace を開く  
+8. Schemeを`Debugさいころdeごはん`に変更 ※RandomChoiceAppではありません
+
 ## タスク管理
-タスク管理ツールTrelloを使用
+issueを使用
 
 ## 開発情報
 
@@ -50,34 +67,13 @@ MVCモデルを使用
 |  develop  |  開発用メインブランチ<br>デフォルトブランチ |
 |  feature/xxx  |  機能開発用ブランチ |
 |  fix/xxx  |  バグ修正用ブランチ  |
-|  refactor/xxx  |  リファクタリング用ブランチ  |
-
-### extensionルール  
-- プロトコルを準拠するタイミング
 
 ### コメントルール
 TODO: リリースまでに完了させたい修正箇所  
 FIXME: 長期化の可能性がある修正箇所  
 
-## 環境構築
-1. Bundlerをインストール
-    -  `sudo gem install bundler` 
-2. リポジトリをclone
-    -  `git clone https://github.com/HaraFuchi/RandomChoiceApp.git` 
-3. CocoaPodsをインストール
-    -  `bundle install` 
-4. CocoaPodsを実行
-    -  `bundle exec pod install`  
-5. Carthagoをインストール
-    -  `brew install carthage`  
-6. Carthagoを実行
-    -  `XCODE_XCCONFIG_FILE=$PWD/Carthago.xcconfig
-    carthage bootstrap --platform iOS --no-use-binaries --cache-builds`  
-7. RandomChoiceApp.xcworkspace を開く  
-8. Schemeを`Debugさいころdeごはん`に変更 ※RandomChoiceAppではありません
-
 ## インストール
 [さいころdeごはん(App Store)](https://apps.apple.com/jp/app/%E3%81%95%E3%81%84%E3%81%93%E3%82%8Dde%E3%81%94%E3%81%AF%E3%82%93/id1528912786)
 
-## 作者
+## 開発者
 harafuchi0324@gmail.com  
