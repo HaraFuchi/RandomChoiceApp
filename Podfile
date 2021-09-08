@@ -11,6 +11,8 @@ target 'RandomChoiceApp' do
   pod 'Firebase/Analytics' , '7.6.0'
   pod 'Firebase/Auth' , '7.6.0'
   pod 'Firebase/Database' , '7.6.0'
+  pod 'SkeletonView'
+  pod 'ReachabilitySwift'
 
 target  'RandomChoiceTests' do
     inherit! :search_paths
