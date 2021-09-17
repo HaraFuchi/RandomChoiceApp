@@ -105,22 +105,6 @@ struct RandomChoiceAppColor {
 // MARK: - IDのリテラル
 /**********************************************************************/
 
-struct CellIdentifier {
-    static let randomChoiceButtonCell = "RandomChoiceButtonCell"
-    static let listPageCell = "ListPageCell"
-    static let signupCell = "SignupCell"
-    static let actionButtonCell = "ActionButtonCell"
-    static let settingCell = "SettingCell"
-}
-
-struct Nib {
-    static let diceButtonTableViewCell = "DiceButtonTableViewCell"
-    static let listPageTableViewCell = "ListPageTableViewCell"
-    static let signupCategoryTableViewCell = "SignupCategoryTableViewCell"
-    static let signupButtonTableViewCell = "SignupButtonTableViewCell"
-    static let settingTableViewCell = "SettingTableViewCell"
-}
-
 struct SegueIdentifier {
     static let goToSignUpVC = "goToSignupVC"
     static let goToEditVC = "goToEditVC"

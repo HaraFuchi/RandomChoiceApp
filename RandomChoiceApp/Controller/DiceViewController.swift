@@ -16,8 +16,12 @@ final class DiceViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
-            tableView.register(UINib(nibName: Nib.listPageTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.listPageCell)
-            tableView.register(UINib(nibName: Nib.diceButtonTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.randomChoiceButtonCell)
+
+            let listNib = UINib(nibName: ListPageTableViewCell.className, bundle: nil)
+            let diceNib = UINib(nibName: DiceButtonTableViewCell.className, bundle: nil)
+
+            tableView.register(listNib, forCellReuseIdentifier: ListPageTableViewCell.className)
+            tableView.register(diceNib, forCellReuseIdentifier: DiceButtonTableViewCell.className)
         }
     }
 
@@ -41,8 +45,8 @@ extension DiceViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listPageCell) as! ListPageTableViewCell
-        let diceCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.randomChoiceButtonCell) as! DiceButtonTableViewCell
+        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: ListPageTableViewCell.className) as! ListPageTableViewCell
+        let diceCell = tableView.dequeueReusableCell(withIdentifier: DiceButtonTableViewCell.className) as! DiceButtonTableViewCell
 
         diceCell.buttonTapHandler = { _ in
             ExtractResultLogic.randomSelectedStoreData()

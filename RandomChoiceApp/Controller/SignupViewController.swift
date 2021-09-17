@@ -21,10 +21,12 @@ final class SignupViewController: UIViewController, AlertDisplayable {
     @IBOutlet private var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
-            let signupCategoryNib = UINib(nibName: Nib.signupCategoryTableViewCell, bundle: nil)
-            let signupAndCancelButtonCell = UINib(nibName: Nib.signupButtonTableViewCell, bundle: nil)
-            tableView.register(signupCategoryNib, forCellReuseIdentifier: CellIdentifier.signupCell)
-            tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: CellIdentifier.actionButtonCell)
+
+            let signupCategoryNib = UINib(nibName: SignupCategoryTableViewCell.className, bundle: nil)
+            let signupAndCancelButtonCell = UINib(nibName: SignupButtonTableViewCell.className, bundle: nil)
+
+            tableView.register(signupCategoryNib, forCellReuseIdentifier: SignupCategoryTableViewCell.className)
+            tableView.register(signupAndCancelButtonCell, forCellReuseIdentifier: SignupButtonTableViewCell.className)
         }
     }
 
@@ -87,8 +89,8 @@ extension SignupViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let categoryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.signupCell, for: indexPath) as! SignupCategoryTableViewCell
-        let actionCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionButtonCell, for: indexPath) as! SignupButtonTableViewCell
+        let categoryCell = tableView.dequeueReusableCell(withIdentifier: SignupCategoryTableViewCell.className, for: indexPath) as! SignupCategoryTableViewCell
+        let actionCell = tableView.dequeueReusableCell(withIdentifier: SignupButtonTableViewCell.className, for: indexPath) as! SignupButtonTableViewCell
 
         categoryCell.delegate = self
 
