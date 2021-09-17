@@ -19,8 +19,8 @@ final class ListViewController: UIViewController, SkeletonTableViewDataSource {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
-            let listPageNib = UINib(nibName: Nib.listPageTableViewCell, bundle: nil)
-            tableView.register(listPageNib, forCellReuseIdentifier: CellIdentifier.listPageCell)
+            let nib = UINib(nibName: ListPageTableViewCell.className, bundle: nil)
+            tableView.register(nib, forCellReuseIdentifier: ListPageTableViewCell.className)
         }
     }
 
@@ -38,7 +38,7 @@ final class ListViewController: UIViewController, SkeletonTableViewDataSource {
 
     // スケルトンビュー対象セルのReusableCellIdentifierを登録
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return CellIdentifier.listPageCell
+        return ListPageTableViewCell.className
     }
 
     /**********************************************************************/
@@ -99,7 +99,7 @@ extension ListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listPageCell, for: indexPath) as! ListPageTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ListPageTableViewCell.className, for: indexPath) as! ListPageTableViewCell
         cell.delegate = self
 
         if StoreDataManager.storeDataList.isEmpty {

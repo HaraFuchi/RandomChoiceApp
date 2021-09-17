@@ -17,14 +17,14 @@ final class SettingViewController: UIViewController {
 
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var backBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet private weak var tableViewHeight: NSLayoutConstraint!
 
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
-            let settingTableViewNib = UINib(nibName: Nib.settingTableViewCell, bundle: nil)
-            tableView.register(settingTableViewNib, forCellReuseIdentifier: CellIdentifier.settingCell)
+            let nib = UINib(nibName: SettingTableViewCell.className, bundle: nil)
+            tableView.register(nib, forCellReuseIdentifier: SettingTableViewCell.className)
             tableView.isScrollEnabled = false
         }
     }
@@ -72,7 +72,7 @@ extension SettingViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        settingCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.settingCell, for: indexPath) as! SettingTableViewCell
+        settingCell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.className, for: indexPath) as! SettingTableViewCell
         settingCell.isSubTitleLabelHidden = true
 
         guard let cellType = SettingCategoryList(rawValue: indexPath.row) else {
