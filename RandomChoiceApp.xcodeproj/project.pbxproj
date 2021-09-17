@@ -18,8 +18,6 @@
 		C5780BB124C4997A0007972D /* SignupCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5780BAF24C4997A0007972D /* SignupCategoryTableViewCell.swift */; };
 		C5780BB224C4997A0007972D /* SignupCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5780BB024C4997A0007972D /* SignupCategoryTableViewCell.xib */; };
 		C59B1DDF24E9FD5E0060C622 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B1DDE24E9FD5E0060C622 /* LoginManager.swift */; };
-		C5A909CB25DEEE200008249D /* SkeletonView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A909CA25DEEE200008249D /* SkeletonView.framework */; };
-		C5A909D025DEEE480008249D /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A909CF25DEEE480008249D /* Reachability.framework */; };
 		C5C4B8A0258A5C4800FD2BFE /* CategoryListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C4B89F258A5C4800FD2BFE /* CategoryListType.swift */; };
 		C5F76772259F93E600EF11A0 /* ExtractResultLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76771259F93E600EF11A0 /* ExtractResultLogic.swift */; };
 		C5F7780B25BDC64200BB0F98 /* StoreDataContentsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F7780A25BDC64200BB0F98 /* StoreDataContentsModelTests.swift */; };
@@ -113,8 +111,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5A909CB25DEEE200008249D /* SkeletonView.framework in Frameworks */,
-				C5A909D025DEEE480008249D /* Reachability.framework in Frameworks */,
 				78064BCCB19484E70510B8E7 /* Pods_RandomChoiceApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,7 +288,6 @@
 				E354B6A924C42E8E00759289 /* Resources */,
 				857793EA5F1197B0C5B7C2F4 /* [CP] Embed Pods Frameworks */,
 				C5765DB625D4263F003CC55F /* Swiftlint */,
-				C5A909C925DEEDC60008249D /* Carthago */,
 			);
 			buildRules = (
 			);
@@ -463,26 +458,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    swiftlint autocorrect --format\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		C5A909C925DEEDC60008249D /* Carthago */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SkeletonView.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
-			);
-			name = Carthago;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
