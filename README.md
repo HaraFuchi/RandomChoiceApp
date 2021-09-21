@@ -76,7 +76,7 @@ FIXME: 長期化の可能性がある修正箇所
 2. リポジトリをclone
     -  `git clone https://github.com/HaraFuchi/RandomChoiceApp.git` 
 3. CocoaPodsをインストール
-    -  `bundle install --path vendor/bundle` 
+    -  `bundle install` 
 4. CocoaPodsを実行
     -  `bundle exec pod install`  
 5. RandomChoiceApp.xcworkspace を開く  
