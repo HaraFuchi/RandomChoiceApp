@@ -38,7 +38,7 @@ final class ListViewController: UIViewController, SkeletonTableViewDataSource {
 
     // スケルトンビュー対象セルのReusableCellIdentifierを登録
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return ListPageTableViewCell.className
+        ListPageTableViewCell.className
     }
 
     /**********************************************************************/

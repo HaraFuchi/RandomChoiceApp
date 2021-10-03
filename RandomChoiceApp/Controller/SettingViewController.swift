@@ -12,8 +12,7 @@ import MessageUI
 
 final class SettingViewController: UIViewController {
 
-    private var settingCell = SettingTableViewCell()
-    private let appVersion = Bundle.main.object(forInfoDictionaryKey: BundleIdentifier.appVersion) as! String
+    private let appVersion = Bundle.main.object(forInfoDictionaryKey: BundleIdentifier.appVersion) as? String
 
     @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var backBarButtonItem: UIBarButtonItem!
@@ -48,7 +47,7 @@ final class SettingViewController: UIViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        tableViewHeight.constant = CGFloat(tableView.contentSize.height)
+        tableViewHeight.constant = .init(tableView.contentSize.height)
     }
 
     @IBAction private func didTapBackButton(_ sender: UIBarButtonItem) {
@@ -62,37 +61,36 @@ final class SettingViewController: UIViewController {
 extension SettingViewController: UINavigationBarDelegate {
     // UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
+        .topAttached
     }
 }
 
 extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingCategoryList.allCases.count
+        SettingCategoryList.allCases.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        settingCell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.className, for: indexPath) as! SettingTableViewCell
-        settingCell.isSubTitleLabelHidden = true
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.className, for: indexPath) as? SettingTableViewCell else { return UITableViewCell() }
 
-        guard let cellType = SettingCategoryList(rawValue: indexPath.row) else {
-            return UITableViewCell()
-        }
+        cell.isSubTitleLabelHidden = true
+
+        guard let cellType = SettingCategoryList(rawValue: indexPath.row) else { return UITableViewCell() }
 
         switch cellType {
         case .contactUs:
-            settingCell.titleText = SettingCategoryList.contactUs.title
-            return settingCell
+            cell.titleText = SettingCategoryList.contactUs.title
+            return cell
         case .review:
-            settingCell.titleText = SettingCategoryList.review.title
-            return settingCell
+            cell.titleText = SettingCategoryList.review.title
+            return cell
         case .appVersion:
-            settingCell.titleText = SettingCategoryList.appVersion.title
-            settingCell.accessoryType = .none
-            settingCell.selectionStyle = .none
-            settingCell.isSubTitleLabelHidden = false
-            settingCell.subTitleText = appVersion
-            return settingCell
+            cell.titleText = SettingCategoryList.appVersion.title
+            cell.accessoryType = .none
+            cell.selectionStyle = .none
+            cell.isSubTitleLabelHidden = false
+            cell.subTitleText = appVersion
+            return cell
         }
     }
 }
@@ -122,7 +120,6 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         guard MFMailComposeViewController.canSendMail() else {
             // 有効なメールアドレスがないため、メール送信画面が開けない場合
             showAlertNoEmailAddress()
-            print(EmailStatus.noAddress)
             return
         }
         // メール作成
@@ -135,6 +132,7 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         // 件名
         composer.setSubject(EmailInfo.subject)
         // 本文
+        guard let appVersion = appVersion else { return }
         composer.setMessageBody(EmailInfo.messageBody1 + appVersion + EmailInfo.messageBody2 + iOSVersion + EmailInfo.messageBody3 + user, isHTML: false)
         present(composer, animated: true, completion: nil)
     }

@@ -87,12 +87,12 @@ extension EditViewController: UINavigationBarDelegate {
 
 extension EditViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryListType.allCases.count
+        CategoryListType.allCases.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let categoryCell = tableView.dequeueReusableCell(withIdentifier: SignupCategoryTableViewCell.className, for: indexPath) as! SignupCategoryTableViewCell
-        let actionCell = tableView.dequeueReusableCell(withIdentifier: SignupButtonTableViewCell.className, for: indexPath) as! SignupButtonTableViewCell
+        guard let categoryCell = tableView.dequeueReusableCell(withIdentifier: SignupCategoryTableViewCell.className, for: indexPath) as? SignupCategoryTableViewCell,
+              let actionCell = tableView.dequeueReusableCell(withIdentifier: SignupButtonTableViewCell.className, for: indexPath) as? SignupButtonTableViewCell else { return UITableViewCell() }
 
         categoryCell.delegate = self
 
@@ -110,19 +110,19 @@ extension EditViewController: UITableViewDataSource {
 
         switch cellType {
         case .store:
-            categoryCell.setupText(title: CategoryListType.store.title,
-                                   placeHolder: CategoryListType.store.placeHolder,
-                                   cellType: .store)
+            categoryCell.setText(title: CategoryListType.store.title,
+                                 data: storeData?.store,
+                                 cellType: .store)
             return categoryCell
         case .place:
-            categoryCell.setupText(title: CategoryListType.place.title,
-                                   placeHolder: CategoryListType.place.placeHolder,
-                                   cellType: .place)
+            categoryCell.setText(title: CategoryListType.place.title,
+                                 data: storeData?.place,
+                                 cellType: .place)
             return categoryCell
         case .genre:
-            categoryCell.setupText(title: CategoryListType.genre.title,
-                                   placeHolder: CategoryListType.genre.placeHolder,
-                                   cellType: .genre)
+            categoryCell.setText(title: CategoryListType.genre.title,
+                                 data: storeData?.genre,
+                                 cellType: .genre)
             return categoryCell
         case .signup:
             actionCell.setupButton(self)
