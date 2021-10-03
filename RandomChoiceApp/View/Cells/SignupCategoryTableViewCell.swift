@@ -29,29 +29,41 @@ final class SignupCategoryTableViewCell: UITableViewCell {
         setupDetailCell()
     }
 
-    var categoryTitle: String? {
+    private var categoryTitle: String? {
         didSet {
             categoryLabel.text = categoryTitle
         }
     }
 
-    var categoryText: String? {
+    private var categoryText: String? {
         didSet {
             categoryTextField.text = categoryText
         }
     }
 
-    var categoryPlaceHolder: String? {
+    private var categoryPlaceHolder: String? {
         didSet {
             categoryTextField.placeholder = categoryPlaceHolder
         }
+    }
+
+    /// カテゴリー入力欄に値を入れる
+    /// - Parameters:
+    ///   - title: 入力欄のタイトル
+    ///   - placeHolder: 入力欄のプレースホルダー
+    ///   - cellType: セルの種類
+    /// - Returns: 戻り値の説明
+    func setupText(title: String, placeHolder: String, cellType: CategoryListType) {
+        categoryTitle = title
+        categoryPlaceHolder = placeHolder
+        self.cellType = cellType
     }
 
     /**********************************************************************/
     // MARK: - Private Method
     /**********************************************************************/
     private func setupDetailCell() {
-        self.selectionStyle = .none
+        selectionStyle = .none
         categoryTextField.backgroundColor = .white
     }
 }

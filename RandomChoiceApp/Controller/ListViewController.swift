@@ -99,7 +99,8 @@ extension ListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ListPageTableViewCell.className, for: indexPath) as! ListPageTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListPageTableViewCell.className, for: indexPath) as? ListPageTableViewCell else { return UITableViewCell() }
+
         cell.delegate = self
 
         if StoreDataManager.storeDataList.isEmpty {
@@ -127,7 +128,7 @@ extension ListViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return AlertButtonTitle.delete
+        AlertButtonTitle.delete
     }
 }
 
@@ -139,9 +140,9 @@ extension ListViewController: ListPageTableViewCellDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.goToEditVC {
-            let editVC = segue.destination as! EditViewController
-            guard let storeData = storeData else { return }
-            editVC.storeData = storeData
+            guard let vc = segue.destination as? EditViewController,
+                  let storeData = storeData else { return }
+            vc.storeData = storeData
         }
     }
 }

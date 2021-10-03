@@ -89,8 +89,8 @@ extension SignupViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let categoryCell = tableView.dequeueReusableCell(withIdentifier: SignupCategoryTableViewCell.className, for: indexPath) as! SignupCategoryTableViewCell
-        let actionCell = tableView.dequeueReusableCell(withIdentifier: SignupButtonTableViewCell.className, for: indexPath) as! SignupButtonTableViewCell
+        guard let categoryCell = tableView.dequeueReusableCell(withIdentifier: SignupCategoryTableViewCell.className, for: indexPath) as? SignupCategoryTableViewCell,
+              let actionCell = tableView.dequeueReusableCell(withIdentifier: SignupButtonTableViewCell.className, for: indexPath) as? SignupButtonTableViewCell else { return UITableViewCell() }
 
         categoryCell.delegate = self
 
@@ -106,19 +106,19 @@ extension SignupViewController: UITableViewDataSource {
 
         switch cellType {
         case .store:
-            categoryCell.categoryTitle = CategoryListType.store.title
-            categoryCell.categoryPlaceHolder = CategoryListType.store.placeHolder
-            categoryCell.cellType = .store
+            categoryCell.setupText(title: CategoryListType.store.title,
+                                   placeHolder: CategoryListType.store.placeHolder,
+                                   cellType: .store)
             return categoryCell
         case .place:
-            categoryCell.categoryTitle = CategoryListType.place.title
-            categoryCell.categoryPlaceHolder = CategoryListType.place.placeHolder
-            categoryCell.cellType = .place
+            categoryCell.setupText(title: CategoryListType.place.title,
+                                   placeHolder: CategoryListType.place.placeHolder,
+                                   cellType: .place)
             return categoryCell
         case .genre:
-            categoryCell.categoryTitle = CategoryListType.genre.title
-            categoryCell.categoryPlaceHolder = CategoryListType.genre.placeHolder
-            categoryCell.cellType = .genre
+            categoryCell.setupText(title: CategoryListType.genre.title,
+                                   placeHolder: CategoryListType.genre.placeHolder,
+                                   cellType: .genre)
             return categoryCell
         case .signup:
             actionCell.setupButton(self)

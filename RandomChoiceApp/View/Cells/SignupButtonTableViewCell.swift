@@ -43,9 +43,10 @@ final class SignupButtonTableViewCell: UITableViewCell {
     // MARK: - Private Method
     /**********************************************************************/
     private func setupDetailCell() {
-        self.selectionStyle = .none
+        selectionStyle = .none
     }
 
+    // 登録画面の登録ボタンデザイン
     private func signupButtonDetailInSignupScreen() {
         signUpButton.setTitle(ButtonTitle.signUp, for: .normal)
         signUpButton.backgroundColor = RandomChoiceAppColor.red
@@ -55,6 +56,7 @@ final class SignupButtonTableViewCell: UITableViewCell {
         signUpButton.layer.cornerRadius = ButtonCustomViewLayer.cornerRadius
     }
 
+    // 登録画面のキャンセルボタンデザイン
     private func cancelButtonDetailInSignupScreen() {
         cancelButton.setTitle(ButtonTitle.cancel, for: .normal)
         cancelButton.layer.borderColor = RandomChoiceAppColor.red.cgColor
@@ -63,6 +65,7 @@ final class SignupButtonTableViewCell: UITableViewCell {
         cancelButton.layer.cornerRadius = ButtonCustomViewLayer.cornerRadius
     }
 
+    // 編集画面の登録ボタンデザイン
     private func signupButtonDetailInEditScreen() {
         signUpButton.setTitle(ButtonTitle.saveEdit, for: .normal)
         signUpButton.backgroundColor = RandomChoiceAppColor.yellow
@@ -72,6 +75,7 @@ final class SignupButtonTableViewCell: UITableViewCell {
         signUpButton.layer.cornerRadius = ButtonCustomViewLayer.cornerRadius
     }
 
+    // 編集画面のキャンセルボタンデザイン
     private func cancelButtonDetailInEditScreen() {
         cancelButton.setTitle(ButtonTitle.cancel, for: .normal)
         cancelButton.layer.borderColor = RandomChoiceAppColor.yellow.cgColor

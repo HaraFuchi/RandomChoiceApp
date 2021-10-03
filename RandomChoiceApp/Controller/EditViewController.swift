@@ -110,19 +110,19 @@ extension EditViewController: UITableViewDataSource {
 
         switch cellType {
         case .store:
-            categoryCell.categoryTitle = CategoryListType.store.title
-            categoryCell.categoryText = storeData?.store
-            categoryCell.cellType = .store
+            categoryCell.setupText(title: CategoryListType.store.title,
+                                   placeHolder: CategoryListType.store.placeHolder,
+                                   cellType: .store)
             return categoryCell
         case .place:
-            categoryCell.categoryTitle = CategoryListType.place.title
-            categoryCell.categoryText = storeData?.place
-            categoryCell.cellType = .place
+            categoryCell.setupText(title: CategoryListType.place.title,
+                                   placeHolder: CategoryListType.place.placeHolder,
+                                   cellType: .place)
             return categoryCell
         case .genre:
-            categoryCell.categoryTitle = CategoryListType.genre.title
-            categoryCell.categoryText = storeData?.genre
-            categoryCell.cellType = .genre
+            categoryCell.setupText(title: CategoryListType.genre.title,
+                                   placeHolder: CategoryListType.genre.placeHolder,
+                                   cellType: .genre)
             return categoryCell
         case .signup:
             actionCell.setupButton(self)

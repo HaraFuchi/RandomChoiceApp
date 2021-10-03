@@ -41,12 +41,12 @@ final class DiceViewController: UIViewController {
 /**********************************************************************/
 extension DiceViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DiceScreenType.allCases.count
+        DiceScreenType.allCases.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let storeDataCell = tableView.dequeueReusableCell(withIdentifier: ListPageTableViewCell.className) as! ListPageTableViewCell
-        let diceCell = tableView.dequeueReusableCell(withIdentifier: DiceButtonTableViewCell.className) as! DiceButtonTableViewCell
+        guard let storeDataCell = tableView.dequeueReusableCell(withIdentifier: ListPageTableViewCell.className) as? ListPageTableViewCell,
+              let diceCell = tableView.dequeueReusableCell(withIdentifier: DiceButtonTableViewCell.className) as? DiceButtonTableViewCell else { return UITableViewCell() }
 
         diceCell.buttonTapHandler = { _ in
             ExtractResultLogic.randomSelectedStoreData()

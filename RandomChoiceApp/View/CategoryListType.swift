@@ -12,21 +12,21 @@ enum CategoryListType: Int, CaseIterable {
     case store, place, genre // データ入力カテゴリー
     case signup // 登録ボタン
 
-    var title: String? {
+    var title: String {
         switch self {
         case .store: return StoreDataType.store
         case .place: return StoreDataType.place
         case .genre: return StoreDataType.genre
-        case .signup: return nil
+        case .signup: return ""
         }
     }
 
-    var placeHolder: String? {
+    var placeHolder: String {
         switch self {
         case .store: return CategoryPlaceHolder.store
         case .place: return CategoryPlaceHolder.place
         case .genre: return CategoryPlaceHolder.genre
-        case .signup: return nil
+        case .signup: return ""
         }
     }
 }
