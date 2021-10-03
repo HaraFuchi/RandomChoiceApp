@@ -40,7 +40,7 @@ final class SignupViewController: UIViewController, AlertDisplayable {
     private func showSignupAlert() {
         let alert = UIAlertController(title: AlertTitle.signup2, message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in
-            self.textConvertNil()
+            self.textConvertToNilIfNeeded()
             if self.storeData.store == nil, self.storeData.place == nil, self.storeData.genre == nil {
                 self.showAlertAllNilTextField()
             } else {
@@ -58,17 +58,19 @@ final class SignupViewController: UIViewController, AlertDisplayable {
         present(alert, animated: true, completion: nil)
     }
 
-    // TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
+    // TFが""の場合Cellのレイアウトが崩れるため、「???」を入れる
     // TODO: Converterクラスを作成
-    private func textConvertNil() {
-        if storeData.store == "" {
-            storeData.store = nil
+    private func textConvertToNilIfNeeded() {
+        if storeData.store.isEmptyOrNil {
+            storeData.store = Mark.questions
         }
-        if storeData.place == "" {
-            storeData.place = nil
+
+        if storeData.place.isEmptyOrNil {
+            storeData.place = Mark.questions
         }
-        if storeData.genre == "" {
-            storeData.genre = nil
+
+        if storeData.genre.isEmptyOrNil {
+            storeData.genre = Mark.questions
         }
     }
 }
