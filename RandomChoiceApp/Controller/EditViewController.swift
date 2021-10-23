@@ -35,17 +35,28 @@ final class EditViewController: UIViewController, AlertDisplayable {
     // **********************************************************************/
     // MARK: - Private Method
     // **********************************************************************/
-    // TODO: converterクラスを作成してModel化
-    // TFに???を反映させる必要はないため、nilを返す
-    // TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
-    private func convertValueNil() {
-        if storeData?.store == Mark.questions || storeData?.store == "" {
+    private func convertToQuestionsIfNeeded() {
+        if storeData?.store == "" {
+            storeData?.store = Mark.questions
+        }
+        if storeData?.place == "" {
+            storeData?.place = Mark.questions
+        }
+        if storeData?.genre == "" {
+            storeData?.genre = Mark.questions
+        }
+    }
+
+    private func convertToNilIfNeeded() {
+        if storeData?.store == Mark.questions {
             storeData?.store = nil
         }
-        if storeData?.place == Mark.questions || storeData?.place == "" {
+
+        if storeData?.place == Mark.questions {
             storeData?.place = nil
         }
-        if storeData?.genre == Mark.questions || storeData?.genre == "" {
+
+        if storeData?.genre == Mark.questions {
             storeData?.genre = nil
         }
     }
@@ -53,7 +64,7 @@ final class EditViewController: UIViewController, AlertDisplayable {
     private func showEditAlert() {
         let alert = UIAlertController(title: AlertTitle.edit, message: nil, preferredStyle: .alert)
         let editAction = UIAlertAction(title: AlertButtonTitle.save, style: .default) { _ in
-            self.convertValueNil()
+            self.convertToQuestionsIfNeeded()
             if self.storeData?.store == nil, self.storeData?.place == nil, self.storeData?.genre == nil {
                 self.showAlertAllNilTextField()
             }
@@ -96,7 +107,7 @@ extension EditViewController: UITableViewDataSource {
 
         categoryCell.delegate = self
 
-        convertValueNil()
+        convertToNilIfNeeded()
 
         actionCell.signupButtonTapHandler = { [weak self] _ in
             self?.showEditAlert()
