@@ -35,17 +35,28 @@ final class EditViewController: UIViewController, AlertDisplayable {
     // **********************************************************************/
     // MARK: - Private Method
     // **********************************************************************/
-    // TODO: converterクラスを作成してModel化
-    // TFに???を反映させる必要はないため、nilを返す
-    // TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
-    private func convertValueNil() {
-        if storeData?.store == Mark.questions || storeData?.store == "" {
+    private func convertToQuestionsIfNeeded() {
+        if storeData?.store == "" {
+            storeData?.store = Mark.questions
+        }
+        if storeData?.place == "" {
+            storeData?.place = Mark.questions
+        }
+        if storeData?.genre == "" {
+            storeData?.genre = Mark.questions
+        }
+    }
+
+    private func convertToNilIfNeeded() {
+        if storeData?.store == Mark.questions {
             storeData?.store = nil
         }
-        if storeData?.place == Mark.questions || storeData?.place == "" {
+
+        if storeData?.place == Mark.questions {
             storeData?.place = nil
         }
-        if storeData?.genre == Mark.questions || storeData?.genre == "" {
+
+        if storeData?.genre == Mark.questions {
             storeData?.genre = nil
         }
     }
@@ -53,7 +64,7 @@ final class EditViewController: UIViewController, AlertDisplayable {
     private func showEditAlert() {
         let alert = UIAlertController(title: AlertTitle.edit, message: nil, preferredStyle: .alert)
         let editAction = UIAlertAction(title: AlertButtonTitle.save, style: .default) { _ in
-            self.convertValueNil()
+            self.convertToQuestionsIfNeeded()
             if self.storeData?.store == nil, self.storeData?.place == nil, self.storeData?.genre == nil {
                 self.showAlertAllNilTextField()
             }
@@ -87,16 +98,16 @@ extension EditViewController: UINavigationBarDelegate {
 
 extension EditViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryListType.allCases.count
+        CategoryListType.allCases.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let categoryCell = tableView.dequeueReusableCell(withIdentifier: SignupCategoryTableViewCell.className, for: indexPath) as! SignupCategoryTableViewCell
-        let actionCell = tableView.dequeueReusableCell(withIdentifier: SignupButtonTableViewCell.className, for: indexPath) as! SignupButtonTableViewCell
+        guard let categoryCell = tableView.dequeueReusableCell(withIdentifier: SignupCategoryTableViewCell.className, for: indexPath) as? SignupCategoryTableViewCell,
+              let actionCell = tableView.dequeueReusableCell(withIdentifier: SignupButtonTableViewCell.className, for: indexPath) as? SignupButtonTableViewCell else { return UITableViewCell() }
 
         categoryCell.delegate = self
 
-        convertValueNil()
+        convertToNilIfNeeded()
 
         actionCell.signupButtonTapHandler = { [weak self] _ in
             self?.showEditAlert()
@@ -110,19 +121,19 @@ extension EditViewController: UITableViewDataSource {
 
         switch cellType {
         case .store:
-            categoryCell.categoryTitle = CategoryListType.store.title
-            categoryCell.categoryText = storeData?.store
-            categoryCell.cellType = .store
+            categoryCell.setText(title: CategoryListType.store.title,
+                                 data: storeData?.store,
+                                 cellType: .store)
             return categoryCell
         case .place:
-            categoryCell.categoryTitle = CategoryListType.place.title
-            categoryCell.categoryText = storeData?.place
-            categoryCell.cellType = .place
+            categoryCell.setText(title: CategoryListType.place.title,
+                                 data: storeData?.place,
+                                 cellType: .place)
             return categoryCell
         case .genre:
-            categoryCell.categoryTitle = CategoryListType.genre.title
-            categoryCell.categoryText = storeData?.genre
-            categoryCell.cellType = .genre
+            categoryCell.setText(title: CategoryListType.genre.title,
+                                 data: storeData?.genre,
+                                 cellType: .genre)
             return categoryCell
         case .signup:
             actionCell.setupButton(self)

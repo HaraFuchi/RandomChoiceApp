@@ -1,5 +1,5 @@
 //
-//  extension+NSObject.swift
+//  NSObjec+.swift
 //  RandomChoiceApp
 //
 //  Created by 渕一真 on 2021/09/18.

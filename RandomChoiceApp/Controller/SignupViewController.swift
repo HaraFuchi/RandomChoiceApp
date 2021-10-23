@@ -40,7 +40,7 @@ final class SignupViewController: UIViewController, AlertDisplayable {
     private func showSignupAlert() {
         let alert = UIAlertController(title: AlertTitle.signup2, message: nil, preferredStyle: .alert)
         let signupAction = UIAlertAction(title: AlertButtonTitle.signUp, style: .default) { _ in
-            self.textConvertNil()
+            self.textConvertToNilIfNeeded()
             if self.storeData.store == nil, self.storeData.place == nil, self.storeData.genre == nil {
                 self.showAlertAllNilTextField()
             } else {
@@ -58,17 +58,19 @@ final class SignupViewController: UIViewController, AlertDisplayable {
         present(alert, animated: true, completion: nil)
     }
 
-    // TFが""の場合Cellのレイアウトが崩れるため、nilを返して「???」を返す
+    // TFが""の場合Cellのレイアウトが崩れるため、「???」を入れる
     // TODO: Converterクラスを作成
-    private func textConvertNil() {
-        if storeData.store == "" {
-            storeData.store = nil
+    private func textConvertToNilIfNeeded() {
+        if storeData.store.isEmptyOrNil {
+            storeData.store = Mark.questions
         }
-        if storeData.place == "" {
-            storeData.place = nil
+
+        if storeData.place.isEmptyOrNil {
+            storeData.place = Mark.questions
         }
-        if storeData.genre == "" {
-            storeData.genre = nil
+
+        if storeData.genre.isEmptyOrNil {
+            storeData.genre = Mark.questions
         }
     }
 }
@@ -79,18 +81,18 @@ final class SignupViewController: UIViewController, AlertDisplayable {
 extension SignupViewController: UINavigationBarDelegate {
     // UINavigationBarをステータスバーまで広げる
     func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
+        .topAttached
     }
 }
 
 extension SignupViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CategoryListType.allCases.count
+        CategoryListType.allCases.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let categoryCell = tableView.dequeueReusableCell(withIdentifier: SignupCategoryTableViewCell.className, for: indexPath) as! SignupCategoryTableViewCell
-        let actionCell = tableView.dequeueReusableCell(withIdentifier: SignupButtonTableViewCell.className, for: indexPath) as! SignupButtonTableViewCell
+        guard let categoryCell = tableView.dequeueReusableCell(withIdentifier: SignupCategoryTableViewCell.className, for: indexPath) as? SignupCategoryTableViewCell,
+              let actionCell = tableView.dequeueReusableCell(withIdentifier: SignupButtonTableViewCell.className, for: indexPath) as? SignupButtonTableViewCell else { return UITableViewCell() }
 
         categoryCell.delegate = self
 
@@ -106,19 +108,19 @@ extension SignupViewController: UITableViewDataSource {
 
         switch cellType {
         case .store:
-            categoryCell.categoryTitle = CategoryListType.store.title
-            categoryCell.categoryPlaceHolder = CategoryListType.store.placeHolder
-            categoryCell.cellType = .store
+            categoryCell.setText(title: CategoryListType.store.title,
+                                 placeHolder: CategoryListType.store.placeHolder,
+                                 cellType: .store)
             return categoryCell
         case .place:
-            categoryCell.categoryTitle = CategoryListType.place.title
-            categoryCell.categoryPlaceHolder = CategoryListType.place.placeHolder
-            categoryCell.cellType = .place
+            categoryCell.setText(title: CategoryListType.place.title,
+                                 placeHolder: CategoryListType.place.placeHolder,
+                                 cellType: .place)
             return categoryCell
         case .genre:
-            categoryCell.categoryTitle = CategoryListType.genre.title
-            categoryCell.categoryPlaceHolder = CategoryListType.genre.placeHolder
-            categoryCell.cellType = .genre
+            categoryCell.setText(title: CategoryListType.genre.title,
+                                 placeHolder: CategoryListType.genre.placeHolder,
+                                 cellType: .genre)
             return categoryCell
         case .signup:
             actionCell.setupButton(self)

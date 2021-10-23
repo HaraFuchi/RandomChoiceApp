@@ -40,10 +40,14 @@ struct StoreDataManager {
         }
     }
 
-    // TODO: 引数をStoreDataクラスにした方がオブジェクト指向っぽいかつシンプル
-    static func update(uniqID: String, store: String, place: String, genre: String) {
+    static func update(uniqID: String,
+                       store: String,
+                       place: String,
+                       genre: String) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
-        let newEditData = [StoreDataType.store: store, StoreDataType.place: place, StoreDataType.genre: genre]
+        let newEditData = [StoreDataType.store: store,
+                           StoreDataType.place: place,
+                           StoreDataType.genre: genre]
         ref.child(userID).child(uniqID).updateChildValues(newEditData)
     }
 
